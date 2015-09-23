@@ -17,3 +17,4 @@ Route::get('/', function()
 });
 
 Route::get('/register','RegisterController@showRegister');
+Route::post('/register','RegisterController@doRegister');
