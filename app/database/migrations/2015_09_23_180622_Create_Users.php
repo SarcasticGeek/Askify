@@ -17,6 +17,7 @@ class CreateUsers extends Migration {
 			$variable->string('email')->unique();
 			$variable->string('username')->unique();
 			$variable->string('password');
+			$variable->rememberToken();
 			$variable->timestamps();
 		});
 	}
