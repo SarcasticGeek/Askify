@@ -19,3 +19,7 @@ Route::get('/', function()
 Route::get('/login',function(){
 	return "This is the login page";
 });
+
+Route::get('/register',function(){
+	return "This is the register page";
+});
