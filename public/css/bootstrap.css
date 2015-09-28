@@ -241,6 +241,9 @@ th {
   .navbar {
     display: none;
   }
+
+
+
   .btn > .caret,
   .dropup > .btn > .caret {
     border-top-color: #000 !important;
@@ -1603,6 +1606,45 @@ pre code {
     width: 1170px;
   }
 }
+
+
+.container-fluid p{
+  float: right;
+  margin-top: 20px;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.btnnn {
+  background: #2b9be6;
+  background-image: -webkit-linear-gradient(top, #2b9be6, #46a5db);
+  background-image: -moz-linear-gradient(top, #2b9be6, #46a5db);
+  background-image: -ms-linear-gradient(top, #2b9be6, #46a5db);
+  background-image: -o-linear-gradient(top, #2b9be6, #46a5db);
+  background-image: linear-gradient(to bottom, #2b9be6, #46a5db);
+  -webkit-border-radius: 8;
+  -moz-border-radius: 8;
+  border-color: #2b9be6;
+  border-radius: 8px;
+  font-family: Arial;
+  color: #ffffff;
+  text-decoration: none;
+  float: right;
+  margin-top: 15px;
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.btnnn:hover {
+  background: #3297d6;
+  background-image: -webkit-linear-gradient(top, #3297d6, #3498db);
+  background-image: -moz-linear-gradient(top, #3297d6, #3498db);
+  background-image: -ms-linear-gradient(top, #3297d6, #3498db);
+  background-image: -o-linear-gradient(top, #3297d6, #3498db);
+  background-image: linear-gradient(to bottom, #3297d6, #3498db);
+  text-decoration: none;
+}
+
 .container-fluid {
   padding-right: 15px;
   padding-left: 15px;
@@ -4319,10 +4361,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   margin-bottom: 0;
   border-width: 1px 0 0;
 }
+
 .navbar-brand {
   float: left;
   height: 50px;
-  padding: 15px 15px;
+  padding: 10px 15px;
   font-size: 18px;
   line-height: 20px;
 }
