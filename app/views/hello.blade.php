@@ -19,6 +19,8 @@
 			font-family:'Lato', sans-serif;
 			text-align:center;
 			color: #999;
+			background-image: url("images/background1.jpg");
+			background-size: cover;
 		}
 
 		.welcome {
@@ -37,12 +39,12 @@
 
 		h1 {
 			font-size: 32px;
+			color: white;
 			margin: 16px 0 0 0;
 		}
 	</style>
 </head>
 <body>
-	<nav class="navbar navbar-default">
   <div class="container-fluid">
   	<a href="login">
   	  	  	<button type="button" class="btnnn">Sign In</button>
@@ -51,11 +53,10 @@
     <div class="navbar-header">
 
       <a class="navbar-brand" href="/">
-        <img alt="Brand" src="images/logo1.png" id="logo">
+        <img alt="Brand" src="images/logo1.jpg" id="logo">
       </a>
     </div>
   </div>
-</nav>
 	<div class="welcome">
 		<h1>Ask And Answer</h1>
 	</br>
