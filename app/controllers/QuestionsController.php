@@ -1,5 +1,3 @@
-// Commented kolaha we kda 
-
 <?php 
 
 class QuestionsController extends BaseController{

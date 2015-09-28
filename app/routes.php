@@ -11,7 +11,32 @@
 |
 */
 
+//Route::get('Request term', function(){});
+//localhost:8000/Request term
+
 Route::get('/', function()
 {
 	return View::make('hello');
 });
+// same function as: 
+// Route::get('/', 'HomeController@showWelcome');
+// Route::get('destination', 'controller name@fn name')
+
+
+// any (wild-card verb): covers all the bases 
+Route::any('ask-questions', array(
+	'before'=>'auth.basic',
+	'as'=>'questions', function()
+{
+	return "Questions FORM" 
+	// nktb view 3ozeno yzhar 
+	// return View::make('esm el view.php file');
+	// mmkn n connect el file da, be css file n3mlo creation gwa public\css
+}));
+// Route::any('ask-questions', array('before'=>'auth.basic',
+// 'uses'=>'QuestionsController@fn name',
+// 'as'=>'questions'));
+
+
+// Redirect::to('about/...');
+// Redirect::route('name of the route');
