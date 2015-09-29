@@ -9,7 +9,7 @@ class LoginController extends BaseController{
 
 	public function doLogin(){
 		$credit = Input::only('username','password');
-		if(Auth::attempt($credit)){
+		if(Auth::attempt($credit,true)){
 			return Redirect::intended('/');
 		}
 		return Redirect::to('/login');

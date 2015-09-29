@@ -4593,6 +4593,24 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 
+.laravelform{
+  padding: 11px;
+  width: 20%;
+  text-align: center;
+}
+
+.remember{
+  display: inline-block;
+  margin-right: -200px;
+}
+
+.submitform{
+  width: 10em;
+  height: 3em;
+  margin-left: -10em;
+  display: inline-block;
+}
+
 .loginmsg{
   margin-top: 10%;
 }

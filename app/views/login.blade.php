@@ -43,18 +43,26 @@
 <div class="loginmsg">
 <h1>Welcome To Askify</h1>
 <h2>Please Log In Here</h2>
+</br>
+</br>
 </div>
 
 <div class="loginform">
-	<form>
+	{{Form::open(array('url'=>'login'))}}
+	{{Form::text('username',Input::old('username'),
+	array('placeholder'=>'Username','class'=>'laravelform'))}}
+</br>
+</br>
+	{{Form::password('password',array('placeholder'=>'Password','class'=>'laravelform'))}}
+</br>
+</br>
+</br>
+</br>
+	{{Form::submit('Log In',array('class'=>'submitform'))}}
+</br>
+	{{Form::checkbox('remember',1,'Remember Me',['class'=>'field'])}}
 
-		<input type="text" name="username" placeholder="Username">
-	</br>
-		<input type="text" name="password" placeholder="Password">
-	</br>
-		<input type="submit" value="Log In">
-
-	</form>
+	{{Form::close()}}
 </div>
 
 	</body>
