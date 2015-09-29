@@ -13,9 +13,7 @@
 
 
 
- Route::get('/', array('before'=>'auth.basic',
- 'uses'=>'QuestionsController@fn name',
- 'as'=>'Home')); //fn d el mfrod index, msh 3rfa lsa hya bt3ml a :D 
+ Route::get('/', array('uses'=>'QuestionsController@index','as'=>'Home')); 
  Route::post('/ask',array('before'=>'csrf',
  	'used'=>'QuestionsController@create'));
 

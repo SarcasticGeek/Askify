@@ -28,4 +28,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->has_many('Question');
 	}
 
+	//validations
+	public static function validate($data) {
+		return Validator::make($data, static::$rules);
+	}
+
 }
