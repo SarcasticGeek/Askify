@@ -1,4 +1,5 @@
 <?php
+// to validate the question before saving in db
 class Question extends User {
 	public static $rules = array(
 		'question' => 'required | min:10 | max:255',
