@@ -19,20 +19,20 @@ class Question extends Eloquent{
 	{
 		return Validator::make($data,static::$rules);
 	}
-	public  function whoasked_user(){
+	public  function user(){
 		return $this->belongsTo('User','user_id');
 	}
-	public function whoanswer_user(){
+	public function answerer(){
 		return $this->belongsTo('User','answerer_id');
 	}
 	public  function answer(){
 		return $this->hasOne('Answer');
 	}
-	public  static function unanswered_questions(){
-		return static::where('solved','=',0)->orderBy('id','DESC')->paginate(3);
+	public static function questionsNeedsYouranswer(){
+		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',0)->paginate(3);
 	}
-	public static function your_answers(){
-		return static::where('user_id','=',Auth::user()->id)->paginate(3);
+	public static function questionsYouanswered(){
+		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',1)->paginate(3);
 	}
 
 }
