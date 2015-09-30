@@ -60,7 +60,10 @@
 </br>
 	{{Form::submit('Log In',array('class'=>'submitform'))}}
 </br>
-	{{Form::checkbox('remember','Remember Me',['class'=>'field'])}}
+	<div class="field">
+	{{Form::checkbox('remember','Remember Me')}}
+	{{Form::label('remember','Remember Me')}}
+</div>
 
 	{{Form::close()}}
 </div>

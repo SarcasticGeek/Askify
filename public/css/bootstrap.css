@@ -4607,8 +4607,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .submitform{
   width: 10em;
   height: 3em;
-  margin-left: -10em;
   display: inline-block;
+  position: relative;
+  right: 4em;
 }
 
 .loginmsg{
@@ -4703,6 +4704,14 @@ fieldset[disabled] .navbar-default .btn-link:hover,
 fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
+
+.field{
+display: inline-block;
+position: relative;
+left: 7em;
+bottom: 2em;
+}
+
 .navbar-inverse {
   background-color: #222;
   border-color: #080808;
