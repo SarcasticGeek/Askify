@@ -2,7 +2,7 @@
 <html>
 <head>
 	<title>{{ "Askify - Home" }}</title> 
-	{{ HTML::style('main.css') }}
+	<link rel="stylesheet" type="text/css" href="css\main.css">
 </head>
 
 <body>
