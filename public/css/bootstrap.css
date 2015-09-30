@@ -242,8 +242,6 @@ th {
     display: none;
   }
 
-
-
   .btn > .caret,
   .dropup > .btn > .caret {
     border-top-color: #000 !important;
@@ -4597,12 +4595,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   color: #777;
 }
 
-.laravelform{
-  padding: 11px;
-  width: 20%;
-  text-align: center;
-}
-
 .remember{
   display: inline-block;
   margin-right: -200px;
@@ -6884,5 +6876,17 @@ button.close {
 
 #brand{
   padding-top: 15px;
+}
+#error-login{
+  color: red;
+  display: inline-block;
+  margin-right: -150px;
+  margin-left: 20px;
+}
+.laravelform{
+  padding: 11px;
+  width: 20%;
+  text-align: center;
+  display: inline-block;
 }
 /*# sourceMappingURL=bootstrap.css.map */

@@ -9,9 +9,16 @@ class LoginController extends BaseController{
 
 	public function doLogin(){
 		$credit = Input::only('username','password');
-		if(Auth::attempt($credit,true)){
-			return Redirect::intended('/');
+		$validator = Validator::make($credit,array('username'=>'required','password'=>'required'));
+		if($validator->fails()){
+			return Redirect::to('login')->withInput()->withErrors($validator);
 		}
+		else{
+
+			if(Auth::attempt($credit,true)){
+			return Redirect::intended('/');
+			}
 		return Redirect::to('/login');
+		}
 	}
 }

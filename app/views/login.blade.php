@@ -51,9 +51,15 @@
 	{{Form::open(array('url'=>'login'))}}
 	{{Form::text('username',Input::old('username'),
 	array('placeholder'=>'Username','class'=>'laravelform'))}}
+	<?php
+	echo $errors->first('username','<p id="error-login">This Field is Required</p>');
+	?>
 </br>
 </br>
 	{{Form::password('password',array('placeholder'=>'Password','class'=>'laravelform'))}}
+	<?php
+	echo $errors->first('password','<p id="error-login">This Field is Required</p>');
+	?>
 </br>
 </br>
 </br>
