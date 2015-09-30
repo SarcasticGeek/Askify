@@ -11,13 +11,24 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+
+
+ Route::get('/',function(){
+ 	return View::make('hello');
+ });
+ Route::post('/',array('before'=>'csrf',
+ 	'uses'=>'QuestionsController@post_create'));
+
 
 Route::get('/register','RegisterController@showRegister');
 Route::post('/register','RegisterController@doRegister');
 
 Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
+
+Route::get('/home', function(){
+	return View::make('home');
+});
+
+Route::post('/home','QuestionsController@post_create');
+
