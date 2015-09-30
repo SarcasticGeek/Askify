@@ -34,7 +34,7 @@
   </a>
     <div class="navbar-header">
       <a class="navbar-brand" href="/">
-        <img alt="Askify" src="images/logo1.jpg">
+        <span id="brand">Askify</span>
       </a>
     </div>
   </div>
@@ -63,10 +63,14 @@
 	<div class="field">
 	{{Form::checkbox('remember','Remember Me')}}
 	{{Form::label('remember','Remember Me')}}
-</div>
-
+</br>
+</br>
+</br>
+	<a href="#" id="reset">Forget Your Password ?</a>
+	</div>
 	{{Form::close()}}
 </div>
+
 
 
   <div class="panel-footer">

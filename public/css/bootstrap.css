@@ -1635,6 +1635,9 @@ pre code {
   display: inline-block;
   margin-right: 30px;
 }
+#reset{
+  margin-left: -22em;
+}
 
 .btnnn:hover {
   background: #3297d6;
@@ -4382,6 +4385,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar > .container .navbar-brand,
   .navbar > .container-fluid .navbar-brand {
     margin-left: 40px;
+    margin-top: 5px;
   }
 }
 .navbar-toggle {
@@ -4614,7 +4618,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .loginmsg{
-  margin-top: 10%;
+  margin-top: 4%;
 }
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
@@ -5611,6 +5615,7 @@ button.list-group-item-danger.active:focus {
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
   height: 100px;
+  margin-top: 1.2%;
 }
 .panel > .list-group,
 .panel > .panel-collapse > .list-group {
@@ -6875,5 +6880,9 @@ button.close {
   .hidden-print {
     display: none !important;
   }
+}
+
+#brand{
+  padding-top: 15px;
 }
 /*# sourceMappingURL=bootstrap.css.map */
