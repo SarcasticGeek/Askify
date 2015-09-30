@@ -29,8 +29,8 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	}
 
 	//validations
-	public static function validate($data) {
-		return Validator::make($data, static::$rules);
-	}
+	/*public static function validate($data) {
+		return validator::make($data,array("$rules"));
+	}*/
 
 }

@@ -13,9 +13,9 @@
 
 
 
- Route::get('/', array('uses'=>'QuestionsController@index','as'=>'Home')); 
+ Route::get('/', array('uses'=>'QuestionsController@get_index','as'=>'Home')); 
  Route::post('/ask',array('before'=>'csrf',
- 	'used'=>'QuestionsController@create'));
+ 	'uses'=>'QuestionsController@post_create'));
 
 
 Route::get('/register','RegisterController@showRegister');

@@ -1,14 +1,14 @@
-<!DOCTYPE html> //After logging in
+<!DOCTYPE html>
 <html>
 <head>
-	<title>{{ $tilte }}</tilte> 
-	{{ HTML::style('/css/main.css') }}
+	<title>{{ "Askify - Home" }}</title> 
+	{{ HTML::style('main.css') }}
 </head>
 
 <body>
 	<div id="container">
 		<div id="header">
-			{{ HTML::link('/', 'Askify') }} // display the name of the web app
+			{{ HTML::link('/', 'Askify') }}
 		</div>
 
 		<div id="nav">
@@ -18,9 +18,6 @@
 		</div>
 
 		<div id="content">
-			//check for flash messages we n3mllaha display?? y3ni a?
-			// if(Session::has('message'))
-
 			@yield('content')
 		</div>
 		<div id="footer">

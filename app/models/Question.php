@@ -1,9 +1,9 @@
 <?php
 // to validate the question before saving in db
-class Question extends User {
+/*class Question extends User {
 	public static $rules = array(
 		'question' => 'required | min:10 | max:255',
-		'solved' => 'in:0,1');
+		'solved' => 'in:0,1');*/
 
 
 	//User Question Relation

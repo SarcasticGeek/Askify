@@ -7,8 +7,7 @@ class QuestionsController extends BaseController{
 
 
 	public function get_index() {
-		return View::make('Questions.index')
-			->with('title', 'Askify - Home');
+		return View::make('Questions.index');
 	}
 
 	//no one can create quesiton before being logged in 
@@ -18,15 +17,23 @@ class QuestionsController extends BaseController{
 	}*/
 
 	public function post_create() {
-		$validation = Question::validate(Input::all());
+		
+		Question::create(array(
+				'question' => Input::get('question'),
+				'id' => Auth::user()->id
+			));
 
+			return Redirect::route('Home') 
+				-> with('message', 'Your question has been successfully posted');
+		
+
+		/*$validation = Question::validate(Input::all());
 		if($validation->passes())
 		{
 			// save question in db
 			Question::create(array(
 				'question' => Input::get('question'),
 				'id' => Auth::user()->id
-				// check user_id mktoba ezay
 			));
 
 			return Redirect::route('Home') 
@@ -37,7 +44,7 @@ class QuestionsController extends BaseController{
 			// nfs l page bs hwareh l errors
 			return Redirect::route('Home') -> withErrors($validation)
 			 -> withInput();
-		}
+		}*/
 	}
 }
 
