@@ -61,6 +61,11 @@
 	echo $errors->first('password','<p id="error-login">This Field is Required</p>');
 	?>
 </br>
+@if($alert = Session::get('loginerror'))
+<span id="login-error">
+		{{$alert}}
+		</span>
+	@endif
 </br>
 </br>
 </br>
@@ -70,10 +75,12 @@
 	{{Form::checkbox('remember','Remember Me')}}
 	{{Form::label('remember','Remember Me')}}
 </br>
+
 </br>
 </br>
 	<a href="#" id="reset">Forget Your Password ?</a>
 	</div>
+
 	{{Form::close()}}
 </div>
 

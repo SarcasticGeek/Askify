@@ -18,7 +18,7 @@ class LoginController extends BaseController{
 			if(Auth::attempt($credit,true)){
 			return Redirect::intended('/');
 			}
-		return Redirect::to('/login');
+		return Redirect::to('/login')->withInput()->with('loginerror','Username Or Password Is Incorrect');
 		}
 	}
 }

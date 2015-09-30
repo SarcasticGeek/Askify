@@ -6889,4 +6889,9 @@ button.close {
   text-align: center;
   display: inline-block;
 }
+#login-error{
+  color: red;
+  position: relative;
+  top: 10px;
+}
 /*# sourceMappingURL=bootstrap.css.map */
