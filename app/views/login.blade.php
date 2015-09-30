@@ -68,6 +68,13 @@
 	{{Form::close()}}
 </div>
 
+
+  <div class="panel-footer">
+    <div class="panel-body">
+                © 2015 Askify
+            </div>
+  </div>
+
 	</body>
 </head>
 </html>
