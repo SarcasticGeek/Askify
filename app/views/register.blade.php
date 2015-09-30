@@ -1,5 +1,4 @@
 
-@extends('hello')
 
 @section('content')
 {{Form::open(array('url'=>'register'))}}

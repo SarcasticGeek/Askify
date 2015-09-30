@@ -7,7 +7,7 @@ class RegisterController extends BaseController{
 	}
 
 	public function doRegister(){
-		$user = new user;
+		$user = new User;
 		$user->email=Input::get('email');
 		$user->username=Input::get('username');
 		$user->password=Hash::make(Input::get('password'));
