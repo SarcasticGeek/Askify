@@ -13,7 +13,9 @@
 
 
 
- Route::get('/', array('uses'=>'QuestionsController@get_index','as'=>'Home')); 
+ Route::get('/',function(){
+ 	return View::make('hello');
+ });
  Route::post('/',array('before'=>'csrf',
  	'uses'=>'QuestionsController@post_create'));
 
@@ -27,4 +29,6 @@ Route::post('/login','LoginController@doLogin');
 Route::get('/home', function(){
 	return View::make('home');
 });
+
+Route::post('/home','QuestionsController@post_create');
 

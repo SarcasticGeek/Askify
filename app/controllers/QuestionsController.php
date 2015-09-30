@@ -29,8 +29,8 @@ class QuestionsController extends BaseController{
 			));
 			*/
 
-			return Redirect::route('Home') 
-				-> with('message', 'Your question has been successfully posted');
+			return Redirect::to('home') 
+				-> with('message', 'Your Question Has Been Successfully Posted');
 		
 
 		/*$validation = Question::validate(Input::all());
