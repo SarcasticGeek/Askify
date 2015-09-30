@@ -19,11 +19,11 @@ class Question extends Eloquent{
 	{
 		return Validator::make($data,static::$rules);
 	}
-	public  function user(){
-		return $this->belongsTo('User');
+	public  function whoasked_user(){
+		return $this->belongsTo('User','user_id');
 	}
-	public function answerer_user(){
-		return $this->hasOne('User');
+	public function whoanswer_user(){
+		return $this->belongsTo('User','answerer_id');
 	}
 	public  function answer(){
 		return $this->hasOne('Answer');
