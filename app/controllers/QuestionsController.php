@@ -17,11 +17,17 @@ class QuestionsController extends BaseController{
 	}*/
 
 	public function post_create() {
+
+		$question = new Question;
+		$question->question = Input::get('question');
+		$question->username = Auth::user()->username;
+		$question->save();
 		
-		Question::create(array(
+		/*Question::create(array(
 				'question' => Input::get('question'),
 				'id' => Auth::user()->id
 			));
+			*/
 
 			return Redirect::route('Home') 
 				-> with('message', 'Your question has been successfully posted');
