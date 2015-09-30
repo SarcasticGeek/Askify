@@ -2,9 +2,7 @@
 
 class QuestionsController extends BaseController{
 
-	public $restful = true; // to create controller that manages photos
-	// to make actions respond to http verbs
-
+	public $restful = true;
 
 	public function get_index() {
 		return View::make('Questions.index');
@@ -12,20 +10,18 @@ class QuestionsController extends BaseController{
 
 	//no one can create quesiton before being logged in 
 	/*public function __construct(){
-		$this->filter('before', 'auth.basic')
+		$this->filter('before'=>'auth.basic')
 			->only(array('create'));
 	}*/
 
 	public function post_create() {
 		
-		Question::create(array(
-				'question' => Input::get('question'),
-				'id' => Auth::user()->id
-			));
+		$question = new Question;
+		$question->question = Input::get('question');
+		$question->username = Auth::user()->username;
+		$question->save();
 
-			return Redirect::route('Home') 
-				-> with('message', 'Your question has been successfully posted');
-		
+		return 'Your question has been successfully posted';
 
 		/*$validation = Question::validate(Input::all());
 		if($validation->passes())
