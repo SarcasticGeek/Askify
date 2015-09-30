@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+
+
+ Route::get('/', array('uses'=>'QuestionsController@get_index','as'=>'Home')); 
+ Route::post('/',array('before'=>'csrf',
+ 	'uses'=>'QuestionsController@post_create'));
+
 
 Route::get('/register','RegisterController@showRegister');
 Route::post('/register','RegisterController@doRegister');
