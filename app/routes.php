@@ -21,3 +21,8 @@ Route::post('/register','RegisterController@doRegister');
 
 Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
+
+Route::get('/home', function(){
+	return View::make('home');
+});
+
