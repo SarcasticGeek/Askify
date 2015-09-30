@@ -15,7 +15,11 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
-
+Route::get('about',function()
+{
+	$user = User::all();
+	return $user;
+});
 Route::get('/register','RegisterController@showRegister');
 Route::post('/register','RegisterController@doRegister');
 

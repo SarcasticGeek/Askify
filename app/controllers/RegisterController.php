@@ -9,6 +9,7 @@ class RegisterController extends BaseController{
 		$user->password='1000';
 		$user->save();
 		return View::make('register');
+
 	}
 
 	public function doRegister(){
