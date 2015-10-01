@@ -21,7 +21,9 @@ class QuestionsController extends BaseController{
 
 		$question = new Question;
 		$question->question = Input::get('question');
-		$question->username = Auth::user()->username;
+		$question->user_id = Auth::user()->id;
+		$question->answerer_id = 0;
+		$question->solved = 0;
 		$question->save();
 		
 		/*Question::create(array(
