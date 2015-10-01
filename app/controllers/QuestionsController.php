@@ -55,4 +55,9 @@ class QuestionsController extends BaseController{
 			 -> withInput();
 		}*/
 	}
+	public function get_your_Questions(){
+		return View::make('home')
+			->with('title','Your Qs')->with('username',Auth::user()->username)
+			->with('questions',Question::your_questions());
+	}
 }

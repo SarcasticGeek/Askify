@@ -41,6 +41,9 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public  function answer(){
 		return $this->hasOne('Answer');
 	}
+	public static function your_questions(){
+		return static::where('user_id','=',Auth::user()->id)->paginate(3);
+	}
 	public static function questionsNeedsYouranswer(){
 		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',0)->paginate(3);
 	}

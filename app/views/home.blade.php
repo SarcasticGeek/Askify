@@ -18,4 +18,19 @@
 	{{$message}}
 	@endif
 </div>
+ <div>
+	 <h1>{{ ucfirst($username) }} Questions:</h1>
+	 @if(!$questions)
+		 <p>No Quests</p>
+	 @else
+		 <ul>
+			 @foreach($questions as $question)
+				 <li>{{ str_limit($question->question,40,"...") }} by {{ucfirst($question->user->username)}}
+					 
+					  </li>
+			 @endforeach
+		 </ul>
+		 {{ $questions->links()}}
+	 @endif
+ </div>
  @stop
