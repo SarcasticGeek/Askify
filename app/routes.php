@@ -34,3 +34,5 @@ Route::get('/home',array('before' => 'auth','as'=>'your_questions','uses'=>'Ques
 
 Route::post('/home','QuestionsController@post_create');
 
+Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController@get_view'));
+

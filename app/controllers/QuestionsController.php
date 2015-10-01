@@ -60,4 +60,8 @@ class QuestionsController extends BaseController{
 			->with('title','Your Qs')->with('username',Auth::user()->username)
 			->with('questions',Question::your_questions());
 	}
+
+	public function get_view($id = null){
+		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
+	}
 }
