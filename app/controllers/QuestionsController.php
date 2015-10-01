@@ -53,4 +53,24 @@ class QuestionsController extends BaseController{
 			 -> withInput();
 		}*/
 	}
+	public  function get_results($keyword)
+	{
+		return View::make('Questions.results');
+
+	}
+	public function post_search()
+	{
+		$keyword = Input::get('keyword');
+		$keyword=$_POST['keyword'];
+		if(empty($keyword))
+		{
+			echo "The field was empty";
+
+			return Redirect::to('home')
+				-> with('message',  'Nothing entered, Please try again');
+
+		}
+		return Redirect::to('results/'.$keyword);
+
+	}
 }

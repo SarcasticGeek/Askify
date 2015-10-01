@@ -6,13 +6,13 @@
 	<meta charset="UTF-8">
 	<title>Askify</title>
 	<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" type="text/css"href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css"href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css"href="css/bootstrap.css">
 
 
 
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
 
@@ -42,32 +42,36 @@
 		h1 {
 			font-size: 32px;
 			color: white;
-			margin: 16px 0 0 0;
+			margin: -50px 0 0 0;
 		}
 	</style>
 </head>
 <body>
-  <div class="container-fluid">
-  	<a href="login">
-  	  	  	<button type="button" class="btnnn">Sign In</button>
-  	</a>
-  	<p>Have an Account ? </p>
-    <div class="navbar-header">
+<div class="navbar-header">
 
-      <a class="navbar-brand" href="/">
-        <img alt="Brand" src="images/logo1.jpg" id="logo">
-      </a>
-    </div>
-  </div>
+
+	<a class="navbar-brand" href="/">
+		<img alt="Brand" src="images/Drawing(5).png" id="logo">
+	</a>
+
 	<div class="welcome">
 		<h1>Ask And Answer</h1>
-	</br>
-	<a href="register">
-		<button type="button" class ="btnn">Join Now!</button>
-	</a>
-		
+		</br>
+		<a href="register">
+			<button type="button" class ="btnn">Join Now!</button>
+		</a>
+
+
+		<div class="container-fluid">
+			<a href="login">
+				<button type="button" class="btnnn">Sign In</button>
+			</a>
+			<p>Have an Account ? </p>
+		</div>
 		@yield('content')
 	</div>
+
+	<div/>
 </body>
 </html>
 

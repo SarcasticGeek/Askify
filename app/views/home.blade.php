@@ -18,4 +18,6 @@
 	{{$message}}
 	@endif
 </div>
+
+
  @stop

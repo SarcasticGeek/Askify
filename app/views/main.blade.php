@@ -34,6 +34,7 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="#">Askify</a>
+              <span><img alt="Brand" src="images/Drawing(6).png" id="logo"> </span></span>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->

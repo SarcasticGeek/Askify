@@ -31,4 +31,5 @@ Route::get('/home', function(){
 });
 
 Route::post('/home','QuestionsController@post_create');
+Route::post('search','QuestionsController@post_search' );
 
