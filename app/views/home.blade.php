@@ -4,6 +4,9 @@
 	body{
 		text-align: center;
 	}
+	.questionlist{
+		text-align: left;
+	}
 </style>
 @section('content')
  <div class="question">
@@ -18,7 +21,7 @@
 	{{$message}}
 	@endif
 </div>
- <div>
+ <div class="questionlist">
 	 <h1>{{ ucfirst($username) }} Questions:</h1>
 	 @if(!$questions)
 		 <p>No Quests</p>
