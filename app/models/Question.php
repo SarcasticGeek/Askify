@@ -50,4 +50,12 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public static function questionsYouanswered(){
 		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',1)->paginate(3);
 	}
+
+	public static function search($keyword){
+		/*
+		$questions = DB::table('questions')->where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);*/
+		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
+	}
+
 }
+

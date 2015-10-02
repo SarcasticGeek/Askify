@@ -64,4 +64,26 @@ class QuestionsController extends BaseController{
 	public function get_view($id = null){
 		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
 	}
+
+	public function get_results($keyword)
+	{
+		return View::make('results')
+			->with('title','Search results')
+			->with('questions',Question::search($keyword));
+	}
+	public function post_search()
+	{
+		$keyword = Input::get('keyword');
+
+
+		if(empty($keyword))
+		{
+			return Redirect::to('home')
+				->with('message','No key entered please try  again');
+		}
+		//return View::make('results');
+		return Redirect::route('results',$keyword);
+		/*return Redirect::to('thanks');*/
+	}
+
 }

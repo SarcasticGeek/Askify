@@ -36,3 +36,9 @@ Route::post('/home','QuestionsController@post_create');
 
 Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController@get_view'));
 
+
+Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
+Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_search'));
+
+
+
