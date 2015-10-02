@@ -1,35 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign Up</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+</head>
+	<body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+  	<a href="login">
+  	<button type="button" class="btnnn">Sign In</button>
+  </a>
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        <span id="brand">Askify</span>
+      </a>
+    </div>
+  </div>
+</nav>
 
-@extends('hello')
-<style>
-	form
-	{
-		margin-top: 10px;
-	}
-</style>
-@section('content')
-{{Form::open(array('url'=>'register','class'=>'form-horizontal'))}}
-				<div class="form-group">
-			    <label for="inputUsername" class="col-sm-3 control-label">Username</label>
-			    <div class="col-sm-8">
-			      <input type="text" class="form-control" id="inputEmail3" name="username" placeholder="username" >
-			  </div>
-			  </div>
-			   <div class="form-group">
-				    <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-				    <div class="col-sm-8">
-				      <input type="email" class="form-control" name="email" id="inputEmail3" placeholder="Email"required>
-				    </div>
- 			 </div>
- 			   <div class="form-group">
-				    <label for="inputEmail3" class="col-sm-3 control-label"> password</label>
-				    <div class="col-sm-8">
-				      <input type="password" class="form-control"  name="password" id="inputEmail3" placeholder="password" required>
-				    </div>
- 			 </div>
- 			 
-				<button type="submit" class="btn btn-success" style="font-size:2em;">Sign up</button>
+<div class="registermsg">
+<h1>Welcome To Askify</h1>
+<h2>Please Sign-Up Here</h2>
+</br>
+</br>
+</div>
+
+<div class="registerform">
+	{{Form::open(array('url'=>'register'))}}
+	{{Form::text('username','',
+	array('placeholder'=>'Username','class'=>'laravelform'))}}
+	<?php
+	echo $errors->first('username','<p id="error-login">This Field is Required</p>');
+	?>
+</br>
+</br>
+{{Form::text('email','',
+	array('placeholder'=>'Email Address','class'=>'laravelform'))}}
+	<?php
+	echo $errors->first('email','<p id="error-login">This Field is Required</p>');
+	?>
+</br>
+</br>
+	{{Form::password('password',array('placeholder'=>'Password','class'=>'laravelform'))}}
+	<?php
+	echo $errors->first('password','<p id="error-login">This Field is Required</p>');
+	?>
+</br>
+</br>
+{{Form::password('conpassword',array('placeholder'=>'Confirm Password','class'=>'laravelform'))}}
+	<?php
+	echo $errors->first('conpassword','<p id="error-login">This Field is Required</p>');
+	?>
+</br>
+@if($alert = Session::get('signuperror'))
+<span id="signup-error">
+		{{$alert}}
+		</span>
+	@endif
+</br>
+</br>
+</br>
+	{{Form::submit('Sign Up',array('class'=>'submitform'))}}
+</br>
 
 
-			{{Form::close()}}
+	</div>
 
-@stop
+	{{Form::close()}}
+</div>
+<div class="panel-footer">
+    <div class="panel-body">
+                © 2015 Askify
+            </div>
+  </div>
+
+	</body>
+</html>
