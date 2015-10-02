@@ -4,6 +4,9 @@
 	body{
 		text-align: center;
 	}
+	.questionlist{
+		text-align: left;
+	}
 </style>
 @section('content')
  <div class="question">
@@ -18,6 +21,20 @@
 	{{$message}}
 	@endif
 </div>
-
-
+ <div class="questionlist">
+	 <h1>{{ ucfirst($username) }} Questions:</h1>
+	 @if(!$questions)
+		 <p>No Quests</p>
+	 @else
+		 <ul>
+			 @foreach($questions as $question)
+				 <li>{{ str_limit($question->question,40,"...") }} by {{ucfirst($question->user->username)}}
+					  ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+					 {{ HTML::linkRoute('question','View',$question->id) }}
+					  </li>
+			 @endforeach
+		 </ul>
+		 {{ $questions->links()}}
+	 @endif
+ </div>
  @stop

@@ -1,17 +1,18 @@
 
 @extends('hello')
 @section('content')
-    {{Form::open(array('url'=>'register'))}}
+{{Form::open(array('url'=>'register'))}}
 
-    {{Form::label('username','Username',array('class'=>'pass'))}}
-    {{Form::text('username',value(''),array('class'=>'user1'))}} <br/>
-    <br/>
-    {{Form::label('password','Password',array('class'=>'pass'))}}
-    {{Form::password('password',array('class'=>'user1'))}}<br/>
-    <br/>
-    {{Form::label('email','Email',array('class'=>'pass1'))}}
-    {{Form::text('email',value(''),array('class'=>'user1'))}}<br/>
+{{Form::label('username','Username')}}
+{{Form::text('username')}} <br/>
 
-    {{Form::submit('Sign Up',array('class'=>'signup'))}}
-    {{Form::close()}}
+{{Form::label('password','Password')}}
+{{Form::password('password')}}<br/>
+
+{{Form::label('email','Email')}}
+{{Form::text('email')}}<br/>
+
+{{Form::submit('Sign Up')}}
+{{Form::close()}}
+
 @stop

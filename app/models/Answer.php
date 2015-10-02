@@ -7,7 +7,18 @@ use Illuminate\Auth\Reminders\RemindableInterface;
 
 class Answer extends Eloquent{
 
+	/**
+	 * The database table used by the model.
+	 *
+	 * @var string
+	 */
+	protected $table = 'answers';
 
+	/**
+	 * The attributes excluded from the model's JSON form.
+	 *
+	 * @var array
+	 */
 	protected $fillable = array('question_id', 'answer','user_id');
 
 	public static $rules = array(

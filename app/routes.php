@@ -26,10 +26,17 @@ Route::post('/register','RegisterController@doRegister');
 Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
 
-Route::get('/home', function(){
+/*Route::get('/home', function(){
 	return View::make('home');
-});
+});*/
+Route::get('/home',array('before' => 'auth','as'=>'your_questions','uses'=>'QuestionsController@get_your_questions'));
+
 
 Route::post('/home','QuestionsController@post_create');
-Route::post('search','QuestionsController@post_search' );
+
+Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController@get_view'));
+Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
+Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_search'));
+
+
 

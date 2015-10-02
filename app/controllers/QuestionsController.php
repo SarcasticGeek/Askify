@@ -21,7 +21,9 @@ class QuestionsController extends BaseController{
 
 		$question = new Question;
 		$question->question = Input::get('question');
-		$question->username = Auth::user()->username;
+		$question->user_id = Auth::user()->id;
+		$question->answerer_id = 0;
+		$question->solved = 0;
 		$question->save();
 		
 		/*Question::create(array(
@@ -53,24 +55,33 @@ class QuestionsController extends BaseController{
 			 -> withInput();
 		}*/
 	}
-	public  function get_results($keyword)
-	{
-		return View::make('Questions.results');
+	public function get_your_Questions(){
+		return View::make('home')
+			->with('title','Your Qs')->with('username',Auth::user()->username)
+			->with('questions',Question::your_questions());
+	}
 
+	public function get_view($id = null){
+		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
+	}
+	public function get_results($keyword)
+	{
+		return View::make('results')
+			->with('title','Search results')
+			->with('questions',Question::search($keyword));
 	}
 	public function post_search()
 	{
 		$keyword = Input::get('keyword');
-		$keyword=$_POST['keyword'];
+
+
 		if(empty($keyword))
 		{
-			echo "The field was empty";
-
 			return Redirect::to('home')
-				-> with('message',  'Nothing entered, Please try again');
-
+				->with('message','No key entered please try  again');
 		}
-		return Redirect::to('results/'.$keyword);
-
+		//return View::make('results');
+		return Redirect::route('results',$keyword);
+		/*return Redirect::to('thanks');*/
 	}
 }

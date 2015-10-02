@@ -14,27 +14,46 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Questions';
+	protected $table = 'questions';
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	public function search() {
+	protected $fillable = array('question', 'solved','user_id','answerer_id');
 
-		$keyword = Input::get('keyword');
+	public static $rules = array(
+		'question' => 'required|min:10|max:255',
+		'solved' => 'in:0,1'
+		);
 
-		$searchTerms = explode(' ', $keyword);
-
-		$query = DB::table('Questions');
-
-		foreach($searchTerms as $term)
-		{
-			$query->where('question', 'LIKE', '%'. $keyword .'%');
-		}
-
-		$results = $query->get();
-
+	public static function validate($data)
+	{
+		return Validator::make($data,static::$rules);
+	}
+	public  function user(){
+		return $this->belongsTo('User','user_id');
+	}
+	public function answerer(){
+		return $this->belongsTo('User','answerer_id');
+	}
+	public  function answer(){
+		return $this->hasOne('Answer');
+	}
+	public static function your_questions(){
+		return static::where('user_id','=',Auth::user()->id)->paginate(3);
+	}
+	public static function questionsNeedsYouranswer(){
+		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',0)->paginate(3);
+	}
+	public static function questionsYouanswered(){
+		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',1)->paginate(3);
+	}
+	public static function search($keyword){
+		/*
+		$questions = DB::table('questions')->where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);*/
+		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
 	}
 }
+
