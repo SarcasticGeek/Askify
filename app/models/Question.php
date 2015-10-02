@@ -42,6 +42,9 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public  function answer(){
 		return $this->hasOne('Answer');
 	}
+	public static function your_questions(){
+		return static::where('user_id','=',Auth::user()->id)->paginate(3);
+	}
 	public static function questionsNeedsYouranswer(){
 		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',0)->paginate(3);
 	}
@@ -49,5 +52,14 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',1)->paginate(3);
 	}
 
+<<<<<<< HEAD
+=======
+	public static function search($keyword){
+		/*
+		$questions = DB::table('questions')->where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);*/
+		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
+	}
+>>>>>>> bbb34733f61ab821c81b4aef51847c881840acc0
 
 }
+

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/.idea/Askify.iml" filepath="$PROJECT_DIR$/.idea/Askify.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/askify3.iml" filepath="$PROJECT_DIR$/.idea/askify3.iml" />
+>>>>>>> 153498c023aced594d827f2fdd2e2fa8c711a6fa
+    </modules>
+  </component>
+</project>

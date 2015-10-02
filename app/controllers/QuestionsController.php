@@ -46,4 +46,39 @@ class QuestionsController extends BaseController{
 			return Redirect::route('Home') -> withErrors($validation)
 			 -> withInput();
 		}*/
+<<<<<<< HEAD
+=======
+	}
+	public function get_your_Questions(){
+		return View::make('home')
+			->with('title','Your Qs')->with('username',Auth::user()->username)
+			->with('questions',Question::your_questions());
+	}
+
+	public function get_view($id = null){
+		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
+	}
+
+	public function get_results($keyword)
+	{
+		return View::make('results')
+			->with('title','Search results')
+			->with('questions',Question::search($keyword));
+	}
+	public function post_search()
+	{
+		$keyword = Input::get('keyword');
+
+
+		if(empty($keyword))
+		{
+			return Redirect::to('home')
+				->with('message','No key entered please try  again');
+		}
+		//return View::make('results');
+		return Redirect::route('results',$keyword);
+		/*return Redirect::to('thanks');*/
+	}
+
+>>>>>>> bbb34733f61ab821c81b4aef51847c881840acc0
 }
