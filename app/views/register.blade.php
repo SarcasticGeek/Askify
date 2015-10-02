@@ -59,7 +59,7 @@
 {{Form::text('email','',
 	array('placeholder'=>'Email Address','class'=>'laravelform'))}}
 	<?php
-	echo $errors->first('email','<p id="error-login">This Field is Required</p>');
+	echo $errors->first('email','<p id="error-login">Email field Incorrect* </p>');
 	?>
 </br>
 </br>
