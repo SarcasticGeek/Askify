@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Search Results</h1>
-    @if(!$questions)
+    @if(count($questions)===0)
         <p>Nothing found, please try a different search.</p>
     @else
         <ul>
