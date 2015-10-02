@@ -26,9 +26,16 @@ Route::post('/register','RegisterController@doRegister');
 Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
 
+Route::get('/logout','LogoutController@doLogout');
+
+
 Route::get('/home', function(){
 	return View::make('home');
-});
+})->before('auth');
 
 Route::post('/home','QuestionsController@post_create');
+Route::get('/edit','EditController@showEdit')->before('auth');
+Route::post('/edit',array('before'=>'csrf',
+ 	'uses'=>'EditController@doEdit'));
+
 

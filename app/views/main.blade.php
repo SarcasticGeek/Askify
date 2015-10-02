@@ -59,8 +59,8 @@
                   echo Auth::user()->username;
                   ?> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Edit </a></li>
-                    <li><a href="#">logout</a></li>
+                    <li><a href="edit">Edit </a></li>
+                    <li><a href="logout">logout</a></li>
                     
                   </ul>
                 </li>
