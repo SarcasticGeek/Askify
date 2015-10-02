@@ -86,4 +86,12 @@ class QuestionsController extends BaseController{
 		/*return Redirect::to('thanks');*/
 	}
 
+	private function questionBelongsToOwner($id){
+		$question = Question::find($id);
+		if($question->user_id == Auth::user()->id){
+			return true ;
+		} 
+		return false;
+	}
+
 }
