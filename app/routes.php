@@ -11,7 +11,5 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/Questions', 'QuestionController@Ask');
+Route::post('/Questions', 'QuestionController@Take');
