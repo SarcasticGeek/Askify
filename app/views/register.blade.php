@@ -4,7 +4,28 @@
 	<meta charset="UTF-8">
 	<title>Sign Up</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-</head>
+<style>
+		@import url(//fonts.googleapis.com/css?family=Lato:700);
+
+		body {
+			margin:0;
+			font-family:'Lato', sans-serif;
+			text-align:center;
+			color: #999;
+			background-color: #f9f9f9;
+		}
+
+		h1 {
+			font-size: 32px;
+			margin: 16px 0 0 0;
+		}
+
+		h2 {
+			color: #494949;
+		}
+
+	</style>
+
 	<body>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -18,6 +39,7 @@
     </div>
   </div>
 </nav>
+
 
 <div class="registermsg">
 <h1>Welcome To Askify</h1>
@@ -76,4 +98,5 @@
   </div>
 
 	</body>
+</head>
 </html>
