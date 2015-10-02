@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class PostQuestions extends Migration {
+class CreateTableQuestion extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class PostQuestions extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('Questions', function($newtable)
-		{
-			$newtable -> increments('id');
-			$newtable -> string('question');
-			$newtable -> string('username', 100);
-			$newtable -> timestamps();
+		Schema::create('questions',function($table){
+			$table->increments('id');
+			$table->integer("user_id");
+			$table->string('question');
+			$table->boolean('solved');
+			$table->timestamps();
 		});
 	}
 
@@ -28,7 +28,7 @@ class PostQuestions extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('Questions');
+		Schema::drop('questions');
 	}
 
 }

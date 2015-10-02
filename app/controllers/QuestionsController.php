@@ -1,3 +1,4 @@
+
 <?php 
 
 class QuestionsController extends BaseController{
@@ -15,13 +16,32 @@ class QuestionsController extends BaseController{
 	}*/
 
 	public function post_create() {
+
+		$question = new Question;
+		$question->question = Input::get('question');
+		$question->user_id = Auth::user()->id;
+		$question->answerer_id = 0;
+		$question->solved = 0;
+		$question->save();
 		
+<<<<<<< HEAD
 		$question = new Question;
 		$question->question = Input::get('question');
 		$question->username = Auth::user()->username;
 		$question->save();
 
 		return 'Your question has been successfully posted';
+=======
+		/*Question::create(array(
+				'question' => Input::get('question'),
+				'id' => Auth::user()->id
+			));
+			*/
+
+			return Redirect::to('home') 
+				-> with('message', 'Your Question Has Been Successfully Posted');
+		
+>>>>>>> 7c4a84d565ab9940e9890f1235bff47a4a5a8ad0
 
 		/*$validation = Question::validate(Input::all());
 		if($validation->passes())
@@ -43,5 +63,3 @@ class QuestionsController extends BaseController{
 		}*/
 	}
 }
-
-?>
