@@ -11,11 +11,8 @@
 |
 */
 
-<<<<<<< HEAD
 Route::get('/Questions', 'QuestionController@Ask');
 Route::post('/Questions', 'QuestionController@Take');
-=======
-
 
  Route::get('/',function(){
  	return View::make('hello');
@@ -35,5 +32,3 @@ Route::get('/home', function(){
 });
 
 Route::post('/home','QuestionsController@post_create');
-
->>>>>>> 7c4a84d565ab9940e9890f1235bff47a4a5a8ad0
