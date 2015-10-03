@@ -121,6 +121,7 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
+		'Barryvdh\Debugbar\ServiceProvider',
 
 	),
 
@@ -190,5 +191,7 @@ return array(
 		'View'            => 'Illuminate\Support\Facades\View',
 
 	),
+		'Debugbar' => 'Barryvdh\Debugbar\Facade',
+
 
 );
