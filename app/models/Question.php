@@ -45,6 +45,9 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public static function your_questions(){
 		return static::where('user_id','=',Auth::user()->id)->paginate(3);
 	}
+	public static function others_questions(){
+		return static::where('user_id','!=',Auth::user()->id)->paginate(3);
+	}
 	///END OF CONFIGS
 
 	/****** THAT"S BUILT FOR ASK>FM  APP NOT WITH SNAPPY APP

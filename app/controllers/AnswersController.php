@@ -46,5 +46,6 @@ class AnswersController extends BaseController {
 			return Redirect::route('edit_answer',$id)->withErrors($validation)->withInput();
 		}
 	}
+}
 
-?>
+
