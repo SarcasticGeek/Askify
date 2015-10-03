@@ -48,5 +48,8 @@ Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController
 Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
 Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_search'));
 
-
+//Routes of answering
+Route::post('answer',array('before' => 'auth','before'=>'csrf','uses'=>'AnswersController@post_answer'));
+Route::get('answer/{num?}/edit',array('before' => 'auth','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
+Route::post('answer/update',array('before' => 'auth','before'=>'csrf','uses'=>'AnswersController@post_update'));
 
