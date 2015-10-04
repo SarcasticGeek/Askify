@@ -39,28 +39,31 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-                <li><a href="#">Questions</a></li>
-                <li><a href="#">Answers</a></li>
+                <li class="active">{{ HTML::link('/home', 'Askify') }}</li>
+                <li>{{ HTML::link('/your_questions', 'Your Questions') }}</li>
 
                
               </ul>
-              <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="button" class="btn btn-default" aria-label="Left Align">
-                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-                </button>
-              </form>
+              <div id="searchbar">
+                {{ Form::open( array('url'=> 'search'))}}
+
+                {{ Form::token() }}
+
+                {{ Form::text('keyword', 'Search', array('id'=>'keyword')) }}
+
+                {{ Form::submit('Search') }}
+
+                {{ Form::close() }}
+              </div><!-- end searchbar -->
+              </div><!-- end searchbar -->
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php
                   echo Auth::user()->username;
                   ?> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="#">Edit </a></li>
-                    <li><a href="#">logout</a></li>
+                    <li><a href="edit">Edit </a></li>
+                    <li><a href="logout">logout</a></li>
                     
                   </ul>
                 </li>
