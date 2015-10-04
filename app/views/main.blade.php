@@ -41,7 +41,6 @@
               <ul class="nav navbar-nav">
                 <li class="active">{{ HTML::link('/home', 'Askify') }}</li>
                 <li>{{ HTML::link('/your_questions', 'Your Questions') }}</li>
-                <li>{{ HTML::link('/your_answers', 'Your Answers') }}</li>
 
                
               </ul>

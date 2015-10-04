@@ -46,7 +46,13 @@
 	@else
 	<ul>
 		@foreach($question->answers as $answer)
-		<li>{{ e($answer->answer) }} By {{ ucfirst($answer->user->username) }}</li>
+		<li>{{ e($answer->answer) }} By {{ ucfirst($answer->user->username) }} 
+		@if(Auth::check())
+			@if($answer->user_id === Auth::User()->id)
+			-- {{ HTML::linkRoute('edit_answer','Edit my Answer',$answer->id) }}
+			@endif
+		@endif	
+		</li>
 		@endforeach
 	</ul>
 	@endif	
