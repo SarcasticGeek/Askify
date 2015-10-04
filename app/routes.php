@@ -57,6 +57,7 @@ Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_
 Route::get('your_questions',array('before' => 'auth','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
 //Routs of ziad
 Route::get('question/{num?}/edit',array('as'=>'edit_question','uses'=>'QuestionsController@get_edit'));
+Route::post('question/update',array('before' => 'auth','before'=>'csrf','uses'=>'QuestionsController@post_update'));
 
 //Routes of answering
 Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_answer'));

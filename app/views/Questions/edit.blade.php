@@ -9,6 +9,13 @@
 	}
 </style>
 @section('content')
+@if($errors->has())
+	<p>ERRORS</p>
+	<ul id="form-errors">
+		{{ $errors->first('question','<li>:message</li>') }}
+		</ul>
+		
+@endif
  <div class="question">
  	<h1> Edit your question here!</h1>
  {{Form::open(array('url'=>'question/update'))}}

@@ -88,7 +88,7 @@ class QuestionsController extends BaseController{
 
 	private function questionBelongsToCurrentUser($id){
 		$question = Question::find($id);
-		if($question->user_id == Auth::user()->id){
+		if($question->user_id == Auth::User()->id){
 			return true ;
 		} 
 		return false;
@@ -108,22 +108,23 @@ class QuestionsController extends BaseController{
 		if(!$this->questionBelongsToCurrentUser($id)) {
 			return Redirect::route('your_questions')->with('message','Invalid Question');
 		}
-            return View::make('Questions.edit')->with('title','Edit')->with('question',Question::find($id));  
+            			return View::make('Questions.edit')->with('title','Edit')->with('question',Question::find($id));  
 		}
+
 	public function post_update() {
-		$id = Input::get('quesiton_id');
+		$id = Input::get('question_id');
 		if(!$this->questionBelongsToCurrentUser($id)) {
 			return Redirect::route('your_questions')->with('message','Invalid Question');
 		}
-            $validation = Question::validate(Input::all());
-            if ($validation->passes()) {
-            	Question::update($id,array('quesiton'=>Input::get('question'),'solved'=>0));
-            	return Redirect::route('quesiton',$id)->with('message','Your quesiton has been updated');
-            }  
-            else {
-            	return Redirect::route('edit_question',$id)->with_errors($validation);
+		            $validation = Question::validate(Input::all());//array(Input::get('question'),Input::get('solved')));
+		            if ($validation->passes()) {
+			Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved')));
+				return Redirect::route('question',$id)->with('message','Your question has been updated');
+		            }  
+		            else {
+		            	return Redirect::route('edit_question',$id)->withErrors($validation);
 
-            }
+		            }
 		}
 		//
 
