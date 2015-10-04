@@ -3,6 +3,9 @@
 class LoginController extends BaseController{
 
 	public function showLogin(){
+		if(Auth::check()){
+ 		return Redirect::Route('others_questions');
+ 		}
 		return View::make('login');
 	}
 

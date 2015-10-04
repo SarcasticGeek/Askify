@@ -2,6 +2,9 @@
 class RegisterController extends BaseController{
 
 	public function showRegister(){
+		if(Auth::check()){
+ 		return Redirect::Route('others_questions');
+ 		}
 		return View::make('register');
 	}
 

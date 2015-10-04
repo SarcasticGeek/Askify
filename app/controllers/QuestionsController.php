@@ -86,7 +86,7 @@ class QuestionsController extends BaseController{
 		/*return Redirect::to('thanks');*/
 	}
 
-	private function questionBelongsToOwner($id){
+	private function questionBelongsToCurrentUser($id){
 		$question = Question::find($id);
 		if($question->user_id == Auth::user()->id){
 			return true ;
@@ -103,5 +103,28 @@ class QuestionsController extends BaseController{
 			->with('title','Home')
 			->with('questions',Question::others_questions());
 	}
+	//Ziad Works
+	public function get_edit ($id = NULL) {
+		if(!$this->questionBelongsToCurrentUser($id)) {
+			return Redirect::route('your_questions')->with('message','Invalid Question');
+		}
+            return View::make('Questions.edit')->with('title','Edit')->with('question',Question::find($id));  
+		}
+	public function post_update() {
+		$id = Input::get('quesiton_id');
+		if(!$this->questionBelongsToCurrentUser($id)) {
+			return Redirect::route('your_questions')->with('message','Invalid Question');
+		}
+            $validation = Question::validate(Input::all());
+            if ($validation->passes()) {
+            	Question::update($id,array('quesiton'=>Input::get('question'),'solved'=>0));
+            	return Redirect::route('quesiton',$id)->with('message','Your quesiton has been updated');
+            }  
+            else {
+            	return Redirect::route('edit_question',$id)->with_errors($validation);
+
+            }
+		}
+		//
 
 }

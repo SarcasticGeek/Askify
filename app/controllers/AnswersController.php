@@ -24,6 +24,7 @@ class AnswersController extends BaseController {
 		return false;
 	}
 	public function get_edit($id =NULL){
+		$question_id = Question::find(Answer::find($id)->question_id)->id;
 		if(!$this->answer_belongs_to_user($id)){
 			return Redirect::route('question',$question_id)->with('message',"Invalid");
 		}

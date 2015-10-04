@@ -44,6 +44,11 @@
 			color: white;
 			margin: 16px 0 0 0;
 		}
+		.logo {
+			font-size: 45px;
+			color: white;
+			margin: 16px 0 0 0;
+		}
 	</style>
 </head>
 <body>
@@ -60,6 +65,7 @@
     </div>
   </div>
 	<div class="welcome">
+		<div class="logo">Askfiy</div>
 		<h1>Ask And Answer</h1>
 	</br>
 	<a href="register">
