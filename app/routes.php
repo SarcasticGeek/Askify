@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('/Questions', 'QuestionController@Ask');
-Route::post('/Questions', 'QuestionController@Take');
-
  Route::get('/',function(){
  	if(Auth::check()){
  		return Redirect::Route('others_questions');

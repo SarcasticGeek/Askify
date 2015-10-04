@@ -38,9 +38,11 @@
 		@endif
 	</div>
 	@endif
+
 @else 
 <p>Please Login</p>
 @endif
+
 	<div id="answers">
 	<h2>Answers</h2>
 	@if(count($question->answers)==0)

@@ -1,5 +1,4 @@
 <?php
-
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
@@ -14,6 +13,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
+	//protected $table = 'Questions';
 	protected $table = 'questions';
 
 	/**
@@ -21,12 +21,12 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
+
 	protected $fillable = array('question', 'solved','user_id','answerer_id');
 
 	public static $rules = array(
-		'question' => 'required|min:10|max:255',
-		'solved' => 'in:0,1'
-		);
+		'question' => 'required | min:10 | max:255',
+		'solved' => 'in:0,1');
 
 	public static function validate($data)
 	{
@@ -46,9 +46,14 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return static::where('user_id','=',Auth::user()->id)->paginate(3);
 	}
 	public static function others_questions(){
-		return static::where('user_id','!=',Auth::user()->id)->paginate(3);
+		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(3);
 	}
 	///END OF CONFIGS
+
+	public static function search($keyword){
+		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
+	}
+}
 
 	/****** THAT"S BUILT FOR ASK>FM  APP NOT WITH SNAPPY APP
 	public function answerer(){
@@ -66,12 +71,3 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public static function questionsYouanswered(){
 		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',1)->paginate(3);
 	}
-	***************************/	
-	public static function search($keyword){
-		/*
-		$questions = DB::table('questions')->where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);*/
-		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
-	}
-
-}
-

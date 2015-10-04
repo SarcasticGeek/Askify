@@ -61,8 +61,13 @@
                   echo Auth::user()->username;
                   ?> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
+<<<<<<< HEAD
                     <li>{{ HTML::linkRoute('edit', 'Edit') }}</li>
                     <li>{{ HTML::linkRoute('logout', 'Logout') }}</li>
+=======
+                    <li><a href="edit">Edit </a></li>
+                    <li><a href="/logout">logout</a></li>
+>>>>>>> cf949735b7fa6204662b4a14ad975d8c94161d4c
                     
                   </ul>
                 </li>
