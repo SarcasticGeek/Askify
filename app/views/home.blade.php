@@ -1,4 +1,3 @@
-
 @extends('main')
 <style>
 	body{
@@ -23,7 +22,7 @@
 </div>
 
 
- <div class="questionlist">
+<div class="questionlist">
 	 <h1>Others Questions:</h1>
 	 @if(!$questions)
 		 <p>No Quests</p>
@@ -38,6 +37,6 @@
 		 </ul>
 		 {{ $questions->links()}}
 	 @endif
- </div>
+</div>
 
 @stop
