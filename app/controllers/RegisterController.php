@@ -10,7 +10,7 @@ class RegisterController extends BaseController{
 		$credit = Input::only('username','email','password','conpassword');
 		$creditx = Input::only('username','password');
 		$validator = Validator::make($credit,
-		array('username'=>'required','email'=>'required',
+		array('username'=>'required','email'=>'required|email',
 		'password'=>'required','conpassword'=>'required'));
 		$user_flag = 0;
 		$users = (array)DB::table('users')->get();

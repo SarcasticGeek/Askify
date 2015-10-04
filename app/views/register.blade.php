@@ -6,6 +6,16 @@
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 <style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
+</style>
+
+<style>
+	form
+	{
+		margin-top: 10px;
+	}
+</style>
+@section('content')
+<style>
 
 		body {
 			margin:0;
@@ -40,7 +50,6 @@
   </div>
 </nav>
 
-
 <div class="registermsg">
 <h1>Welcome To Askify</h1>
 <h2>Please Sign-Up Here</h2>
@@ -60,7 +69,7 @@
 {{Form::text('email','',
 	array('placeholder'=>'Email Address','class'=>'laravelform'))}}
 	<?php
-	echo $errors->first('email','<p id="error-login">This Field is Required</p>');
+	echo $errors->first('email','<p id="error-login">Email field Incorrect* </p>');
 	?>
 </br>
 </br>

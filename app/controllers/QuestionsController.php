@@ -49,11 +49,11 @@ class QuestionsController extends BaseController{
 <<<<<<< HEAD
 =======
 	}
-	public function get_your_Questions(){
-		return View::make('home')
-			->with('title','Your Qs')->with('username',Auth::user()->username)
-			->with('questions',Question::your_questions());
-	}
+	// public function get_your_Questions(){
+	// 	return View::make('home');
+	// 		//->with('title','Your Qs')->with('username',Auth::user()->username)
+	// 		//->with('questions',Question::your_questions());
+	// }
 
 	public function get_view($id = null){
 		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
@@ -80,5 +80,26 @@ class QuestionsController extends BaseController{
 		/*return Redirect::to('thanks');*/
 	}
 
+<<<<<<< HEAD
 >>>>>>> bbb34733f61ab821c81b4aef51847c881840acc0
+=======
+	private function questionBelongsToOwner($id){
+		$question = Question::find($id);
+		if($question->user_id == Auth::user()->id){
+			return true ;
+		} 
+		return false;
+	}
+	public function show_my_questions(){
+		return View::make('Questions.myQs')
+			->with('title','My Questions')
+			->with('questions',Question::your_questions());
+	}
+	public function get_others_questions(){
+		return View::make('home')
+			->with('title','Home')
+			->with('questions',Question::others_questions());
+	}
+
+>>>>>>> daee1feb1857611c460cf45a816403cfd69bfc24
 }

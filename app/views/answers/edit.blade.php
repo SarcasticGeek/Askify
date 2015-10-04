@@ -23,38 +23,20 @@
 @endif
 @if(Auth::check())
      <div class="answer">
- 	<h1> Put your Answer here!</h1>
- {{Form::open(array('url'=>'answer','method'=> 'post'))}}
+ 	<h1> Edit Your Answer</h1>
+ {{Form::open(array('url'=>'answer/update','method'=> 'post'))}}
 {{Form::token()}}
 {{Form::hidden('question_id',$question->id)}}
+{{Form::hidden('answer_id',$answer->id)}}
  	<textarea class="form-control" rows="5" name="answer" style="width:40em; margin-left: auto;
-    margin-right: auto; margin-bottom:1em;"></textarea>
-    {{Form::submit('Answer',array('class'=>'btn btn-success'))}}
+    margin-right: auto; margin-bottom:1em;">{{ $answer->answer }}</textarea>
+    {{Form::submit('Edit',array('class'=>'btn btn-success'))}}
 	
 	{{Form::close()}}
 	@if($message = Session::get('message'))
 	{{$message}}
 	@endif
 </div>
-@else 
-<p>Please Login</p>
 @endif
-	<div id="answers">
-	<h2>Answers</h2>
-	@if(count($question->answers)==0)
-		<p>No Answrer</p>
-	@else
-	<ul>
-		@foreach($question->answers as $answer)
-		<li>{{ e($answer->answer) }} By {{ ucfirst($answer->user->username) }} 
-		@if(Auth::check())
-			@if($answer->user_id === Auth::User()->id)
-			-- {{ HTML::linkRoute('edit_answer','Edit my Answer',$answer->id) }}
-			@endif
-		@endif	
-		</li>
-		@endforeach
-	</ul>
-	@endif	
-	</div>
+
 @stop

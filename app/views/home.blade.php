@@ -29,7 +29,7 @@
 // @if(Auth::check())
 =======
  <div class="questionlist">
-	 <h1>{{ ucfirst($username) }} Questions:</h1>
+	 <h1>Others Questions:</h1>
 	 @if(!$questions)
 		 <p>No Quests</p>
 	 @else
