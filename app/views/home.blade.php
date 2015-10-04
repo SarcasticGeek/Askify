@@ -6,14 +6,47 @@
 	.questionlist{
 		text-align: left;
 	}
+
+	.hh{
+		text-align: left;
+		font-size: 15px;
+		font-weight: bold;
+	}
+	
+	.question{
+		background-color: #f2f3e7;
+		border-radius:5px;
+		margin:-13px;
+		margin-bottom: 10px;
+		margin-top: 10px;
+		padding: 20px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		height: 150px;
+	}
+	.questionlist{
+		background-color: #f2f3e7;
+		border-radius:5px;
+		margin:-13px;
+		margin-bottom: 10px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		padding: 20px;
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.question.form-control{
+		width:40px;
+		margin: 50px;
+	}
+	
 </style>
 @section('content')
  <div class="question">
- 	<h1> Put your question here!</h1>
- {{Form::open(array('url'=>'home'))}}
- 	<textarea class="form-control" rows="5" name="question" style="width:40em; margin-left: auto;
-    margin-right: auto; margin-bottom:1em;"></textarea>
-    {{Form::submit('Ask',array('class'=>'btn btn-success'))}}
+ 	<h1 class = "hh"> Put your question here!</h1>
+ 	{{Form::open(array('url'=>'home'))}}
+ 	<textarea class="form-control"  name="question"></textarea>
+    {{Form::submit('Ask',array('class'=>'btn btn-success '))}}
 	
 	{{Form::close()}}
 	@if($message = Session::get('message'))
@@ -21,16 +54,17 @@
 	@endif
 </div>
  <div class="questionlist">
-	 <h1>Others Questions:</h1>
+	 <h1 class = "hh">Others Questions:</h1>
 	 @if(!$questions)
 		 <p>No Quests</p>
 	 @else
 		 <ul>
 		  	@foreach($questions as $question)
-		 		<li>{{ str_limit($question->question,40,"...") }} by {{ucfirst($question->user->username)}}
+		 		<p>{{ str_limit($question->question,40,"...") }} <strong><em>By: 
+		 			{{ucfirst($question->user->username)}}</em></strong>
 				({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 				{{ HTML::linkRoute('question','View',$question->id) }}
-				</li>
+				</p>
 			@endforeach
 		 </ul>
 		 {{ $questions->links()}}
