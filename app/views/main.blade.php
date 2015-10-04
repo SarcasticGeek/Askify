@@ -15,7 +15,12 @@
     <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
 @section('header')
-
+<style>
+  #searchbar{
+    text-align: right;
+    margin-top: 20px;
+  }
+</style>
 @show
 
 </head>
@@ -69,10 +74,11 @@
                 </li>
               </ul>
             </div><!-- /.navbar-collapse -->
+            </nav>
           </div><!-- /.container-fluid -->
-    </nav>
 
-        </div>
+
+        <div>
       @yield('content')
 
 
