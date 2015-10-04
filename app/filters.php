@@ -57,7 +57,7 @@ Route::filter('auth.basic', function()
 Route::filter('ifAdmin',function(){
 	if(Auth::check()){
 		if(Auth::User()->iFadmin != 1){
-			Redirect::route('home');
+			Redirect::route('others_questions');
 		}
 	}
 });

@@ -13,7 +13,7 @@
 
 
 
- Route::get('/',array('as'=>'home'),function(){
+ Route::get('/',function(){
  	if(Auth::check()){
  		return Redirect::Route('others_questions');
  	}
