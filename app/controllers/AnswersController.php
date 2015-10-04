@@ -17,18 +17,17 @@ class AnswersController extends BaseController {
 		}
 	}
 	private function  answer_belongs_to_user($id){
-		$question = Answer::find($id);
-		if($question->user_id == Auth::user()->id){
+		$answer = Answer::find($id);
+		if($answer->user_id == Auth::user()->id){
 			return true ;
 		} 
 		return false;
 	}
 	public function get_edit($id =NULL){
-		$question_id = Input::get('question_id');
 		if(!$this->answer_belongs_to_user($id)){
 			return Redirect::route('question',$question_id)->with('message',"Invalid");
 		}
-		return View::make('answers.edit')->with('title','Edit Answer')->with('answer',Answer::find($id));
+		return View::make('answers.edit')->with('title','Edit Answer')->with('answer',Answer::find($id))->with('question',Question::find(Answer::find($id)->question_id));
 	}
 	public function post_update(){
 		$id = Input::get('answer_id');

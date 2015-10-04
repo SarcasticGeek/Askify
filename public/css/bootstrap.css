@@ -2594,9 +2594,9 @@ output {
 }
 .form-control {
   display: block;
-  width: 100%;
+  width: 3%;
   height: 34px;
-  padding: 6px 12px;
+  padding: 6px 5px;
   font-size: 14px;
   line-height: 1.42857143;
   color: #555;
@@ -3922,7 +3922,7 @@ tbody.collapse.in {
   position: relative;
   z-index: 2;
   float: left;
-  width: 100%;
+  width: 50%;
   margin-bottom: 0;
 }
 .input-group-lg > .form-control,
