@@ -1,4 +1,3 @@
-
 @extends('main')
 <style>
     body{

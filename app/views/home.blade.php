@@ -21,13 +21,8 @@
 	{{$message}}
 	@endif
 </div>
-<<<<<<< HEAD
- @stop
 
 
-// mafesh leh ??
-// @if(Auth::check())
-=======
  <div class="questionlist">
 	 <h1>Others Questions:</h1>
 	 @if(!$questions)
@@ -38,11 +33,11 @@
 				 <li>{{ str_limit($question->question,40,"...") }} by {{ucfirst($question->user->username)}}
 					  ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 					 {{ HTML::linkRoute('question','View',$question->id) }}
-					  </li>
+				</li>
 			 @endforeach
 		 </ul>
 		 {{ $questions->links()}}
 	 @endif
  </div>
- @stop
->>>>>>> bbb34733f61ab821c81b4aef51847c881840acc0
+
+@stop

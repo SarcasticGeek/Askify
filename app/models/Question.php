@@ -23,7 +23,6 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 
 	protected $fillable = array('question', 'solved','user_id','answerer_id');
-	//men el 7agat d ??
 
 	public static $rules = array(
 		'question' => 'required | min:10 | max:255',
@@ -51,6 +50,11 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	///END OF CONFIGS
 
+	public static function search($keyword){
+		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
+	}
+}
+
 	/****** THAT"S BUILT FOR ASK>FM  APP NOT WITH SNAPPY APP
 	public function answerer(){
 		return $this->belongsTo('User','answerer_id');
@@ -67,19 +71,3 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public static function questionsYouanswered(){
 		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',1)->paginate(3);
 	}
-<<<<<<< HEAD
-
-<<<<<<< HEAD
-=======
-=======
-	***************************/	
->>>>>>> daee1feb1857611c460cf45a816403cfd69bfc24
-	public static function search($keyword){
-		/*
-		$questions = DB::table('questions')->where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);*/
-		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
-	}
->>>>>>> bbb34733f61ab821c81b4aef51847c881840acc0
-
-}
-

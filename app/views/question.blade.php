@@ -24,9 +24,9 @@
 @if(Auth::check())
      <div class="answer">
  	<h1> Put your Answer here!</h1>
- {{Form::open(array('url'=>'answer','method'=> 'post'))}}
-{{Form::token()}}
-{{Form::hidden('question_id',$question->id)}}
+ 	{{Form::open(array('url'=>'answer','method'=> 'post'))}}
+	{{Form::token()}}
+	{{Form::hidden('question_id',$question->id)}}
  	<textarea class="form-control" rows="5" name="answer" style="width:40em; margin-left: auto;
     margin-right: auto; margin-bottom:1em;"></textarea>
     {{Form::submit('Answer',array('class'=>'btn btn-success'))}}
@@ -35,10 +35,11 @@
 	@if($message = Session::get('message'))
 	{{$message}}
 	@endif
-</div>
+	</div>
 @else 
 <p>Please Login</p>
 @endif
+
 	<div id="answers">
 	<h2>Answers</h2>
 	@if(count($question->answers)==0)
