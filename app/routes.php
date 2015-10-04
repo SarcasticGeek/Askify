@@ -11,7 +11,8 @@
 |
 */
 
-
+Route::get('/Questions', 'QuestionController@Ask');
+Route::post('/Questions', 'QuestionController@Take');
 
  Route::get('/',function(){
  	if(Auth::check()){
@@ -41,6 +42,8 @@ Route::get('/logout',array('as'=>'logout','uses'=>'LogoutController@doLogout'));
 
 Route::post('/home','QuestionsController@post_create');
 Route::get('/edit',array('as'=>'edit','uses'=>'EditController@showEdit'))->before('auth');
+
+
 Route::post('/edit',array('before'=>'csrf',
  	'uses'=>'EditController@doEdit'));
 
@@ -54,7 +57,6 @@ Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_
 Route::get('your_questions',array('before' => 'auth','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
 //Routs of ziad
 Route::get('question/{num?}/edit',array('as'=>'edit_question','uses'=>'QuestionsController@get_edit'));
-Route::post('answer/update',array('before' => 'auth','before'=>'csrf','uses'=>'QuestionsController@post_update'));
 
 //Routes of answering
 Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_answer'));

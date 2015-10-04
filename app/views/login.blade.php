@@ -24,22 +24,32 @@
 			color: #494949;
 		}
 
+				.btnnn {
+    		background: #4183D7;
+   			color: #fff;
+   			font-family: !important;
+   			line-height: 25px;
+    		text-align: center;
+    		border-radius:0px;
+    		border: 0 none;
+		}
+
 	</style>
 
 	<body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-  	<a href="register">
-  	<button type="button" class="btnnn">Sign Up</button>
-  </a>
-    <div class="navbar-header">
+    <div class="navbar navbar-inverse">
+
       <a class="navbar-brand" href="/">
-      	<span><img alt="Brand" src="images/Drawing(6).png" id="logo"></span>
-        <span id="brand">Askify</span>
+
+        <img alt="Brand" src="images/logo2.png" width="31" height="35" id="logo">
       </a>
+
+      <div class="container-fluid">
+  	<a href="register">
+  	  	  	<button type="button" class="btnnn">Sign Up</button>
+  	</a>
+ 	 </div>
     </div>
-  </div>
-</nav>
 
 <div class="loginmsg">
 <h1>Welcome To Askify</h1>
