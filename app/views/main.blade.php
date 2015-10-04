@@ -20,10 +20,12 @@
 
 </head>
 <body>
-		<!-- header section -->
+    <!-- header section -->
+    
+
   <div class="container">
       <div class="row">
-          	<nav class="navbar navbar-default">
+            <nav class="navbar navbar-default">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -34,6 +36,7 @@
                 <span class="icon-bar"></span>
               </button>
               <a class="navbar-brand" href="#">Askify</a>
+             
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -41,21 +44,19 @@
               <ul class="nav navbar-nav">
                 <li class="active">{{ HTML::link('/home', 'Askify') }}</li>
                 <li>{{ HTML::link('/your_questions', 'Your Questions') }}</li>
+                
 
                
               </ul>
-              <div id="searchbar">
-                {{ Form::open( array('url'=> 'search'))}}
+              {{ Form::open( array('url'=> 'search', 'class'=>'navbar-form navbar-left' ))}}
 
                 {{ Form::token() }}
 
-                {{ Form::text('keyword', 'Search', array('id'=>'keyword')) }}
+                {{ Form::text('keyword', 'Search', array('id'=>'keyword' ,'class'=>'form-control')) }}
 
-                {{ Form::submit('Search') }}
+                {{ Form::submit('Find',array('class'=>'btn btn-default' )) }}
 
                 {{ Form::close() }}
-              </div><!-- end searchbar -->
-              </div><!-- end searchbar -->
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php
@@ -114,6 +115,6 @@
 
 
 
-	<!-- footer section -->  
+  <!-- footer section -->  
 </body>
 </html>

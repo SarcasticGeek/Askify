@@ -34,6 +34,7 @@
   </a>
     <div class="navbar-header">
       <a class="navbar-brand" href="/">
+      	<span><img alt="Brand" src="images/Drawing(6).png" id="logo"></span>
         <span id="brand">Askify</span>
       </a>
     </div>

@@ -55,7 +55,7 @@
     <div class="navbar-header">
 
       <a class="navbar-brand" href="/">
-        <img alt="Brand" src="images/logo1.jpg" id="logo">
+        <img alt="Brand" src="images/Drawing(5).png" id="logo">
       </a>
     </div>
   </div>
