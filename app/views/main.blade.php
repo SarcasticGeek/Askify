@@ -31,7 +31,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               <a class="navbar-brand" href="#">
-                  <img alt="Brand" src="{{ HTML::asset('images/logo2.png') }}" width="31" height="35" id="logo">
+                  <img alt="Brand" src="{{ asset('images/logo2.png') }}" width="31" height="35" id="logo">
               </a>
             </div>
 
