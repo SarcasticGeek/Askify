@@ -35,5 +35,11 @@ class Answer extends Eloquent{
 	public function question(){
 		return $this->belongsTo('Question');
 	}
+	public static function your_answers(){
+		return static::where('user_id','=',Auth::user()->id)->paginate(3);
+	}
+	public static function others_answers(){
+		return static::where('user_id','!=',Auth::user()->id)->paginate(3);
+	}
 
 }
