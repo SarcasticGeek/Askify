@@ -22,20 +22,22 @@
 		
 @endif
 @if(Auth::check())
-     <div class="answer">
- 	<h1> Put your Answer here!</h1>
- {{Form::open(array('url'=>'answer','method'=> 'post'))}}
-{{Form::token()}}
-{{Form::hidden('question_id',$question->id)}}
- 	<textarea class="form-control" rows="5" name="answer" style="width:40em; margin-left: auto;
-    margin-right: auto; margin-bottom:1em;"></textarea>
-    {{Form::submit('Answer',array('class'=>'btn btn-success'))}}
-	
-	{{Form::close()}}
-	@if($message = Session::get('message'))
-	{{$message}}
+	@if(Auth::User()->iFadmin == 1)
+	     <div class="answer">
+	 	<h1> Put your Answer here!</h1>
+	 {{Form::open(array('url'=>'answer','method'=> 'post'))}}
+	{{Form::token()}}
+	{{Form::hidden('question_id',$question->id)}}
+	 	<textarea class="form-control" rows="5" name="answer" style="width:40em; margin-left: auto;
+	    margin-right: auto; margin-bottom:1em;"></textarea>
+	    {{Form::submit('Answer',array('class'=>'btn btn-success'))}}
+		
+		{{Form::close()}}
+		@if($message = Session::get('message'))
+		{{$message}}
+		@endif
+	</div>
 	@endif
-</div>
 @else 
 <p>Please Login</p>
 @endif

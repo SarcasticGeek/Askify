@@ -42,9 +42,10 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
               <ul class="nav navbar-nav">
-                <li class="active">{{ HTML::link('/home', 'Askify') }}</li>
-                <li>{{ HTML::link('/your_questions', 'Your Questions') }}</li>
-                
+                <li >{{ HTML::linkRoute('others_questions', 'Askify') }}</li>
+                @if(Auth::User()->iFadmin != 1)
+                <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
+                @endif
 
                
               </ul>
@@ -63,8 +64,8 @@
                   echo Auth::user()->username;
                   ?> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="edit">Edit </a></li>
-                    <li><a href="logout">logout</a></li>
+                    <li>{{ HTML::linkRoute('edit', 'Edit') }}</li>
+                    <li>{{ HTML::linkRoute('logout', 'Logout') }}</li>
                     
                   </ul>
                 </li>

@@ -13,7 +13,10 @@
 
 
 
- Route::get('/',function(){
+ Route::get('/',array('as'=>'home'),function(){
+ 	if(Auth::check()){
+ 		return Redirect::Route('others_questions');
+ 	}
  	return View::make('hello');
  });
  Route::post('/',array('before'=>'csrf',
@@ -33,11 +36,11 @@ Route::post('/login','LoginController@doLogin');
 Route::get('/home',array('before' => 'auth','as'=>'others_questions','uses'=>'QuestionsController@get_others_questions'));
 
 
-Route::get('/logout','LogoutController@doLogout');
+Route::get('/logout',array('as'=>'logout','uses'=>'LogoutController@doLogout'));
 
 
 Route::post('/home','QuestionsController@post_create');
-Route::get('/edit','EditController@showEdit')->before('auth');
+Route::get('/edit',array('as'=>'edit','uses'=>'EditController@showEdit'))->before('auth');
 Route::post('/edit',array('before'=>'csrf',
  	'uses'=>'EditController@doEdit'));
 
@@ -51,7 +54,7 @@ Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_
 Route::get('your_questions',array('before' => 'auth','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
 
 //Routes of answering
-Route::post('answer',array('before' => 'auth','before'=>'csrf','uses'=>'AnswersController@post_answer'));
-Route::get('answer/{num?}/edit',array('before' => 'auth','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
-Route::post('answer/update',array('before' => 'auth','before'=>'csrf','uses'=>'AnswersController@post_update'));
+Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_answer'));
+Route::get('answer/{num?}/edit',array('before' => 'auth','before'=>'ifAdmin','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
+Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_update'));
 
