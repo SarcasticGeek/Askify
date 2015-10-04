@@ -8,9 +8,8 @@
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" type="text/css"href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"href="css/bootstrap.css">
-
-
-<!-- Latest compiled and minified JavaScript -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
@@ -41,9 +40,10 @@
     		background: #4183D7;
    			color: #fff;
    			font-family: !important;
+   			font-size: 30px;
    			line-height: 25px;
-    		height: 60px;
-   			width: 250px;
+    		height: 50px;
+   			width: 200px;
     		text-align: center;
     		border-radius:0px;
     		border: 0 none;
@@ -75,7 +75,7 @@
     <div class="navbar navbar-inverse">
 
       <a class="navbar-brand" href="/">
-        <img alt="Brand" src="images/logo2.png" width="35" height="40" id="logo">
+        <img alt="Brand" src="images/logo2.png" width="31" height="35" id="logo">
       </a>
 
       <div class="container-fluid">
