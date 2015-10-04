@@ -10,7 +10,6 @@
 <link rel="stylesheet" type="text/css"href="css/bootstrap.css">
 
 
-
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<style>
@@ -30,9 +29,33 @@
 			height: 200px;
 			position: absolute;
 			left: 50%;
-			top: 50%;
+			top: 65%;
 			margin-left: -150px;
 			margin-top: -100px;
+		}
+		.head{
+			font-family: Proxima Nova Light;
+		}
+
+		.btnn {
+    		background: #4183D7;
+   			color: #fff;
+   			font-family: !important;
+   			line-height: 25px;
+    		height: 60px;
+   			width: 250px;
+    		text-align: center;
+    		border-radius:0px;
+    		border: 0 none;
+		}
+		.btnnn {
+    		background: #4183D7;
+   			color: #fff;
+   			font-family: !important;
+   			line-height: 25px;
+    		text-align: center;
+    		border-radius:0px;
+    		border: 0 none;
 		}
 
 		a, a:visited {
@@ -44,30 +67,31 @@
 			color: white;
 			margin: 16px 0 0 0;
 		}
+
 	</style>
 </head>
 <body>
-  <div class="container-fluid">
+  
+    <div class="navbar navbar-inverse">
+
+      <a class="navbar-brand" href="/">
+        <img alt="Brand" src="images/logo2.png" width="35" height="40" id="logo">
+      </a>
+
+      <div class="container-fluid">
   	<a href="login">
   	  	  	<button type="button" class="btnnn">Sign In</button>
   	</a>
   	<p>Have an Account ? </p>
-    <div class="navbar-header">
-
-      <a class="navbar-brand" href="/">
-        <img alt="Brand" src="images/logo1.jpg" id="logo">
-      </a>
+ 	 </div>
     </div>
-  </div>
 	<div class="welcome">
-		<h1>Ask And Answer</h1>
+		<h1 class="head">Ask And Answer</h1>
 	</br>
 	<a href="register">
 		<button type="button" class ="btnn">Join Now!</button>
 	</a>
-		
 		@yield('content')
 	</div>
 </body>
 </html>
-

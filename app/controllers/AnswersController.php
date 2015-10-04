@@ -1,4 +1,5 @@
 <?php
+
 class AnswersController extends BaseController {
 	public $restful = true;
 	public function post_answer(){

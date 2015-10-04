@@ -38,8 +38,7 @@ Route::get('/logout','LogoutController@doLogout');
 
 
 Route::post('/home','QuestionsController@post_create');
-<<<<<<< HEAD
-=======
+
 Route::get('/edit','EditController@showEdit')->before('auth');
 Route::post('/edit',array('before'=>'csrf',
  	'uses'=>'EditController@doEdit'));
@@ -58,4 +57,3 @@ Route::post('answer',array('before' => 'auth','before'=>'csrf','uses'=>'AnswersC
 Route::get('answer/{num?}/edit',array('before' => 'auth','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
 Route::post('answer/update',array('before' => 'auth','before'=>'csrf','uses'=>'AnswersController@post_update'));
 
->>>>>>> 044e1598d9870a0d8c7e2262d6fc39008ed50597
