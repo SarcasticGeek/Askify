@@ -10,7 +10,8 @@
 			 @foreach($questions as $question)
 				 <li>{{ str_limit($question->question,40,"...") }}
 					  ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-					 {{ HTML::linkRoute('question','View',$question->id) }}
+					 {{ HTML::linkRoute('question','View',$question->id) }}--
+					  {{ HTML::linkRoute('edit_question','Edit',$question->id) }}
 					  </li>
 			 @endforeach
 		 </ul>
