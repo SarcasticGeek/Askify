@@ -43,6 +43,7 @@
 	
 </style>
 @section('content')
+@if(Auth::User()->iFadmin != 1)
  <div class="question">
 
  	<h1 class = "hh"> Put your question here!</h1>
@@ -55,6 +56,7 @@
 	{{$message}}
 	@endif
 </div>
+@endif
  <div class="questionlist">
 	 <h1 class = "hh">Others Questions:</h1>
 	 @if(!$questions)
