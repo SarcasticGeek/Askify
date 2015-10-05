@@ -1,3 +1,4 @@
+
 @extends('main')
 <style>
 	body{
@@ -60,6 +61,7 @@
 		 <p>No Quests</p>
 	 @else
 		 <ul>
+
 		  	@foreach($questions as $question)
 		 		<p>{{ str_limit($question->question,40,"...") }} <strong><em>By: 
 		 			{{ucfirst($question->user->username)}}</em></strong>
@@ -67,6 +69,7 @@
 				{{ HTML::linkRoute('question','View',$question->id) }}
 				</p>
 			@endforeach
+
 		 </ul>
 		 {{ $questions->links()}}
 	 @endif

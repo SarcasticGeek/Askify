@@ -11,9 +11,7 @@ class AnswersController extends BaseController {
 				'user_id'=>Auth::user()->id,
 				'question_id' => $question_id
 				));
-		$question = Question::find($question_id);
-		$question->solved = true;
-		$question->save();	
+			
 			return Redirect::route('question',$question_id)->with('message',"Thanks for your Answer");
 		}else {
 			return Redirect::route('question',$question_id)->withErrors($validation)->withInput();

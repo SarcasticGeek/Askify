@@ -30,7 +30,7 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               <a class="navbar-brand" href="#">
-                  <img alt="Brand" src="images/logo2.png" width="31" height="35" id="logo">
+                  <img alt="Brand" src="{{ asset('images/logo2.png') }}" width="31" height="35" id="logo">
               </a>
             </div>
 
@@ -41,6 +41,8 @@
                 @if(Auth::User()->iFadmin != 1)
                 <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
                 @endif
+
+
                
               </ul>
               {{ Form::open( array('url'=> 'search', 'class'=>'navbar-form navbar-left' ))}}
@@ -58,12 +60,8 @@
                   echo Auth::user()->username;
                   ?> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                   
-
-                    <li><a href="/edit">Edit</a></li>
-                    <li><a href="/logout">Logout</a></li>
-
-
+                    <li>{{ HTML::linkRoute('edit', 'Edit') }}</li>
+                    <li>{{ HTML::linkRoute('logout', 'Logout') }}</li>
                     
                   </ul>
                 </li>
