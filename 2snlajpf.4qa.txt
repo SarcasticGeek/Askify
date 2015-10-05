@@ -1,0 +1,17 @@
+﻿Revert "pull master"
+
+This reverts commit 672a805b5bb22de0ff8f9198683a66c20844c46d, reversing
+changes made to 928e0955afc92e355283405c8870f2aee2d65f9a.
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch is up-to-date with 'origin/master'.
+#
+# Changes to be committed:
+#	modified:   app/database/production.sqlite
+#	modified:   app/views/hello.blade.php
+#	modified:   app/views/home.blade.php
+#	modified:   app/views/main.blade.php
+#
+

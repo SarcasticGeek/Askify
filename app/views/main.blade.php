@@ -25,6 +25,7 @@
 
   <div class="container">
       <div class="row">
+
           	<nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
