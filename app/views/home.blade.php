@@ -1,3 +1,4 @@
+
 @extends('main')
 <style>
 	body{
@@ -42,7 +43,9 @@
 	
 </style>
 @section('content')
+@if(Auth::User()->iFadmin != 1)
  <div class="question">
+
  	<h1 class = "hh"> Put your question here!</h1>
  	{{Form::open(array('url'=>'home'))}}
  	<textarea class="form-control"  name="question"></textarea>
@@ -53,12 +56,14 @@
 	{{$message}}
 	@endif
 </div>
+@endif
  <div class="questionlist">
 	 <h1 class = "hh">Others Questions:</h1>
 	 @if(!$questions)
 		 <p>No Quests</p>
 	 @else
 		 <ul>
+
 		  	@foreach($questions as $question)
 		 		<p>{{ str_limit($question->question,40,"...") }} <strong><em>By: 
 		 			{{ucfirst($question->user->username)}}</em></strong>
@@ -66,6 +71,7 @@
 				{{ HTML::linkRoute('question','View',$question->id) }}
 				</p>
 			@endforeach
+
 		 </ul>
 		 {{ $questions->links()}}
 	 @endif

@@ -11,22 +11,56 @@
 |
 */
 
-Route::get('/',function(){return View::make('hello');});
+Route::get('/Questions', 'QuestionController@Ask');
+Route::post('/Questions', 'QuestionController@Take');
+
+ Route::get('/',function(){
+ 	if(Auth::check()){
+ 		return Redirect::Route('others_questions');
+ 	}
+ 	return View::make('hello');
+ });
+ Route::post('/',array('before'=>'csrf',
+ 	'uses'=>'QuestionsController@post_create'));
+
+
 Route::get('/register','RegisterController@showRegister');
-Route::get('/login','LoginController@showLogin');
-Route::get('/logout','LogoutController@doLogout');
-Route::get('/home',array('before' => 'auth','as'=>'others_questions','uses'=>'QuestionsController@get_others_questions'));
-Route::get('/edit', array('before' => 'auth', 'uses' =>'EditController@showEdit'));
-Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController@get_view'));
-Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
-Route::get('your_questions',array('before' => 'auth','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
-Route::get('answer/{num?}/edit',array('before' => 'auth','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
-
-
 Route::post('/register','RegisterController@doRegister');
+
+Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
+
+
+/*Route::get('/home', function(){
+	return View::make('home');
+});*/
+Route::get('/home',array('before' => 'auth','as'=>'others_questions','uses'=>'QuestionsController@get_others_questions'));
+
+
+Route::get('/logout',array('as'=>'logout','uses'=>'LogoutController@doLogout'));
+
+
 Route::post('/home','QuestionsController@post_create');
-Route::post('/edit',array('before'=>'csrf','uses'=>'EditController@doEdit'));
+Route::get('/edit',array('as'=>'edit','uses'=>'EditController@showEdit'))->before('auth');
+
+
+Route::post('/edit',array('before'=>'csrf',
+ 	'uses'=>'EditController@doEdit'));
+
+
+Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController@get_view'));
+
+
+Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
 Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_search'));
-Route::post('answer',array('before' => 'auth','before'=>'csrf','uses'=>'AnswersController@post_answer'));
-Route::post('answer/update',array('before' => 'auth','before'=>'csrf','uses'=>'AnswersController@post_update'));
+
+Route::get('your_questions',array('before' => 'auth','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
+//Routs of ziad
+Route::get('question/{num?}/edit',array('as'=>'edit_question','uses'=>'QuestionsController@get_edit'));
+Route::post('question/update',array('before' => 'auth','before'=>'csrf','uses'=>'QuestionsController@post_update'));
+
+//Routes of answering
+Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_answer'));
+Route::get('answer/{num?}/edit',array('before' => 'auth','before'=>'ifAdmin','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
+Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_update'));
+

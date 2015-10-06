@@ -1,5 +1,15 @@
-@extends('main')
 
+@extends('main')
+<style >
+body{
+    text-align: center;
+
+}
+#footer
+{
+    bottom: -319; 
+}
+</style>
 @section('content')
     <h1>Search Results</h1>
     @if(count($questions)===0)

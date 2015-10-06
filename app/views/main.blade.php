@@ -2,33 +2,41 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>@yield('title')</title>
+	<title>@yield('title') 
+  @if(isset($title))
+  {{ $title }}
+  @endif
+  </title>
 	<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" type="text/css"href="css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css"href="css/bootstrap.css">
-<link rel="stylesheet" type="text/css"href="css/main.css">
+<link rel="stylesheet" type="text/css"href="{{ asset('css/bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css"href=" {{ asset('css/bootstrap.css')}}">
+<link rel="stylesheet" type="text/css"href="{{ asset('css/main.css') }}">
 
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-    <script type="text/javascript" src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://pingendo.github.io/pingendo-bootstrap/themes/default/bootstrap.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src=" {{ asset('js/jquery-2.1.4.min.js')}}"></script>
+
+    <script type="text/javascript" src=" {{ asset('js/bootstrap.min.js')}}"></script>
+    <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{asset('css/bootstrapbing.css')}}" rel="stylesheet" type="text/css">
 @section('header')
 
 @show
 
 </head>
 <body>
-		<!-- header section -->
+    <!-- header section -->
+    
+
   <div class="container">
       <div class="row">
+
           	<nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
               <a class="navbar-brand" href="#">
-                  <img alt="Brand" src="images/logo2.png" width="31" height="35" id="logo">
+                  <img alt="Brand" src="{{ asset('images/logo2.png') }}" width="31" height="35" id="logo">
               </a>
             </div>
 
@@ -39,6 +47,8 @@
                 @if(Auth::User()->iFadmin != 1)
                 <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
                 @endif
+
+
                
               </ul>
               {{ Form::open( array('url'=> 'search', 'class'=>'navbar-form navbar-left' ))}}
@@ -56,12 +66,8 @@
                   echo Auth::user()->username;
                   ?> <span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                   
-
-                    <li><a href="/edit">Edit</a></li>
-                    <li><a href="/logout">Logout</a></li>
-
-
+                    <li>{{ HTML::linkRoute('edit', 'Edit') }}</li>
+                    <li>{{ HTML::linkRoute('logout', 'Logout') }}</li>
                     
                   </ul>
                 </li>
@@ -70,7 +76,7 @@
           </div><!-- /.container-fluid -->
     </nav>
 
-        </div>
+  </div>
       @yield('content')
 
 
@@ -112,6 +118,6 @@
 
 
 
-	<!-- footer section -->  
+  <!-- footer section -->  
 </body>
 </html>

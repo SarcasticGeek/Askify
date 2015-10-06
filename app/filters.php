@@ -54,6 +54,14 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+Route::filter('ifAdmin',function(){
+	if(Auth::check()){
+		if(Auth::User()->iFadmin != 1){
+			Redirect::route('others_questions');
+		}
+	}
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter

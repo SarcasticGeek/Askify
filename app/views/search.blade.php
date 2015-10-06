@@ -1,4 +1,4 @@
-@layout('layouts.default')
+
 
 
 @section('content')
