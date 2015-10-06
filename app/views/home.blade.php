@@ -4,16 +4,6 @@
 	body{
 		text-align: center;
 	}
-	.questionlist{
-		text-align: left;
-	}
-
-	.hh{
-		text-align: left;
-		font-size: 15px;
-		font-weight: bold;
-	}
-	
 	.question{
 		background-color: #f2f3e7;
 		border-radius:5px;
@@ -23,14 +13,15 @@
 		padding: 20px;
 		padding-top: 5px;
 		padding-bottom: 5px;
-		height: 150px;
+		height: 100px;
 	}
-	.questionlist{
+	.questionlist ul{
+		text-align: left;
 		background-color: #f2f3e7;
 		border-radius:5px;
 		margin:-13px;
 		margin-bottom: 10px;
-		margin-top: 20px;
+		margin-top: 10px;
 		margin-bottom: 20px;
 		padding: 20px;
 		padding-top: 5px;
@@ -40,15 +31,15 @@
 		width:40px;
 		margin: 50px;
 	}
+
 	
 </style>
 @section('content')
 @if(Auth::User()->iFadmin != 1)
  <div class="question">
 
- 	<h1 class = "hh"> Put your question here!</h1>
  	{{Form::open(array('url'=>'home'))}}
- 	<textarea class="form-control"  name="question"></textarea>
+ 	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
     {{Form::submit('Ask',array('class'=>'btn btn-success '))}}
 	
 	{{Form::close()}}
@@ -58,22 +49,18 @@
 </div>
 @endif
  <div class="questionlist">
-	 <h1 class = "hh">Others Questions:</h1>
-	 @if(!$questions)
-		 <p>No Quests</p>
-	 @else
-		 <ul>
-
-		  	@foreach($questions as $question)
-		 		<p>{{ str_limit($question->question,40,"...") }} <strong><em>By: 
-		 			{{ucfirst($question->user->username)}}</em></strong>
-				({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-				{{ HTML::linkRoute('question','View',$question->id) }}
-				</p>
-			@endforeach
-
-		 </ul>
-		 {{ $questions->links()}}
-	 @endif
+	@if(!$questions)
+		 <p>No Questions</p>
+	@else
+	@foreach($questions as $question)
+		 	<ul>
+		 		<p><strong>{{ucfirst($question->user->username)}}</strong></p>
+		 		<p>{{ str_limit($question->question,40,"...") }}</p> 
+		 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+				{{ HTML::linkRoute('question','View',$question->id) }}</p>
+			</ul>
+	@endforeach
+	{{ $questions->links()}}
+	@endif
  </div>
  @stop
