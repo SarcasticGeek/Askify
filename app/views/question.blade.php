@@ -49,6 +49,8 @@
 	<ul>
 		@foreach($question->answers as $answer)
 		<li>{{ e($answer->answer) }}  
+		-- updated at : {{ date('h:i A d/m/Y',strtotime($answer->updated_at)) }}
+
 		@if(Auth::check())
 			@if($answer->user_id === Auth::User()->id)
 			-- {{ HTML::linkRoute('edit_answer','Edit my Answer',$answer->id) }}
