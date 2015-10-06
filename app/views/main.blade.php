@@ -55,7 +55,7 @@
 
                 {{ Form::token() }}
 
-                {{ Form::text('keyword', 'Search', array('id'=>'keyword' ,'class'=>'form-control')) }}
+                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Search')) }}
 
                 {{ Form::submit('Find',array('class'=>'btn btn-default' )) }}
 
