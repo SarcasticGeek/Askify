@@ -35,7 +35,6 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public  function user(){
 		return $this->belongsTo('User','user_id');
 	}
-	//CONFIGS FOR SNAPPY APP
 	public  function answers(){
 		return $this->hasMany('Answer');
 	}
@@ -46,30 +45,9 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return static::where('user_id','=',Auth::user()->id)->paginate(3);
 	}
 	public static function others_questions(){
-		return static::where('user_id','!=',Auth::user()->id)->paginate(3);
-	}
-	///END OF CONFIGS
-
-	/****** THAT"S BUILT FOR ASK>FM  APP NOT WITH SNAPPY APP
-	public function answerer(){
-		return $this->belongsTo('User','answerer_id');
-	}
-	public  function answer(){
-		return $this->hasOne('Answer');
-	}
-	public static function your_questions(){
-		return static::where('user_id','=',Auth::user()->id)->paginate(3);
-	}
-	public static function questionsNeedsYouranswer(){
-		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',0)->paginate(3);
-	}
-	public static function questionsYouanswered(){
-		return static::where('answerer_id','=',Auth::user()->id)->where('solved','=',1)->paginate(3);
-	}
-	***************************/	
+		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(2);
+	}	
 	public static function search($keyword){
-		/*
-		$questions = DB::table('questions')->where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);*/
 		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
 	}
 

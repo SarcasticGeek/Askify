@@ -3,64 +3,26 @@
 
 class QuestionsController extends BaseController{
 
-	public $restful = true; // to create controller that manages photos
-	// to make actions respond to http verbs
-
-
+	public $restful = true; 
 	public function get_index() {
 		return View::make('Questions.index');
 	}
-
-	//no one can create quesiton before being logged in 
-	/*public function __construct(){
-		$this->filter('before', 'auth.basic')
-			->only(array('create'));
-	}*/
-
 	public function post_create() {
-
+	 $validation = Question::validate(Input::all());
+		if($validation->passes()){
 		$question = new Question;
 		$question->question = Input::get('question');
 		$question->user_id = Auth::user()->id;
 		$question->answerer_id = 0;
 		$question->solved = 0;
 		$question->save();
-		
-		/*Question::create(array(
-				'question' => Input::get('question'),
-				'id' => Auth::user()->id
-			));
-			*/
-
-			return Redirect::to('home') 
-				-> with('message', 'Your Question Has Been Successfully Posted');
-		
-
-		/*$validation = Question::validate(Input::all());
-		if($validation->passes())
-		{
-			// save question in db
-			Question::create(array(
-				'question' => Input::get('question'),
-				'id' => Auth::user()->id
-			));
-
-			return Redirect::route('Home') 
-				-> with('message', 'Your question has been successfully posted');
+		return Redirect::to('home') 
+			-> with('message', 'Your Question Has Been Successfully Posted');
+		}else {
+			return Redirect::to('home')->with('message','Please ask a question.');
 		}
-		else
-		{
-			// nfs l page bs hwareh l errors
-			return Redirect::route('Home') -> withErrors($validation)
-			 -> withInput();
-		}*/
+		
 	}
-	// public function get_your_Questions(){
-	// 	return View::make('home');
-	// 		//->with('title','Your Qs')->with('username',Auth::user()->username)
-	// 		//->with('questions',Question::your_questions());
-	// }
-
 	public function get_view($id = null){
 		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
 	}
@@ -81,9 +43,7 @@ class QuestionsController extends BaseController{
 			return Redirect::to('home')
 				->with('message','No key entered please try  again');
 		}
-		//return View::make('results');
 		return Redirect::route('results',$keyword);
-		/*return Redirect::to('thanks');*/
 	}
 
 	private function questionBelongsToCurrentUser($id){
@@ -103,7 +63,6 @@ class QuestionsController extends BaseController{
 			->with('title','Home')
 			->with('questions',Question::others_questions());
 	}
-	//Ziad Works
 	public function get_edit ($id = NULL) {
 		if(!$this->questionBelongsToCurrentUser($id)) {
 			return Redirect::route('your_questions')->with('message','Invalid Question');
@@ -126,6 +85,5 @@ class QuestionsController extends BaseController{
 
 		            }
 		}
-		//
 
 }

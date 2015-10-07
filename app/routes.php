@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/Questions', 'QuestionController@Ask');
-Route::post('/Questions', 'QuestionController@Take');
-
- Route::get('/',function(){
+Route::get('/',function(){
  	if(Auth::check()){
  		return Redirect::Route('others_questions');
  	}
@@ -31,9 +28,6 @@ Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
 
 
-/*Route::get('/home', function(){
-	return View::make('home');
-});*/
 Route::get('/home',array('before' => 'auth','as'=>'others_questions','uses'=>'QuestionsController@get_others_questions'));
 
 
