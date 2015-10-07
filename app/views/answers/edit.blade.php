@@ -7,18 +7,23 @@
 </style>
 @section('content')
 @if(Session::has('message'))
-			<p id="message">{{ Session::get('message') }}</p>
+			<div class="alert alert-success" role="alert">
+			{{ Session::get('message') }}
+			</div>
 		@endif
-    <h1>{{ ucfirst($question->user->username) }} asks:</h1>
-    <p>
-        {{ e($question->question) }}
-    </p>
-
+    <div class="panel panel-default">
+    <div class="panel-heading"><h2 class="panel-title">{{ ucfirst($question->user->username) }} asks:</h2></div>
+    <div class="panel-body">
+      </h3 > {{ e($question->question) }}</h3>
+    </div>
+</div>
 @if($errors->has())
+	<div class="alert alert-danger" role="alert">
 	<p>ERRORS</p>
 	<ul id="form-errors">
 		{{ $errors->first('answer','<li>:message</li>') }}
-		</ul>
+	</ul>
+	</div>
 		
 @endif
 @if(Auth::check())

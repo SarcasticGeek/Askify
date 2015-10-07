@@ -7,19 +7,23 @@
 </style>
 @section('content')
 @if(Session::has('message'))
-			<p id="message">{{ Session::get('message') }}</p>
+	<div class="alert alert-success" role="alert">
+			{{ Session::get('message') }}
+			</div>
 		@endif
-    <h1>{{ ucfirst($question->user->username) }} asks:</h1>
-    <p>
-        {{ e($question->question) }}
-    </p>
-
+<div class="panel panel-default">
+    <div class="panel-heading"><h2 class="panel-title">{{ ucfirst($question->user->username) }} asks:</h2></div>
+    <div class="panel-body">
+      </h3 > {{ e($question->question) }}</h3>
+    </div>
+</div>
 @if($errors->has())
+	<div class="alert alert-danger" role="alert">
 	<p>ERRORS</p>
 	<ul id="form-errors">
 		{{ $errors->first('answer','<li>:message</li>') }}
-		</ul>
-		
+	</ul>
+	</div>
 @endif
 @if(Auth::check())
 	@if(Auth::User()->iFadmin == 1)
@@ -33,9 +37,7 @@
 	    {{Form::submit('Answer',array('class'=>'btn btn-success'))}}
 		
 		{{Form::close()}}
-		@if($message = Session::get('message'))
-		{{$message}}
-		@endif
+		
 	</div>
 	@endif
 @else 
@@ -46,14 +48,17 @@
 	@if(count($question->answers)==0)
 		<p>No Answrer</p>
 	@else
-	<ul>
+	<ul class="list-group">
 		@foreach($question->answers as $answer)
-		<li>{{ e($answer->answer) }}  
+		<li class="list-group-item"><h4 class="list-group-item-heading" >{{ e($answer->answer) }}  </h4>
+		<h5> updated at : {{ date('h:i A d/m/Y',strtotime($answer->updated_at)) }}
+
 		@if(Auth::check())
 			@if($answer->user_id === Auth::User()->id)
-			-- {{ HTML::linkRoute('edit_answer','Edit my Answer',$answer->id) }}
+			 {{ HTML::linkRoute('edit_answer','Edit my Answer',$answer->id,array('class' => 'btn btn-default','role'=>'button')) }}
 			@endif
-		@endif	
+		@endif
+		</h5>	
 		</li>
 		@endforeach
 	</ul>
