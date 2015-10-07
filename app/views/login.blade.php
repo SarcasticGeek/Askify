@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Sign In</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="shortcut icon" href="images/favicon.ico">
 <style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
 
