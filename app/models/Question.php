@@ -39,13 +39,13 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Answer');
 	}
 	public  static function unsolved(){
-		return static::where('solved','=',0)->orderBy('id','DESC')->paginate(3);
+		return static::where('solved','=',0)->orderBy('id','DESC')->paginate(4);
 	}
 	public static function your_questions(){
-		return static::where('user_id','=',Auth::user()->id)->paginate(3);
+		return static::where('user_id','=',Auth::user()->id)->paginate(4);
 	}
 	public static function others_questions(){
-		return static::where('user_id','!=',Auth::user()->id)->paginate(3);
+		return static::where('user_id','!=',Auth::user()->id)->paginate(4);
 	}
 	///END OF CONFIGS
 
