@@ -57,7 +57,7 @@ class RegisterController extends BaseController{
                             'name' => $user->username,
                             'code' => $activation_code), function($message) use ($user) {
                             $message->to(Input::get('email'), 'Please activate your account.')->subject('Askify Mail Verification');});
-                        return View::make('thanks');
+                        return View::make('thanksconf');
                     }
 					}
 				else if(Input::get('password') != Input::get('conpassword'))
