@@ -21,8 +21,15 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $fillable = array('name');
+	protected $fillable = array('name','user_id');
+	public static $rules = array(
+		'name' => 'required|alpha_dash|between:4,128'
+		);
 
+	public static function validate($data)
+	{
+		return Validator::make($data,static::$rules);
+	}
 	public function questions()
 	{
 		return $this->belongsToMany('Question');
