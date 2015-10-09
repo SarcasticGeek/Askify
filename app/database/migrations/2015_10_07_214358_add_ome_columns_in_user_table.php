@@ -14,7 +14,7 @@ class AddOmeColumnsInUserTable extends Migration {
 	{
 		Schema::table("users",function($table){
 			$table->boolean('confirmed')->default(0);
-			$table->string('confirmationcode ')->default('');
+			$table->string('confirmationcode')->default('');
 		});
 	}
 
