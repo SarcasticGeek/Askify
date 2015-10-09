@@ -15,7 +15,7 @@ class ConfirmationController extends BaseController{
                 $found = true;
                 DB::table('users')
                 ->where('username', $user->username)
-                ->update(array('confirmationcode' => '','confirmed'=>1));
+                ->update(array('confirmationcode' => '','confirmed'=>true));
                 $userx =  DB::table('users')
                 ->where('username', $user->username);
                 $userx = User::find($user->id);
