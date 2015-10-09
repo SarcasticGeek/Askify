@@ -42,21 +42,12 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return static::where('solved','=',0)->orderBy('id','DESC')->paginate(4);
 	}
 
-	/*public static function your_questions(){
+	public static function your_questions(){
 		return static::where('user_id','=',Auth::user()->id)->paginate(4);
 	}
 	public static function others_questions(){
 		return static::where('user_id','!=',Auth::user()->id)->paginate(4);
-	}*/
-
-	//rana 
-	public static function your_questions(){
-		return static::where('user_id','=',Auth::user()->id)->orderBy('solved','ASC')->paginate(4);
 	}
-	public static function others_questions(){
-		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(4);
-	}
-	//
 
 	///END OF CONFIGS
 

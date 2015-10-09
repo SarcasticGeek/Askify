@@ -23,6 +23,9 @@ class QuestionsController extends BaseController{
 		}
 		
 	}
+	public function post_image(){
+		return View::make('upload')->with('title','Upload Image');
+	}
 	public function get_view($id = null){
 		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
 	}

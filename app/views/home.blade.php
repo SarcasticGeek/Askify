@@ -31,18 +31,21 @@
 		width:40px;
 		margin: 50px;
 	}
-
+	
 	
 </style>
 @section('content')
 @if(Auth::User()->iFadmin != 1)
  <div class="question">
 
- 	{{Form::open(array('url'=>'home'))}}
+ 	{{Form::open(array('url'=>'home', 'files'=>true))}}
  	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
-    {{Form::submit('Ask',array('class'=>'btn btn-success '))}}
-	
+    {{Form::submit('Ask',array('class'=>'btn btn-success pull-right', 'style'=>'margin:3px'))}}
+    <a href="upload">
+		<button type="button" class ="btnnn" style="margin:5px;">Upload Image!</button>
+	</a>
 	{{Form::close()}}
+
 	@if($message = Session::get('message'))
 	{{$message}}
 	@endif

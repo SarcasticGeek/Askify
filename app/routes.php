@@ -58,3 +58,5 @@ Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csr
 Route::get('answer/{num?}/edit',array('before' => 'auth','before'=>'ifAdmin','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
 Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_update'));
 
+//rana
+Route::get('/upload',array('before' => 'auth','uses'=>'QuestionsController@post_image'));
