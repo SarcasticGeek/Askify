@@ -16,6 +16,7 @@ class RegisterController extends BaseController{
 		array('username'=>'required','email'=>'required|email',
 		'password'=>'required','conpassword'=>'required'));
 		$user_flag = 0;
+        $activation_code = str_random(60);
 		$users = (array)DB::table('users')->get();
 		$message = '';
 		foreach ($users as $user)
@@ -48,10 +49,16 @@ class RegisterController extends BaseController{
 					$user->email=Input::get('email');
 					$user->username=Input::get('username');
 					$user->password=Hash::make(Input::get('password'));
-					$user->save();
-					if(Auth::attempt($credit,true)){
-						return Redirect::intended('/home');
-						}
+                    $user->confirmationcode = $activation_code;
+                    $user->confirmed = false;
+					if($user->save())
+                    {
+                        Mail::queue('emails.activateAccount', array(
+                            'name' => $user->username,
+                            'code' => $activation_code), function($message) use ($user) {
+                            $message->to(Input::get('email'), 'Please activate your account.')->subject('Askify Mail Verification');});
+                        return View::make('thanks');
+                    }
 					}
 				else if(Input::get('password') != Input::get('conpassword'))
 					return Redirect::to('/register')->withInput()->with('signuperror','Password and confirm Password doesn\'t match');
