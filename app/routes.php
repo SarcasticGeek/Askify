@@ -57,4 +57,6 @@ Route::post('question/update',array('before' => 'auth','before'=>'csrf','uses'=>
 Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_answer'));
 Route::get('answer/{num?}/edit',array('before' => 'auth','before'=>'ifAdmin','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
 Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_update'));
+Route::get('/{confirmationCode}','ConfirmationController@confirmationState');
+Route::post('/emailconf','ConfirmationController@postConfirmation');
 
