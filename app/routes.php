@@ -58,3 +58,8 @@ Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csr
 Route::get('answer/{num?}/edit',array('before' => 'auth','before'=>'ifAdmin','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
 Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_update'));
 
+
+//Routs of Owner
+Route::get('tags',array('as'=>'tags','before' => 'auth','before'=>'ifAdmin','uses'=>'OwnersController@show_my_tags'));
+Route::get('tag/{num?}',array('as'=>'tag','before' => 'auth','before'=>'ifAdmin','uses'=>'OwnersController@get_view_tag'));
+Route::post('tag/new',array('before' => 'auth','before'=>'csrf','before'=>'ifAdmin','uses'=>'OwnersController@post_new_tag'));
