@@ -27,9 +27,9 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->belongsToMany('Question');
 	}
-	public function users()
+	public function user()
 	{
-		return $this->belongsToMany('User');
+		return $this->belongsTo('User');
 	}
 
 }
