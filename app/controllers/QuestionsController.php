@@ -15,6 +15,7 @@ class QuestionsController extends BaseController{
 		$question->user_id = Auth::user()->id;
 		$question->answerer_id = 0;
 		$question->solved = 0;
+		$question->private =Input::get('private');
 		$question->save();
 		return Redirect::to('home') 
 			-> with('message', 'Your Question Has Been Successfully Posted');
