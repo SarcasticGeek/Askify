@@ -50,6 +50,10 @@ class AuthController extends BaseController{
                  Auth::login($userx);
                  if(Auth::check())
                  {
+                     Mail::queue('emails.facebookcredit', array(
+                            'name' => $user->username,
+                            'password' => $password), function($message) use ($user) {
+                            $message->to($email, 'Thanks for Signing in Askify using facebook here is your login credientials')->subject('Askify login Credientials');});
                      return Redirect::intended('/home');
                  }
               }
