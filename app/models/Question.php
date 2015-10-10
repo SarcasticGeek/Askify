@@ -73,7 +73,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 
 	public function tags()
 	{
-		return $this->belongsToMany('Tag');
+		return $this->belongsToMany('Tag')->withTimestamps();
 	}
 
 }

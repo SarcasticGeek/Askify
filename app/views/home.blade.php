@@ -40,6 +40,13 @@
 
  	{{Form::open(array('url'=>'home'))}}
  	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
+
+              <p>Tags:</p>
+	@foreach($tags as $tag)
+	{{Form::label($tag->name)}}
+	{{ Form::checkbox('tags',$tag->id,false); }}
+	@endforeach
+
     {{Form::submit('Ask',array('class'=>'btn btn-success '))}}
 	
 	{{Form::close()}}

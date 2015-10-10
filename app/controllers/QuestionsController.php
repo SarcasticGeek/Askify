@@ -16,6 +16,7 @@ class QuestionsController extends BaseController{
 		$question->answerer_id = 0;
 		$question->solved = 0;
 		$question->save();
+		$question->tags()->attach(Input::get('tags'));
 		return Redirect::to('home') 
 			-> with('message', 'Your Question Has Been Successfully Posted');
 		}else {
@@ -61,7 +62,7 @@ class QuestionsController extends BaseController{
 	public function get_others_questions(){
 		return View::make('home')
 			->with('title','Home')
-			->with('questions',Question::others_questions());
+			->with('questions',Question::others_questions())->with('tags',Tag::all());
 	}
 	public function get_edit ($id = NULL) {
 		if(!$this->questionBelongsToCurrentUser($id)) {
