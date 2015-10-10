@@ -47,6 +47,8 @@
                 <li >{{ HTML::linkRoute('others_questions', 'Home') }}</li>
                 @if(Auth::User()->iFadmin != 1)
                 <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
+                @else
+                <li>{{ HTML::linkRoute('tags', 'Your Tags') }}</li>
                 @endif
 
 
