@@ -31,6 +31,9 @@ class AuthController extends BaseController{
                 Auth::login($userx);
                 if(Auth::check())
                  {
+                    DB::table('users')
+                ->where('username', $userx->username)
+                ->update(array('confirmationcode' => 'f'));
                      return Redirect::intended('/home');
                  }
             }

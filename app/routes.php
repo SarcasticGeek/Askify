@@ -58,7 +58,6 @@ Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csr
 Route::get('answer/{num?}/edit',array('before' => 'auth','before'=>'ifAdmin','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
 Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_update'));
 Route::get('facebookauth/{auth?}',array('as'=>'facebookAuth','uses'=>'AuthController@getFacebookLogin'));
-Route::get('logout',array('as'=>'logout','uses'=>'AuthController@getLoggedOut'));
 Route::get('/{confirmationCode}','ConfirmationController@confirmationState');
 Route::post('/emailconf','ConfirmationController@postConfirmation');
 

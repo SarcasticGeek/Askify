@@ -43,6 +43,9 @@ class LoginController extends BaseController{
             if($flag_confirmed == true)
             {
 			if(Auth::attempt($credit,true)){
+                DB::table('users')
+                ->where('username', $username)
+                ->update(array('confirmationcode' => ''));
 			return Redirect::intended('/home');
 			}
             }
