@@ -25,7 +25,6 @@ body{
             @endforeach
         </ul>
 
-        {{ $questions->links() }}
         
     @endif
     
