@@ -61,5 +61,5 @@ Route::get('facebookauth/{auth?}',array('as'=>'facebookAuth','uses'=>'AuthContro
 Route::get('/{confirmationCode}','ConfirmationController@confirmationState');
 Route::post('/emailconf','ConfirmationController@postConfirmation');
 
-Route::get('notifications',array('before' => 'auth','before'=>'ifAdmin','after'=>'update','as'=>'notifications','uses'=>'AnswersController@show_notifications'));
+Route::get('/home/notifications',array('before' => 'auth','before'=>'ifAdmin','after'=>'update','as'=>'notifications','uses'=>'AnswersController@show_notifications'));
 
