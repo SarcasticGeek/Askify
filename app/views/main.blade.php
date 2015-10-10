@@ -23,7 +23,16 @@
 @section('header')
 
 @show
+  <style>
+    #notify {
+      background-color: orange;
+      color: white;
+      padding: 2px 20px;
+      text-decoration: none;
+      border-radius: 4px 4px 0 0;
 
+    }
+  </style>
 </head>
 <body>
     <!-- header section -->
@@ -47,6 +56,10 @@
                 <li >{{ HTML::linkRoute('others_questions', 'Home') }}</li>
                 @if(Auth::User()->iFadmin != 1)
                 <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
+                @elseif(count(Notification::unread())===0)
+                  <li id=>{{ HTML::linkRoute('notifications', 'notifications (0)') }}</li>
+                @else
+                  <li id="notify">{{ HTML::linkRoute('notifications', "notifications (".Notification::unread()->count().")") }}</li>
                 @endif
 
 

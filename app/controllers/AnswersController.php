@@ -47,6 +47,12 @@ class AnswersController extends BaseController {
 			return Redirect::route('edit_answer',$id)->withErrors($validation)->withInput();
 		}
 	}
+
+	public function show_notifications(){
+
+		return View::make('notifications')->with('notifications',Notification::unread())
+			->with('older',Notification::read());
+	}
 }
 
 

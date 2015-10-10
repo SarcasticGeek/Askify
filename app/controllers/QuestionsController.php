@@ -16,6 +16,12 @@ class QuestionsController extends BaseController{
 		$question->answerer_id = 0;
 		$question->solved = 0;
 		$question->save();
+
+			$notification = new Notification();
+			$notification->user_id = Auth::user()->id;
+			$notification->question_id = $question->id;
+			$notification->is_read = 0;
+			$notification->save();
 		return Redirect::to('home') 
 			-> with('message', 'Your Question Has Been Successfully Posted');
 		}else {
