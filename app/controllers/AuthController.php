@@ -44,16 +44,18 @@ class AuthController extends BaseController{
               $newuser->password=Hash::make($password);
               $newuser->confirmationcode = 'f';
               $newuser->confirmed = true;
+              Mail::queue('emails.facebookcredit', array(
+                'name' => $username,
+                'password' => $password), function($message) use ($newuser)
+                          {
+                            $message->to($newuser->email, 'Thanks for Signing in Askify using facebook here is your login credientials')->subject('Askify login Credientials');});
               if($newuser->save())
               {
                  $userx = User::find($newuser->id);
                  Auth::login($userx);
                  if(Auth::check())
                  {
-                     Mail::queue('emails.facebookcredit', array(
-                            'name' => $user->username,
-                            'password' => $password), function($message) use ($user) {
-                            $message->to($email, 'Thanks for Signing in Askify using facebook here is your login credientials')->subject('Askify login Credientials');});
+
                      return Redirect::intended('/home');
                  }
               }
