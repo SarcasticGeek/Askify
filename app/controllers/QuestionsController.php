@@ -73,27 +73,47 @@ class QuestionsController extends BaseController{
 			->with('title','Home')
 			->with('questions',Question::others_questions())->with('tags',Tag::all());
 	}
+	
 	public function get_edit ($id = NULL) {
 		if(!$this->questionBelongsToCurrentUser($id)) {
 			return Redirect::route('your_questions')->with('message','Invalid Question');
 		}
-            			return View::make('Questions.edit')->with('title','Edit')->with('question',Question::find($id));  
-		}
+        return View::make('Questions.edit')->with('title','Edit')->with('question',Question::find($id));  
+	}
 
 	public function post_update() {
 		$id = Input::get('question_id');
 		if(!$this->questionBelongsToCurrentUser($id)) {
 			return Redirect::route('your_questions')->with('message','Invalid Question');
 		}
-		            $validation = Question::validate(Input::all());//array(Input::get('question'),Input::get('solved')));
-		            if ($validation->passes()) {
+		$validation = Question::validate(Input::all());//array(Input::get('question'),Input::get('solved')));
+		if ($validation->passes()) {
 			Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved')));
-				return Redirect::route('question',$id)->with('message','Your question has been updated');
-		            }  
-		            else {
-		            	return Redirect::route('edit_question',$id)->withErrors($validation);
+			return Redirect::route('question',$id)->with('message','Your question has been updated');
+		    }  
+		else {
+			return Redirect::route('edit_question',$id)->withErrors($validation);
 
-		            }
+		    }
+	}
+	
+	public function get_delete ($id = NULL) {
+		if(!$this->questionBelongsToCurrentUser($id)) {
+			return Redirect::route('your_questions')->with('message','Invalid Question');
 		}
+		
+        return View::make('Questions.delete')->with('question',Question::find($id));  
+	}
+
+	public function post_delete($id) {
+		$f=Question::find($id);
+		if($f){
+			$f->delete();
+			return Redirect::route('your_questions')->with('message','your question has been deleted');
+		}  
+		return Redirect::route('your_questions')->with('message','not found');;
+		}
+		
+		
 
 }

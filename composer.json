@@ -5,8 +5,11 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
+ 
 		"barryvdh/laravel-debugbar": "~1.8",
         "hybridauth/hybridauth":"dev-master"
+
+
 	},
 	"autoload": {
 		"classmap": [
@@ -34,5 +37,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "dev"
 }
