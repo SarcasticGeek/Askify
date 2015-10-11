@@ -36,7 +36,7 @@
         padding-bottom: 5px;
     }
     .notification{
-        margin-bottom:100px;
+        margin-bottom:200px;
     }
 
 </style>
