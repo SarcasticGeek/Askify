@@ -7,16 +7,21 @@ body{
 }
 #footer
 {
-    bottom: -319; 
+<<<<<<< HEAD
+    margin-bottom: 150px; 
+=======
+    bottom: -500; 
+>>>>>>> origin/Catgroize_and_search_tags
 }
 </style>
 @section('content')
     <h1>Search Results</h1>
-    @if(count($questions)===0)
-        <p>Nothing found, please try a different search.</p>
+    @if(count($questions)===0) 
+
+        <p>No Questions found, please try a different search.</p>
     @else
         <ul>
-            @foreach($questions as $question_)
+            @foreach($questions as $question_) 
                 <li>
                     {{ HTML::linkRoute('question', $question_->question, $question_->id) }}
                     by {{ ucfirst($question_->user->username) }}
@@ -24,6 +29,31 @@ body{
             @endforeach
         </ul>
 
+<<<<<<< HEAD
         {{ $questions->links() }}
+=======
+>>>>>>> origin/Catgroize_and_search_tags
+        
     @endif
+    
+    @if(Auth::User()->iFadmin ==1)
+    
+      @if(count($tags)===0)  
+
+        <p>No tags found, please try a different search.</p>
+    @else
+        <ul>
+            
+            @foreach($tags as $tag) 
+                <li>
+                    {{ HTML::linkRoute('tag', $tag->name, $tag->id) }}
+                </li>
+            @endforeach
+
+        </ul>
+
+        @endif
+        
+    @endif
+   
 @stop

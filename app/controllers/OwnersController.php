@@ -25,6 +25,9 @@ class OwnersController extends BaseController {
 			return Redirect::route('tags')->withErrors($validation)->withInput();
 		}
 	}
+
+	
+
 }
 
 
