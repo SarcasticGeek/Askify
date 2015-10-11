@@ -53,6 +53,7 @@ class LoginController extends BaseController{
               $banned = Report::where('user_id',$user_id)->get()->first();
 
               if($banned!=null){
+                setcookie('banned','1',time()-(86400*30)); //86400 = 1 day
                 return Redirect::to('user/banned');
               }
 

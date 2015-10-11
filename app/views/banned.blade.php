@@ -13,6 +13,12 @@
 
 <div id="ban-result">
 <p>Sorry This Account Has Been Banned. You Can't Access The Website</p>
+@if(isset($_COOKIE['banned']))
+<br>
+<br>
+<br><br>
+@endif
+@if(!isset($_COOKIE['banned']))
 <p>More Info:</p>
 <?php
 $user = Auth::User();
@@ -25,6 +31,7 @@ echo "Your Question: $question";
 echo "<br>";
 echo "Reason: $reason";
 ?>
+@endif
 </div>
 
 @stop
