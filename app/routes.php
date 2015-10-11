@@ -28,27 +28,27 @@ Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
 
 
-Route::get('/home',array('before' => 'auth','as'=>'others_questions','uses'=>'QuestionsController@get_others_questions'));
+Route::get('/home',array('before' => array('auth','banned'),'as'=>'others_questions','uses'=>'QuestionsController@get_others_questions'));
 
 
 Route::get('/logout',array('as'=>'logout','uses'=>'LogoutController@doLogout'));
 
 
 Route::post('/home','QuestionsController@post_create');
-Route::get('/edit',array('as'=>'edit','uses'=>'EditController@showEdit'))->before('auth');
+Route::get('/edit',array('as'=>'edit','uses'=>'EditController@showEdit'))->before('auth|banned');
 
 
 Route::post('/edit',array('before'=>'csrf',
  	'uses'=>'EditController@doEdit'));
 
 
-Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController@get_view'));
+Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController@get_view','before'=>'auth|banned'));
 
 
 Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
 Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_search'));
 
-Route::get('your_questions',array('before' => 'auth','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
+Route::get('your_questions',array('before' => 'auth|banned','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
 //Routs of ziad
 Route::get('question/{num?}/edit',array('as'=>'edit_question','uses'=>'QuestionsController@get_edit'));
 Route::post('question/update',array('before' => 'auth','before'=>'csrf','uses'=>'QuestionsController@post_update'));
@@ -60,4 +60,10 @@ Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before
 Route::get('facebookauth/{auth?}',array('as'=>'facebookAuth','uses'=>'AuthController@getFacebookLogin'));
 Route::get('/{confirmationCode}','ConfirmationController@confirmationState');
 Route::post('/emailconf','ConfirmationController@postConfirmation');
+
+//Routes of Report
+Route::get('/home/report/{username}/{question}',array('as'=>'home/report','before'=>'ifAdmin','uses'=>'ReportController@showReport'));
+Route::post('/home/report/{username}/{question}','ReportController@doReport');
+Route::get('user/banned',array('as'=>'user/banned','uses'=>'ReportController@showBanned'));
+
 

@@ -38,14 +38,25 @@ class LoginController extends BaseController{
                          //$message = $message.'not confirmed';
                  }
               }
-            
+
 
             if($flag_confirmed == true)
             {
 			if(Auth::attempt($credit,true)){
+
                 DB::table('users')
                 ->where('username', $username)
                 ->update(array('confirmationcode' => ''));
+
+                 //Check if the user is banned
+              $user_id = User::where('username',$username)->get()->first()->id;
+              $banned = Report::where('user_id',$user_id)->get()->first();
+
+              if($banned!=null){
+                return Redirect::to('user/banned');
+              }
+
+
 			return Redirect::intended('/home');
 			}
             }

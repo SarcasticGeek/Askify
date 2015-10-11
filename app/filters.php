@@ -97,3 +97,15 @@ Route::filter('csrf', function()
 	}
 });
 
+Route::filter('banned',function(){
+
+	if(Auth::check()){
+		$user_id = Auth::User()->id;
+		$ban = Report::where('user_id',$user_id)->get()->first();
+		if($ban !=null){
+			return Redirect::route('user/banned');
+		}
+	}
+
+});
+
