@@ -31,6 +31,10 @@
 		width:40px;
 		margin: 50px;
 	}
+	.questionlist ul img
+	{
+		border-radius: 50%;
+	}
 
 	
 </style>
@@ -54,7 +58,16 @@
 	@else
 	@foreach($questions as $question)
 		 	<ul>
-		 		<p><strong>{{ucfirst($question->user->username)}}</strong></p>
+		 		<p><strong>
+		 		<?php 
+		 		 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+		 		 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+		 		?>
+		 			  <img src="<?php echo $grav_url; ?>" hieght="40px" width="40px"> 
+
+		 		{{
+		 		ucfirst($question->user->username)
+		 		}}</strong></p>
 		 		<p>{{ str_limit($question->question,40,"...") }}</p> 
 		 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 				{{ HTML::linkRoute('question','View',$question->id) }}</p>
