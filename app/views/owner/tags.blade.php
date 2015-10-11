@@ -48,7 +48,7 @@
 @endif
 @if(Auth::check())
      <div class="answer">
- {{Form::open(array('url'=>'tag/new','method'=> 'post'))}}
+ {{Form::open(array('url'=>'owner/tag/new','method'=> 'post'))}}
 {{Form::token()}}
  	<div class="input-group input-group-lg">
   <span class="input-group-addon" id="sizing-addon1">Add A Tag</span>

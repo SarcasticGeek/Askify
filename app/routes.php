@@ -67,3 +67,7 @@ Route::post('/home/report/{username}/{question}','ReportController@doReport');
 Route::get('user/banned',array('as'=>'user/banned','uses'=>'ReportController@showBanned'));
 
 
+//Routs of Owner
+Route::get('owner/tags',array('as'=>'tags','before' => 'auth','before'=>'ifAdmin','uses'=>'OwnersController@show_my_tags'));
+Route::get('owner/tag/{num?}',array('as'=>'tag','before' => 'auth','before'=>'ifAdmin','uses'=>'OwnersController@get_view_tag'));
+Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>'ifAdmin','uses'=>'OwnersController@post_new_tag'));
