@@ -62,11 +62,7 @@ session_start();
 		 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 				{{ HTML::linkRoute('question','View',$question->id) }}</p>
 				@if(Auth::User()->iFadmin == 1)
-				<?php
-				$reported = $question->user->username;
-				$_SESSION['reported'] = $reported;
-				?>
-				<a href="home/report">Report User</a>
+				{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
 				@endif
 			</ul>
 	@endforeach

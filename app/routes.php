@@ -61,6 +61,7 @@ Route::get('/{confirmationCode}','ConfirmationController@confirmationState');
 Route::post('/emailconf','ConfirmationController@postConfirmation');
 
 //Routes of Report
-Route::get('/home/report',array('before'=>'ifAdmin','uses'=>'ReportController@showReport'));
+Route::get('/home/report/{username}/{question}',array('as'=>'home/report','before'=>'ifAdmin','uses'=>'ReportController@showReport'));
+Route::post('/home/report/{username}/{question}','ReportController@doReport');
 
 
