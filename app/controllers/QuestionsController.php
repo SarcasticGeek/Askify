@@ -78,7 +78,7 @@ class QuestionsController extends BaseController{
 		}
 		            $validation = Question::validate(Input::all());//array(Input::get('question'),Input::get('solved')));
 		            if ($validation->passes()) {
-			Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved')));
+			Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved'),'private'=> Input::get('private')));
 				return Redirect::route('question',$id)->with('message','Your question has been updated');
 		            }  
 		            else {

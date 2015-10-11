@@ -48,7 +48,7 @@
  	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
     {{Form::submit('Ask',array('class'=>'btn btn-success '))}}
    
-    {{Form::checkbox('private',1,true)}}
+    {{Form::checkbox('private',1,false)}}
     {{Form::label('Private Question')}}
 
 	
