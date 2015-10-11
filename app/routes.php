@@ -60,4 +60,4 @@ Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before
 
 //rana [img]
 Route::get('/upload',array('before' => 'auth','uses'=>'QuestionsController@get_image'));
-Route::post('/upload','QuestionsController@post_uploadImage');
+Route::post('/upload','QuestionsController@post_uploadToDropbox');

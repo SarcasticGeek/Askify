@@ -1,6 +1,12 @@
 
 <?php 
 
+
+use League\Flysystem\Dropbox\DropboxAdapter;
+use League\Flysystem\Filesystem;
+use Dropbox\Client;
+
+
 class QuestionsController extends BaseController{
 
 	public $restful = true; 
@@ -91,11 +97,36 @@ class QuestionsController extends BaseController{
 		return View::make('upload')->with('title','Upload Image');
 	}
 
-	public function post_uploadImage(DropboxStorageRepository $connection){
+	/*public function post_uploadToDropbox(){
+		$connection = new DropboxStorageRepository;
 		$filesystem = $connection->getConnection();
 		$file = Input::file('image');
-		$filesystem->put($file->getClientOriginName(), File::get('file'));
+		$filesystem->put($file->getClientOriginalName(), File::get('file'));
+		return Redirect::to('upload')->with('message','Image Uploaded Successfully!');
+	}*/
+	
+	public function post_uploadToDropbox(){
+		$connection = new DropboxStorageRepository;
+		$filesystem = $connection->getConnection();
+		$file = Input::get('http://limeblast.co.uk/wp-content/uploads/2013/07/laravel___ignited_by_rafdesign-d53afsw-632x316-1373977453.jpg');
+		$filesystem->put('Laravel', 'http://limeblast.co.uk/wp-content/uploads/2013/07/laravel___ignited_by_rafdesign-d53afsw-632x316-1373977453.jpg');
 		return Redirect::to('upload')->with('message','Image Uploaded Successfully!');
 	}
 
+}
+
+
+class DropboxStorageRepository{
+
+    protected $client;
+    protected $adapter;
+    public function __construct()
+    {
+        $this->client = new Client('accessTokenaccessTokenaccessToken', 'TestTest', null);
+        $this->adapter = new DropboxAdapter($this->client);
+    }
+    public function getConnection()
+    {
+        return new Filesystem($this->adapter);
+    }
 }

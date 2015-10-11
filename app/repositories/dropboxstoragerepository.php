@@ -1,4 +1,4 @@
-<?php namespace App\Repositories;
+<?php
 
 use League\Flysystem\Dropbox\DropboxAdapter;
 use League\Flysystem\Filesystem;
