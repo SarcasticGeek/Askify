@@ -32,8 +32,10 @@ class QuestionsController extends BaseController{
 	{
 		return View::make('results')
 			->with('title','Search results')
-			->with('questions',Question::search($keyword));
+			->with('questions',Question::search($keyword))->with('tags',Tag::search_tag($keyword));
 	}
+    
+	
 	public function post_search()
 	{
 		$keyword = Input::get('keyword');
@@ -45,7 +47,10 @@ class QuestionsController extends BaseController{
 				->with('message','No key entered please try  again');
 		}
 		return Redirect::route('results',$keyword);
+		
+
 	}
+	
 
 	private function questionBelongsToCurrentUser($id){
 		$question = Question::find($id);

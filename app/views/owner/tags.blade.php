@@ -31,6 +31,7 @@
 		width:40px;
 		margin: 50px;
 	}
+	
 
 	
 </style>
@@ -53,7 +54,7 @@
   <span class="input-group-addon" id="sizing-addon1">Add A Tag</span>
   <input type="text" class="form-control" name="name" placeholder="Add A Tag" aria-describedby="sizing-addon1">
 </div>
-    {{Form::submit('Add',array('class'=>'btn btn-success'))}}
+    {{Form::submit('Add',array('class'=>'btn btn1'))}}
 	
 	{{Form::close()}}
 	@if($message = Session::get('message'))

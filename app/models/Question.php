@@ -70,6 +70,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public static function search($keyword){
 		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
 	}
+	
 
 	public function tags()
 	{
