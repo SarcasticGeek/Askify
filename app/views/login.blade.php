@@ -46,6 +46,8 @@
       </a>
 
       <div class="container-fluid">
+          <a href="facebookauth">
+              <button type="button" class="btnnn">Sign In Using facebook</button></a>
   	<a href="register">
   	  	  	<button type="button" class="btnnn">Sign Up</button>
   	</a>
