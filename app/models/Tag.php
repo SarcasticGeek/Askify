@@ -15,6 +15,7 @@ class Tag extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'tags';
+	
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -38,6 +39,9 @@ class Tag extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->belongsTo('User');
 	}
-
+	
+public static function search_tag($keyword){
+		return static::where('name', 'LIKE', '%'.$keyword.'%')->paginate(3);
+	}
 }
 
