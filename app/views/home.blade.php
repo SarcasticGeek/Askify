@@ -41,6 +41,12 @@
 	
 </style>
 @section('content')
+<?php
+session_start();
+?>
+@if($reportsuccess = Session::get('report-success'))
+{{$reportsuccess}}
+@endif
 @if(Auth::User()->iFadmin != 1)
  <div class="question">
 
@@ -70,7 +76,11 @@
 		 		<p><strong>{{ucfirst($question->user->username)}}</strong></p>
 		 		<p>{{ str_limit($question->question,40,"...") }}</p> 
 		 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-				{{ HTML::linkRoute('question','View',$question->id) }}</p>
+				{{ HTML::linkRoute('question','View',$question->id) }}
+				@if(Auth::User()->iFadmin == 1)
+				{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+				@endif
+			</p>
 			</ul>
 			@endif
 	@endforeach
