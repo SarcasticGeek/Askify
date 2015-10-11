@@ -55,7 +55,6 @@
                
               </ul>
               {{ Form::open( array('url'=> 'search', 'class'=>'navbar-form navbar-left' ))}}
-              
 
                 {{ Form::token() }}
 

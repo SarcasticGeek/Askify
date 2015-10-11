@@ -31,7 +31,6 @@
 		width:40px;
 		margin: 50px;
 	}
-	
 
 	
 </style>
@@ -42,33 +41,19 @@
  	{{Form::open(array('url'=>'home'))}}
  	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
 
-  <div class="dropdown">
-  <button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown">Tags
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu dropdown-menu-right top1">
-    @foreach($tags as $tag)
-    <div class="checkbox">
-    <li>{{ Form::checkbox('tags',$tag->id,false)}}</li>
-                  <li> {{Form::label($tag->name) }}</li>
-                    
-                    @endforeach
-                </div>
-                </div>
+              <p>Tags:</p>
+	@foreach($tags as $tag)
+	{{Form::label($tag->name)}}
+	{{ Form::checkbox('tags',$tag->id,false); }}
+	@endforeach
 
-  </ul>
-</div>
-<br/>
-    {{Form::submit('Ask',array('class'=>'btn btn-infoo '))}}
+    {{Form::submit('Ask',array('class'=>'btn btn-success '))}}
 	
 	{{Form::close()}}
-
-
 	@if($message = Session::get('message'))
 	{{$message}}
 	@endif
-
 </div>
-
 @endif
  <div class="questionlist">
 	@if(!$questions)
@@ -86,4 +71,3 @@
 	@endif
  </div>
  @stop
- 
