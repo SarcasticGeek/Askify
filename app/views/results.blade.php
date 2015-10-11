@@ -7,7 +7,11 @@ body{
 }
 #footer
 {
+<<<<<<< HEAD
     margin-bottom: 150px; 
+=======
+    bottom: -500; 
+>>>>>>> origin/Catgroize_and_search_tags
 }
 </style>
 @section('content')
@@ -25,7 +29,10 @@ body{
             @endforeach
         </ul>
 
+<<<<<<< HEAD
         {{ $questions->links() }}
+=======
+>>>>>>> origin/Catgroize_and_search_tags
         
     @endif
     
