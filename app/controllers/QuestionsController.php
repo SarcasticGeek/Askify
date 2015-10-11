@@ -15,7 +15,11 @@ class QuestionsController extends BaseController{
 		$question->user_id = Auth::user()->id;
 		$question->answerer_id = 0;
 		$question->solved = 0;
-		$question->private =Input::get('private');
+		if(Input::get('private')==null){
+			$question->private = 0;
+		}else{
+			$question->private =Input::get('private');
+		}
 		$question->save();
 
 
