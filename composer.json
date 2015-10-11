@@ -7,9 +7,9 @@
 		"laravel/framework": "4.2.*",
  
 		"barryvdh/laravel-debugbar": "~1.8",
-        "hybridauth/hybridauth":"dev-master"
 
-
+        "hybridauth/hybridauth":"dev-master",
+		"pusher/pusher-php-server": "^2.2"
 	},
 	"autoload": {
 		"classmap": [

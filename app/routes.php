@@ -87,6 +87,10 @@ Route::get('facebookauth/{auth?}',array('as'=>'facebookAuth','uses'=>'AuthContro
 Route::get('/{confirmationCode}','ConfirmationController@confirmationState');
 Route::post('/emailconf','ConfirmationController@postConfirmation');
 
+
+Route::get('/home/notifications',array('before' => 'auth','before'=>'ifAdmin','after'=>'update','as'=>'notifications','uses'=>'AnswersController@show_notifications'));
+
+
 //Routes of Report
 Route::get('/home/report/{username}/{question}',array('as'=>'home/report','before'=>'ifAdmin','uses'=>'ReportController@showReport'));
 Route::post('/home/report/{username}/{question}','ReportController@doReport');
@@ -97,3 +101,4 @@ Route::get('user/banned',array('as'=>'user/banned','uses'=>'ReportController@sho
 Route::get('owner/tags',array('as'=>'tags','before' => 'auth','before'=>'ifAdmin','uses'=>'OwnersController@show_my_tags'));
 Route::get('owner/tag/{num?}',array('as'=>'tag','before' => 'auth','before'=>'ifAdmin','uses'=>'OwnersController@get_view_tag'));
 Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>'ifAdmin','uses'=>'OwnersController@post_new_tag'));
+

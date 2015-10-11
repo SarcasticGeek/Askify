@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src=" {{ asset('js/jquery-2.1.4.min.js')}}"></script>
-
+    <script src="//js.pusher.com/2.2/pusher.min.js"></script>
     <script type="text/javascript" src=" {{ asset('js/bootstrap.min.js')}}"></script>
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/bootstrapbing.css')}}" rel="stylesheet" type="text/css">
@@ -23,11 +23,22 @@
 @section('header')
 
 @show
+  <style>
+    #notify {
+      background-color: orange;
+      color: white;
+      padding: 2px 20px;
+      text-decoration: none;
+      border-radius: 4px 4px 0 0;
 
+    }
+
+
+  </style>
 </head>
 <body>
     <!-- header section -->
-    
+
 
   <div class="container">
       <div class="row">
@@ -47,8 +58,13 @@
                 <li >{{ HTML::linkRoute('others_questions', 'Home') }}</li>
                 @if(Auth::User()->iFadmin != 1)
                 <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
+
+                @elseif(count(Notification::unread())===0)
+                  <li id="old">{{ HTML::linkRoute('notifications', 'notifications (0)') }}</li>
+                      <li>{{ HTML::linkRoute('tags', 'Your Tags') }}</li>
                 @else
-                <li>{{ HTML::linkRoute('tags', 'Your Tags') }}</li>
+                  <li id="notify">{{ HTML::linkRoute('notifications', "notifications (".Notification::unread()->count().")") }}</li>
+                      <li>{{ HTML::linkRoute('tags', 'Your Tags') }}</li>
                 @endif
 
 

@@ -97,6 +97,15 @@ Route::filter('csrf', function()
 	}
 });
 
+
+
+Route::filter('update',function() {
+	foreach (Notification::unread() as $notification) {
+		$notification->is_read = 1;
+		$notification->save();
+	}
+});
+
 Route::filter('banned',function(){
 
 	if(Auth::check()){
@@ -106,6 +115,7 @@ Route::filter('banned',function(){
 			return Redirect::route('user/banned');
 		}
 	}
+
 
 });
 
