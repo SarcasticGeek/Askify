@@ -22,7 +22,7 @@
     </div>
 </div>
 <!-- Twitter -->
-<a href="http://twitter.com/home?status={{ e($question->question) }} #AskifyApp by {{ ucfirst($question->user->username) }} {{ Request::url();}} " title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+<a href="http://twitter.com/home?status={{ e($question->question) }} %23AskifyApp by {{ ucfirst($question->user->username) }} {{ Request::url();}} " title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
  <!-- Facebook -->
 <a href="https://www.facebook.com/sharer/sharer.php?u={{ e($question->question) }} #AskifyApp by {{ ucfirst($question->user->username) }} {{ Request::url();}} " title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
 <!-- Google+ -->
