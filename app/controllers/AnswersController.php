@@ -11,6 +11,8 @@ class AnswersController extends BaseController {
 				'user_id'=>Auth::user()->id,
 				'question_id' => $question_id
 				));
+			Question::where('id', '=', $question_id)->update(array(
+				'solved'=> 1));
 			
 			return Redirect::route('question',$question_id)->with('message',"Thanks for your Answer");
 		}else {

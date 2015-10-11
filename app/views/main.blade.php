@@ -58,16 +58,20 @@
                 <li >{{ HTML::linkRoute('others_questions', 'Home') }}</li>
                 @if(Auth::User()->iFadmin != 1)
                 <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
+
                 @elseif(count(Notification::unread())===0)
                   <li id="old">{{ HTML::linkRoute('notifications', 'notifications (0)') }}</li>
+                      <li>{{ HTML::linkRoute('tags', 'Your Tags') }}</li>
                 @else
                   <li id="notify">{{ HTML::linkRoute('notifications', "notifications (".Notification::unread()->count().")") }}</li>
+                      <li>{{ HTML::linkRoute('tags', 'Your Tags') }}</li>
                 @endif
 
 
                
               </ul>
               {{ Form::open( array('url'=> 'search', 'class'=>'navbar-form navbar-left' ))}}
+              
 
                 {{ Form::token() }}
 

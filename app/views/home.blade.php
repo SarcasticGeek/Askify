@@ -31,22 +31,42 @@
 		width:40px;
 		margin: 50px;
 	}
+	
 
 	
 </style>
 @section('content')
+<?php
+session_start();
+?>
+@if($reportsuccess = Session::get('report-success'))
+{{$reportsuccess}}
+@endif
 @if(Auth::User()->iFadmin != 1)
  <div class="question">
 
  	{{Form::open(array('url'=>'home'))}}
  	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
-    {{Form::submit('Ask',array('class'=>'btn btn-success '))}}
-	
+
+  <div class="dropdown">
+  <button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown">Tags
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu dropdown-menu-right top1">
+    @foreach($tags as $tag)
+    <li> {{Form::label($tag->name) }}
+    {{ Form::checkbox('tags[]',$tag->id,false)}}</li>       
+                    @endforeach              
+  </ul>
+</div>
+<br/>
+    {{Form::submit('Ask',array('class'=>'btn btn-infoo '))}}
 	{{Form::close()}}
 	@if($message = Session::get('message'))
 	{{$message}}
 	@endif
+
 </div>
+
 @endif
  <div class="questionlist">
 	@if(!$questions)
@@ -57,10 +77,15 @@
 		 		<p><strong>{{ucfirst($question->user->username)}}</strong></p>
 		 		<p>{{ str_limit($question->question,40,"...") }}</p> 
 		 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-				{{ HTML::linkRoute('question','View',$question->id) }}</p>
+				{{ HTML::linkRoute('question','View',$question->id) }}
+				@if(Auth::User()->iFadmin == 1)
+				{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+				@endif
+			</p>
 			</ul>
 	@endforeach
 	{{ $questions->links()}}
 	@endif
  </div>
  @stop
+ 

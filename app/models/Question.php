@@ -45,11 +45,12 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public  static function unsolved(){
 		return static::where('solved','=',0)->orderBy('id','DESC')->paginate(4);
 	}
+	
 	public static function your_questions(){
-		return static::where('user_id','=',Auth::user()->id)->paginate(4);
+		return static::where('user_id','=',Auth::user()->id)->orderBy('solved','ASC')->paginate(4);
 	}
 	public static function others_questions(){
-		return static::where('user_id','!=',Auth::user()->id)->paginate(4);
+		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(4);
 	}
 	///END OF CONFIGS
 
@@ -71,7 +72,13 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	***************************/	
 	public static function search($keyword){
-		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(3);
+		return static::where('question', 'LIKE', '%'.$keyword.'%');
+	}
+	
+
+	public function tags()
+	{
+		return $this->belongsToMany('Tag')->withTimestamps();
 	}
 
 }

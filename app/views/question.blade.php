@@ -11,7 +11,11 @@
 			</div>
 		@endif
 <div class="panel panel-default">
-    <div class="panel-heading"><h2 class="panel-title">{{ ucfirst($question->user->username) }} asks:</h2></div>
+    <div class="panel-heading"><h2 class="panel-title">{{ ucfirst($question->user->username) }} in tags: 
+    @foreach($question->tags as $tag)
+    #{{ $tag->name }} , 
+    @endforeach
+    asks:</h2></div>
     <div class="panel-body">
       </h3 > {{ e($question->question) }}</h3>
     </div>

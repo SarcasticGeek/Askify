@@ -17,11 +17,19 @@ class QuestionsController extends BaseController{
 		$question->solved = 0;
 		$question->save();
 
+
 			$notification = new Notification();
 			$notification->user_id = Auth::user()->id;
 			$notification->question_id = $question->id;
 			$notification->is_read = 0;
 			$notification->save();
+
+		//$question->tags()->attach(Input::get('tags'));
+		$tags = Input::get('tags');
+		foreach($tags as $tag){
+		    $question->tags()->attach($tag);
+		}
+
 		return Redirect::to('home') 
 			-> with('message', 'Your Question Has Been Successfully Posted');
 		}else {
@@ -37,8 +45,10 @@ class QuestionsController extends BaseController{
 	{
 		return View::make('results')
 			->with('title','Search results')
-			->with('questions',Question::search($keyword));
+			->with('questions',Question::search($keyword))->with('tags',Tag::search_tag($keyword));
 	}
+    
+	
 	public function post_search()
 	{
 		$keyword = Input::get('keyword');
@@ -50,7 +60,10 @@ class QuestionsController extends BaseController{
 				->with('message','No key entered please try  again');
 		}
 		return Redirect::route('results',$keyword);
+		
+
 	}
+	
 
 	private function questionBelongsToCurrentUser($id){
 		$question = Question::find($id);
@@ -67,7 +80,7 @@ class QuestionsController extends BaseController{
 	public function get_others_questions(){
 		return View::make('home')
 			->with('title','Home')
-			->with('questions',Question::others_questions());
+			->with('questions',Question::others_questions())->with('tags',Tag::all());
 	}
 	public function get_edit ($id = NULL) {
 		if(!$this->questionBelongsToCurrentUser($id)) {

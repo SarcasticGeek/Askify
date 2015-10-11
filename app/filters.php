@@ -98,12 +98,24 @@ Route::filter('csrf', function()
 });
 
 
-Route::filter('update',function()
-{
-	foreach(Notification::unread() as $notification)
-	{
+
+Route::filter('update',function() {
+	foreach (Notification::unread() as $notification) {
 		$notification->is_read = 1;
 		$notification->save();
 	}
+});
+
+Route::filter('banned',function(){
+
+	if(Auth::check()){
+		//$user_id = Auth::User()->id;
+		//$ban = Report::where('user_id',$user_id)->get()->first();
+		if(isset($_COOKIE['banned'])){
+			return Redirect::route('user/banned');
+		}
+	}
+
+
 });
 
