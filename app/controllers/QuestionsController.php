@@ -16,7 +16,11 @@ class QuestionsController extends BaseController{
 		$question->answerer_id = 0;
 		$question->solved = 0;
 		$question->save();
-		$question->tags()->attach(Input::get('tags'));
+		//$question->tags()->attach(Input::get('tags'));
+		$tags = Input::get('tags');
+		foreach($tags as $tag){
+		    $question->tags()->attach($tag);
+		}
 		return Redirect::to('home') 
 			-> with('message', 'Your Question Has Been Successfully Posted');
 		}else {

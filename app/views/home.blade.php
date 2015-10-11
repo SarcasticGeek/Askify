@@ -53,19 +53,13 @@ session_start();
   <span class="caret"></span></button>
   <ul class="dropdown-menu dropdown-menu-right top1">
     @foreach($tags as $tag)
-    <div class="checkbox">
-    <li>{{ Form::checkbox('tags',$tag->id,false)}}</li>
-                  <li> {{Form::label($tag->name) }}</li>
-                    
-                    @endforeach
-                </div>
-                </div>
-
+    <li> {{Form::label($tag->name) }}
+    {{ Form::checkbox('tags[]',$tag->id,false)}}</li>       
+                    @endforeach              
   </ul>
 </div>
 <br/>
     {{Form::submit('Ask',array('class'=>'btn btn-infoo '))}}
-	
 	{{Form::close()}}
 	@if($message = Session::get('message'))
 	{{$message}}
