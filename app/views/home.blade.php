@@ -38,6 +38,19 @@
 		vertical-align:-2px;
 		box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
 	}
+	#ask{
+		margin-left: -1000px;
+		margin-top: -5px;
+		width: 120px;
+	}
+	#label{
+		margin-top: -100px;
+		margin-left: 200px;
+	}
+	#tag{
+		margin-left: -10px;
+		margin-top: 30px;
+	}
 
 
 	
@@ -54,7 +67,7 @@ session_start();
 
  	{{Form::open(array('url'=>'home'))}}
  	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
-
+<div id="tag">
   <div class="dropdown">
   <button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown">Tags
   <span class="caret"></span></button>
@@ -62,14 +75,16 @@ session_start();
     @foreach($tags as $tag)
     <li> {{Form::label($tag->name) }}
     {{ Form::checkbox('tags[]',$tag->id,false)}}</li>       
-                    @endforeach              
+    @endforeach              
   </ul>
 </div>
+</div>
 <br/>
-    {{Form::submit('Ask',array('class'=>'btn btn-infoo '))}}
-   
+    {{Form::submit('Ask',array('class'=>'btn btn-infoo ','id'=>'ask'))}}
+   <div id="label">
     {{Form::checkbox('private',1,false)}}
     {{Form::label('Private Question')}}
+</div>
 	{{Form::close()}}
 
 	@if($message = Session::get('message'))
