@@ -61,8 +61,6 @@
     {{Form::submit('Ask',array('class'=>'btn btn-infoo '))}}
 	
 	{{Form::close()}}
-
-
 	@if($message = Session::get('message'))
 	{{$message}}
 	@endif
