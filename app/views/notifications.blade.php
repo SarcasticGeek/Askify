@@ -5,7 +5,7 @@
         background-color: lightgray;
         border-radius:5px;
         margin:-13px;
-        margin-bottom: 10px;
+
         margin-top: 10px;
         margin-bottom: 20px;
         padding: 20px;
@@ -17,7 +17,7 @@
         background-color: orange;
         border-radius:5px;
         margin:-13px;
-        margin-bottom: 10px;
+
         margin-top: 10px;
         margin-bottom: 20px;
         padding: 20px;
@@ -28,15 +28,20 @@
         text-align: left;
         border-radius:5px;
         margin:-13px;
-        margin-bottom: 10px;
+
         margin-top: 20px;
         margin-bottom: 20px;
         padding: 20px;
         padding-top: 5px;
         padding-bottom: 5px;
     }
+    .notification{
+        margin-bottom:100px;
+    }
+
 </style>
 @section('content')
+    <div class="notification">
     <h1>New Notifications</h1>
     <div class="unread">
         @if(count($notifications)===0)
@@ -69,5 +74,6 @@
             @endforeach
             {{ $older->links()}}
         @endif
+    </div>
     </div>
 @endsection

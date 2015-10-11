@@ -15,7 +15,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src=" {{ asset('js/jquery-2.1.4.min.js')}}"></script>
-
+    <script src="//js.pusher.com/2.2/pusher.min.js"></script>
     <script type="text/javascript" src=" {{ asset('js/bootstrap.min.js')}}"></script>
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/bootstrapbing.css')}}" rel="stylesheet" type="text/css">
@@ -32,11 +32,13 @@
       border-radius: 4px 4px 0 0;
 
     }
+
+
   </style>
 </head>
 <body>
     <!-- header section -->
-    
+
 
   <div class="container">
       <div class="row">
@@ -57,7 +59,7 @@
                 @if(Auth::User()->iFadmin != 1)
                 <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
                 @elseif(count(Notification::unread())===0)
-                  <li id=>{{ HTML::linkRoute('notifications', 'notifications (0)') }}</li>
+                  <li id="old">{{ HTML::linkRoute('notifications', 'notifications (0)') }}</li>
                 @else
                   <li id="notify">{{ HTML::linkRoute('notifications', "notifications (".Notification::unread()->count().")") }}</li>
                 @endif
