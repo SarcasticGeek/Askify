@@ -23,9 +23,6 @@ class QuestionsController extends BaseController{
 		}
 		
 	}
-	public function post_image(){
-		return View::make('upload')->with('title','Upload Image');
-	}
 	public function get_view($id = null){
 		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
 	}
@@ -87,6 +84,18 @@ class QuestionsController extends BaseController{
 		            	return Redirect::route('edit_question',$id)->withErrors($validation);
 
 		            }
-		}
+	}
+
+	//rana [img]
+	public function get_image(){
+		return View::make('upload')->with('title','Upload Image');
+	}
+
+	public function post_uploadImage(DropboxStorageRepository $connection){
+		$filesystem = $connection->getConnection();
+		$file = Input::file('image');
+		$filesystem->put($file->getClientOriginName(), File::get('file'));
+		return Redirect::to('upload')->with('message','Image Uploaded Successfully!');
+	}
 
 }

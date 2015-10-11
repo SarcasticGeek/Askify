@@ -38,7 +38,7 @@
 @if(Auth::User()->iFadmin != 1)
  <div class="question">
 
- 	{{Form::open(array('url'=>'home', 'files'=>true))}}
+ 	{{Form::open(array('url'=>'home'))}}
  	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
     {{Form::submit('Ask',array('class'=>'btn btn-success pull-right', 'style'=>'margin:3px'))}}
     <a href="upload">
