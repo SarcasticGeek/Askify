@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
+		"mews/captcha": "dev-master-l4"
 		"barryvdh/laravel-debugbar": "~1.8"
 	},
 	"autoload": {
@@ -33,5 +34,5 @@
 	"config": {
 		"preferred-install": "dist"
 	},
-	"minimum-stability": "stable"
+	"minimum-stability": "dev"
 }

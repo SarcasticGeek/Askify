@@ -25,7 +25,9 @@
 				<ul>
 					<p>{{ str_limit($question->question,40,"...") }}</p>
 					<p style="font-size: 12px">({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}}) {{ HTML::linkRoute('question','View',$question->id) }}--
-					  {{ HTML::linkRoute('edit_question','Edit',$question->id)}}</p>
+					  {{ HTML::linkRoute('edit_question','Edit',$question->id)}}--
+					  {{ HTML::linkRoute('delete_question','Delete',$question->id)}}</p>
+					  
 					
 				</ul>
 			 @endforeach

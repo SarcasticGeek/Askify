@@ -16,6 +16,7 @@
       </h3 > {{ e($question->question) }}</h3>
     </div>
 </div>
+
 @if($errors->has())
 	<div class="alert alert-danger" role="alert">
 	<p>ERRORS</p>
@@ -63,4 +64,5 @@
 	</ul>
 	@endif	
 	</div>
+
 @stop
