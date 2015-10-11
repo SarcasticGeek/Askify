@@ -15,6 +15,10 @@ class ReportController extends BaseController{
 		$report->reason = Input::get('reason');
 		$report->question_id = Request::segment(4);
 		$report->save();
-		return Redirect::to('/home');
+		return Redirect::to('/home')->with('report-success','Report Succeeded');
+	}
+
+	public function showBanned(){
+		return View::make('banned');
 	}
 }
