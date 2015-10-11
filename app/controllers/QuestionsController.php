@@ -15,6 +15,7 @@ class QuestionsController extends BaseController{
 		$question->user_id = Auth::user()->id;
 		$question->answerer_id = 0;
 		$question->solved = 0;
+		$question->private =Input::get('private');
 		$question->save();
 		return Redirect::to('home') 
 			-> with('message', 'Your Question Has Been Successfully Posted');
@@ -77,7 +78,7 @@ class QuestionsController extends BaseController{
 		}
 		            $validation = Question::validate(Input::all());//array(Input::get('question'),Input::get('solved')));
 		            if ($validation->passes()) {
-			Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved')));
+			Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved'),'private'=> Input::get('private')));
 				return Redirect::route('question',$id)->with('message','Your question has been updated');
 		            }  
 		            else {
