@@ -38,9 +38,10 @@
 	{{Form::hidden('question_id',$question->id)}}
 	 	<textarea class="form-control" rows="5" name="answer" style="width:40em; margin-left: auto;
 	    margin-right: auto; margin-bottom:1em;"></textarea>
-	    {{Form::submit('Answer',array('class'=>'btn btn-success'))}}
+
+	{{Form::submit('Answer',array('class'=>'btn btn-success'))}}
 		
-		{{Form::close()}}
+	{{Form::close()}}
 		
 	</div>
 	@endif

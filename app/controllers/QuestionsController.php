@@ -15,6 +15,7 @@ class QuestionsController extends BaseController{
 		$question->user_id = Auth::user()->id;
 		$question->answerer_id = 0;
 		$question->solved = 0;
+		$question->private =Input::get('private');
 		$question->save();
 
 
@@ -102,6 +103,7 @@ class QuestionsController extends BaseController{
 		    }  
 		else {
 			return Redirect::route('edit_question',$id)->withErrors($validation);
+
 
 		    }
 	}

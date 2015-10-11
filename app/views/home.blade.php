@@ -31,7 +31,14 @@
 		width:40px;
 		margin: 50px;
 	}
-	
+
+	input[type="checkbox"] {
+		width:15px;
+    	height:15px;
+		vertical-align:-2px;
+		box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+	}
+
 
 	
 </style>
@@ -60,7 +67,11 @@ session_start();
 </div>
 <br/>
     {{Form::submit('Ask',array('class'=>'btn btn-infoo '))}}
+   
+    {{Form::checkbox('private',1,false)}}
+    {{Form::label('Private Question')}}
 	{{Form::close()}}
+
 	@if($message = Session::get('message'))
 	{{$message}}
 	@endif
@@ -73,6 +84,7 @@ session_start();
 		 <p>No Questions</p>
 	@else
 	@foreach($questions as $question)
+		 	@if($question->private == 0)
 		 	<ul>
 		 		<p><strong>{{ucfirst($question->user->username)}}</strong></p>
 		 		<p>{{ str_limit($question->question,40,"...") }}</p> 
@@ -83,6 +95,7 @@ session_start();
 				@endif
 			</p>
 			</ul>
+			@endif
 	@endforeach
 	{{ $questions->links()}}
 	@endif

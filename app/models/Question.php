@@ -24,7 +24,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	protected $fillable = array('question', 'solved','user_id','answerer_id');
 
 	public static $rules = array(
-		'question' => 'required|min:10|max:255',
+		'question' => 'required|min:10|max:255|unique:questions',
 		'solved' => 'in:0,1'
 		);
 

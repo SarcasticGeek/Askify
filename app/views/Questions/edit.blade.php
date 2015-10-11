@@ -25,7 +25,10 @@
  	<textarea class="form-control" rows="5" name="question" style="width:40em; margin-left: auto;
     margin-right: auto; margin-bottom:1em;">{{ $question->question }}</textarea>
     {{Form::submit('Edit Your Question',array('class'=>'btn btn-success'))}}
-	
+
+	{{Form::checkbox('private',1,$question->private)}}
+	{{Form::label('Private Question')}}
+		
 	{{Form::close()}}
 	@if($message = Session::get('message'))
 	{{$message}}
