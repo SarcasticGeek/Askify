@@ -42,7 +42,7 @@ class Tag extends Eloquent implements UserInterface, RemindableInterface {
 	
 
 public static function search_tag($keyword){
-		return static::where('name', 'LIKE', '%'.$keyword.'%');
+		return static::where('name', 'LIKE', '%'.$keyword.'%')->paginate(4);
 	}
 }
 

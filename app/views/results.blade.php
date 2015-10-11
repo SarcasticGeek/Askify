@@ -7,16 +7,14 @@ body{
 }
 #footer
 {
-<<<<<<< HEAD
+
     margin-bottom: 150px; 
-=======
-    bottom: -500; 
->>>>>>> origin/Catgroize_and_search_tags
+
 }
 </style>
 @section('content')
     <h1>Search Results</h1>
-    @if(count($questions)===0) 
+    @if(count($questions)=== 0) 
 
         <p>No Questions found, please try a different search.</p>
     @else
@@ -28,12 +26,7 @@ body{
                 </li>
             @endforeach
         </ul>
-
-<<<<<<< HEAD
-        {{ $questions->links() }}
-=======
->>>>>>> origin/Catgroize_and_search_tags
-        
+     {{$questions->links()}}
     @endif
     
     @if(Auth::User()->iFadmin ==1)
@@ -51,7 +44,7 @@ body{
             @endforeach
 
         </ul>
-
+{{ $tags->links()}}
         @endif
         
     @endif
