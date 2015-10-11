@@ -20,6 +20,13 @@
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/bootstrapbing.css')}}" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="images/favicon.ico">
+    <style>
+       .dropdown img
+       {
+          border-radius: 50%;
+
+       }
+    </style>
 @section('header')
 
 @show
@@ -83,8 +90,14 @@
               <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php
-                  echo Auth::user()->username;
-                  ?> <span class="caret"></span></a>
+                  //echo Auth::user()->username;
+                  $hashed_mail=md5( strtolower( trim( Auth::user()->email)));
+                  $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+
+                        ?>
+                        <img src="<?php echo $grav_url; ?>" hieght="40px" width="40px">
+                        <?php echo Auth::user()->username;?>
+                         <span class="caret"></span></a>
                   <ul class="dropdown-menu">
                     <li>{{ HTML::linkRoute('edit', 'Edit') }}</li>
                     <li>{{ HTML::linkRoute('logout', 'Logout') }}</li>
