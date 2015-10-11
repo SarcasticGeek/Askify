@@ -60,3 +60,7 @@ Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before
 Route::get('/{confirmationCode}','ConfirmationController@confirmationState');
 Route::post('/emailconf','ConfirmationController@postConfirmation');
 
+//Routes of Report
+Route::get('/home/report',array('before'=>'ifAdmin','uses'=>'ReportController@showReport'));
+
+

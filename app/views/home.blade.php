@@ -35,6 +35,9 @@
 	
 </style>
 @section('content')
+<?php
+session_start();
+?>
 @if(Auth::User()->iFadmin != 1)
  <div class="question">
 
@@ -58,6 +61,13 @@
 		 		<p>{{ str_limit($question->question,40,"...") }}</p> 
 		 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 				{{ HTML::linkRoute('question','View',$question->id) }}</p>
+				@if(Auth::User()->iFadmin == 1)
+				<?php
+				$reported = $question->user->username;
+				$_SESSION['reported'] = $reported;
+				?>
+				<a href="home/report">Report User</a>
+				@endif
 			</ul>
 	@endforeach
 	{{ $questions->links()}}
