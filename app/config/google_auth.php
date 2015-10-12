@@ -1,6 +1,6 @@
 <?php
 return array(	
-	"base_url"   => "http://localhost:8000/authViaGoogle/auth",
+	"base_url"   => "http://localhost:8000/auth/ViaGoogle/auth",
 	"providers"  => array (
 		
 		"Google"    => array (

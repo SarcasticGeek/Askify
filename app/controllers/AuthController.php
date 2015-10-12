@@ -81,7 +81,7 @@ class AuthController extends BaseController{
             }
             catch(Exception $e)
             {
-                return Redirect::to('authViaGoogle');
+                return Redirect::route('authViaGoogle');
             }
             return;
         }

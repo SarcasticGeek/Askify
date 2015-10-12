@@ -103,4 +103,4 @@ Route::get('owner/tag/{num?}',array('as'=>'tag','before' => 'auth','before'=>'if
 Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>'ifAdmin','uses'=>'OwnersController@post_new_tag'));
 
 //Login by google
-Route::get('authViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthController@loginWithGoogle'));
+Route::get('auth/ViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthController@loginWithGoogle'));
