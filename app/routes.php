@@ -102,3 +102,5 @@ Route::get('owner/tags',array('as'=>'tags','before' => 'auth','before'=>'ifAdmin
 Route::get('owner/tag/{num?}',array('as'=>'tag','before' => 'auth','before'=>'ifAdmin','uses'=>'OwnersController@get_view_tag'));
 Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>'ifAdmin','uses'=>'OwnersController@post_new_tag'));
 
+//Login by google
+Route::get('authViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthController@loginWithGoogle'));
