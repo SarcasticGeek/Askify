@@ -10,7 +10,7 @@ class DropboxStorageRepository{
     protected $adapter;
     public function __construct()
     {
-        $this->client = new Client('accessTokenaccessTokenaccessToken', 'TestTest', null);
+        $this->client = new Client('RwGfxvZm4iUAAAAAAAAENynwxsMe-61Abeqe2bQLnGniT1YiVrDoDyRi6tGWAL6q', 'Askify-App', null)
         $this->adapter = new DropboxAdapter($this->client);
     }
     public function getConnection()

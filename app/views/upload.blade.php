@@ -9,6 +9,11 @@
 	}
 </style>
 @section('content')
+
+@if(Session::has('success'))
+	<h2>{Session::get('success')}</h2>
+@endif
+
 <div>
 	<h1 class="hh">Choose image to upload!</h1>
 	<div>
