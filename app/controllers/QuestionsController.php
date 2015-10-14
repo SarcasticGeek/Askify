@@ -129,6 +129,24 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		return Redirect::route('your_questions')->with('message','not found');;
 		}
 		
-		
 
+	//rana [img]
+	/*
+	public function post_create() {
+	 $validation = Question::validate(Input::all());
+		if($validation->passes()){
+		$question = new Question;
+		$question->question = Input::get('question');
+		$question->image = Input::file('image');
+		$question->user_id = Auth::user()->id;
+		$question->answerer_id = 0;
+		$question->solved = 0;
+		$question->save();
+		return Redirect::to('home') 
+			-> with('message', 'Your Question Has Been Successfully Posted');
+		}else {
+			return Redirect::to('home')->with('message','Please ask a question.');
+		}		
+	}
+	*/
 }

@@ -13,14 +13,15 @@
 		padding: 20px;
 		padding-top: 5px;
 		padding-bottom: 5px;
-		height: 100px;
+		height: 110px;
 	}
+	
+	
 	.questionlist ul{
 		text-align: left;
 		background-color: #f2f3e7;
 		border-radius:5px;
 		margin:-13px;
-		margin-bottom: 10px;
 		margin-top: 10px;
 		margin-bottom: 20px;
 		padding: 20px;
@@ -43,7 +44,7 @@
 		box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
 	}
 	#ask{
-		margin-left: -1000px;
+		margin-left: -1200px;
 		margin-top: -5px;
 		width: 120px;
 	}
@@ -57,7 +58,6 @@
 	}
 
 
-	
 </style>
 @section('content')
 <?php
@@ -66,9 +66,9 @@ session_start();
 @if($reportsuccess = Session::get('report-success'))
 {{$reportsuccess}}
 @endif
+
 @if(Auth::User()->iFadmin != 1)
  <div class="question">
-
  	{{Form::open(array('url'=>'home'))}}
  	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
 <div id="tag">
@@ -89,7 +89,22 @@ session_start();
     {{Form::checkbox('private',1,false)}}
     {{Form::label('Private Question')}}
 </div>
+<div id="IMG">
+    	<div class="dropdown">
+  			<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style=margin-top:39px;margin-right:920px;>Upload Image!</button>
+  			<p class="dropdown-menu dropdown-menu-right" style="margin-right:450px;top:20%;background-color:rgba(0,0,0,0.6);	color:white;		
+			height: 50px;
+			padding: 20px;
+			padding-top: 10px;
+			padding-bottom: 5px;">
+   				{{Form::open(array('url'=>'upload','files'=>true))}}
+				{{Form::file('image', array('multiple'=>false, 'style'=>'margin-bottom:20px'))}}
+				{{Form::close()}}
+			</p>
+  		</div>
+  	</div>
 	{{Form::close()}}
+
 
 	@if($message = Session::get('message'))
 	{{$message}}
@@ -98,6 +113,7 @@ session_start();
 </div>
 
 @endif
+
  <div class="questionlist">
 	@if(!$questions)
 		 <p>No Questions</p>
