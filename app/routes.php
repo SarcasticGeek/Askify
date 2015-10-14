@@ -58,6 +58,3 @@ Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csr
 Route::get('answer/{num?}/edit',array('before' => 'auth','before'=>'ifAdmin','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
 Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_update'));
 
-//rana [img]
-Route::get('/upload',array('before' => 'auth','uses'=>'QuestionsController@get_image'));
-Route::post('/upload','QuestionsController@post_uploadToDropbox');

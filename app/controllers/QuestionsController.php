@@ -1,27 +1,6 @@
 
 <?php 
 
-//require(app_path().'repositories\dropboxstoragerepository.php');
-
-use League\Flysystem\Dropbox\DropboxAdapter;
-use League\Flysystem\Filesystem;
-use Dropbox\Client;
-
-class DropboxStorageRepository{
-
-    protected $client;
-    protected $adapter;
-    public function __construct()
-    {
-        $this->client = new Client('RwGfxvZm4iUAAAAAAAAENynwxsMe-61Abeqe2bQLnGniT1YiVrDoDyRi6tGWAL6q', 'Askify-App', null);
-        $this->adapter = new DropboxAdapter($this->client);
-    }
-    public function getConnection()
-    {
-        return new Filesystem($this->adapter);
-    }
-}
-
 class QuestionsController extends BaseController{
 
 	public $restful = true; 
@@ -108,16 +87,22 @@ class QuestionsController extends BaseController{
 	}
 
 	//rana [img]
-	public function get_image(){
-		return View::make('upload')->with('title','Upload Image');
+	/*
+	public function post_create() {
+	 $validation = Question::validate(Input::all());
+		if($validation->passes()){
+		$question = new Question;
+		$question->question = Input::get('question');
+		$question->image = Input::file('image');
+		$question->user_id = Auth::user()->id;
+		$question->answerer_id = 0;
+		$question->solved = 0;
+		$question->save();
+		return Redirect::to('home') 
+			-> with('message', 'Your Question Has Been Successfully Posted');
+		}else {
+			return Redirect::to('home')->with('message','Please ask a question.');
+		}		
 	}
-
-	
-	public function post_uploadToDropbox(DropboxStorageRepository $connection){
-		$filesystem = $connection->getConnection();
-		$file = Input::file('image');
-		$filesystem->put($file->getClientOriginalName(), File::get($file));
-		return Redirect::to('upload')->with('message','Image Uploaded Successfully!');
-	}
-
+	*/
 }

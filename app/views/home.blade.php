@@ -13,14 +13,24 @@
 		padding: 20px;
 		padding-top: 5px;
 		padding-bottom: 5px;
-		height: 100px;
+		height: 110px;
 	}
+	.open>.dropdown-menu{
+		background-color: rgba(0,0,0,0.6);
+		color:white;		
+		margin-top: 40px;
+		width:400px;
+		height: 50px;
+		padding: 20px;
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+	
 	.questionlist ul{
 		text-align: left;
 		background-color: #f2f3e7;
 		border-radius:5px;
 		margin:-13px;
-		margin-bottom: 10px;
 		margin-top: 10px;
 		margin-bottom: 20px;
 		padding: 20px;
@@ -31,26 +41,32 @@
 		width:40px;
 		margin: 50px;
 	}
-	
-	
+
 </style>
 @section('content')
+
 @if(Auth::User()->iFadmin != 1)
  <div class="question">
-
  	{{Form::open(array('url'=>'home'))}}
  	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
-    {{Form::submit('Ask',array('class'=>'btn btn-success pull-right', 'style'=>'margin:3px'))}}
-    <a href="upload">
-		<button type="button" class ="btnnn" style="margin:5px;">Upload Image!</button>
-	</a>
-	{{Form::close()}}
-
+    {{Form::submit('Ask',array('class'=>'btn btn-success pull-right', 'style'=>'margin:3px; margin-top: 10px;'))}}
+    <div id="IMG">
+    	<div class="dropdown">
+  			<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style="float:right">Upload Image!</button>
+  			<p class="dropdown-menu dropdown-menu-right">
+   				{{Form::open(array('url'=>'upload','files'=>true))}}
+				{{Form::file('image', array('multiple'=>false, 'style'=>'margin-bottom:20px'))}}
+				{{Form::close()}}
+			</p>
+  		</div>
+  	</div>
+   	{{Form::close()}}
 	@if($message = Session::get('message'))
 	{{$message}}
 	@endif
 </div>
 @endif
+
  <div class="questionlist">
 	@if(!$questions)
 		 <p>No Questions</p>
@@ -66,4 +82,4 @@
 	{{ $questions->links()}}
 	@endif
  </div>
- @stop
+@stop

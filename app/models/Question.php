@@ -27,11 +27,18 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		'question' => 'required|min:10|max:255',
 		'solved' => 'in:0,1'
 		);
-
+	/* (rana [img])
+	public static $rules = array(
+		'question' => 'required|min:10|max:255',
+		'solved' => 'in:0,1',
+		'image' => 'mimes:jpg,jpeg,png|max:200px'
+		);
+	*/
 	public static function validate($data)
 	{
 		return Validator::make($data,static::$rules);
 	}
+
 	public  function user(){
 		return $this->belongsTo('User','user_id');
 	}
