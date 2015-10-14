@@ -80,6 +80,8 @@
       <div class="container-fluid">
           <a href="facebookauth">
               <button type="button" class="btnnn">Sign In Using facebook</button></a>
+               <a href="auth/ViaGoogle">
+              <button type="button" class="btnnn">Sign In Using Google+</button></a>
   	<a href="login">
   	  	  	<button type="button" class="btnnn">Sign In</button>
   	</a>

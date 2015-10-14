@@ -18,9 +18,17 @@
     asks:</h2></div>
     <div class="panel-body">
       </h3 > {{ e($question->question) }}</h3>
+
     </div>
 </div>
-
+<!-- Twitter -->
+<a href="http://twitter.com/home?status={{ e($question->question) }} %23AskifyApp by {{ ucfirst($question->user->username) }} {{ Request::url();}} " title="Share on Twitter" target="_blank" class="btn btn-twitter"><i class="fa fa-twitter"></i> Twitter</a>
+ <!-- Facebook -->
+<a href="https://www.facebook.com/sharer/sharer.php?u={{ e($question->question) }} #AskifyApp by {{ ucfirst($question->user->username) }} {{ Request::url();}} " title="Share on Facebook" target="_blank" class="btn btn-facebook"><i class="fa fa-facebook"></i> Facebook</a>
+<!-- Google+ -->
+<a href="https://plus.google.com/share?url={{ Request::url();}}" title="Share on Google+" target="_blank" class="btn btn-googleplus"><i class="fa fa-google-plus"></i> Google+</a>
+<!-- StumbleUpon -->
+<a href="http://www.stumbleupon.com/submit?url={{ Request::url();}}" title="Share on StumbleUpon" target="_blank" data-placement="top" class="btn btn-stumbleupon"><i class="fa fa-stumbleupon"></i> Stumbleupon</a>
 @if($errors->has())
 	<div class="alert alert-danger" role="alert">
 	<p>ERRORS</p>
