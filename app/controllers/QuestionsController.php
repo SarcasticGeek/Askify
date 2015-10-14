@@ -1,8 +1,6 @@
 
 <?php 
-
 class QuestionsController extends BaseController{
-
 	public $restful = true; 
 	public function get_index() {
 		return View::make('Questions.index');
@@ -21,20 +19,16 @@ class QuestionsController extends BaseController{
 			$question->private =Input::get('private');
 		}
 		$question->save();
-
-
 			$notification = new Notification();
 			$notification->user_id = Auth::user()->id;
 			$notification->question_id = $question->id;
 			$notification->is_read = 0;
 			$notification->save();
-
 		//$question->tags()->attach(Input::get('tags'));
 		$tags = Input::get('tags');
 		foreach($tags as $tag){
 		    $question->tags()->attach($tag);
 		}
-
 		return Redirect::to('home') 
 			-> with('message', 'Your Question Has Been Successfully Posted');
 		}else {
@@ -45,7 +39,6 @@ class QuestionsController extends BaseController{
 	public function get_view($id = null){
 		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
 	}
-
 	public function get_results($keyword)
 	{
 		return View::make('results')
@@ -57,8 +50,6 @@ class QuestionsController extends BaseController{
 	public function post_search()
 	{
 		$keyword = Input::get('keyword');
-
-
 		if(empty($keyword))
 		{
 			return Redirect::to('home')
@@ -66,10 +57,8 @@ class QuestionsController extends BaseController{
 		}
 		return Redirect::route('results',$keyword);
 		
-
 	}
 	
-
 	private function questionBelongsToCurrentUser($id){
 		$question = Question::find($id);
 		if($question->user_id == Auth::User()->id){
@@ -94,7 +83,6 @@ class QuestionsController extends BaseController{
 		}
         return View::make('Questions.edit')->with('title','Edit')->with('question',Question::find($id));  
 	}
-
 	public function post_update() {
 		$id = Input::get('question_id');
 		if(!$this->questionBelongsToCurrentUser($id)) {
@@ -107,8 +95,6 @@ class QuestionsController extends BaseController{
 		    }  
 		else {
 			return Redirect::route('edit_question',$id)->withErrors($validation);
-
-
 		    }
 	}
 	
@@ -119,7 +105,6 @@ class QuestionsController extends BaseController{
 		
         return View::make('Questions.delete')->with('question',Question::find($id));  
 	}
-
 	public function post_delete($id) {
 		$f=Question::find($id);
 		if($f){
@@ -130,5 +115,4 @@ class QuestionsController extends BaseController{
 		}
 		
 		
-
 }
