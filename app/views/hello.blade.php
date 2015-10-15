@@ -26,14 +26,6 @@
 		body{
 			font-family: 'Handlee', cursive;
 		}
-		.panel2{
-			background-image: url("http://share4change.org/wp-content/uploads/2013/08/howitwork.jpg");
-			background-size: 1300px 600px;
-			position: absolute;
-			top:110%;
-			height: 650px;
-			width: 1300px;
-		}
 		.askify
 		{
 			position: absolute;
@@ -111,6 +103,93 @@
 			width: 100%;
 			z-index: 1;
 		}
+		.panel2{
+			background-size: 1300px 600px;
+			position: absolute;
+			top:110%;
+			height: 650px;
+			width: 1300px;
+		}
+		.step1{
+			position: absolute;
+			opacity: 1;
+			top:15%;
+			left:2%;
+			animation-name:go1;
+			animation-duration:1s;
+			animation-timing-function: ease-in-out;
+		}
+
+		@keyframes go1{
+    		0%{
+    			left:0%;
+    			opacity: 0;}
+    		100%{
+    			left:2%;
+    			opacity: 1;}		
+		}
+
+
+		.step2{
+			position: absolute;
+			left:25%;
+    		top:30%;
+			animation-name:go2;
+			animation-duration:1.5s;
+			animation-timing-function: ease-in-out;
+		}
+
+		@keyframes go2{
+    		0%{
+    			left:8%;
+    			opacity: 0;
+    		}
+    		100%{
+    			left:25%;
+    			opacity: 1;
+    		}		
+		}
+
+
+		.step3{
+			position: absolute;
+			opacity: 1;
+			top:45%;
+			left:50%;
+			animation-name:go3;
+			animation-duration:1.8s;
+			animation-timing-function: ease-in-out;
+		}
+
+		@keyframes go3{
+    		0%{
+    			left:25%;
+    			opacity: 0;}
+    		100%{
+    			left:50%;
+    			opacity: 1;}		
+		}
+
+
+		.step4{
+			position: absolute;
+			opacity: 1;
+			top:60%;
+			left:75%;
+			animation-name:go4;
+			animation-duration:2s;
+			animation-timing-function: ease-in-out;
+		}
+
+		@keyframes go4{
+    		0%{
+    			left:50%;
+    			opacity: 0;}
+    		100%{
+    			left:75%;
+    			opacity: 1;}		
+		}
+
 	</style>
 </head>
 <body>
@@ -118,7 +197,7 @@
 <div class="navbar navbar-inverse" position="fixed">
 		<div>
       <a class="navbar-brand" href="/">
-        <img alt="Brand" src="images/logo2.png" width="31" height="35" id="logo">
+        <img alt="Brand" src="images/blue-01.png" width="31" height="35" id="logo">
       </a>
       <p class="askify">Askify</p>
 		</div>
@@ -136,7 +215,7 @@
 
   <div class="panel1">
 	<div class="welcome">
-		<img class="branding" alt="Brand" src="images/logo2.png" width="100" height="112" id="logo">
+		<img class="branding" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
 	</br>
 		<h1 class="head">ASK, and you will get an answer</h1>
 	</br>
@@ -150,6 +229,18 @@
 
 
 <div class="panel2">
+	<div>
+		<img class="step1" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
+	</div>
+	<div>
+		<img class="step2" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
+	</div>
+	<div>
+		<img class="step3" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
+	</div>
+	<div>
+		<img class="step4" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
+	</div>
 </div>
 </body>
 </html>
