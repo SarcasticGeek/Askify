@@ -230,7 +230,7 @@
 
 <div class="panel2">
 	<div>
-		<img class="step1" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
+		<img class="step1" alt="Brand" src="images/step1.png" width="200" height="200" id="logo">
 	</div>
 	<div>
 		<img class="step2" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
