@@ -114,10 +114,7 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		return Redirect::route('your_questions')->with('message','not found');;
 		}
 		
-<<<<<<< HEAD
-		
-}
-=======
+
 
 	//rana [img]
 	/*
@@ -139,4 +136,3 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 	}
 	*/
 }
->>>>>>> ef53f2c99fe0bbbad38ebe09ca7799082463724a
