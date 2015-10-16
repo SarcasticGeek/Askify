@@ -102,7 +102,25 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public static function searchByDate($keyword){
 		return static::where('updated_at', 'LIKE', '%'.$keyword.'%')->paginate(4);
 	}
-	
+	public static function searchByDateBefore($keyword)
+	{
+		$keywordx='';
+		$lenght = strlen($keyword);
+		if($lenght == 4)$keywordx =$keyword.'-01-01 00:00:00';
+		else if($lenght ==7)$keywordx =$keyword.'-01';
+		else $keywordx = $keyword;
 
-}
+		return static::where('updated_at','<', $keywordx)->paginate(4);
+	}
+	public static function searchByDateAfter($keyword)
+		{
+			$keywordx='';
+			$lenght = strlen($keyword);
+			if($lenght == 4)$keywordx =$keyword.'-01-01';
+			else if($lenght ==7)$keywordx =$keyword.'-01';
+			else $keywordx = $keyword;
+
+			return static::where('updated_at','>', $keywordx)->paginate(4);
+		}
+	}
 
