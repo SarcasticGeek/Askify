@@ -31,7 +31,7 @@ body{
      {{$questions->links()}}
     @endif
     
-    @if(Auth::User()->iFadmin ==1)
+    
     
       @if(count($tags)===0)  
 
@@ -67,6 +67,6 @@ body{
         @endif
         
         
-    @endif
+    
    
 @stop
