@@ -89,6 +89,10 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	{
 		return $this->belongsToMany('Tag')->withTimestamps();
 	}
+	public static function searchByDate($keyword){
+		return static::where('updated_at', 'LIKE', '%'.$keyword.'%')->paginate(4);
+	}
+	
 
 }
 
