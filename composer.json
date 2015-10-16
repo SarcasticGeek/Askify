@@ -9,7 +9,7 @@
 		"barryvdh/laravel-debugbar": "~1.8",
 
         "hybridauth/hybridauth":"dev-master",
-		"pusher/pusher-php-server": "^2.2"
+		"pusher/pusher-php-server": "^2.2",
 		"dropbox/dropbox-sdk": "^1.1",
 		"league/flysystem": "^1.0",
 		"league/flysystem-dropbox": "^1.0"

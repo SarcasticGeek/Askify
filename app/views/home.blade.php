@@ -4,8 +4,22 @@
 	body{
 		text-align: center;
 	}
-	.question{
+	#nav{
+		margin-right: -150px;
+		padding-left: 100px;
+	}
+
+	#colored{
 		background-color: #f2f3e7;
+		margin-top: -10px;
+		margin-left: -150px;
+		margin-right: -150px;
+		padding-left: 100px;
+		padding-right: 100px;
+		padding-top: 10px;
+	}
+	.question{
+		background-color: rgba(255,255,255,1));
 		border-radius:5px;
 		margin:-13px;
 		margin-bottom: 10px;
@@ -16,16 +30,15 @@
 		height: 110px;
 	}
 	
-	
 	.questionlist ul{
 		text-align: left;
-		background-color: #f2f3e7;
+		background-color: rgba(255,255,255,1);
 		border-radius:5px;
 		margin:-13px;
 		margin-top: 10px;
 		margin-bottom: 20px;
 		padding: 20px;
-		padding-top: 5px;
+		padding-top: 10px;
 		padding-bottom: 5px;
 	}
 	.question.form-control{
@@ -56,8 +69,6 @@
 		margin-left: -10px;
 		margin-top: 30px;
 	}
-
-
 </style>
 @section('content')
 <?php
@@ -67,6 +78,7 @@ session_start();
 {{$reportsuccess}}
 @endif
 
+<div id="colored">
 @if(Auth::User()->iFadmin != 1)
  <div class="question">
  	{{Form::open(array('url'=>'home'))}}
@@ -121,18 +133,17 @@ session_start();
 	@foreach($questions as $question)
 		 	@if($question->private == 0)
 		 	<ul>
-		 		<p><strong>
+		 		<p style="font-size: 18px">
 		 		<?php 
 		 		 $hashed_mail=md5( strtolower( trim( $question->user->email)));
 		 		 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
 		 		?>
-		 			  <img src="<?php echo $grav_url; ?>" hieght="40px" width="40px"> 
+		 			  <img src="<?php echo $grav_url; ?>" hieght="30px" width="30px"> 
 
-		 		{{
-		 		ucfirst($question->user->username)
-		 		}}</strong></p>
-		 		<p>{{ str_limit($question->question,40,"...") }}</p> 
-		 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+		 		<strong>{{ucfirst($question->user->username)}}
+		 		</strong></p>
+		 		<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p> 
+		 		<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 				{{ HTML::linkRoute('question','View',$question->id) }}
 				@if(Auth::User()->iFadmin == 1)
 				{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
@@ -144,5 +155,6 @@ session_start();
 	{{ $questions->links()}}
 	@endif
  </div>
+</div>
  @stop
  
