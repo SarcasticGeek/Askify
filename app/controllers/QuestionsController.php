@@ -50,7 +50,7 @@ class QuestionsController extends BaseController{
 	{
 		return View::make('results')
 			->with('title','Search results')
-			->with('questions',Question::search($keyword))->with('tags',Tag::search_tag($keyword));
+			->with('questions',Question::search($keyword))->with('tags',Tag::search_tag($keyword))->with('answers',Answer::search($keyword));
 	}
     
 	

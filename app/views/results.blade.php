@@ -48,6 +48,24 @@ body{
         </ul>
 {{ $tags->links()}}
         @endif
+
+
+         @if(count($answers)===0)  
+
+        <p>No answers found, please try a different search.</p>
+    @else
+        <ul>
+            
+            @foreach($answers as $answer) 
+                <li>
+                    {{ HTML::linkRoute('question', $answer->answer, $answer->question_id) }}
+                </li>
+            @endforeach
+
+        </ul>
+{{ $answers->links()}}
+        @endif
+        
         
     @endif
    
