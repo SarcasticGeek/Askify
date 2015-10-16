@@ -84,6 +84,16 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(4);
 	}
 	
+    public static function searchUser($keyword){
+        $ids = [];
+        $users = User::where('username','LIKE','%'.$keyword.'%')->get();
+        foreach($users as $user)
+        {
+            $id = $user->id;
+            array_push($ids,$id);
+        }
+		return static::whereIn('user_id', $ids)->paginate(4);
+	}
 
 	public function tags()
 	{
