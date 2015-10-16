@@ -86,6 +86,11 @@ class QuestionsController extends BaseController{
 				->with('title','Search By '.$modifier.$key)
 				->with('questions',Question::searchByDateAfter($key));
 				break;	
+			case 'unsolved':
+				return View::make('results')
+				->with('title','Search By '.$modifier.$key)
+				->with('questions',Question::unsolved());
+				break;
 			default:
 				return View::make('results')->with('title','Error')
 				->with('message','No such modifier, please use one of our modifier');
