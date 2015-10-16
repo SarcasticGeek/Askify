@@ -90,8 +90,8 @@ class QuestionsController extends BaseController{
 		}
 		$validation = Question::validate(Input::all());//array(Input::get('question'),Input::get('solved')));
 		if ($validation->passes()) {
-			Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved')));
-			return Redirect::route('question',$id)->with('message','Your question has been updated');
+Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved'),
+				'private'=>Input::get('private')));			return Redirect::route('question',$id)->with('message','Your question has been updated');
 		    }  
 		else {
 			return Redirect::route('edit_question',$id)->withErrors($validation);
@@ -114,5 +114,29 @@ class QuestionsController extends BaseController{
 		return Redirect::route('your_questions')->with('message','not found');;
 		}
 		
+<<<<<<< HEAD
 		
 }
+=======
+
+	//rana [img]
+	/*
+	public function post_create() {
+	 $validation = Question::validate(Input::all());
+		if($validation->passes()){
+		$question = new Question;
+		$question->question = Input::get('question');
+		$question->image = Input::file('image');
+		$question->user_id = Auth::user()->id;
+		$question->answerer_id = 0;
+		$question->solved = 0;
+		$question->save();
+		return Redirect::to('home') 
+			-> with('message', 'Your Question Has Been Successfully Posted');
+		}else {
+			return Redirect::to('home')->with('message','Please ask a question.');
+		}		
+	}
+	*/
+}
+>>>>>>> ef53f2c99fe0bbbad38ebe09ca7799082463724a

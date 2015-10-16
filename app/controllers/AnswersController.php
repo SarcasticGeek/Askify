@@ -13,7 +13,7 @@ class AnswersController extends BaseController {
 				));
 			Question::where('id', '=', $question_id)->update(array(
 				'solved'=> 1));
-			
+
 			return Redirect::route('question',$question_id)->with('message',"Thanks for your Answer");
 		}else {
 			return Redirect::route('question',$question_id)->withErrors($validation)->withInput();

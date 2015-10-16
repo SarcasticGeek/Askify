@@ -9,6 +9,7 @@ body{
 {
 
     margin-bottom: 150px; 
+    margin-bottom: 150px; 
 
 }
 </style>
@@ -26,6 +27,7 @@ body{
                 </li>
             @endforeach
         </ul>
+
      {{$questions->links()}}
     @endif
     
