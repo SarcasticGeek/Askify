@@ -48,9 +48,39 @@ class QuestionsController extends BaseController{
 
 	public function get_results($keyword)
 	{
-		return View::make('results')
-			->with('title','Search results')
-			->with('questions',Question::search($keyword))->with('tags',Tag::search_tag($keyword))->with('answers',Answer::search($keyword));
+		$modifier = substr($keyword,0,strpos($keyword,':'));
+		$key = substr($keyword,strpos($keyword,':')+1);
+		switch($modifier){
+			case 'username':
+				return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('questions',Question::searchUser($key));
+				break;
+			case 'answer':
+							return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('answers',Answer::search($key));
+				break;
+			case 'question':
+							return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('questions',Question::search($key));
+				break;
+			case 'date':
+							return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('questions',Question::searchByDate($key));
+				break;
+			case 'tag':
+							return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('tags',Tag::search_tag($key));
+				break;
+			default:
+				return View::make('results')->with('title','Error')
+				->with('message','No such modifier, please use one of our modifier');
+		}
+		
 	}
     
 	

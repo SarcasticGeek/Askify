@@ -15,58 +15,64 @@ body{
 </style>
 @section('content')
     <h1>Search Results</h1>
-    @if(count($questions)=== 0) 
+    @if(isset($questions))
+        @if(count($questions)=== 0) 
 
-        <p>No Questions found, please try a different search.</p>
-    @else
-        <ul>
-            @foreach($questions as $question_) 
-                <li>
-                    {{ HTML::linkRoute('question', $question_->question, $question_->id) }}
-                    by {{ ucfirst($question_->user->username) }}
-                </li>
-            @endforeach
-        </ul>
+            <p>No Questions found, please try a different search.</p>
+        @else
+            <ul>
+                @foreach($questions as $question_) 
+                    <li>
+                        {{ HTML::linkRoute('question', $question_->question, $question_->id) }}
+                        by {{ ucfirst($question_->user->username) }}
+                    </li>
+                @endforeach
+            </ul>
 
-     {{$questions->links()}}
+         {{$questions->links()}}
+        @endif
     @endif
     
-    
-    
-      @if(count($tags)===0)  
+    @if(isset($tags))
+          @if(count($tags)===0)  
 
-        <p>No tags found, please try a different search.</p>
-    @else
-        <ul>
+            <p>No tags found, please try a different search.</p>
+        @else
+            <ul>
+                
+                @foreach($tags as $tag) 
+                    <li>
+                        {{ HTML::linkRoute('tag', $tag->name, $tag->id) }}
+                    </li>
+                @endforeach
+
+            </ul>
+    {{ $tags->links()}}
+            @endif
+
+    @endif
+
+    @if(isset($answers))
+             @if(count($answers)===0)  
+
+            <p>No answers found, please try a different search.</p>
+        @else
+            <ul>
+                
+                @foreach($answers as $answer) 
+                    <li>
+                        {{ HTML::linkRoute('question', $answer->answer, $answer->question_id) }}
+                    </li>
+                @endforeach
+
+            </ul>
+    {{ $answers->links()}}
+            @endif
             
-            @foreach($tags as $tag) 
-                <li>
-                    {{ HTML::linkRoute('tag', $tag->name, $tag->id) }}
-                </li>
-            @endforeach
-
-        </ul>
-{{ $tags->links()}}
-        @endif
-
-
-         @if(count($answers)===0)  
-
-        <p>No answers found, please try a different search.</p>
-    @else
-        <ul>
-            
-            @foreach($answers as $answer) 
-                <li>
-                    {{ HTML::linkRoute('question', $answer->answer, $answer->question_id) }}
-                </li>
-            @endforeach
-
-        </ul>
-{{ $answers->links()}}
-        @endif
-        
-        
+    @endif  
+    @if(isset($message))
+    <p>{{$message}}</p>
+    @endif  
     
    
 @stop
