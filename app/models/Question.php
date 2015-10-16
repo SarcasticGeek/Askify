@@ -107,8 +107,8 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		$keywordx='';
 		$lenght = strlen($keyword);
 		if($lenght == 4)$keywordx =$keyword.'-01-01 00:00:00';
-		else if($lenght ==7)$keywordx =$keyword.'-01';
-		else $keywordx = $keyword;
+		else if($lenght ==7)$keywordx =$keyword.'-01 00:00:00';
+		else $keywordx = $keyword.'00:00:00';
 
 		return static::where('updated_at','<', $keywordx)->paginate(4);
 	}
@@ -116,9 +116,9 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		{
 			$keywordx='';
 			$lenght = strlen($keyword);
-			if($lenght == 4)$keywordx =$keyword.'-01-01';
-			else if($lenght ==7)$keywordx =$keyword.'-01';
-			else $keywordx = $keyword;
+		if($lenght == 4)$keywordx =$keyword.'-01-01 00:00:00';
+		else if($lenght ==7)$keywordx =$keyword.'-01 00:00:00';
+		else $keywordx = $keyword.'00:00:00';
 
 			return static::where('updated_at','>', $keywordx)->paginate(4);
 		}
