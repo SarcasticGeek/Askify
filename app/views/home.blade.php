@@ -4,18 +4,13 @@
 	body{
 		text-align: center;
 	}
-	#nav{
-		margin-right: -150px;
-		padding-left: 100px;
-	}
-
 	#colored{
 		background-color: #f2f3e7;
 		margin-top: -10px;
 		margin-left: -150px;
 		margin-right: -150px;
-		padding-left: 100px;
-		padding-right: 100px;
+		padding-left: 150px;
+		padding-right: 150px;
 		padding-top: 10px;
 	}
 	.question{
