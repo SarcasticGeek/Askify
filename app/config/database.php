@@ -64,10 +64,10 @@ return array(
 
 		'pgsql' => array(
 		        'driver'   => 'pgsql',
-		        'host'     => 'ec2-54-204-6-113.compute-1.amazonaws.com',
-		        'database' => 'd8svjatkf2chu7',
-		        'username' => 'lfzkhwwhrwuosw',
-		        'password' => '3ahTl-o5C9CeNKTwIyuZqgKvLn',
+		        'host'     => 'pellefant-01.db.elephantsql.com',
+		        'database' => 'kvzllddq',
+		        'username' => 'kvzllddq',
+		        'password' => 'DugxcFJLc2CGm_h9-ngWFsb3RIwse0h4',
 		        'charset'  => 'utf8',
 		        'prefix'   => '',
 		        'schema'   => 'public',
