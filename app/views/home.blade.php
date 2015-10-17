@@ -120,25 +120,26 @@ session_start();
 	@else
 	@foreach($questions as $question)
 		 	@if($question->private == 0)
-		 	<ul>
-		 		<p><strong>
-		 		<?php 
-		 		 $hashed_mail=md5( strtolower( trim( $question->user->email)));
-		 		 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
-		 		?>
-		 			  <img src="<?php echo $grav_url; ?>" hieght="40px" width="40px"> 
+				 	<ul>
+				 		<p><strong>
+				 		<?php 
+				 		 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+				 		 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+				 		?>
+				 			  <img src="<?php echo $grav_url; ?>" hieght="40px" width="40px"> 
 
-		 		{{
-		 		ucfirst($question->user->username)
-		 		}}</strong></p>
-		 		<p>{{ str_limit($question->question,40,"...") }}</p> 
-		 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-				{{ HTML::linkRoute('question','View',$question->id) }}
-				@if(Auth::User()->iFadmin == 1)
-				{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+				 		{{
+				 		ucfirst($question->user->username)
+				 		}}</strong></p>
+				 		<p>{{ str_limit($question->question,40,"...") }}</p> 
+				 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+						{{ HTML::linkRoute('question','View',$question->id) }}
+						@if(Auth::User()->iFadmin == 1)
+							{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+						@endif
+						</p>
+					</ul>
 				@endif
-			</p>
-			</ul>
 			@endif
 	@endforeach
 	{{ $questions->links()}}
