@@ -1,21 +1,12 @@
 
 @extends('main')
+
 <style>
 	body{
 		text-align: center;
 	}
-	#colored{
-		background-color: #f2f3e7;
-		margin-top: -10px;
-		margin-left: -150px;
-		margin-right: -150px;
-		padding-left: 150px;
-		padding-right: 150px;
-		padding-top: 10px;
-	}
 	.question{
-		background-color: rgba(255,255,255,1));
-		border-radius:5px;
+		border: 1px solid #e5e5e5;
 		margin:-13px;
 		margin-bottom: 10px;
 		margin-top: 10px;
@@ -24,11 +15,10 @@
 		padding-bottom: 5px;
 		height: 110px;
 	}
-	
 	.questionlist ul{
+		border: 1px solid #e5e5e5;
 		text-align: left;
 		background-color: rgba(255,255,255,1);
-		border-radius:5px;
 		margin:-13px;
 		margin-top: 10px;
 		margin-bottom: 20px;
@@ -64,7 +54,22 @@
 		margin-left: -10px;
 		margin-top: 30px;
 	}
+	
+	#right{
+		margin-top: 15px;
+		float: right;
+		width: 850px;
+	}
+	#left{
+		margin: 20px;
+		margin-left: -16px;
+		width: 250px;
+		height: 100%;
+		background-color: #4183D7;
+		float: left;
+	}
 </style>
+
 @section('content')
 <?php
 session_start();
@@ -73,83 +78,87 @@ session_start();
 {{$reportsuccess}}
 @endif
 
-<div id="colored">
-@if(Auth::User()->iFadmin != 1)
- <div class="question">
- 	{{Form::open(array('url'=>'home'))}}
- 	<textarea class="form-control"  name="question" placeholder="Put your question here!"></textarea>
-<div id="tag">
-  <div class="dropdown">
-  <button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown">Tags
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu dropdown-menu-right top1">
-    @foreach($tags as $tag)
-    <li> {{Form::label($tag->name) }}
-    {{ Form::checkbox('tags[]',$tag->id,false)}}</li>       
-    @endforeach              
-  </ul>
-</div>
-</div>
-<br/>
-    {{Form::submit('Ask',array('class'=>'btn btn-infoo ','id'=>'ask'))}}
-   <div id="label">
-    {{Form::checkbox('private',1,false)}}
-    {{Form::label('Private Question')}}
-</div>
-<div id="IMG">
-    	<div class="dropdown">
-  			<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style=margin-top:39px;margin-right:920px;>Upload Image!</button>
-  			<p class="dropdown-menu dropdown-menu-right" style="margin-right:450px;top:20%;background-color:rgba(0,0,0,0.6);	color:white;		
-			height: 50px;
-			padding: 20px;
-			padding-top: 10px;
-			padding-bottom: 5px;">
-   				{{Form::open(array('url'=>'upload','files'=>true))}}
-				{{Form::file('image', array('multiple'=>false, 'style'=>'margin-bottom:20px'))}}
+<div>
+	<div id="left">
+
+
+
+	</div>
+	<div id="right">
+		@if(Auth::User()->iFadmin != 1)
+	 		<div class="question" style="background-color:#f0f0f0">
+	 			{{Form::open(array('url'=>'home'))}}
+	 			<textarea class="form-control"  style="width:750px; margin-top:5px;" name="question" placeholder="Put your question here!"></textarea>
+				<div id="tag">
+		  			<div class="dropdown">
+		  				<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown">Tags
+		  				<span class="caret"></span></button>
+		  				<ul class="dropdown-menu dropdown-menu-right top1">
+					 	   @foreach($tags as $tag)
+					    		<li> {{Form::label($tag->name) }}
+		    					{{ Form::checkbox('tags[]',$tag->id,false)}}</li>       
+					    	@endforeach              
+					  	</ul>
+					</div>
+				</div>
+				<br/>
+		    	{{Form::submit('Ask',array('class'=>'btn btn-infoo ','id'=>'ask', 'style'=>'margin-left:-10px; width:50px;'))}}
+		   		<div id="label">
+				    {{Form::checkbox('private',1,false)}}
+				    {{Form::label('Private Question')}}
+				</div>
+				<div id="IMG">
+			    	<div class="dropdown">
+			  			<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:39px;margin-right:250px">Upload Image!</button>
+			  			<p class="dropdown-menu dropdown-menu-right" style="margin-right:450px;top:20%;background-color:rgba(0,0,0,0.6);	color:white;		
+						height: 50px;
+						padding: 20px;
+						padding-top: 10px;
+						padding-bottom: 5px;">
+			   				{{Form::open(array('url'=>'upload','files'=>true))}}
+							{{Form::file('image', array('multiple'=>false, 'style'=>'margin-bottom:20px'))}}
+							{{Form::close()}}
+						</p>
+			  		</div>
+			  	</div>
 				{{Form::close()}}
-			</p>
-  		</div>
-  	</div>
-	{{Form::close()}}
-
-
-	@if($message = Session::get('message'))
-	{{$message}}
-	@endif
-
-</div>
-
-@endif
-
- <div class="questionlist">
-	@if(!$questions)
-		 <p>No Questions</p>
-	@else
-	@foreach($questions as $question)
-		 	@if($question->private == 0)
-		 	<ul>
-		 		<p style="font-size: 18px">
-		 		<?php 
-		 		 $hashed_mail=md5( strtolower( trim( $question->user->email)));
-		 		 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
-		 		?>
-		 			  <img src="<?php echo $grav_url; ?>" hieght="30px" width="30px"> 
-
-		 		<strong>{{ucfirst($question->user->username)}}
-		 		</strong></p>
-		 		<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p> 
-		 		<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-				{{ HTML::linkRoute('question','View',$question->id) }}
-				@if(Auth::User()->iFadmin == 1)
-				{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+				@if($message = Session::get('message'))
+				{{$message}}
 				@endif
-			</p>
-			</ul>
+			</div>
+
+		@endif
+
+		<div class="questionlist">
+			@if(!$questions)
+				<p>No Questions</p>
+			@else
+			@foreach($questions as $question)
+				@if($question->private == 0)
+					<ul>
+					 	<p style="font-size: 18px">
+						 	<?php 
+						 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+							 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+					 		?>
+			 			 	<img src="<?php echo $grav_url; ?>" hieght="30px" width="30px"> 
+					 		<strong>{{ucfirst($question->user->username)}}
+					 		</strong>
+					 	</p>
+					 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p> 
+					 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+							{{ HTML::linkRoute('question','View',$question->id) }}
+							@if(Auth::User()->iFadmin == 1)
+								{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+							@endif
+						</p>
+					</ul>
+				@endif
+			@endforeach
+			{{ $questions->links()}}
 			@endif
-	@endforeach
-	{{ $questions->links()}}
-	@endif
- </div>
+	 	</div>
+	</div>
 </div>
  @stop
  
