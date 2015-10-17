@@ -64,28 +64,34 @@
 	}
 	#left{
 		margin: 20px;
-		margin-left: -16px;
+		margin-left: -15px;
 		width: 250px;
-		height: 100%;
+		height: 730px;
 		background-color: #4183D7;
 		float: left;
 	}
-	#left div{
+	#left .btn-primary{
+		background-color: rgba(0,0,0,0);
+	}
+	#left .btn-primary.active,.open > .dropdown-toggle.btn-primary{
+  		background-color: #286193;
+  	}
+  	#left .btn-primary:hover{
+  		background-color: #286193;
+  	}
+
+	#left .btn{
 		height:120px;
 		width:250;
-		margin:0px;
-		margin-left: 0px;
 		color: #ECF0F0;
 		text-align: left;
 		padding-left:32px;
+		border:0px;
 		border-top:2px solid #ECF0F0;
-	}
-	#left h1{
-		font-size: 25px;
+		border-radius: 0;
 	}
 	#left .Date{
 		margin-top: 150px;
-		background-color: #3A6396;
 	}
 	#left .arrow{
 		width: 0;
@@ -93,17 +99,24 @@
 		border-top: 20px solid transparent;
 		border-bottom: 20px solid transparent;
 		border-right: 20px solid #ECF0F0;
-		margin-right: 0px;
-		margin-top: -20px;
-		float: right;		
+		margin-right: -13px;
+		margin-top: 10px;
+		float: right;
+		opacity: 1;		
 	}
 	#left .Tags{
-		background-color: #3A6396;
+		border-bottom:2px solid #ECF0F0;
 		height:auto;
 		min-height: 120px;
+		max-height: 250px;
 		height:auto !important;
 		height: 120px;
 		padding-bottom: 5px;
+
+	}
+
+	#left .btn input[type=checkbox]{
+		position:relative;
 	}
 </style>
 
@@ -116,25 +129,29 @@ session_start();
 @endif
 
 <div>
-	<div id="left" style="display: block;">
-		<div class="Date">
-			<h1>Date</h1>
+	<div id="left" data-toggle="buttons">
+		<div class="Date btn btn-primary active" style="font-size: 25px">
 			<div class="arrow"></div>
+			<input type="radio" name="options" id="option1" autocomplete="off" checked>Date
 		</div>
-		<div class="Answered">
-			<h1>Answered</h1>
-			<div class="arrow"></div>
 
-		</div>
-		<div class="Tags">
-			<h1>Tags</h1>
+		<div class="Answered btn btn-primary" style="font-size: 25px">
 			<div class="arrow"></div>
-			@foreach($tags as $tag)
-				<ul> 
-		    	{{ Form::checkbox('tags[]',$tag->id,false)}}
-		    {{Form::label($tag->name) }}</ul>       
-			@endforeach
+		    <input type="radio" name="options" id="option2" autocomplete="off">Answered
 		</div>
+
+		<label class="Tags btn btn-primary" style="font-size: 25px">
+			<div class="arrow"></div>
+		    <input type="radio" name="options" id="option3" autocomplete="off">Tags
+		    <div>	
+			    @foreach($tags as $tag)
+					<ul style="font-size: 18px"> 
+			    		{{Form::checkbox('tags[]',$tag->id,false)}}
+			   		 	{{Form::label($tag->name) }}
+			   		</ul>       
+				@endforeach
+			</div>
+		</label>		  
 	</div>
 	<div id="right">
 		@if(Auth::User()->iFadmin != 1)
@@ -212,5 +229,11 @@ session_start();
 	 	</div>
 	</div>
 </div>
- @stop
+
+<script>
+	$('.article').on('click',function(){
+		alert("CLICKED!");
+	});
+</script>
+@stop
  
