@@ -1,5 +1,10 @@
 <?php
+$url = parse_url(getenv("DATABASE_URL"));
 
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
 return array(
 
 	/*
@@ -26,7 +31,7 @@ return array(
 	|
 	*/
 
-	'default' => 'sqlite',
+ 	   'default' => 'pgsql',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -64,15 +69,15 @@ return array(
 		),
 
 		'pgsql' => array(
-			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'forge',
-			'username' => 'forge',
-			'password' => '',
-			'charset'  => 'utf8',
-			'prefix'   => '',
-			'schema'   => 'public',
-		),
+		        'driver'   => 'pgsql',
+		        'host'     => $host,
+		        'database' => $database,
+		        'username' => $username,
+		        'password' => $password,
+		        'charset'  => 'utf8',
+		        'prefix'   => '',
+		        'schema'   => 'public',
+		    ),
 
 		'sqlsrv' => array(
 			'driver'   => 'sqlsrv',
