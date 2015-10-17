@@ -10,6 +10,7 @@
 <link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <link rel="shortcut icon" href="images/favicon.ico">
 	<style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
@@ -193,7 +194,7 @@
 	</style>
 </head>
 <body>
-
+<div class="big">
 <div class="navbar navbar-inverse" position="fixed">
 		<div>
       <a class="navbar-brand" href="/">
@@ -241,6 +242,11 @@
 	<div>
 		<img class="step4" alt="Brand" src="images/step4.png" width="200" height="200" id="logo">
 	</div>
+<button class="trying">try</button>
 </div>
+</div>
+<script>
+
+</script>
 </body>
 </html>
