@@ -5,6 +5,8 @@
 	body{
 		text-align: center;
 	}
+	.navbar-inverse .navbar-collapse{
+	}
 	.question{
 		border: 1px solid #e5e5e5;
 		margin:-13px;
@@ -68,6 +70,41 @@
 		background-color: #4183D7;
 		float: left;
 	}
+	#left div{
+		height:120px;
+		width:250;
+		margin:0px;
+		margin-left: 0px;
+		color: #ECF0F0;
+		text-align: left;
+		padding-left:32px;
+		border-top:2px solid #ECF0F0;
+	}
+	#left h1{
+		font-size: 25px;
+	}
+	#left .Date{
+		margin-top: 150px;
+		background-color: #3A6396;
+	}
+	#left .arrow{
+		width: 0;
+		height: 0;
+		border-top: 20px solid transparent;
+		border-bottom: 20px solid transparent;
+		border-right: 20px solid #ECF0F0;
+		margin-right: 0px;
+		margin-top: -20px;
+		float: right;		
+	}
+	#left .Tags{
+		background-color: #3A6396;
+		height:auto;
+		min-height: 120px;
+		height:auto !important;
+		height: 120px;
+		padding-bottom: 5px;
+	}
 </style>
 
 @section('content')
@@ -79,10 +116,25 @@ session_start();
 @endif
 
 <div>
-	<div id="left">
+	<div id="left" style="display: block;">
+		<div class="Date">
+			<h1>Date</h1>
+			<div class="arrow"></div>
+		</div>
+		<div class="Answered">
+			<h1>Answered</h1>
+			<div class="arrow"></div>
 
-
-
+		</div>
+		<div class="Tags">
+			<h1>Tags</h1>
+			<div class="arrow"></div>
+			@foreach($tags as $tag)
+				<ul> 
+		    	{{ Form::checkbox('tags[]',$tag->id,false)}}
+		    {{Form::label($tag->name) }}</ul>       
+			@endforeach
+		</div>
 	</div>
 	<div id="right">
 		@if(Auth::User()->iFadmin != 1)
@@ -91,7 +143,7 @@ session_start();
 	 			<textarea class="form-control"  style="width:750px; margin-top:5px;" name="question" placeholder="Put your question here!"></textarea>
 				<div id="tag">
 		  			<div class="dropdown">
-		  				<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown">Tags
+		  				<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style="border-radius:0">Tags
 		  				<span class="caret"></span></button>
 		  				<ul class="dropdown-menu dropdown-menu-right top1">
 					 	   @foreach($tags as $tag)
@@ -102,14 +154,14 @@ session_start();
 					</div>
 				</div>
 				<br/>
-		    	{{Form::submit('Ask',array('class'=>'btn btn-infoo ','id'=>'ask', 'style'=>'margin-left:-10px; width:50px;'))}}
+		    	{{Form::submit('Ask',array('class'=>'btn btn-infoo ','id'=>'ask', 'style'=>'margin-left:-10px; width:50px; border-radius:0;'))}}
 		   		<div id="label">
 				    {{Form::checkbox('private',1,false)}}
 				    {{Form::label('Private Question')}}
 				</div>
 				<div id="IMG">
 			    	<div class="dropdown">
-			  			<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:39px;margin-right:250px">Upload Image!</button>
+			  			<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:39px;margin-right:250px;border-radius:0;">Upload Image!</button>
 			  			<p class="dropdown-menu dropdown-menu-right" style="margin-right:450px;top:20%;background-color:rgba(0,0,0,0.6);	color:white;		
 						height: 50px;
 						padding: 20px;
