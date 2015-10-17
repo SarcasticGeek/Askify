@@ -122,5 +122,65 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 
 			return static::where('updated_at','>', $keywordx)->paginate(4);
 		}
+    public static function askedMoreThan($keyword)
+        {
+        	$ids = [];
+        	$questions = Question::all();
+        	foreach($questions as $question)
+        	{
+        		$x = 0;
+        		foreach($questions as $questionx)
+        		{
+        			if($question->user_id == $questionx->user_id) $x++;
+
+        		}
+        		if($x>intval($keyword))
+        		{
+        			$id = $question->user_id;
+            		array_push($ids,$id);
+        		}
+           
+        	}
+			return static::whereIn('user_id', $ids)->paginate(4);
+		}
+		public static function askedLessThan($keyword)
+        {
+        	$ids = [];
+        	$questions = Question::all();
+        	foreach($questions as $question)
+        	{
+        		$x = 0;
+        		foreach($questions as $questionx)
+        		{
+        			if($question->user_id == $questionx->user_id) $x++;
+        		}
+        		if($x<intval($keyword))
+        		{
+        			$id = $question->user_id;
+            		array_push($ids,$id);
+        		}
+           
+        	}
+			return static::whereIn('user_id', $ids)->paginate(4);
+		}
+		public static function askedEqualto($keyword)
+        {
+        	$ids = [];
+        	$questions = Question::all();
+        	foreach($questions as $question)
+        	{
+        		$x = 0;
+        		foreach($questions as $questionx)
+        		{
+        			if($question->user_id == $questionx->user_id) $x++;
+        		}
+           		if($x==intval($keyword))
+        		{
+        			$id = $question->user_id;
+            		array_push($ids,$id);
+        		}
+        	}
+			return static::whereIn('user_id', $ids)->paginate(4);
+		}
 	}
 

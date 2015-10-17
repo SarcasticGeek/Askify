@@ -53,7 +53,7 @@ class QuestionsController extends BaseController{
 		switch($modifier){
 			case 'username':
 				return View::make('results')
-				->with('title','Search By '.$modifier.$key)
+				->with('title','Search By '.$modifier)
 				->with('questions',Question::searchUser($key));
 				break;
 			case 'answer':
@@ -81,11 +81,11 @@ class QuestionsController extends BaseController{
 				->with('title','Search By '.$modifier.$key)
 				->with('questions',Question::searchByDateBefore($key));
 				break;
-				case 'after':
+			case 'after':
 				return View::make('results')
 				->with('title','Search By '.$modifier.$key)
 				->with('questions',Question::searchByDateAfter($key));
-				break;	
+				break;					
 			case 'unsolved':
 				return View::make('results')
 				->with('title','Search By '.$modifier.$key)
