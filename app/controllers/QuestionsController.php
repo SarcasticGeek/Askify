@@ -1,4 +1,3 @@
-
 <?php
 class QuestionsController extends BaseController{
 
@@ -44,12 +43,6 @@ class QuestionsController extends BaseController{
 	public function get_view($id = null){
 		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
 	}
-
-public function showsearch(){
-		
-		return View::make('results');
-	}
-
 
 	public function get_results($keyword)
 	{
