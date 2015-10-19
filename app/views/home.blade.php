@@ -93,7 +93,7 @@
 	#left .Date{
 		margin-top: 150px;
 	}
-	#left .arrow{
+	#left .arrow1, #left .arrow2, #left .arrow3{
 		width: 0;
 		height: 0;
 		border-top: 20px solid transparent;
@@ -102,7 +102,6 @@
 		margin-right: -13px;
 		margin-top: 10px;
 		float: right;
-		opacity: 1;		
 	}
 	#left .Tags{
 		border-bottom:2px solid #ECF0F0;
@@ -130,18 +129,18 @@ session_start();
 
 <div>
 	<div id="left" data-toggle="buttons">
-		<div class="Date btn btn-primary active" style="font-size: 25px">
-			<div class="arrow"></div>
+		<div class="Date btn btn-primary active" style="font-size: 25px" id="number1">
+			<div class="arrow1"></div>
 			<input type="radio" name="options" id="option1" autocomplete="off" checked>Date
 		</div>
 
-		<div class="Answered btn btn-primary" style="font-size: 25px">
-			<div class="arrow"></div>
+		<div class="Answered btn btn-primary" style="font-size: 25px" id="number2">
+			<div class="arrow2"></div>
 		    <input type="radio" name="options" id="option2" autocomplete="off">Answered
 		</div>
 
-		<label class="Tags btn btn-primary" style="font-size: 25px">
-			<div class="arrow"></div>
+		<label class="Tags btn btn-primary" style="font-size: 25px" id="number3">
+			<div class="arrow3"></div>
 		    <input type="radio" name="options" id="option3" autocomplete="off">Tags
 		    <div>	
 			    @foreach($tags as $tag)
@@ -231,9 +230,24 @@ session_start();
 </div>
 
 <script>
-	$('.article').on('click',function(){
-		alert("CLICKED!");
-	});
+		$('.arrow2').hide();
+		$('.arrow3').hide();
+		$('.arrow1').show();
+	$('#number1').click(function() {
+		$('.arrow2').hide();
+		$('.arrow3').hide();
+		$('.arrow1').show();
+});
+	$('#number2').click(function() {
+		$('.arrow1').hide();
+		$('.arrow3').hide();
+		$('.arrow2').show();
+});
+	$('#number3').click(function() {
+		$('.arrow1').hide();
+		$('.arrow2').hide();
+		$('.arrow3').show();
+});
 </script>
 @stop
  
