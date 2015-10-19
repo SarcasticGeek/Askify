@@ -85,6 +85,7 @@
                 {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Search')) }}
 
                 {{ Form::submit('Find',array('class'=>'btn btn-default' )) }}
+                
 
                 {{ Form::close() }}
               <ul class="nav navbar-nav navbar-right">

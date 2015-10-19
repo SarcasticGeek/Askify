@@ -1,6 +1,5 @@
 
-<?php 
-
+<?php
 class QuestionsController extends BaseController{
 
 	public $restful = true; 
@@ -46,58 +45,73 @@ class QuestionsController extends BaseController{
 		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
 	}
 
+public function showsearch(){
+		
+		return View::make('results');
+	}
+
+
 	public function get_results($keyword)
 	{
-		$modifier = substr($keyword,0,strpos($keyword,':'));
-		$key = substr($keyword,strpos($keyword,':')+1);
-		switch($modifier){
-			case 'username':
+
+		if ( isset( $_REQUEST['qu'] ) ) {
+    	return View::make('results')
+				->with('title','Search By question')
+				->with('questions',Question::search($keyword));}
+
+				if ( isset( $_REQUEST['an'] ) ) {
+    	return View::make('results')
+				->with('title','Search By answer')
+				->with('answers',Answer::search($keyword));}
+
+				if ( isset( $_REQUEST['us'] ) ) {
+    	return View::make('results')
+				->with('title','Search By user')
+				->with('questions',Question::searchUser($keyword));}
+
+				if ( isset( $_REQUEST['date'] ) ) {
+    	return View::make('results')
+				->with('title','Search By date')
+				->with('questions',Question::searchByDate($keyword));}
+
+				if ( isset( $_REQUEST['tag'] ) ) {
+    	return View::make('results')
+				->with('title','Search By tags')
+				->with('tags',Tag::search_tag($keyword));}
+
+                if ( isset( $_REQUEST['unsolved'] ) ) {
 				return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('questions',Question::searchUser($key));
-				break;
-			case 'answer':
-							return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('answers',Answer::search($key));
-				break;
-			case 'question':
-							return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('questions',Question::search($key));
-				break;
-			case 'date':
-							return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('questions',Question::searchByDate($key));
-				break;
-			case 'tag':
-							return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('tags',Tag::search_tag($key));
-				break;
-			case 'before':
-				return View::make('results')
-				->with('title','Search By '.$modifier.$key)
-				->with('questions',Question::searchByDateBefore($key));
-				break;
-			case 'after':
-				return View::make('results')
-				->with('title','Search By '.$modifier.$key)
-				->with('questions',Question::searchByDateAfter($key));
-				break;					
-			case 'unsolved':
-				return View::make('results')
-				->with('title','Search By '.$modifier.$key)
+				->with('title','Search By unsolved questions')
 				->with('questions',Question::unsolved());
-				break;
+				}
+				if ( isset( $_REQUEST['before'] ) ) {
+
+				return View::make('results')
+				->with('title','Search before date')
+				->with('questions',Question::searchByDateBefore($keyword));
+			}
+
+            if ( isset( $_REQUEST['after'] ) ) {
+			return View::make('results')
+				->with('title','Search after date')
+				->with('questions',Question::searchByDateAfter($keyword));
+		}
+
+		
+		switch($keyword){
+			
 			default:
-				return View::make('results')->with('title','Error')
-				->with('message','No such modifier, please use one of our modifier');
+				return View::make('results')->with('title','Search results')
+				->with('message','Please choose one of search fileds above');
 		}
 		
 	}
-    
+
+    public function get_results_q($keyword)
+    {
+    	
+
+    }
 	
 	public function post_search()
 	{
