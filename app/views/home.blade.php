@@ -105,15 +105,20 @@
 	}
 	#left .Tags{
 		border-bottom:2px solid #ECF0F0;
-		height:auto;
-		min-height: 120px;
-		max-height: 250px;
-		height:auto !important;
-		height: 120px;
+		/*height:auto;
+		min-height: 200px;
+		height:auto !important;*/
+		height: 200px;
 		padding-bottom: 5px;
 
 	}
-
+	#left .nothing{
+		position: absolute;
+		top: 78%;
+		left: 10%;
+		text-align: left;
+		color: #ECF0F0;
+	}
 	#left .btn input[type=checkbox]{
 		position:relative;
 	}
@@ -139,18 +144,18 @@ session_start();
 		    <input type="radio" name="options" id="option2" autocomplete="off">Answered
 		</div>
 
-		<label class="Tags btn btn-primary" style="font-size: 25px" id="number3">
+		<div class="Tags btn btn-primary" style="font-size: 25px" id="number3">
 			<div class="arrow3"></div>
 		    <input type="radio" name="options" id="option3" autocomplete="off">Tags
-		    <div>	
-			    @foreach($tags as $tag)
-					<ul style="font-size: 18px"> 
-			    		{{Form::checkbox('tags[]',$tag->id,false)}}
-			   		 	{{Form::label($tag->name) }}
-			   		</ul>       
-				@endforeach
-			</div>
-		</label>		  
+		</div>
+		<div class ="nothing">	
+			@foreach($tags as $tag)
+				<ul style="font-size: 18px"> 
+			    	{{Form::checkbox('tags[]',$tag->id,false)}}
+			   		{{Form::label($tag->name) }}
+			   	</ul>       
+			@endforeach
+		</div>
 	</div>
 	<div id="right">
 		@if(Auth::User()->iFadmin != 1)
