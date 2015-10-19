@@ -105,10 +105,6 @@
 	}
 	#left .Tags{
 		border-bottom:2px solid #ECF0F0;
-		/*height:auto;
-		min-height: 200px;
-		height:auto !important;*/
-		height: 200px;
 		padding-bottom: 5px;
 
 	}
@@ -118,6 +114,7 @@
 		left: 10%;
 		text-align: left;
 		color: #ECF0F0;
+		height:auto;
 	}
 	#left .btn input[type=checkbox]{
 		position:relative;
@@ -166,10 +163,12 @@ session_start();
 		  			<div class="dropdown">
 		  				<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style="border-radius:0">Tags
 		  				<span class="caret"></span></button>
-		  				<ul class="dropdown-menu dropdown-menu-right top1">
+		  				<ul class="dropdown-menu dropdown-menu-right top1"  style="margin-top: -65px;background-color:rgba(0,0,0,0.6); color:white;padding: 20px;padding-top: 10px; padding-bottom: 5px;">
 					 	   @foreach($tags as $tag)
-					    		<li> {{Form::label($tag->name) }}
-		    					{{ Form::checkbox('tags[]',$tag->id,false)}}</li>       
+					    		<li> 
+		    					{{ Form::checkbox('tags[]',$tag->id,false)}}
+		    					{{Form::label($tag->name) }}
+		    				</li>       
 					    	@endforeach              
 					  	</ul>
 					</div>
@@ -183,7 +182,7 @@ session_start();
 				<div id="IMG">
 			    	<div class="dropdown">
 			  			<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:39px;margin-right:250px;border-radius:0;">Upload Image!</button>
-			  			<p class="dropdown-menu dropdown-menu-right" style="margin-right:450px;top:20%;background-color:rgba(0,0,0,0.6);	color:white;		
+			  			<p class="dropdown-menu dropdown-menu-right" style="margin-right:100px;margin-top:-65px;background-color:rgba(0,0,0,0.6);	color:white;		
 						height: 50px;
 						padding: 20px;
 						padding-top: 10px;
@@ -214,7 +213,7 @@ session_start();
 						 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
 							 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
 					 		?>
-			 			 	<img src="<?php echo $grav_url; ?>" hieght="30px" width="30px"> 
+			 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px"> 
 					 		<strong>{{ucfirst($question->user->username)}}
 					 		</strong>
 					 	</p>
@@ -235,6 +234,7 @@ session_start();
 </div>
 
 <script>
+		$('.nothing').hide();
 		$('.arrow2').hide();
 		$('.arrow3').hide();
 		$('.arrow1').show();
@@ -253,6 +253,12 @@ session_start();
 		$('.arrow2').hide();
 		$('.arrow3').show();
 });
+	var y = {{ Tag::get()->count() }} ;
+	var x = y / 2 * 140 ;
+	$('.Tags').on('click',function(){
+		$('.nothing').show();
+		$(".Tags").css("height", x);
+	});
 </script>
 @stop
  
