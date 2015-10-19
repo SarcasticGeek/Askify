@@ -1,6 +1,5 @@
 <?php
 class QuestionsController extends BaseController{
-
 	public $restful = true; 
 	public function get_index() {
 		return View::make('Questions.index');
