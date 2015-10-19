@@ -54,55 +54,53 @@ public function showsearch(){
 	public function get_results($keyword)
 	{
 
-		if ( isset( $_REQUEST['qu'] ) ) {
-    	return View::make('results')
-				->with('title','Search By question')
-				->with('questions',Question::search($keyword));}
-
-				if ( isset( $_REQUEST['an'] ) ) {
-    	return View::make('results')
-				->with('title','Search By answer')
-				->with('answers',Answer::search($keyword));}
-
-				if ( isset( $_REQUEST['us'] ) ) {
-    	return View::make('results')
-				->with('title','Search By user')
-				->with('questions',Question::searchUser($keyword));}
-
-				if ( isset( $_REQUEST['date'] ) ) {
-    	return View::make('results')
-				->with('title','Search By date')
-				->with('questions',Question::searchByDate($keyword));}
-
-				if ( isset( $_REQUEST['tag'] ) ) {
-    	return View::make('results')
-				->with('title','Search By tags')
-				->with('tags',Tag::search_tag($keyword));}
-
-                if ( isset( $_REQUEST['unsolved'] ) ) {
+		$modifier = substr($keyword,0,strpos($keyword,':'));
+		$key = substr($keyword,strpos($keyword,':')+1);
+		switch($modifier){
+			case 'username':
+				return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('questions',Question::searchUser($key))
+				->with('keyword',$key);
+				break;
+			case 'answer':
+							return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('answers',Answer::search($key))->with('keyword',$key);
+				break;
+			case 'question':
+							return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('questions',Question::search($key))->with('keyword',$key);
+				break;
+			case 'date':
+							return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('questions',Question::searchByDate($key))->with('keyword',$key);
+				break;
+			case 'tag':
+							return View::make('results')
+				->with('title','Search By '.$modifier)
+				->with('tags',Tag::search_tag($key))->with('keyword',$key);
+				break;
+			case 'before':
+				return View::make('results')
+				->with('title','Search By '.$modifier.$key)
+				->with('questions',Question::searchByDateBefore($key))->with('keyword',$key);
+				break;
+			case 'after':
+				return View::make('results')
+				->with('title','Search By '.$modifier.$key)
+				->with('questions',Question::searchByDateAfter($key))->with('keyword',$key);
+				break;					
+			case 'unsolved':
 				return View::make('results')
 				->with('title','Search By unsolved questions')
-				->with('questions',Question::unsolved());
-				}
-				if ( isset( $_REQUEST['before'] ) ) {
-
-				return View::make('results')
-				->with('title','Search before date')
-				->with('questions',Question::searchByDateBefore($keyword));
-			}
-
-            if ( isset( $_REQUEST['after'] ) ) {
-			return View::make('results')
-				->with('title','Search after date')
-				->with('questions',Question::searchByDateAfter($keyword));
-		}
-
-		
-		switch($keyword){
+				->with('questions',Question::unsolved())->with('keyword',$keyword);
 			
 			default:
 				return View::make('results')->with('title','Search results')
-				->with('message','Please choose one of search fileds above');
+				->with('message','Please choose one of search fileds above')->with('keyword',$keyword);
 		}
 		
 	}

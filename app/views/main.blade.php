@@ -81,9 +81,11 @@
               
 
                 {{ Form::token() }}
-
-                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Click to search!')) }}
-
+                @if(isset($keyword))
+                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>$keyword)) }}
+                @else
+                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Click to search!')) }}                
+                @endif
                 {{ Form::submit('Find',array('class'=>'btn btn-info' )) }}
 
 

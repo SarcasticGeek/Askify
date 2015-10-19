@@ -44,14 +44,14 @@ body{
     
     <form   >
         <div class="dropdown">
-    <input type="submit"  name="qu" class="btn btn-info" id="myBtn" value="Questions"> 
-    <button  name="an" class="btn btn-info">Answers</button>
-    <button  name="us" class="btn btn-info" >Users</button>
-    <button  name="date" class="btn btn-info">Date</button>
-    <button   name="tag" class="btn btn-info">Tag</button>
-    <button   name="unsolved" class="btn btn-info">Unsolved questions</button>
-    <button   name="before" class="btn btn-info">Before date</button>
-    <button  name="after" class="btn btn-info">after date</button>
+    <a role="button" href="/results/question:{{$keyword}}" class="btn btn-info" >Questions</a>
+    <a role="button" href="/results/answer:{{$keyword}}"  class="btn btn-info">Answers</a>
+    <a role="button" href="/results/username:{{$keyword}}" class="btn btn-info" >Users</a>
+    <a role="button" href="/results/date:{{$keyword}}" class="btn btn-info">Date</a>
+    <a role="button" href="/results/tag:{{$keyword}}" class="btn btn-info">Tag</a>
+    <a role="button" href="/results/unsolved:" class="btn btn-info">Unsolved questions</a>
+    <a role="button" href="/results/before:{{$keyword}}" class="btn btn-info">Before date</a>
+    <a role="button" href="/results/after:{{$keyword}}" class="btn btn-info">after date</a>
 </div>
 </form>
 
