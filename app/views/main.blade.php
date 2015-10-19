@@ -82,10 +82,10 @@
 
                 {{ Form::token() }}
 
-                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Search')) }}
+                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Click to search!')) }}
 
-                {{ Form::submit('Find',array('class'=>'btn btn-default' )) }}
-                
+                {{ Form::submit('Find',array('class'=>'btn btn-info' )) }}
+
 
                 {{ Form::close() }}
               <ul class="nav navbar-nav navbar-right">
