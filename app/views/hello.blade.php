@@ -16,7 +16,7 @@
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
 
 		.panel1 {
-			height: 678px;
+			height: 658px;
 			width: 100%;
 			margin:0;
 			text-align:center;
@@ -106,41 +106,46 @@
 		}
 		.panel2{
 			background-size: 1300px 600px;
-			position: absolute;
-			top:110%;
-			height: 650px;
+			position: relative;
+			height: 565px;
 			width: 1300px;
+			top:5%;
 		}
 		.step1{
-			position: absolute;
-			opacity: 1;
-			top:15%;
-			left:2%;
-			animation-name:go1;
+			position: relative;
+			top:-10px;
+			opacity:0;
+			left:80px;
+			height: 200px;
+			width: 200px;
+/*			animation-name:go1;
 			animation-duration:1s;
-			animation-timing-function: ease-in-out;
+			animation-timing-function: ease-in-out;*/
 		}
 
-		@keyframes go1{
+/*		@keyframes go1{
     		0%{
     			left:0%;
     			opacity: 0;}
     		100%{
     			left:2%;
     			opacity: 1;}		
-		}
+		}*/
 
 
 		.step2{
-			position: absolute;
-			left:25%;
-    		top:30%;
-			animation-name:go2;
+			position: relative;
+			opacity:0;
+			top:-110px;
+			left:160px;
+			height: 200px;
+			width: 200px;
+/*			animation-name:go2;
 			animation-duration:1.5s;
-			animation-timing-function: ease-in-out;
+			animation-timing-function: ease-in-out;*/
 		}
 
-		@keyframes go2{
+/*		@keyframes go2{
     		0%{
     			left:8%;
     			opacity: 0;
@@ -149,46 +154,58 @@
     			left:25%;
     			opacity: 1;
     		}		
-		}
+		}*/
 
 
 		.step3{
-			position: absolute;
-			opacity: 1;
-			top:45%;
-			left:50%;
-			animation-name:go3;
+			height: 200px;
+			width: 200px;
+			position: relative;
+			opacity:0;
+			top:-190px;
+			left:140px;
+/*			animation-name:go3;
 			animation-duration:1.8s;
-			animation-timing-function: ease-in-out;
+			animation-timing-function: ease-in-out;*/
 		}
 
-		@keyframes go3{
+/*		@keyframes go3{
     		0%{
     			left:25%;
     			opacity: 0;}
     		100%{
     			left:50%;
     			opacity: 1;}		
-		}
+		}*/
 
 
 		.step4{
-			position: absolute;
-			opacity: 1;
-			top:60%;
-			left:75%;
-			animation-name:go4;
+			height: 200px;
+			width: 200px;
+			position: relative;
+			opacity:0;
+			top:-250px;
+			left:320px;
+/*			animation-name:go4;
 			animation-duration:2s;
-			animation-timing-function: ease-in-out;
+			animation-timing-function: ease-in-out;*/
+		}
+		.steps
+		{
+			height: 500px;
+			width: 1000px; 
 		}
 
-		@keyframes go4{
+/*		@keyframes go4{
     		0%{
     			left:50%;
     			opacity: 0;}
     		100%{
     			left:75%;
     			opacity: 1;}		
+		}*/
+		.big{
+			height: 1150px;
 		}
 
 	</style>
@@ -230,25 +247,37 @@
 
 
 <div class="panel2">
-	<div>
-		<img class="step1" alt="Brand" src="images/step1.png" width="200" height="200" id="logo">
+	<div class="steps">
+		<div  class="step1">
+			<img alt="Brand" src="images/step1.png" width="200" height="200" id="logo">
+		</div>
+		<div  class="step2">
+			<img alt="Brand" src="images/step2.png" width="200" height="200" id="logo">
+		</div>
+		<div class="step3">
+			<img  alt="Brand" src="images/step3.png" width="200" height="200" id="logo">
+		</div>
+		<div class="step4">
+			<img  alt="Brand" src="images/step4.png" width="200" height="200" id="logo">
+		</div>
 	</div>
-	<div>
-		<img class="step2" alt="Brand" src="images/step2.png" width="200" height="200" id="logo">
-	</div>
-	<div>
-		<img class="step3" alt="Brand" src="images/step3.png" width="200" height="200" id="logo">
-	</div>
-	<div>
-		<img class="step4" alt="Brand" src="images/step4.png" width="200" height="200" id="logo">
-	</div>
-<button class="trying">try</button>
 </div>
 </div>
 <script src="js/jquery/js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
 
+	$(window).scroll(function()
+	{
+		if($('.big').scrollTop() >=  $('.panel1').offset().top - 500)
+		{
+			$('.step1').animate({left:"160px",opacity:1},800);
+			$('.step2').delay(500).animate({left:"430px",opacity:1},800);
+			$('.step3').delay(900).animate({left:"700px",opacity:1},800);
+			$('.step4').delay(1300).animate({left:"970px",opacity:1},800);
+		}
+
+	});
 </script>
 </body>
 </html>
