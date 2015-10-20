@@ -212,7 +212,7 @@
 </head>
 <body>
 <div class="big">
-<div class="navbar navbar-inverse" position="fixed">
+	<div class="navbar navbar-inverse" position="fixed">
 		<div>
       <a class="navbar-brand" href="/">
         <img alt="Brand" src="images/blue-01.png" width="31" height="35" id="logo">
@@ -231,37 +231,37 @@
  	 </div>
     </div>
 
-  <div class="panel1">
-	<div class="welcome">
-		<img class="branding" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
-	</br>
-		<h1 class="head">ASK, and you will get an answer</h1>
-	</br>
-	<a href="register">
-		<button type="button" class ="btnn">Join Now!</button>
-	</a>
-		@yield('content')
-	</div>
-</div>
-
-
-
-<div class="panel2">
-	<div class="steps">
-		<div  class="step1">
-			<img alt="Brand" src="images/step1.png" width="200" height="200" id="logo">
-		</div>
-		<div  class="step2">
-			<img alt="Brand" src="images/step2.png" width="200" height="200" id="logo">
-		</div>
-		<div class="step3">
-			<img  alt="Brand" src="images/step3.png" width="200" height="200" id="logo">
-		</div>
-		<div class="step4">
-			<img  alt="Brand" src="images/step4.png" width="200" height="200" id="logo">
+  	<div class="panel1">
+		<div class="welcome">
+			<img class="branding" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
+		</br>
+			<h1 class="head">ASK, and you will get an answer</h1>
+		</br>
+		<a href="register">
+			<button type="button" class ="btnn">Join Now!</button>
+		</a>
+			@yield('content')
 		</div>
 	</div>
-</div>
+
+
+
+	<div class="panel2">
+		<div class="steps">
+			<div  class="step1">
+				<img alt="Brand" src="images/step1.png" width="200" height="200" id="logo">
+			</div>
+			<div  class="step2">
+				<img alt="Brand" src="images/step2.png" width="200" height="200" id="logo">
+			</div>
+			<div class="step3">
+				<img  alt="Brand" src="images/step3.png" width="200" height="200" id="logo">
+			</div>
+			<div class="step4">
+				<img  alt="Brand" src="images/step4.png" width="200" height="200" id="logo">
+			</div>
+		</div>
+	</div>
 </div>
 <script src="js/jquery/js"></script>
 <script src="js/bootstrap.min.js"></script>
