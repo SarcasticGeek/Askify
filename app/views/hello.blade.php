@@ -137,7 +137,7 @@
 			position: relative;
 			opacity:0;
 			top:-110px;
-			left:160px;
+			left:200px;
 			height: 200px;
 			width: 200px;
 /*			animation-name:go2;
@@ -163,7 +163,7 @@
 			position: relative;
 			opacity:0;
 			top:-190px;
-			left:140px;
+			left:400px;
 /*			animation-name:go3;
 			animation-duration:1.8s;
 			animation-timing-function: ease-in-out;*/
@@ -185,7 +185,7 @@
 			position: relative;
 			opacity:0;
 			top:-250px;
-			left:320px;
+			left:600px;
 /*			animation-name:go4;
 			animation-duration:2s;
 			animation-timing-function: ease-in-out;*/
@@ -269,14 +269,13 @@
 
 	$(window).scroll(function()
 	{
-		if($('.big').scrollTop() >=  $('.panel1').offset().top - 500)
+		if($('.big').scrollTop() >=  $('.panel1').offset().top)
 		{
 			$('.step1').animate({left:"160px",opacity:1},800);
 			$('.step2').delay(500).animate({left:"430px",opacity:1},800);
 			$('.step3').delay(900).animate({left:"700px",opacity:1},800);
 			$('.step4').delay(1300).animate({left:"970px",opacity:1},800);
 		}
-
 	});
 </script>
 </body>
