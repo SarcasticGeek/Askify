@@ -62,7 +62,7 @@
 		float: right;
 		width: 850px;
 	}
-	#left{
+	#left {
 		margin: 20px;
 		margin-left: -15px;
 		width: 250px;
@@ -70,28 +70,23 @@
 		background-color: #4183D7;
 		float: left;
 	}
-	#left .btn-primary{
-		background-color: rgba(0,0,0,0);
-	}
-	#left .btn-primary.active,.open > .dropdown-toggle.btn-primary{
-  		background-color: #286193;
-  	}
-  	#left .btn-primary:hover{
-  		background-color: #286193;
-  	}
-
-	#left .btn{
-		height:120px;
-		width:250;
+	#left .nav a{
+		width: 250px;
+		height: 120px;
 		color: #ECF0F0;
+		font-size: 25px;
 		text-align: left;
-		padding-left:32px;
 		border:0px;
 		border-top:2px solid #ECF0F0;
 		border-radius: 0;
+		padding-left:32px;
 	}
+	#left .nav > li.active > a, #left .nav > li > a:hover{background-color: #286193;}
 	#left .Date{
 		margin-top: 150px;
+	}
+	#left .Tags a{
+		border-bottom:2px solid #ECF0F0;
 	}
 	#left .arrow1, #left .arrow2, #left .arrow3{
 		width: 0;
@@ -99,25 +94,20 @@
 		border-top: 20px solid transparent;
 		border-bottom: 20px solid transparent;
 		border-right: 20px solid #ECF0F0;
-		margin-right: -13px;
-		margin-top: 10px;
+		margin-right: 0px;
+		margin-top: -100px;
 		float: right;
+		position: relative;
 	}
-	#left .Tags{
-		border-bottom:2px solid #ECF0F0;
-		padding-bottom: 5px;
-
-	}
+	#left .arrow3{
+		margin-top: -217px;
+	}	
 	#left .nothing{
-		position: absolute;
-		top: 78%;
-		left: 10%;
+		top: -185px;
+		left: 15%;
 		text-align: left;
 		color: #ECF0F0;
 		height:auto;
-	}
-	#left .btn input[type=checkbox]{
-		position:relative;
 	}
 </style>
 
@@ -130,29 +120,30 @@ session_start();
 @endif
 
 <div>
-	<div id="left" data-toggle="buttons">
-		<div class="Date btn btn-primary active" style="font-size: 25px" id="number1">
-			<div class="arrow1"></div>
-			<input type="radio" name="options" id="option1" autocomplete="off" checked>Date
-		</div>
+	<div id="left" style="display:block;">
+		<ul class="nav">
+		    <li role="presentation" class="active Date" id="number1">
+		    	<a href="#date" aria-controls="date" role="tab" data-toggle="tab">Date</a>
+		    	<div class="arrow1"></div>
+		    </li>
+		    <li role="presentation" class="Answered" id="number2">
+		    	<a href="#answered" aria-controls="answered" role="tab" data-toggle="tab">Answered</a>
+		    	<div class="arrow2"></div>
+		    </li>
+		    <li role="presentation" class="Tags" id="number3">
+		    	<a href="#tags" aria-controls="Tags" role="tab" data-toggle="tab">Tags</a>
+		    	<div class="arrow3"></div>
+		    </li>
+		    <li class ="nothing">	
+				@foreach($tags as $tag)
+					<ul style="font-size: 18px"> 
+				    	{{Form::checkbox('tags[]',$tag->id,false)}}
+				   		{{Form::label($tag->name) }}
+				   	</ul>       
+				@endforeach
+			</li>
 
-		<div class="Answered btn btn-primary" style="font-size: 25px" id="number2">
-			<div class="arrow2"></div>
-		    <input type="radio" name="options" id="option2" autocomplete="off">Answered
-		</div>
-
-		<div class="Tags btn btn-primary" style="font-size: 25px" id="number3">
-			<div class="arrow3"></div>
-		    <input type="radio" name="options" id="option3" autocomplete="off">Tags
-		</div>
-		<div class ="nothing">	
-			@foreach($tags as $tag)
-				<ul style="font-size: 18px"> 
-			    	{{Form::checkbox('tags[]',$tag->id,false)}}
-			   		{{Form::label($tag->name) }}
-			   	</ul>       
-			@endforeach
-		</div>
+	  	</ul> 		
 	</div>
 	<div id="right">
 		@if(Auth::User()->iFadmin != 1)
@@ -198,43 +189,47 @@ session_start();
 				{{$message}}
 				@endif
 			</div>
-
 		@endif
 
 		<div class="questionlist">
 			@if(!$questions)
 				<p>No Questions</p>
 			@else
-			@foreach($questions as $question)
-				@if($question->private == 0)
-					<ul>
-					 	<p style="font-size: 18px">
-						 	<?php 
-						 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
-							 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
-					 		?>
-			 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px"> 
-					 		<strong>{{ucfirst($question->user->username)}}
-					 		</strong>
-					 	</p>
-					 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p> 
-					 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-							{{ HTML::linkRoute('question','View',$question->id) }}
-							@if(Auth::User()->iFadmin == 1)
-								{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+				<div class="tab-content" style="display: block;">
+				    <div role="tabpanel" class="tab-pane active" id="date"><h1>Order Questions By Date *default view*</h1></div>
+				    <div role="tabpanel" class="tab-pane" id="answered">
+				    	<h1>View Answered Questions Only *ordered by date*</h1>
+				    	@foreach($questions as $question)
+							@if($question->private == 0)
+								<ul>
+								 	<p style="font-size: 18px">
+									 	<?php 
+									 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+										 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+								 		?>
+						 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px"> 
+								 		<strong>{{ucfirst($question->user->username)}}
+								 		</strong>
+								 	</p>
+								 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p> 
+								 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+										{{ HTML::linkRoute('question','View',$question->id) }}
+										@if(Auth::User()->iFadmin == 1)
+											{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+										@endif
+									</p>
+								</ul>
 							@endif
-						</p>
-					</ul>
-				@endif
-			@endforeach
-			{{ $questions->links()}}
+						@endforeach
+						{{ $questions->links()}}</div>
+				    <div role="tabpanel" class="tab-pane" id="tags"><h1>Order Questions Of The Required Tag Only *ordered by date*</h1></div>
+		  		</div>			
 			@endif
 	 	</div>
 	</div>
 </div>
 
 <script>
-		$('.nothing').hide();
 		$('.arrow2').hide();
 		$('.arrow3').hide();
 		$('.arrow1').show();
@@ -254,11 +249,8 @@ session_start();
 		$('.arrow3').show();
 });
 	var y = {{ Tag::get()->count() }} ;
-	var x = y / 2 * 140 ;
-	$('.Tags').on('click',function(){
-		$('.nothing').show();
-		$(".Tags").css("height", x);
-	});
+	var x = y / 2 * 120 ;
+	$(".Tags a").css("height", x);
 </script>
 @stop
  
