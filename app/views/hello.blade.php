@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css"href="css/bootstrap.css">
 <link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="shortcut icon" href="images/favicon.ico">
 	<style>
@@ -269,25 +269,32 @@
         <h4 class="modal-title" style="font-size:25px;"><strong>Sign Up!</strong></h4>
       </div>
       <div class="modal-body">
-        <form>
+        <form method="post" action="{{action('RegisterController@doRegister')}}">
         	<input type="text" name="username" placeholder="Username" class="input-form">
         	<input type="email" name="email" placeholder="Email Address" class="input-form">
         	<input type="password" name="password" placeholder="Password" class="input-form">
         	<input type="password" name="conpassword" placeholder="Password Confirmation" class="input-form">
-
-        </form>
       </div>
       <div class="modal-footer">
       	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin" style="float:left;margin-top:15px;">Already Has Account?</a>
         <button type="button" data-dismiss="modal" class="btn btn-danger">Close</button>
-        <button type="button" class="btn btn-success" style="margin-right:15px;">Submit</button>
+        <input type="submit" value="Submit" class="btn btn-success" style="margin-right:15px;">
+       </form>
       </div>
     </div>
 
   </div>
 </div>
 
+  <script type="text/javascript">
+       	var flag = 0;
+        $(document).ready(function(){
+        	$("input[name=\"username\"]").blur(function(){
 
+        	});
+
+        });
+        </script>
 
 <div id="signin" class="modal fade" role="dialog">
   <div class="modal-dialog">
