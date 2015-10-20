@@ -208,6 +208,20 @@
  		 overflow: inherit;
   		 padding-right: 0 !important;
 		}
+		.input-form{
+			font-size: 20px !important;
+			display: block !important;
+			margin-left: auto !important;
+			margin-right: auto !important;
+			width: 50% !important;
+		}
+		#submit{
+			margin-right:25px;
+			background: green;
+		}
+		#cancel{
+			background: red;
+		}
 
 	</style>
 </head>
@@ -252,14 +266,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title" style="font-size:25px;"><strong>Sign Up!</strong></h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
+        <form>
+        	<input type="text" name="username" placeholder="Username" class="input-form">
+        	<input type="email" name="email" placeholder="Email Address" class="input-form">
+        	<input type="password" name="password" placeholder="Password" class="input-form">
+        	<input type="password" name="conpassword" placeholder="Password Confirmation" class="input-form">
+
+        </form>
       </div>
       <div class="modal-footer">
-      	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin">Already Has Account?</a>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin" style="float:left;margin-top:15px;">Already Has Account?</a>
+        <button type="button" data-dismiss="modal" class="btn btn-danger">Close</button>
+        <button type="button" class="btn btn-success" style="margin-right:15px;">Submit</button>
       </div>
     </div>
 
