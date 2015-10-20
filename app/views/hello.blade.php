@@ -4,12 +4,13 @@
 	<meta charset="UTF-8">
 	<title>Askify</title>
 	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
 <link rel="stylesheet" type="text/css"href="css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css"href="css/bootstrap.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/css/materialize.min.css">
 <link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <link rel="shortcut icon" href="images/favicon.ico">
 	<style>
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
@@ -23,9 +24,22 @@
 			background-image: url("images/background2.jpg");
 			background-size: cover;
 		}
+
+
 		body{
 			font-family: 'Handlee', cursive;
+			padding: 0!important;
 		}
+		.modal-dialog{
+			width: 100%;
+			padding-left: 20px;
+		}
+		.modal{
+			width: 60%;
+			background: rgba(0,0,0,0);
+			box-shadow: 0 0 0 0;
+		}
+
 		.askify
 		{
 			position: absolute;
@@ -190,9 +204,14 @@
     			opacity: 1;}		
 		}
 
+		body.modal-open {
+ 		 overflow: inherit;
+  		 padding-right: 0 !important;
+		}
+
 	</style>
 </head>
-<body>
+<body id="body">
 
 <div class="navbar navbar-inverse" position="fixed">
 		<div>
@@ -219,14 +238,56 @@
 	</br>
 		<h1 class="head">ASK, and you will get an answer</h1>
 	</br>
-	<a href="register">
-		<button type="button" class ="btnn">Join Now!</button>
-	</a>
+		<button type="button" class ="btnn" data-toggle="modal" data-target="#myModal">Join Now!</button>
 		@yield('content')
 	</div>
 </div>
 
 
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+      	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin">Already Has Account?</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div id="signin" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+        <p>Some text in the modal.</p>
+      </div>
+      <div class="modal-footer">
+      	<a href="#" data-toggle="modal" data-target="#signin">Already Has Account?</a>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
 
 <div class="panel2">
 	<div>
@@ -242,5 +303,6 @@
 		<img class="step4" alt="Brand" src="images/step4.png" width="200" height="200" id="logo">
 	</div>
 </div>
+
 </body>
 </html>
