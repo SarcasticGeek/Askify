@@ -8,6 +8,23 @@ class RegisterController extends BaseController{
 		return View::make('register');
 	}
 
+
+
+
+	public function checkUsername(){
+		$post = Input::get('data');
+		if(User::where('username',$post)->get()->first()->username!=null)
+		{
+			$check =User::where('username',$post)->get()->first()->username;
+			return $check;
+		}else{
+			return true;
+		}	
+	}
+
+
+
+
 	public function doRegister()
 	{
 		$credit = Input::only('username','email','password','conpassword');

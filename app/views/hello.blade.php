@@ -421,13 +421,13 @@
 </script>
 
 <script type="text/javascript">
-$("#submit").click(function(){
-	var data1 = $('input[name=username]').val();
-	var request = $.ajax({
-		url: "/",
-		type: "POST",
-		data: data1
-	});
+$('#username').blur(function(){
+	var data = $('input[name=username]').val();
+	if(data!=""){
+		$.post('/hello',{data:data},function(output){
+			console.log(output);
+		});
+	}
 });
 
 </script>

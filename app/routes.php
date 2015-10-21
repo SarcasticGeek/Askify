@@ -24,6 +24,9 @@ Route::get('/hello',function(){
  	'uses'=>'QuestionsController@post_create'));
 
 
+ Route::post('/hello',array('as'=>'hello','uses'=>'RegisterController@checkUsername'));
+
+
 Route::get('/register','RegisterController@showRegister');
 Route::post('/',array('uses'=>'RegisterController@doRegister'));
 
