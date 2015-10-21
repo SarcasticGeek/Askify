@@ -1,5 +1,6 @@
 <?php
-$url = parse_url(getenv("DATABASE_URL"));
+//$url = parse_url(getenv("DATABASE_URL"));
+$url = parse_url("postgres://kvzllddq:DugxcFJLc2CGm_h9-ngWFsb3RIwse0h4@pellefant.db.elephantsql.com:5432/kvzllddq");
 $host = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
@@ -30,7 +31,7 @@ return array(
 	|
 	*/
 
- 	   'default' => 'sqlite',
+ 	   'default' => 'pgsql',
 
 	/*
 	|--------------------------------------------------------------------------
