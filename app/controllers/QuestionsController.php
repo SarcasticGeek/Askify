@@ -46,54 +46,62 @@ class QuestionsController extends BaseController{
 	public function get_results($keyword)
 	{
 
-		$modifier = substr($keyword,0,strpos($keyword,':'));
-		$key = substr($keyword,strpos($keyword,':')+1);
-		switch($modifier){
-			case 'username':
-				return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('questions',Question::searchUser($key))
-				->with('keyword',$key);
-				break;
-			case 'answer':
-							return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('answers',Answer::search($key))->with('keyword',$key);
-				break;
-			case 'question':
-							return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('questions',Question::search($key))->with('keyword',$key);
-				break;
-			case 'date':
-							return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('questions',Question::searchByDate($key))->with('keyword',$key);
-				break;
-			case 'tag':
-							return View::make('results')
-				->with('title','Search By '.$modifier)
-				->with('tags',Tag::search_tag($key))->with('keyword',$key);
-				break;
-			case 'before':
-				return View::make('results')
-				->with('title','Search By '.$modifier.$key)
-				->with('questions',Question::searchByDateBefore($key))->with('keyword',$key);
-				break;
-			case 'after':
-				return View::make('results')
-				->with('title','Search By '.$modifier.$key)
-				->with('questions',Question::searchByDateAfter($key))->with('keyword',$key);
-				break;					
-			case 'unsolved':
-				return View::make('results')
-				->with('title','Search By unsolved questions')
-				->with('questions',Question::unsolved())->with('keyword',$keyword);
+		// $modifier = substr($keyword,0,strpos($keyword,':'));
+		// $key = substr($keyword,strpos($keyword,':')+1);
+		// switch($modifier){
+		// 	case 'username':
+		// 		return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('questions',Question::searchUser($key))
+		// 		->with('keyword',$key);
+		// 		break;
+		// 	case 'answer':
+		// 					return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('answers',Answer::search($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'question':
+		// 					return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('questions',Question::search($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'date':
+		// 					return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('questions',Question::searchByDate($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'tag':
+		// 					return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('tags',Tag::search_tag($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'before':
+		// 		return View::make('results')
+		// 		->with('title','Search By '.$modifier.$key)
+		// 		->with('questions',Question::searchByDateBefore($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'after':
+		// 		return View::make('results')
+		// 		->with('title','Search By '.$modifier.$key)
+		// 		->with('questions',Question::searchByDateAfter($key))->with('keyword',$key);
+		// 		break;					
+		// 	case 'unsolved':
+		// 		return View::make('results')
+		// 		->with('title','Search By unsolved questions')
+		// 		->with('questions',Question::unsolved())->with('keyword',$keyword);
 			
-			default:
-				return View::make('results')->with('title','Search results')
-				->with('message','Please choose one of search fileds above')->with('keyword',$keyword);
-		}
+		// 	default:
+		// 		return View::make('results')->with('title','Search results')
+		// 		->with('message','Please choose one of search fileds above')->with('keyword',$keyword);
+		// }
+		return View::make('results')->with('user_questions',Question::searchUser($keyword))
+									->with('questions',Question::search($keyword))
+									->with('unsolved_questions',Question::unsolved())
+									->with('date_questions',Question::searchByDateBefore($keyword))
+									->with('before_questions',Question::searchByDateBefore($keyword))
+									->with('after_questions',Question::searchByDateAfter($keyword))
+									->with('answers',Answer::search($keyword))
+									->with('tags',Tag::search_tag($keyword));
 		
 	}
 

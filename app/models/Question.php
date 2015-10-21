@@ -81,7 +81,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	***************************/	
 	public static function search($keyword){
-		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(4);
+		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(25);
 	}
 	
     public static function searchUser($keyword){
@@ -92,7 +92,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
             $id = $user->id;
             array_push($ids,$id);
         }
-		return static::whereIn('user_id', $ids)->paginate(4);
+		return static::whereIn('user_id', $ids)->paginate(25);
 	}
 
 	public function tags()
@@ -100,7 +100,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->belongsToMany('Tag')->withTimestamps();
 	}
 	public static function searchByDate($keyword){
-		return static::where('updated_at', 'LIKE', '%'.$keyword.'%')->paginate(4);
+		return static::where('updated_at', 'LIKE', '%'.$keyword.'%')->paginate(25);
 	}
 	public static function searchByDateBefore($keyword)
 	{
@@ -110,7 +110,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		else if($lenght ==7)$keywordx =$keyword.'-01 00:00:00';
 		else $keywordx = $keyword.'00:00:00';
 
-		return static::where('updated_at','<', $keywordx)->paginate(4);
+		return static::where('updated_at','<', $keywordx)->paginate(25);
 	}
 	public static function searchByDateAfter($keyword)
 		{
@@ -120,7 +120,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		else if($lenght ==7)$keywordx =$keyword.'-01 00:00:00';
 		else $keywordx = $keyword.'00:00:00';
 
-			return static::where('updated_at','>', $keywordx)->paginate(4);
+			return static::where('updated_at','>', $keywordx)->paginate(25);
 		}
     public static function askedMoreThan($keyword)
         {
@@ -141,7 +141,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
         		}
            
         	}
-			return static::whereIn('user_id', $ids)->paginate(4);
+			return static::whereIn('user_id', $ids)->paginate(25);
 		}
 		public static function askedLessThan($keyword)
         {
@@ -161,7 +161,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
         		}
            
         	}
-			return static::whereIn('user_id', $ids)->paginate(4);
+			return static::whereIn('user_id', $ids)->paginate(25);
 		}
 		public static function askedEqualto($keyword)
         {
@@ -180,7 +180,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
             		array_push($ids,$id);
         		}
         	}
-			return static::whereIn('user_id', $ids)->paginate(4);
+			return static::whereIn('user_id', $ids)->paginate(25);
 		}
 	}
 
