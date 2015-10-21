@@ -139,9 +139,13 @@ session_start();
 		    </li>
 		    <li class ="nothing">	
 				@foreach($tags as $tag)
-					<ul style="font-size: 18px"> 
-				    	{{Form::checkbox('tags[]',$tag->id,false)}}
+					 <?php $name = $tag->name ?>  
+					<ul style="font-size: 18px">
+				    	{{Form::checkbox('tags',$tag->id,false, array('id'=> $name))}}
 				   		{{Form::label($tag->name) }}
+				   		@if($name === $tag->name)
+				   		{{$name}}
+				   		@endif
 				   	</ul>       
 				@endforeach
 			</li>
@@ -158,11 +162,13 @@ session_start();
 		  				<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style="border-radius:0">Tags
 		  				<span class="caret"></span></button>
 		  				<ul class="dropdown-menu dropdown-menu-right top1"  style="margin-top: -65px;background-color:rgba(0,0,0,0.6); color:white;padding: 20px;padding-top: 10px; padding-bottom: 5px;">
+
 					 	   @foreach($tags as $tag)
-					    		<li> 
-		    					{{ Form::checkbox('tags[]',$tag->id,false)}}
+					    		<li>
+								{{ Form::checkbox('tags[]',$tag->id,false)}}
 		    					{{Form::label($tag->name) }}
 		    				</li>       
+
 					    	@endforeach              
 					  	</ul>
 					</div>
@@ -294,8 +300,19 @@ session_start();
 		$('.arrow2').hide();
 		$('.arrow3').show();
 });
+	$('')
 	var y = {{ Tag::get()->count() }} ;
 	var x = y / 2 * 120 ;
 	$(".Tags a").css("height", x);
+
+        $('input[type="checkbox"]').click(function(){
+            if($('#Progamming').prop("checked") == true){
+                alert("Checkbox is checked.");
+            }
+            else if($('#Progamming').prop("checked") == false){
+                alert("Checkbox is unchecked.");
+            }
+        });
+
 </script>
 @stop
