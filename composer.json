@@ -6,6 +6,9 @@
 	"require": {
 		"laravel/framework": "4.2.*",
   		  "php": "~5.5.0",
+  		  "php": "5.5.12",
+		    "ext-memcached": "*",
+		    "ext-mongo": "*",
 		"barryvdh/laravel-debugbar": "~1.8",
 
         "hybridauth/hybridauth":"dev-master",
