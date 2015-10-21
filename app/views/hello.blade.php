@@ -210,10 +210,8 @@
 		}
 		.input-form{
 			font-size: 20px !important;
-			display: block !important;
-			margin-left: auto !important;
-			margin-right: auto !important;
-			width: 50% !important;
+			display: block;
+			width: 40% !important;
 		}
 		#submit{
 			margin-right:25px;
@@ -221,6 +219,37 @@
 		}
 		#cancel{
 			background: red;
+		}
+		#signup{
+			display: inline;
+		}
+		#right{
+			width: 35%;
+			background: #3b5998;
+			display: inline;
+			position: absolute;
+			left: 60%;
+			bottom: 60%;
+		}
+		#right-1{
+			width: 35%;
+			background: #DD4b39;
+			display: inline;
+			position: absolute;
+			left: 60%;
+			bottom: 25%;
+		}
+		#left{
+			display: inline;
+		}
+		#center{
+			display: inline;
+			position: absolute;
+			left: 47%;
+			bottom: 40%;
+		}
+		#danger{
+			background-color: #c9302c;
 		}
 
 	</style>
@@ -276,11 +305,20 @@
         	<input type="email" name="email" placeholder="Email Address" class="input-form" required id="email">
         	<input type="password" name="password" placeholder="Password" class="input-form" required id="password">
         	<input type="password" name="conpassword" placeholder="Password Confirmation" class="input-form" required id="conpassword">
-      </div>
+        	<h4 id="center">OR</h4>
+
+        	 <a class="btn btn-block btn-social btn-facebook" id="right" href="facebookauth">
+   			 <i class="fa fa-facebook"></i> Sign in with Facebook
+ 			 </a>
+ 			<a class="btn btn-block btn-social btn-google" id="right-1" href="auth/ViaGoogle">
+   			 <i class="fa fa-google"></i> Sign in with Google Plus
+ 			 </a>
+             </div>
       <div class="modal-footer">
       	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin" style="float:left;margin-top:15px;">Already Have Account?</a>
-        <button type="button" data-dismiss="modal" class="btn btn-danger">Close</button>
-        <input type="submit" value="Submit" class="btn btn-success" style="margin-right:15px;" id="submit" onclick="check()">
+        <button type="button" data-dismiss="modal" class="btn btn-danger" id="danger">Close</button>
+        <input type="submit" value="Submit" class="btn btn-success" style="margin-right:15px;" id="submit" onclick="check()" data-loading-text="Creating Account...">
+       
        </form>
       </div>
     </div>
@@ -330,20 +368,29 @@
 	var conpassword = document.getElementById("conpassword");
 	if(password.value!==conpassword.value){
 	conpassword.setCustomValidity("Passwords Don't Match");
-	return;
 }else{
 	conpassword.setCustomValidity('');
 }
-
-$('#conpassword').focus(function(){
 		$('#conpassword').keydown(function(){
 			conpassword.setCustomValidity('');
 		});
-	});
+
 	}
-
-
-
 </script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+$('#submit').click(function(){
+	var btn = $(this);
+	btn.button('loading');
+	setTimeout(function(){
+		btn.button('reset');
+	},1000);
+});
+
+});
+</script>
+
+
 </body>
 </html>
