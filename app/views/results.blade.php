@@ -162,9 +162,6 @@ h1 {
        .navbar-nav{
 
        }
-       .navx{
-        padding-top: 100px;
-       }
 </style>
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
@@ -177,7 +174,7 @@ h1 {
   <div class="row">
 
     <!-- Navigation -->
-    <nav class="navbarx navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="navbar-header">
               <a class="navbar-brand" href="#">
                   <img alt="Brand" src="{{ asset('images/logo2.png') }}" width="31" height="35" id="logo">
@@ -236,10 +233,9 @@ h1 {
 
 
 
-<div class= "navx">
+
     </nav>
-    
-    <nav class="navbar navbar-scroll navbar-fixed-top" role="navigation"> 
+    <nav class="navbar navbar-default navbar-static-top" role="navigation"> 
         <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -290,13 +286,11 @@ h1 {
             <!-- /.navbar-collapse -->
         
         <!-- /.container -->
-    
+    </div>
 
 
 
     </nav>
-    </div>
-    </div>
     </div>
 
 
