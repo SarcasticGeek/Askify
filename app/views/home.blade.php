@@ -107,6 +107,11 @@
 		color: #ECF0F0;
 		height:auto;
 	}
+	.tagname{
+		position: relative;
+		left: 700px;
+	}
+
 </style>
 
 @section('content')
@@ -220,7 +225,50 @@ session_start();
 							@endif
 						@endforeach
 						{{ $questions->links()}}</div>
-				    <div role="tabpanel" class="tab-pane" id="tags"><h1>Order Questions Of The Required Tag Only *ordered by date*</h1></div>
+
+						{{-- Tags tab --}}
+				    <div role="tabpanel" class="tab-pane" id="tags">
+				    	<div class="questionlist">
+						 	<!-- for tag sort -->
+						 	<?php 
+						 		$tagArray = array(1, 2, 3);
+						 	?>
+							@if(!$questions)
+								 <p>No Questions</p>
+							@else
+							@foreach($tags as $tag)
+								@foreach($tagArray as $element)
+								@if($tag->id == $element)
+									@foreach($tag->questions as $question)
+									<ul>
+										<p style="font-size: 18px"><strong>
+											 <?php 
+											 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+											 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+											 ?>
+											 			  <img src="<?php echo $grav_url; ?>" hieght="40px" width="40px"> 
+											{{
+									 		ucfirst($question->user->username)
+											}}</strong></p>
+											<p>{{ str_limit($question->question,40,"...") }}</p> 
+											<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+												<p>
+													{{ HTML::linkRoute('question','View',$question->id) }} 
+													<span class="tagname"> #{{ $tag->name}}  
+												</p> 
+											</p>
+											@if(Auth::User()->iFadmin == 1)
+												{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+											@endif
+										</ul>
+									@endforeach
+								@endif
+								@endforeach
+							@endforeach
+							{{ $questions->links()}}
+							@endif
+						 </div>
+				    </div>
 		  		</div>			
 			@endif
 	 	</div>
