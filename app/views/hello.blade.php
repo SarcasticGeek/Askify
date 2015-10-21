@@ -232,6 +232,14 @@
 			left: 60%;
 			bottom: 60%;
 		}
+		#right-signin{
+			width: 35%;
+			background: #3b5998;
+			display: inline;
+			position: absolute;
+			left: 60%;
+			bottom: 50%;
+		}
 		#right-1{
 			width: 35%;
 			background: #DD4b39;
@@ -240,6 +248,15 @@
 			left: 60%;
 			bottom: 25%;
 		}
+		#right-1-signin{
+			width: 35%;
+			background: #DD4b39;
+			display: inline;
+			position: absolute;
+			left: 60%;
+			bottom: 15%;
+		}
+
 		#left{
 			display: inline;
 		}
@@ -280,6 +297,16 @@
     		top: 113px;
     		width: 30px;
 		}
+		#label-password-signin{
+			background-image: url("https://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-password.svg");
+			background-repeat: no-repeat;    
+    		height: 100px;
+    		width: 100%; /* may not be necessary */
+    		position: absolute;
+    		top: 66px;
+    		width: 30px;
+		}
+
 		#label-password-con{
 			background-image: url("https://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-password.svg");
 			background-repeat: no-repeat;    
@@ -357,9 +384,9 @@
  			 </a>
              </div>
       <div class="modal-footer">
-      	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin" style="float:left;margin-top:15px;">Already Have Account?</a>
+      	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin" style="float:left;margin-top:15px;">Already Have Account? Sign In Now!</a>
         <button type="button" data-dismiss="modal" class="btn btn-danger" id="danger">Close</button>
-        <input type="submit" value="Submit" class="btn btn-success" style="margin-right:15px;" id="submit" onclick="check()" data-loading-text="Creating Account...">
+        <input type="submit" value="Sign Up" class="btn btn-success" style="margin-right:15px;" id="submit" onclick="check()" data-loading-text="Creating Account...">
        
        </form>
       </div>
@@ -375,15 +402,31 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title" style="font-size:25px;"><strong>Sign in!</strong></h4>
       </div>
       <div class="modal-body">
-        <p>Some text in the modal.</p>
-      </div>
+        <form method="post" action="{{action('LoginController@doLogin')}}" id="signup" url="login">
+        	<label id="label-username" for="username"></label>
+        	<input type="text" name="username" required placeholder="Username" class="input-form" id="username">
+        	<label for="password" id="label-password-signin"></label>
+        	<input type="password" name="password" placeholder="Password" class="input-form" required id="password">
+        	<h4 id="center">OR</h4>
+
+        	 <a class="btn btn-block btn-social btn-facebook" id="right-signin" href="facebookauth">
+   			 <i class="fa fa-facebook"></i> Sign in with Facebook
+ 			 </a>
+ 			<a class="btn btn-block btn-social btn-google" id="right-1-signin" href="auth/ViaGoogle">
+   			 <i class="fa fa-google"></i> Sign in with Google Plus
+ 			 </a>
+             </div>
       <div class="modal-footer">
-      	<a href="#" data-toggle="modal" data-target="#signin">Already Has Account?</a>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="float:left;margin-top:15px;">Don't Have Account? Sign Up Now!</a>
+        <button type="button" data-dismiss="modal" class="btn btn-danger" id="danger">Close</button>
+        <input type="submit" value="Sign In" class="btn btn-success" style="margin-right:15px;" id="submit">
+       
+       </form>
       </div>
+     
     </div>
 
   </div>
