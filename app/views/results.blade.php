@@ -14,8 +14,10 @@
     <!-- Bootstrap Core CSS -->
     <link  rel="stylesheet" type="text/css"href= "{{ asset('css/bootstrap.css')}}">
 
+
     <!-- Custom CSS -->
     <link  rel="stylesheet"type="text/css"href= "{{ asset('css/scrolling-nav.css')}}">
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -141,15 +143,100 @@ h1 {
             margin: 16px 0 0 0;
             color: #494949;
         }
+        img{
+            
+            margin-left: -40px;
+            margin-top: -10px;
+        }
+        .dropdown img
+       {
+          border-radius: 50%;
+          margin-left: -120px;
+          margin-top: -25px;
+
+
+       }
+       .dropdown.dropdown-menu ul{
+        margin-left: -1000px;
+       }
+       .navbar-nav{
+
+       }
 </style>
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
+
+
+
+<div class="container">
+  <div class="row">
+
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+              <a class="navbar-brand" href="#">
+                  <img alt="Brand" src="{{ asset('images/logo2.png') }}" width="31" height="35" id="logo">
+              </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <ul class="nav navbar-nav">
+                <li >{{ HTML::linkRoute('others_questions', 'Home') }}</li>
+                @if(Auth::User()->iFadmin != 1)
+                <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
+
+                @elseif(count(Notification::unread())===0)
+                  <li id="old">{{ HTML::linkRoute('notifications', 'notifications (0)') }}</li>
+                      <li>{{ HTML::linkRoute('tags', 'Your Tags') }}</li>
+                @else
+                  <li id="notify">{{ HTML::linkRoute('notifications', "notifications (".Notification::unread()->count().")") }}</li>
+                      <li>{{ HTML::linkRoute('tags', 'Your Tags') }}</li>
+                @endif
+
+
+               
+              </ul>
+              {{ Form::open( array('url'=> 'search', 'class'=>'navbar-form navbar-left' ))}}
+              
+
+                {{ Form::token() }}
+                @if(isset($keyword))
+                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>$keyword)) }}
+                @else
+                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Click to search!')) }}                
+                @endif
+                {{ Form::submit('Find',array('class'=>'btn btn-info' )) }}
+
+
+                {{ Form::close() }}
+                <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php
+                  //echo Auth::user()->username;
+                  $hashed_mail=md5( strtolower( trim( Auth::user()->email)));
+                  $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+
+                        ?>
+                        <img src="<?php echo $grav_url; ?>" hieght="40px" width="40px">
+                        <?php echo Auth::user()->username;?>
+                         <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li>{{ HTML::linkRoute('edit', 'Edit') }}</li>
+                    <li>{{ HTML::linkRoute('logout', 'Logout') }}</li>
+                    
+                  </ul>
+                </li>
+              </ul>
+
+
+
+
+
+    </nav>
+    <nav class="navbar navbar-default navbar-static-top" role="navigation"> 
+        <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
@@ -197,13 +284,20 @@ h1 {
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-        </div>
+        
         <!-- /.container -->
+    </div>
+
+
+
     </nav>
+    </div>
+
 
     <!-- Intro Section -->
     <section id="intro" class="intro-section">
         <div class="container">
+        
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Search By Username</h1>
@@ -231,7 +325,9 @@ h1 {
                 </div>
             </div>
         </div>
+        
     </section>
+
 
     <!-- About Section -->
     <section id="question" class="question-section">
