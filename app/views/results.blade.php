@@ -152,7 +152,7 @@ h1 {
        {
           border-radius: 50%;
           margin-left: -120px;
-          margin-top: -25px;
+          margin-top: -10px;
 
 
        }
@@ -162,11 +162,24 @@ h1 {
 
 .navbar-form.navbar-left{
     margin-top: -10px;
-    margin-left: 26px;
+    margin-left: -10px;
+
+
 }
+.btn-primary{
+    margin-left: 20px;
+}
+.form-control{
+    width: 500em;
+}
+    
+
 .navbar-nav {
     margin-top: -20px;
     margin-left: 35px;
+}
+.navbar-brand.page-scroll{
+    margin-top: -13px;
 }
        
 </style>
@@ -214,7 +227,7 @@ h1 {
                 @else
                 {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Click to search!')) }}                
                 @endif
-                {{ Form::submit('Find',array('class'=>'btn btn-info' )) }}
+                {{ Form::submit('Find',array('class'=>'btn btn-primary' )) }}
 
 
                 {{ Form::close() }}
