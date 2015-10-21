@@ -100,11 +100,11 @@
 		position: relative;
 	}
 	#left .arrow3{
-		margin-top: -217px;
+		margin-top: -160px;
 	}	
 	#left .nothing{
-		top: -185px;
-		left: 15%;
+		top: -128px;
+		left: 18%;
 		text-align: left;
 		color: #ECF0F0;
 		height:auto;
