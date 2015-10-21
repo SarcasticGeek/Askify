@@ -17,6 +17,9 @@ Route::get('/',function(){
  	}
  	return View::make('hello');
  });
+Route::get('/hello',function(){
+    return View::make('hello');
+});
  Route::post('/',array('before'=>'csrf',
  	'uses'=>'QuestionsController@post_create'));
 

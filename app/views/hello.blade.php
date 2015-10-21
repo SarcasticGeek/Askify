@@ -421,16 +421,15 @@
 </script>
 
 <script type="text/javascript">
-$(document).ready(function(){
-$('#submit').click(function(){
-	var btn = $(this);
-	btn.button('loading');
-	setTimeout(function(){
-		btn.button('reset');
-	},1000);
+$("#submit").click(function(){
+	var data1 = $('input[name=username]').val();
+	var request = $.ajax({
+		url: "/",
+		type: "POST",
+		data: data1
+	});
 });
 
-});
 </script>
 
 
