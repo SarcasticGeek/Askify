@@ -159,9 +159,16 @@ h1 {
        .dropdown.dropdown-menu ul{
         margin-left: -1000px;
        }
-       .navbar-nav{
 
-       }
+.navbar-form.navbar-left{
+    margin-top: -10px;
+    margin-left: 26px;
+}
+.navbar-nav {
+    margin-top: -20px;
+    margin-left: 35px;
+}
+       
 </style>
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
 
