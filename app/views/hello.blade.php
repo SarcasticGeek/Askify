@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -421,14 +421,24 @@
 </script>
 
 <script type="text/javascript">
+$(document).ready(function(){
 $('#username').blur(function(){
 	var data = $('input[name=username]').val();
+	var username = document.getElementById("username");
 	if(data!=""){
 		$.post('/hello',{data:data},function(output){
-			console.log(output);
+			if(output==data){
+				username.setCustomValidity('This Username Exists, Please Choose Another Username :)');
+				$('#submit').click();
+			}
 		});
 	}
 });
+$('#username').keydown(function(){
+		username.setCustomValidity('');
+	});
+});
+
 
 </script>
 

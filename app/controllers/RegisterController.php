@@ -13,12 +13,12 @@ class RegisterController extends BaseController{
 
 	public function checkUsername(){
 		$post = Input::get('data');
-		if(User::where('username',$post)->get()->first()->username!=null)
+		if(User::where('username','=',$post)->get()->first()!=null)
 		{
-			$check =User::where('username',$post)->get()->first()->username;
+			$check =User::where('username','=',$post)->get()->first()->username;
 			return $check;
 		}else{
-			return true;
+			return 'NO';
 		}	
 	}
 
