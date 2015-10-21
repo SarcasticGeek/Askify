@@ -224,6 +224,8 @@
 		}
 
 	</style>
+
+
 </head>
 <body id="body">
 
@@ -269,32 +271,22 @@
         <h4 class="modal-title" style="font-size:25px;"><strong>Sign Up!</strong></h4>
       </div>
       <div class="modal-body">
-        <form method="post" action="{{action('RegisterController@doRegister')}}">
-        	<input type="text" name="username" placeholder="Username" class="input-form">
-        	<input type="email" name="email" placeholder="Email Address" class="input-form">
-        	<input type="password" name="password" placeholder="Password" class="input-form">
-        	<input type="password" name="conpassword" placeholder="Password Confirmation" class="input-form">
+        <form method="post" action="{{action('RegisterController@doRegister')}}" id="signup">
+        	<input type="text" name="username" required placeholder="Username" class="input-form" id="username">
+        	<input type="email" name="email" placeholder="Email Address" class="input-form" required id="email">
+        	<input type="password" name="password" placeholder="Password" class="input-form" required id="password">
+        	<input type="password" name="conpassword" placeholder="Password Confirmation" class="input-form" required id="conpassword">
       </div>
       <div class="modal-footer">
-      	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin" style="float:left;margin-top:15px;">Already Has Account?</a>
+      	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin" style="float:left;margin-top:15px;">Already Have Account?</a>
         <button type="button" data-dismiss="modal" class="btn btn-danger">Close</button>
-        <input type="submit" value="Submit" class="btn btn-success" style="margin-right:15px;">
+        <input type="submit" value="Submit" class="btn btn-success" style="margin-right:15px;" id="submit" onclick="check()">
        </form>
       </div>
     </div>
 
   </div>
 </div>
-
-  <script type="text/javascript">
-       	var flag = 0;
-        $(document).ready(function(){
-        	$("input[name=\"username\"]").blur(function(){
-
-        	});
-
-        });
-        </script>
 
 <div id="signin" class="modal fade" role="dialog">
   <div class="modal-dialog">
@@ -332,5 +324,26 @@
 	</div>
 </div>
 
+<script type="text/javascript">
+	function check(){
+	var password = document.getElementById("password");
+	var conpassword = document.getElementById("conpassword");
+	if(password.value!==conpassword.value){
+	conpassword.setCustomValidity("Passwords Don't Match");
+	return;
+}else{
+	conpassword.setCustomValidity('');
+}
+
+$('#conpassword').focus(function(){
+		$('#conpassword').keydown(function(){
+			conpassword.setCustomValidity('');
+		});
+	});
+	}
+
+
+
+</script>
 </body>
 </html>
