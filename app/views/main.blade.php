@@ -13,6 +13,7 @@
 <link rel="stylesheet" type="text/css"href="{{ asset('css/main.css') }}">
 <link rel="stylesheet" type="text/css"href="{{ asset('css/social-sharing.css') }}">
 
+
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src=" {{ asset('js/jquery-2.1.4.min.js')}}"></script>
     <script src="//js.pusher.com/2.2/pusher.min.js"></script>
@@ -20,11 +21,17 @@
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/bootstrapbing.css')}}" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="images/favicon.ico">
+    <link href='https://fonts.googleapis.com/css?family=Handlee' rel='stylesheet' type='text/css'>
+
+
     <style>
        .dropdown img
        {
           border-radius: 50%;
 
+       }
+       body{
+        font-family: 'Handlee', cursive;
        }
     </style>
 @section('header')
