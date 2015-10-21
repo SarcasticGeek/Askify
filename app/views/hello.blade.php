@@ -212,6 +212,7 @@
 			font-size: 20px !important;
 			display: block;
 			width: 40% !important;
+			margin-left: 25px !important;
 		}
 		#submit{
 			margin-right:25px;
@@ -245,11 +246,48 @@
 		#center{
 			display: inline;
 			position: absolute;
-			left: 47%;
+			left: 48%;
 			bottom: 40%;
 		}
 		#danger{
 			background-color: #c9302c;
+		}
+		#label-username{
+			background-image: url("https://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-username.svg");
+			background-repeat: no-repeat;    
+    		height: 100px;
+    		width: 100%; /* may not be necessary */
+    		position: absolute;
+    		top: 19px;
+    		width: 30px;
+
+		}
+		#label-email{
+			background-image: url("https://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-email.svg");
+			background-repeat: no-repeat;    
+    		height: 100px;
+    		width: 100%; /* may not be necessary */
+    		position: absolute;
+    		top: 65px;
+    		width: 30px;
+		}
+		#label-password{
+			background-image: url("https://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-password.svg");
+			background-repeat: no-repeat;    
+    		height: 100px;
+    		width: 100%; /* may not be necessary */
+    		position: absolute;
+    		top: 113px;
+    		width: 30px;
+		}
+		#label-password-con{
+			background-image: url("https://codyhouse.co/demo/login-signup-modal-window/img/cd-icon-password.svg");
+			background-repeat: no-repeat;    
+    		height: 100px;
+    		width: 100%; /* may not be necessary */
+    		position: absolute;
+    		top: 160px;
+    		width: 30px;
 		}
 
 	</style>
@@ -301,9 +339,13 @@
       </div>
       <div class="modal-body">
         <form method="post" action="{{action('RegisterController@doRegister')}}" id="signup">
+        	<label id="label-username" for="username"></label>
         	<input type="text" name="username" required placeholder="Username" class="input-form" id="username">
+        	<label id="label-email" for="email"></label>
         	<input type="email" name="email" placeholder="Email Address" class="input-form" required id="email">
+        	<label for="password" id="label-password"></label>
         	<input type="password" name="password" placeholder="Password" class="input-form" required id="password">
+        	<label for="password" id="label-password-con"></label>
         	<input type="password" name="conpassword" placeholder="Password Confirmation" class="input-form" required id="conpassword">
         	<h4 id="center">OR</h4>
 
