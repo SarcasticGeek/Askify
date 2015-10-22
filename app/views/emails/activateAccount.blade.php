@@ -2,7 +2,7 @@
 <h1>Welcome To Askify</h1>
 <h2>Hi,{{$name}} !</h2>
 <p>Thanks For Registering in Askify.com your Confirmation code is:</p>
-<a href ="http://localhost:8000/{{$code}}">{{$code}}</a>
+<a href ="http://askify-app.herokuapp.com/public//{{$code}}">{{$code}}</a>
 <p>click to activate.</p>
 </div>
 <div class="panel-footer">
