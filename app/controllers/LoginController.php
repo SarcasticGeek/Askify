@@ -13,14 +13,15 @@ class LoginController extends BaseController{
         $user = Input::get('user');
         $pass = Input::get('pass');
         if(Auth::attempt(array('username'=>$user,'password'=>$pass))){
-        $flag_confirmed = false;
-        $confirmed = User::where('username',$user)->get()->first()->confirmed;
-        if($confirmed){
-            return 'Activated';
+        $confirm = User::where('username',$user)->get()->first()->confirmed;
+        if($confirm==1){
+
+        }else{
+            Auth::logout();
+            return 'Not';
+        }            
         }
-        return 'Not';
-        }
-        return 'Error';   
+        return 'Error';  
     }
 
 

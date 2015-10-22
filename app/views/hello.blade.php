@@ -490,6 +490,7 @@ $('#username').blur(function(){
 });
 </script>
 
+
 <script type="text/javascript">
 $(document).ready(function(){
 	var flag =0;
@@ -500,6 +501,7 @@ $(document).ready(function(){
 		var pass = $('input[name=password-signin]').val();
 		if(user!=""&&pass!=""){
 			$.post('/helloo',{user:user,pass:pass},function(output){
+				console.log(output);
 				if(output=='Activated'){
 					var username1 = document.getElementById("username-signin");
 					username1.setCustomValidity('');
@@ -513,6 +515,10 @@ $(document).ready(function(){
 					username1.setCustomValidity('');
 					flag=0;
 					});
+					$('#password-signin').keydown(function(){
+					username1.setCustomValidity('');
+					flag=0;
+					});
 				}else if(output=='Not'){
 					var username1 = document.getElementById("username-signin");
 					username1.setCustomValidity("This Account Is Not Activated, Please Visit Your Email To Activate It");
@@ -520,6 +526,10 @@ $(document).ready(function(){
 						$('#submit-signin').click();
 					}
 					$('#username-signin').keydown(function(){
+					username1.setCustomValidity('');
+					flag=0;
+					});
+					$('#password-signin').keydown(function(){
 					username1.setCustomValidity('');
 					flag=0;
 					});
