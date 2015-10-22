@@ -1090,7 +1090,7 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #000000;
-  background-color: #ffffff;
+  background-color: #ECF0F0;
 }
 input,
 button,
@@ -4482,8 +4482,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #cccccc;
 }
 .navbar-inverse {
-  background-color: #222222;
-  border-color: #080808;
+  background-color: #325C74;
+  border-color: #35586C;
 }
 .navbar-inverse .navbar-brand {
   color: #9d9d9d;
@@ -6603,7 +6603,7 @@ body {
   min-width: 100%;
 }
 .section {
-  position: relative;
+  position: bottom;
   padding: 35px 0;
 }
 .section .background-image {

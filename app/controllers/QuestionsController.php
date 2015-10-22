@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 class QuestionsController extends BaseController{
 	public $restful = true; 
 	public function get_index() {
@@ -32,7 +31,9 @@ class QuestionsController extends BaseController{
 		return Redirect::to('home') 
 			-> with('message', 'Your Question Has Been Successfully Posted');
 		}else {
-			return Redirect::to('home')->with('message','Please ask a question.');
+			return Redirect::to('home');/*->with('message',"<p style='margin-left:200px;margin-top:-65px;background-color:rgba(0,0,0,1);
+			 color:white;font-size:20px;width:300px;padding:20px;padding-top:10px;padding-bottom:5px;position:relative;'>"
+			 ."Please ask a question"."</p>");*/
 		}
 		
 	}
