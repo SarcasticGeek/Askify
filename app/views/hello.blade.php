@@ -228,6 +228,9 @@
 		#signup{
 			display: inline;
 		}
+		#signup-signin{
+			display: inline;
+		}
 		#right{
 			width: 35%;
 			background: #3b5998;
@@ -409,7 +412,7 @@
         <h4 class="modal-title" style="font-size:25px;"><strong>Sign in!</strong></h4>
       </div>
       <div class="modal-body">
-        <form method="post" action="{{action('LoginController@doLogin')}}" id="signup" url="login">
+        <form method="post" action="{{action('LoginController@doLogin')}}" id="signup-signin" url="login">
         	<label id="label-username" for="username-signin"></label>
         	<input type="text" name="username-signin" required placeholder="Username" class="input-form" id="username-signin">
         	<label for="password-signin" id="label-password-signin"></label>
@@ -489,25 +492,41 @@ $('#username').blur(function(){
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$('#submit-signin').click(function(){
+	var flag =0;
+	$('#signup-signin').submit(function(event){
+		event.preventDefault();
+		flag++;
 		var user = $('input[name=username-signin]').val();
 		var pass = $('input[name=password-signin]').val();
-		if(user!=""){
+		if(user!=""&&pass!=""){
 			$.post('/helloo',{user:user,pass:pass},function(output){
 				if(output=='Activated'){
 					var username1 = document.getElementById("username-signin");
 					username1.setCustomValidity('');
-				}else{
+				}else if(output=='Error'){
 					var username1 = document.getElementById("username-signin");
-					username1.setCustomValidity("This Account Is Not Activated, Please Visit Your Email To Activate It");
+					username1.setCustomValidity('The Username or Password Is Incorrect, Please Focus :/');
+					if(flag==1){
+						$('#submit-signin').click();
+					}
 					$('#username-signin').keydown(function(){
 					username1.setCustomValidity('');
+					flag=0;
+					});
+				}else if(output=='Not'){
+					var username1 = document.getElementById("username-signin");
+					username1.setCustomValidity("This Account Is Not Activated, Please Visit Your Email To Activate It");
+					if(flag==1){
+						$('#submit-signin').click();
+					}
+					$('#username-signin').keydown(function(){
+					username1.setCustomValidity('');
+					flag=0;
 					});
 				}
 			});
 		}
 	});
-
 });
 </script>
 

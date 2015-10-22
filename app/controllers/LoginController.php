@@ -12,13 +12,15 @@ class LoginController extends BaseController{
     public function checkActivate(){
         $user = Input::get('user');
         $pass = Input::get('pass');
+        if(Auth::attempt(array('username'=>$user,'password'=>$pass))){
         $flag_confirmed = false;
         $confirmed = User::where('username',$user)->get()->first()->confirmed;
         if($confirmed){
             return 'Activated';
         }
         return 'Not';
-        
+        }
+        return 'Error';   
     }
 
 
