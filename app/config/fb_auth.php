@@ -1,6 +1,6 @@
 <?php
 return array(
-    "base_url" =>"http://localhost:8000/facebookauth/auth",
+    "base_url" =>"http://askify-app.herokuapp.com/public/facebookauth/auth",
     "providers" => array(
         "Facebook" =>array(
             "enabled" => TRUE,
