@@ -218,6 +218,10 @@
 			margin-right:25px;
 			background: green;
 		}
+		#submit-signin{
+			margin-right:25px;
+			background: green;
+		}
 		#cancel{
 			background: red;
 		}
@@ -406,10 +410,10 @@
       </div>
       <div class="modal-body">
         <form method="post" action="{{action('LoginController@doLogin')}}" id="signup" url="login">
-        	<label id="label-username" for="username"></label>
-        	<input type="text" name="username" required placeholder="Username" class="input-form" id="username">
-        	<label for="password" id="label-password-signin"></label>
-        	<input type="password" name="password" placeholder="Password" class="input-form" required id="password">
+        	<label id="label-username" for="username-signin"></label>
+        	<input type="text" name="username-signin" required placeholder="Username" class="input-form" id="username-signin">
+        	<label for="password-signin" id="label-password-signin"></label>
+        	<input type="password" name="password-signin" placeholder="Password" class="input-form" required id="password-signin">
         	<h4 id="center">OR</h4>
 
         	 <a class="btn btn-block btn-social btn-facebook" id="right-signin" href="facebookauth">
@@ -422,7 +426,7 @@
       <div class="modal-footer">
       	<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#myModal" style="float:left;margin-top:15px;">Don't Have Account? Sign Up Now!</a>
         <button type="button" data-dismiss="modal" class="btn btn-danger" id="danger">Close</button>
-        <input type="submit" value="Sign In" class="btn btn-success" style="margin-right:15px;" id="submit">
+        <input type="submit" value="Sign In" class="btn btn-success" style="margin-right:15px;" id="submit-signin">
        
        </form>
       </div>
@@ -473,16 +477,38 @@ $('#username').blur(function(){
 			if(output==data){
 				username.setCustomValidity('This Username Exists, Please Choose Another Username :)');
 				$('#submit').click();
+				$('#username').keydown(function(){
+				username.setCustomValidity('');
+				});
 			}
 		});
 	}
 });
-$('#username').keydown(function(){
-		username.setCustomValidity('');
-	});
 });
+</script>
 
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#submit-signin').click(function(){
+		var user = $('input[name=username-signin]').val();
+		var pass = $('input[name=password-signin]').val();
+		if(user!=""){
+			$.post('/helloo',{user:user,pass:pass},function(output){
+				if(output=='Activated'){
+					var username1 = document.getElementById("username-signin");
+					username1.setCustomValidity('');
+				}else{
+					var username1 = document.getElementById("username-signin");
+					username1.setCustomValidity("This Account Is Not Activated, Please Visit Your Email To Activate It");
+					$('#username-signin').keydown(function(){
+					username1.setCustomValidity('');
+					});
+				}
+			});
+		}
+	});
 
+});
 </script>
 
 
