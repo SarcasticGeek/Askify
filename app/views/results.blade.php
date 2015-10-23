@@ -398,7 +398,7 @@ position: absolute;z-index: -999;
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1>Answer Section</h1>
+                    <h1>Search By Answer</h1>
                     <div class="answerlist">
                     </form>
                         @if(isset($answers))

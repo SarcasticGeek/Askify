@@ -96,8 +96,8 @@ class QuestionsController extends BaseController{
 		// }
 		return View::make('results')->with('user_questions',Question::searchUser($keyword))
 									->with('questions',Question::search($keyword))
-									->with('unsolved_questions',Question::unsolved())
-									->with('date_questions',Question::searchByDateBefore($keyword))
+									->with('unsolved_questions',Question::unsolvedquestions($keyword))
+									->with('date_questions',Question::searchByDate($keyword))
 									->with('before_questions',Question::searchByDateBefore($keyword))
 									->with('after_questions',Question::searchByDateAfter($keyword))
 									->with('answers',Answer::search($keyword))
