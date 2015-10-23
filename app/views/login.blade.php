@@ -64,15 +64,15 @@
 </div>
 
 <div class="loginform">
-	{{Form::open(array('url'=>'login'))}}
+	{{Form::open(array('url'=>'login','id'=>'theform'))}}
 	{{Form::text('username',Input::old('username'),
-	array('placeholder'=>'Username','class'=>'laravelform'))}}
+	array('placeholder'=>'Username','class'=>'laravelform','id'=>'username_id'))}}
 	<?php
 	echo $errors->first('username','<p id="error-login">This Field is Required</p>');
 	?>
 </br>
 </br>
-	{{Form::password('password',array('placeholder'=>'Password','class'=>'laravelform'))}}
+	{{Form::password('password',array('placeholder'=>'Password','class'=>'laravelform','id'=>'password_id'))}}
 	<?php
 	echo $errors->first('password','<p id="error-login">This Field is Required</p>');
 	?>
@@ -105,8 +105,29 @@
   <div class="panel-footer">
     <div class="panel-body">
                 © 2015 Askify
-            </div>
+    </div>
   </div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
+  $(document).ready(function(){
+  	$('#username_id').blur(function(){
+  		$('#username_id').validate({
+  		rules:{
+  			username:{
+  				Required:true
+  			}
+
+  		},
+  		messages:{
+  			username:'Heeey!!';
+  		}
+
+  	});
+
+  	});
+  });
+  </script>
 
 	</body>
 </head>

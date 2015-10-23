@@ -18,31 +18,28 @@ class QuestionsController extends BaseController{
 			$question->private =Input::get('private');
 		}
 		$question->save();
-
-
 			$notification = new Notification();
 			$notification->user_id = Auth::user()->id;
 			$notification->question_id = $question->id;
 			$notification->is_read = 0;
 			$notification->save();
-
 		//$question->tags()->attach(Input::get('tags'));
 		$tags = Input::get('tags');
 		foreach($tags as $tag){
 		    $question->tags()->attach($tag);
 		}
-
 		return Redirect::to('home') 
 			-> with('message', 'Your Question Has Been Successfully Posted');
 		}else {
-			return Redirect::to('home')->with('message','Please ask a question.');
+			return Redirect::to('home');/*->with('message',"<p style='margin-left:200px;margin-top:-65px;background-color:rgba(0,0,0,1);
+			 color:white;font-size:20px;width:300px;padding:20px;padding-top:10px;padding-bottom:5px;position:relative;'>"
+			 ."Please ask a question"."</p>");*/
 		}
 		
 	}
 	public function get_view($id = null){
 		return View::make('question')->with('title','View Question')->with('question',Question::find($id));
 	}
-
 	public function get_results($keyword)
 	{
 
@@ -114,8 +111,6 @@ class QuestionsController extends BaseController{
 	public function post_search()
 	{
 		$keyword = Input::get('keyword');
-
-
 		if(empty($keyword))
 		{
 			return Redirect::to('home')
@@ -123,10 +118,8 @@ class QuestionsController extends BaseController{
 		}
 		return Redirect::route('results',$keyword);
 		
-
 	}
 	
-
 	private function questionBelongsToCurrentUser($id){
 		$question = Question::find($id);
 		if($question->user_id == Auth::User()->id){
@@ -151,7 +144,6 @@ class QuestionsController extends BaseController{
 		}
         return View::make('Questions.edit')->with('title','Edit')->with('question',Question::find($id));  
 	}
-
 	public function post_update() {
 		$id = Input::get('question_id');
 		if(!$this->questionBelongsToCurrentUser($id)) {
@@ -164,8 +156,6 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		    }  
 		else {
 			return Redirect::route('edit_question',$id)->withErrors($validation);
-
-
 		    }
 	}
 	
@@ -176,7 +166,6 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		
         return View::make('Questions.delete')->with('question',Question::find($id));  
 	}
-
 	public function post_delete($id) {
 		$f=Question::find($id);
 		if($f){
@@ -186,6 +175,7 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		return Redirect::route('your_questions')->with('message','not found');;
 		}
 		
+
 
 	//rana [img]
 	/*

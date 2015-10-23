@@ -21,7 +21,7 @@
  {{Form::open(array('url'=>'question/update'))}}
  {{Form::token()}}
  {{ Form::hidden('question_id',$question->id)}}
-  {{ Form::hidden('solved',0)}}
+  {{ Form::hidden('solved',$question->solved)}}
  	<textarea class="form-control" rows="5" name="question" style="width:40em; margin-left: auto;
     margin-right: auto; margin-bottom:1em;">{{ $question->question }}</textarea>
     {{Form::submit('Edit Your Question',array('class'=>'btn btn-success'))}}
