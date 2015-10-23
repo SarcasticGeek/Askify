@@ -139,13 +139,9 @@ session_start();
 		    </li>
 		    <li class ="nothing">	
 				@foreach($tags as $tag)
-					 <?php $name = $tag->name ?>  
 					<ul style="font-size: 18px">
-				    	{{Form::checkbox('tags',$tag->id,false, array('id'=> $name))}}
+				    	{{Form::checkbox('tags',$tag->id,false)}}
 				   		{{Form::label($tag->name) }}
-				   		@if($name === $tag->name)
-				   		{{$name}}
-				   		@endif
 				   	</ul>       
 				@endforeach
 			</li>
@@ -305,18 +301,22 @@ session_start();
 	var x = y / 2 * 120 ;
 	$(".Tags a").css("height", x);
 
-        // $('input[type="checkbox"]').click(function(){
-        //     if($(this).prop("checked") == true){
-        //     	if($(this).val() == 1){
-        //         alert("Checkbox is checked.");
-        //     }
-        //     }
-        //     else if($(this).prop("checked") == false){
-        //     	if($(this).val() == 2){
-        //         alert("Checkbox is unchecked.");
-        //     }
-        // }
-        // });
+	var M = {{Tag::where('id', '1000')->pluck('id')}}
+
+        $('input[type="checkbox"]').click(function(){
+       		for (i = 1; i <= M.length; i++){
+            	if($(this).prop("checked") == true){
+            		if($(this).val() == i){
+                		alert("we are checking " + i);
+            		}
+            	}
+            	else if($(this).prop("checked") == false){
+            		if($(this).val() == i){
+                		alert("we are unchecking "+ i);
+            		}		
+        		}
+        	}
+        });
 
 </script>
 @stop
