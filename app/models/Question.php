@@ -101,7 +101,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	public static function searchByDate($keyword){
 		$check = str_replace('-','',$keyword);
-		if(is_numeric($check))return static::where('updated_at', 'LIKE', '%'.$keyword.'%::timestamp ')->paginate(25);
+		if(is_numeric($check))return static::orWhere('updated_at', $keyword.'%')->paginate(25);
 		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(25);
 		
 	}
