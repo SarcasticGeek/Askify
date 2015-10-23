@@ -20,7 +20,6 @@
     <link href="{{ asset('css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{asset('css/bootstrapbing.css')}}" rel="stylesheet" type="text/css">
     <link rel="shortcut icon" href="images/favicon.ico">
-    
     <style>
        .dropdown img
        {
