@@ -305,14 +305,18 @@ session_start();
 	var x = y / 2 * 120 ;
 	$(".Tags a").css("height", x);
 
-        $('input[type="checkbox"]').click(function(){
-            if($('#Progamming').prop("checked") == true){
-                alert("Checkbox is checked.");
-            }
-            else if($('#Progamming').prop("checked") == false){
-                alert("Checkbox is unchecked.");
-            }
-        });
+        // $('input[type="checkbox"]').click(function(){
+        //     if($(this).prop("checked") == true){
+        //     	if($(this).val() == 1){
+        //         alert("Checkbox is checked.");
+        //     }
+        //     }
+        //     else if($(this).prop("checked") == false){
+        //     	if($(this).val() == 2){
+        //         alert("Checkbox is unchecked.");
+        //     }
+        // }
+        // });
 
 </script>
 @stop
