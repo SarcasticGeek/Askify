@@ -3622,7 +3622,7 @@ tbody.collapse.in {
   top: 100%;
   left: 0;
   z-index: 1000;
-  display: none;
+  display:none;
   float: left;
   min-width: 160px;
   padding: 5px 0;
@@ -3700,6 +3700,7 @@ tbody.collapse.in {
 .dropdown-menu-left {
   right: auto;
   left: 0;
+  
 }
 .dropdown-header {
   display: block;
@@ -4354,10 +4355,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  position: fixed;
+  position: relative;
   right: 0;
   left: 0;
-  z-index: 1030;
+  z-index: 999;
+
 
 }
 @media (min-width: 768px) {
@@ -4601,7 +4603,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  top:70px;
+  top:-10px;
   background-color: white;
   border-color: #e7e7e7;
 }

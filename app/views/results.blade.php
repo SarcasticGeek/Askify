@@ -152,7 +152,7 @@ h1 {
        {
           border-radius: 50%;
           margin-left: -120px;
-          margin-top: -10px;
+          margin-top: -5px;
 
 
        }
@@ -180,6 +180,15 @@ h1 {
 }
 .navbar-brand.page-scroll{
     margin-top: -13px;
+}
+
+.navbar-nav.navbar-right.dropdown.dropdown-menu ul{
+position: relative;
+    z-index: 1000;
+}
+.navbar-default.navbar-fixed-top{
+    position: relative;
+    z-index: -999;
 }
        
 </style>
@@ -246,9 +255,11 @@ h1 {
                     <li>{{ HTML::linkRoute('edit', 'Edit') }}</li>
                     <li>{{ HTML::linkRoute('logout', 'Logout') }}</li>
                     
+                    
                   </ul>
                 </li>
               </ul>
+              
 
 
 
