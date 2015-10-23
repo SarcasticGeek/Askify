@@ -104,3 +104,10 @@ Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>
 
 //Login by google
 Route::get('auth/ViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthController@loginWithGoogle'));
+
+Route::get('api/questionlist/all',function(){
+    foreach ($variable as $key => $value) {
+        # code...
+    }
+    return Response::json(DB::table('questions')->get());
+});
