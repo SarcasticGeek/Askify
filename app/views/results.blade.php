@@ -181,14 +181,15 @@ h1 {
 .navbar-brand.page-scroll{
     margin-top: -13px;
 }
+.navbar-nav.navbar-right ul
+{
+position: absolute;z-index: -999;
 
-.navbar-nav.navbar-right.dropdown.dropdown-menu ul{
-position: relative;
-    z-index: 1000;
 }
-.navbar-default.navbar-fixed-top{
-    position: relative;
-    z-index: -999;
+.navbar-default.navbar-fixed-top
+{
+    width: 850px;
+    margin-left: 200px;
 }
        
 </style>

@@ -4355,11 +4355,10 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-fixed-top,
 .navbar-fixed-bottom {
-  position: relative;
+  position: fixed;
   right: 0;
   left: 0;
-  z-index: 999;
-
+  z-index: 1030;
 
 }
 @media (min-width: 768px) {
@@ -4603,7 +4602,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  top:-10px;
+  top:70px;
+  position: fixed;
+  
   background-color: white;
   border-color: #e7e7e7;
 }
