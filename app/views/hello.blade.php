@@ -505,6 +505,7 @@ $(document).ready(function(){
 				if(output=='Activated'){
 					var username1 = document.getElementById("username-signin");
 					username1.setCustomValidity('');
+					window.location.replace("/home");
 				}else if(output=='Error'){
 					var username1 = document.getElementById("username-signin");
 					username1.setCustomValidity('The Username or Password Is Incorrect, Please Focus :/');

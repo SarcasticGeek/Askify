@@ -15,7 +15,7 @@ class LoginController extends BaseController{
         if(Auth::attempt(array('username'=>$user,'password'=>$pass))){
         $confirm = User::where('username',$user)->get()->first()->confirmed;
         if($confirm==1){
-
+            return 'Activated';
         }else{
             Auth::logout();
             return 'Not';
