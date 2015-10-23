@@ -10,7 +10,6 @@ class QuestionsController extends BaseController{
 		$question = new Question;
 		$question->question = Input::get('question');
 		$question->user_id = Auth::user()->id;
-		$question->answerer_id = 0;
 		$question->solved = 0;
 		if(Input::get('private')==null){
 			$question->private = 0;
