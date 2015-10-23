@@ -143,9 +143,6 @@ session_start();
 					<ul style="font-size: 18px">
 				    	{{Form::checkbox('tags',$tag->id,false, array('id'=> $name))}}
 				   		{{Form::label($tag->name) }}
-				   		@if($name === $tag->name)
-				   		{{$name}}
-				   		@endif
 				   	</ul>       
 				@endforeach
 			</li>
