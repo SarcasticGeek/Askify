@@ -114,6 +114,12 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		}  
 		return Redirect::route('your_questions')->with('message','not found');;
 		}
+
+
+	public function getalltags(){
+		$postData = DB::table('questions')->get();
+		return $postData;
+	}
 		
 
 

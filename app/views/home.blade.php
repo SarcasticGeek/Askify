@@ -237,46 +237,18 @@ session_start();
 						 	?>
 							@if(!$questions)
 								 <p>No Questions</p>
-							@else
-							@foreach($tags as $tag)
-								@foreach($tagArray as $element)
-								@if($tag->id == $element)
-									@foreach($tag->questions as $question)
-									<ul>
-										<p style="font-size: 18px"><strong>
-											 <?php 
-											 $hashed_mail=md5( strtolower( trim( $question->user->email)));
-											 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
-											 ?>
-											 			  <img src="<?php echo $grav_url; ?>" hieght="40px" width="40px"> 
-											{{
-									 		ucfirst($question->user->username)
-											}}</strong></p>
-											<p>{{ str_limit($question->question,40,"...") }}</p> 
-											<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-												<p>
-													{{ HTML::linkRoute('question','View',$question->id) }} 
-													<span class="tagname"> #{{ $tag->name}}  
-												</p> 
-											</p>
-											@if(Auth::User()->iFadmin == 1)
-												{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
-											@endif
-										</ul>
-									@endforeach
-								@endif
-								@endforeach
-							@endforeach
 							{{ $questions->links()}}
 							@endif
 						 </div>
 				    </div>
+				    <div id="results"></div>
 		  		</div>			
 			@endif
 	 	</div>
 	</div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 		$('.arrow2').hide();
 		$('.arrow3').hide();
@@ -301,13 +273,32 @@ session_start();
 	var x = y / 2 * 120 ;
 	$(".Tags a").css("height", x);
 
-	var M = {{Tag::where('id', '1000')->pluck('id')}}
+	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}}
 
         $('input[type="checkbox"]').click(function(){
        		for (i = 1; i <= M.length; i++){
             	if($(this).prop("checked") == true){
             		if($(this).val() == i){
-                		alert("we are checking " + i);
+            			var id_check = $(this).val();
+            			var url ="home/Tagsajax";
+
+                		$.ajax({
+                			type: 'GET',
+                			url: url,
+                			cache:false,
+                			dataType:'json',
+                			success: function(data){
+                				$.each(data, function(index, element){
+                					content="<p>" + element.question + "</p>";
+                					$(content).appendTo('#results');
+                				});
+                			},
+                			error: function(){
+                				console.log('something.');
+                			}
+                		});
+
+
             		}
             	}
             	else if($(this).prop("checked") == false){
