@@ -376,11 +376,13 @@ session_start();
                 					var user_name = data[m].a;
                 					var question_name = data[m].b;
                 					var count_answers = data[m].c;
+                					var question_id = data[m].d;
                 					var view = "view";
+                					var varurl = "question/" + question_id;
                 					html += "<ul>";
                 					html += '<p class = "user_name">' + user_name +'</p>';
                 					html += '<p class = "question_name">' + question_name +'</p>';
-                					html += '<p class = "count_answers">' + '(' + count_answers  + 'Answers' +')' + ' '+ view + '</p>';
+                					html += '<p class = "count_answers">' + '(' + count_answers  + 'Answers' +')' + ' '+ '<a href=" ' + varurl + ' ">view</a>' + '</p>';
                 					html += "</ul>";
 
                 					$(classification).append(html);

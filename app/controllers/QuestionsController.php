@@ -184,11 +184,11 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		foreach ($postData1 as $question ) {
 			$QT=$question->tags;
 			foreach ($QT as $tag ) {
-				if($tag->id == $CCK){
+				if($tag->id == $CCK && $question->private == 0){
 					$postData2 [$i] = array( 'a'=>($question->User->username), 
 						'b'=>($question->question), 
 						'c'=>(count($question->answers)),
-						'd'=>($question->id)
+						'd'=>($question->id),
 						);
 
 					$i = $i+1;
