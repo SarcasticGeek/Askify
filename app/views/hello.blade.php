@@ -340,6 +340,86 @@
     		width: 30px;
 		}
 
+		/*responsive issues*/
+		 @media (max-width: 500px){
+		 	.panel1{
+				height: 800px;
+				width: 500px;
+				background-size: cover;
+		 	}
+
+		 	.welcome{
+		 		left: 240px;
+		 		top:300px;
+		 		height: 100px;
+		 		width: 150px;
+		 	}
+		 	.welcome .branding{
+		 		height: 56px;
+		 		width: 50px;
+		 	}
+		 	h1{
+		 		font-size: 20px; 
+		 	}
+		 	.panel1 .btnn{
+		 		height:25px;
+		 		width: 100px;
+		 		font-size: 10px;
+		 		text-align: center;
+		 		padding: 0px;
+		 		padding-bottom: 25px;
+		 	}
+		 	.navbar-inverse #logo{
+		 		height: 22px;
+		 		width: 19px;
+		 	}
+		 	.navbar-inverse .askify{
+		 		font-size: 12px;
+		 		left:40px;
+		 	}
+		 	.navbar-inverse .btnnn
+		 	{
+		 		position: relative;
+		 		top:-5px;
+		 		height: 12px;
+		 		width: 50px;
+		 		font-size: 10px;
+		 		text-align: center;
+		 		padding: 0px;
+		 		padding-bottom: 25px;
+		 	}
+		 	.navbar-inverse .asking{
+		 		display: none;
+		 	}
+		 	.panel2{
+				height: 800px;
+				width: 500px;
+		 	}
+		 	.panel2 .step1 , .panel2 .step2 , .panel2 .step3 , .panel2 .step4{
+		 		opacity: 1;
+		 	}
+		 	.step2{
+				position: relative;
+				top: 50px;
+				left:80px;
+		 	}
+		 	.step3{
+				position: relative;
+				top: 100px;
+				left:80px;
+		 	}
+		 	.step4{
+				position: relative;
+				top: 150px;
+				left:80px;
+		 	}
+		 	.big{
+				height: 1600px;
+				width: 500px;
+		 	}
+
+		 }
+
 	</style>
 
 
@@ -361,7 +441,7 @@
   			<a href="login">
   	  	  		<button type="button" class="btnnn">Sign In</button>
   			</a>
-  		<p>Have an Account ? </p>
+  		<p class="asking" >Have an Account ? </p>
  	 </div>
     </div>
 
@@ -480,10 +560,12 @@
 	{
 		if($('.big').scrollTop() >=  $('.panel1').offset().top)
 		{
-			$('.step1').animate({left:"160px",opacity:1},800);
-			$('.step2').delay(500).animate({left:"430px",opacity:1},800);
-			$('.step3').delay(900).animate({left:"700px",opacity:1},800);
-			$('.step4').delay(1300).animate({left:"970px",opacity:1},800);
+			if ($(this).width() > 500) {
+				$('.step1').animate({left:"160px",opacity:1},800);
+				$('.step2').delay(100).animate({left:"430px",opacity:1},1000);
+				$('.step3').delay(200).animate({left:"700px",opacity:1},1300);
+				$('.step4').delay(300).animate({left:"970px",opacity:1},1700);
+			}
 		}
 	});
 </script>
