@@ -89,8 +89,7 @@ receive:
 		if($validation->passes()){
 			$question = new Question;
 			$question->question = Input::get('question');
-			$question->user_id = Auth::user()->id;
-			$question->answerer_id = 0;
+			$question->user_id = Input::get('user_id');
 			$question->solved = 0;
 			if(Input::get('private')==null){
 				$question->private = 0;
@@ -99,15 +98,15 @@ receive:
 			}
 			$question->save();
 				$notification = new Notification();
-				$notification->user_id = Auth::user()->id;
+				$notification->user_id = Input::get('user_id');
 				$notification->question_id = $question->id;
 				$notification->is_read = 0;
 				$notification->save();
-			$tags = Input::get('tags');
-			foreach($tags as $tag){
-			    $question->tags()->attach($tag);
-			}
-			return return Response::json(array('error' => false,
+			// $tags = Input::get('tags');
+			// foreach($tags as $tag){
+			//     $question->tags()->attach($tag);
+			// }
+			 return Response::json(array('error' => false,
 				'message'=>'Your Question Has Been Successfully Posted'),
 				200);
 		
@@ -118,17 +117,20 @@ receive:
 		}
 		
 	}
-	private function questionBelongsToCurrentUser($id){
-		$question = Question::find($id);
-		if($question->user_id == Auth::User()->id){
+	private function questionBelongsToCurrentUser($idOfQ,$idOfUser){
+		$question = Question::find($idOfQ);
+		if($question->user_id == $idOfUser){
 			return true ;
 		} 
 		return false;
 	}
 	public function editQuestion($question_id){
 		$id = Input::get('question_id');
-		if(!$this->questionBelongsToCurrentUser($id)) {
-			return Redirect::route('your_questions')->with('message','Invalid Question');
+		$userid = Input::get('user_id');
+		if(!$this->questionBelongsToCurrentUser($id,$userid)) {
+			return Response::json(array('error' => true,
+				'message'=>'Not your Question to Edit'),
+				200);
 		}
 		$validation = Question::validate(Input::all());//array(Input::get('question'),Input::get('solved')));
 		if ($validation->passes()) {
