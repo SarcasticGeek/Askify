@@ -273,24 +273,27 @@ session_start();
 	var x = y / 2 * 120 ;
 	$(".Tags a").css("height", x);
 
-	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}}
+	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}} 
 
         $('input[type="checkbox"]').click(function(){
        		for (i = 1; i <= M.length; i++){
             	if($(this).prop("checked") == true){
             		if($(this).val() == i){
-            			var id_check = $(this).val();
-            			var url ="home/Tagsajax";
 
+            			var CCK = $(this).val();
+            			var url ="home/Tagsajax";
                 		$.ajax({
                 			type: 'GET',
                 			url: url,
                 			cache:false,
+                			data: {CCK:CCK},
                 			dataType:'json',
                 			success: function(data){
                 				$.each(data, function(index, element){
-                					content="<p>" + element.question + "</p>";
-                					$(content).appendTo('#results');
+
+	                						content = "<p>" + element + "</p>";
+	                						$(content).appendTo('#results');
+
                 				});
                 			},
                 			error: function(){
@@ -303,7 +306,7 @@ session_start();
             	}
             	else if($(this).prop("checked") == false){
             		if($(this).val() == i){
-                		alert("we are unchecking "+ i);
+            			$("#results").empty();
             		}		
         		}
         	}
