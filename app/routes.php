@@ -108,3 +108,7 @@ Route::get('auth/ViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthCon
 
 Route::get('api/questionlist/all','ApiController@getAllQs');
 Route::get('/api/questionlist/view/{user_id?}','ApiController@getQsByUserId');
+Route::post('/api/question/{question_id?}/delete','ApiController@deleteQuestion');
+Route::post('/api/question/create','ApiController@postQuestion');
+Route::post('/api/question/{question_id?}/edit','ApiController@editQuestion');
+Route::post('/api/question/{question_id?}/delete','ApiController@deleteQuestion');

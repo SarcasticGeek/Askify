@@ -73,5 +73,88 @@ class ApiController extends BaseController {
 			'question_List'=>$data),
 			200);
 	}
+	public function postQuestion(){
+		/*
+		url to send asked question to be saved in the db
+---------------------------------------------------------------
+i will send :
+user_id
+question
+
+receive:
+1 >> if the question is saved
+0 >> if not saved 
+		*/
+		$validation = Question::validate(Input::all());
+		if($validation->passes()){
+			$question = new Question;
+			$question->question = Input::get('question');
+			$question->user_id = Auth::user()->id;
+			$question->answerer_id = 0;
+			$question->solved = 0;
+			if(Input::get('private')==null){
+				$question->private = 0;
+			}else{
+				$question->private =Input::get('private');
+			}
+			$question->save();
+				$notification = new Notification();
+				$notification->user_id = Auth::user()->id;
+				$notification->question_id = $question->id;
+				$notification->is_read = 0;
+				$notification->save();
+			$tags = Input::get('tags');
+			foreach($tags as $tag){
+			    $question->tags()->attach($tag);
+			}
+			return return Response::json(array('error' => false,
+				'message'=>'Your Question Has Been Successfully Posted'),
+				200);
+		
+		}else {
+			 return Response::json(array('error' => true,
+				'message'=>'Errors on validations'),
+				200);
+		}
+		
+	}
+	private function questionBelongsToCurrentUser($id){
+		$question = Question::find($id);
+		if($question->user_id == Auth::User()->id){
+			return true ;
+		} 
+		return false;
+	}
+	public function editQuestion($question_id){
+		$id = Input::get('question_id');
+		if(!$this->questionBelongsToCurrentUser($id)) {
+			return Redirect::route('your_questions')->with('message','Invalid Question');
+		}
+		$validation = Question::validate(Input::all());//array(Input::get('question'),Input::get('solved')));
+		if ($validation->passes()) {
+		Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved'),'private'=>Input::get('private')));
+			 return Response::json(array('error' => false,
+				'message'=>'Your Question Has Been Successfully updated'),
+				200);
+		    }  
+		else {
+			 return Response::json(array('error' => true,
+				'message'=>'Errors on validations'),
+				200);
+		    }
+	}
+	public function deleteQuestion($question_id = NULL){
+		$f=Question::find($question_id);
+		if(isset($f)){
+			$f->delete();
+			 return Response::json(array('error' => false,
+				'message'=>'Your Question Has Been Successfully deleted'),
+				200);
+		}  else{
+		 return Response::json(array('error' => true,
+				'message'=>'not found'),
+				200);
+		}
+	}
 
 }
