@@ -119,16 +119,18 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 	public function getalltags(){
 		$postData1 = Question::get()->all();
 		$CCK = Input::get('CCK');
-		$postData2 = Tag::where('id','=',$CCK)->first();
-		foreach ($question as $postData1 ) {
+		$postData2 = array();
+		$i = 0;
+		foreach ($postData1 as $question ) {
 			$QT=$question->tags;
-			foreach ($tag as $QT ) {
-				if($QT->id == $CCK){
-					//add this element to the array will be sent
+			foreach ($QT as $tag ) {
+				if($tag->id == $CCK){
+					$postData2 [$i] = array( 'a'=>($question->User->username), 'b'=>($question->question), 'c'=>(count($question->answers)));
+					$i = $i+1;
 				}
 			}
 		}
-		return $postData2;
+		return ($postData2);
 	}
 		
 

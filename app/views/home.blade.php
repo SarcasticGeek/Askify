@@ -111,6 +111,17 @@
 		position: relative;
 		left: 700px;
 	}
+	.questionlistajax ul{
+		border: 1px solid #e5e5e5;
+		text-align: left;
+		background-color: rgba(255,255,255,1);
+		margin:-13px;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		padding: 20px;
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
 
 </style>
 
@@ -230,18 +241,15 @@ session_start();
 
 						{{-- Tags tab --}}
 				    <div role="tabpanel" class="tab-pane" id="tags">
-				    	<div class="questionlist">
-						 	<!-- for tag sort -->
-						 	<?php 
-						 		$tagArray = array(1, 2, 3);
-						 	?>
-							@if(!$questions)
-								 <p>No Questions</p>
-							{{ $questions->links()}}
-							@endif
+				    	<div class="questionlistajax">
+				    		<ul>
+				    			<p id="username">
+				    			</p>
+				    			<p id="questionname">
+				    			</p>
+				    		</ul>
 						 </div>
 				    </div>
-				    <div id="results"></div>
 		  		</div>			
 			@endif
 	 	</div>
@@ -289,12 +297,13 @@ session_start();
                 			data: {CCK:CCK},
                 			dataType:'json',
                 			success: function(data){
-                				$.each(data, function(index, element){
-
-	                						content = "<p>" + element + "</p>";
-	                						$(content).appendTo('#results');
-
-                				});
+                				var max = Object.keys(data).length;
+                				for(var m =0 ; m<max ; m++){
+                					var div = document.getElementById('username');
+									div.innerHTML = div.innerHTML + data[m].a;
+									var div2 = document.getElementById('questionname');
+									div2.innerHTML = div2.innerHTML + data[m].b;
+	                			}
                 			},
                 			error: function(){
                 				console.log('something.');
@@ -306,7 +315,7 @@ session_start();
             	}
             	else if($(this).prop("checked") == false){
             		if($(this).val() == i){
-            			$("#results").empty();
+            			$(".questionlistajax").empty();
             		}		
         		}
         	}
