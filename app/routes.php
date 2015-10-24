@@ -17,12 +17,18 @@ Route::get('/',function(){
  	}
  	return View::make('hello');
  });
+Route::get('/hello',function(){
+    return View::make('hello');
+});
  Route::post('/',array('before'=>'csrf',
  	'uses'=>'QuestionsController@post_create'));
 
 
+ Route::post('/hello',array('as'=>'hello','uses'=>'RegisterController@checkUsername'));
+ Route::post('/helloo','LoginController@checkActivate');
+
 Route::get('/register','RegisterController@showRegister');
-Route::post('/register','RegisterController@doRegister');
+Route::post('/',array('uses'=>'RegisterController@doRegister'));
 
 Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
@@ -105,3 +111,7 @@ Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>
 
 //Login by google
 Route::get('auth/ViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthController@loginWithGoogle'));
+
+
+//ajax checks
+Route::get('home/Tagsajax','QuestionsController@getalltags');
