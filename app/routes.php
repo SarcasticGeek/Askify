@@ -105,4 +105,3 @@ Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>
 
 //Login by google
 Route::get('auth/ViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthController@loginWithGoogle'));
-
