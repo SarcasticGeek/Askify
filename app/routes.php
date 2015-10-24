@@ -105,3 +105,7 @@ Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>
 
 //Login by google
 Route::get('auth/ViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthController@loginWithGoogle'));
+
+
+Route::get('api/questionlist/all','ApiController@getAllQs');
+Route::get('/api/questionlist/view/{user_id?}','ApiController@getQsByUserId');
