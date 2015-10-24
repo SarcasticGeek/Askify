@@ -395,6 +395,9 @@
 				height: 800px;
 				width: 500px;
 		 	}
+		 	.steps{
+		 		width: 500px;
+		 	}
 		 	.panel2 .step1 , .panel2 .step2 , .panel2 .step3 , .panel2 .step4{
 		 		opacity: 1;
 		 	}
@@ -567,6 +570,9 @@
 				$('.step4').delay(300).animate({left:"970px",opacity:1},1700);
 			}
 		}
+		$(document).ready(function() {
+   			$(window).resize();
+		});
 	});
 </script>
 
