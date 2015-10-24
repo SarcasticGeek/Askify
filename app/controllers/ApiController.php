@@ -124,7 +124,7 @@ receive:
 		} 
 		return false;
 	}
-	public function editQuestion($question_id){
+	public function editQuestion(){
 		$id = Input::get('question_id');
 		$userid = Input::get('user_id');
 		if(!$this->questionBelongsToCurrentUser($id,$userid)) {
@@ -145,7 +145,8 @@ receive:
 				200);
 		    }
 	}
-	public function deleteQuestion($question_id = NULL){
+	public function deleteQuestion(){
+		$question_id = Input::get('question_id');
 		$f=Question::find($question_id);
 		if(isset($f)){
 			$f->delete();
@@ -157,6 +158,11 @@ receive:
 				'message'=>'not found'),
 				200);
 		}
+	}
+	public function error404(){
+		 return Response::json(array('error' => true,
+				'message'=>'404 not found'),
+				404);
 	}
 
 }
