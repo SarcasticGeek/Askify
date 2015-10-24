@@ -242,12 +242,7 @@ session_start();
 						{{-- Tags tab --}}
 				    <div role="tabpanel" class="tab-pane" id="tags">
 				    	<div class="questionlistajax">
-				    		<ul>
-				    			<p id="username">
-				    			</p>
-				    			<p id="questionname">
-				    			</p>
-				    		</ul>
+
 						 </div>
 				    </div>
 		  		</div>			
@@ -298,12 +293,22 @@ session_start();
                 			dataType:'json',
                 			success: function(data){
                 				var max = Object.keys(data).length;
+                				html = "";
                 				for(var m =0 ; m<max ; m++){
-                					var div = document.getElementById('username');
-									div.innerHTML = div.innerHTML + data[m].a;
-									var div2 = document.getElementById('questionname');
-									div2.innerHTML = div2.innerHTML + data[m].b;
-	                			}
+                					html += "<ul>";
+                					html += '<p>' + data[m].a +'<p>';
+                					html += '<p>' + data[m].b +'<p>';
+                					html += "</ul>";
+
+                					$(".questionlistajax").append(html);
+                					html = "";
+         //        					var bigdiv = document.getElementById('questionlistajax');
+         //        					var div1 = document.getElementById('username');
+									// div1.innerHTML = data[m].a;
+									// var div2 = document.getElementById('questionname');
+									// div2.innerHTML = data[m].b;
+									// bigdiv.innerHTML = bigdiv.innerHTML + div1 + div2 ;
+	                 			}
                 			},
                 			error: function(){
                 				console.log('something.');
