@@ -17,12 +17,18 @@ Route::get('/',function(){
  	}
  	return View::make('hello');
  });
+Route::get('/hello',function(){
+    return View::make('hello');
+});
  Route::post('/',array('before'=>'csrf',
  	'uses'=>'QuestionsController@post_create'));
 
 
+ Route::post('/hello',array('as'=>'hello','uses'=>'RegisterController@checkUsername'));
+ Route::post('/helloo','LoginController@checkActivate');
+
 Route::get('/register','RegisterController@showRegister');
-Route::post('/register','RegisterController@doRegister');
+Route::post('/',array('uses'=>'RegisterController@doRegister'));
 
 Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
@@ -71,6 +77,7 @@ Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController
 
 Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
 Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_search'));
+
 
 Route::get('your_questions',array('before' => 'auth|banned','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
 //Routs of ziad

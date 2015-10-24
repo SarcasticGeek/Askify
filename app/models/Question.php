@@ -50,7 +50,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Answer');
 	}
 	public  static function unsolved(){
-		return static::where('solved','=',0)->orderBy('id','DESC')->paginate(4);
+		return static::where('solved','=',0)->orderBy('id','DESC')->paginate(25);
 	}
 
 
@@ -81,14 +81,115 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	***************************/	
 	public static function search($keyword){
-		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(4);
+		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(25);
 	}
 	
+    public static function searchUser($keyword){
+        $ids = [];
+        $users = User::where('username','LIKE','%'.$keyword.'%')->get();
+        foreach($users as $user)
+        {
+            $id = $user->id;
+            array_push($ids,$id);
+        }
+		return static::whereIn('user_id', $ids)->paginate(25);
+	}
 
 	public function tags()
 	{
 		return $this->belongsToMany('Tag')->withTimestamps();
 	}
+	public static function searchByDate($keyword){
+		$check = str_replace('-','',$keyword);
+		if(is_numeric($check))return static::where('updated_at', 'LIKE', $keyword.'%')->paginate(25);
+		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(25);
+		
+	}
+	public static function searchByDateBefore($keyword)
+	{
+		$keywordx='';
+		$lenght = strlen($keyword);
+		if($lenght == 4)$keywordx =$keyword.'-01-01 00:00:00';
+		else if($lenght ==7)$keywordx =$keyword.'-01 00:00:00';
+		else $keywordx = $keyword.' 00:00:00';
+		$check = str_replace('-','',$keyword);
+		if(is_numeric($check))return static::where('updated_at','<', $keywordx)->paginate(25);
+		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(25);
+	}
+	public static function searchByDateAfter($keyword)
+		{
+			$keywordx='';
+			$lenght = strlen($keyword);
+		if($lenght == 4)$keywordx =$keyword.'-01-01 23:59:59';
+		else if($lenght ==7)$keywordx =$keyword.'-01 23:59:59';
+		else $keywordx = $keyword.' 23:59:59';
+		$check = str_replace('-','',$keyword);
+		if(is_numeric($check))return static::where('updated_at','>', $keywordx)->paginate(25);
+		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(25);
+			
+		}
+    public static function askedMoreThan($keyword)
+        {
+        	$ids = [];
+        	$questions = Question::all();
+        	foreach($questions as $question)
+        	{
+        		$x = 0;
+        		foreach($questions as $questionx)
+        		{
+        			if($question->user_id == $questionx->user_id) $x++;
 
-}
+        		}
+        		if($x>intval($keyword))
+        		{
+        			$id = $question->user_id;
+            		array_push($ids,$id);
+        		}
+           
+        	}
+			return static::whereIn('user_id', $ids)->paginate(25);
+		}
+		public static function askedLessThan($keyword)
+        {
+        	$ids = [];
+        	$questions = Question::all();
+        	foreach($questions as $question)
+        	{
+        		$x = 0;
+        		foreach($questions as $questionx)
+        		{
+        			if($question->user_id == $questionx->user_id) $x++;
+        		}
+        		if($x<intval($keyword))
+        		{
+        			$id = $question->user_id;
+            		array_push($ids,$id);
+        		}
+           
+        	}
+			return static::whereIn('user_id', $ids)->paginate(25);
+		}
+		public static function askedEqualto($keyword)
+        {
+        	$ids = [];
+        	$questions = Question::all();
+        	foreach($questions as $question)
+        	{
+        		$x = 0;
+        		foreach($questions as $questionx)
+        		{
+        			if($question->user_id == $questionx->user_id) $x++;
+        		}
+           		if($x==intval($keyword))
+        		{
+        			$id = $question->user_id;
+            		array_push($ids,$id);
+        		}
+        	}
+			return static::whereIn('user_id', $ids)->paginate(25);
+		}
+		public  static function unsolvedquestions($keyword){
+		return static::where('solved','=',0)->where('question', 'LIKE', '%'.$keyword.'%')->orderBy('id','DESC')->paginate(25);
+	}
+	}
 
