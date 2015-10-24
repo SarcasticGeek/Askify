@@ -185,7 +185,12 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 			$QT=$question->tags;
 			foreach ($QT as $tag ) {
 				if($tag->id == $CCK){
-					$postData2 [$i] = array( 'a'=>($question->User->username), 'b'=>($question->question), 'c'=>(count($question->answers)));
+					$postData2 [$i] = array( 'a'=>($question->User->username), 
+						'b'=>($question->question), 
+						'c'=>(count($question->answers)),
+						'd'=>($question->id)
+						);
+
 					$i = $i+1;
 				}
 			}

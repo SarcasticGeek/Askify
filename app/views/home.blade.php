@@ -122,6 +122,41 @@
 		padding-top: 10px;
 		padding-bottom: 5px;
 	}
+		.questionlistajax1 ul{
+		border: 1px solid #e5e5e5;
+		text-align: left;
+		background-color: rgba(255,255,255,1);
+		margin:-13px;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		padding: 20px;
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+		.questionlistajax2 ul{
+		border: 1px solid #e5e5e5;
+		text-align: left;
+		background-color: rgba(255,255,255,1);
+		margin:-13px;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		padding: 20px;
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+	.user_name{
+		font-size: 20px;
+		font-style: bold;
+		display: block;
+		font-weight: bold;
+	}
+	.user_name:first-letter {
+    text-transform: capitalize;
+	}
+	.question_name, .count_answers{
+		font-size: 12px;
+		margin-left: 35px;
+	}
 
 </style>
 
@@ -242,8 +277,23 @@ session_start();
 						{{-- Tags tab --}}
 				    <div role="tabpanel" class="tab-pane" id="tags">
 				    	<div class="questionlistajax">
-
-						 </div>
+						</div>
+						<div class="questionlistajax1">
+						</div>
+						<div class="questionlistajax2">
+						</div>
+						<div class="questionlistajax3">
+						</div>
+						<div class="questionlistajax4">
+						</div>
+						<div class="questionlistajax5">
+						</div>
+						<div class="questionlistajax6">
+						</div>
+						<div class="questionlistajax7">
+						</div>
+						<div class="questionlistajax8">
+						</div>
 				    </div>
 		  		</div>			
 			@endif
@@ -279,9 +329,10 @@ session_start();
 	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}} 
 
         $('input[type="checkbox"]').click(function(){
+        	var tagid = $(this).val();
        		for (i = 1; i <= M.length; i++){
             	if($(this).prop("checked") == true){
-            		if($(this).val() == i){
+            		if(tagid == i){
 
             			var CCK = $(this).val();
             			var url ="home/Tagsajax";
@@ -294,24 +345,51 @@ session_start();
                 			success: function(data){
                 				var max = Object.keys(data).length;
                 				html = "";
+                				if(tagid == 1)
+                					var classification = ".questionlistajax";
+
+                				else if(tagid == 2)
+                					var classification = ".questionlistajax1";
+
+                				else if(tagid == 3)
+                					var classification = ".questionlistajax2";
+
+                				else if(tagid == 4)
+                					var classification = ".questionlistajax3";
+
+                				else if(tagid == 5)
+                					var classification = ".questionlistajax4";
+
+                				else if(tagid == 6)
+                					var classification = ".questionlistajax5";
+
+                				else if(tagid == 7)
+                					var classification = ".questionlistajax6";
+
+                				else if(tagid == 8)
+                					var classification = ".questionlistajax7";
+
+                				else if(tagid == 9)
+                					var classification = ".questionlistajax8";
+
                 				for(var m =0 ; m<max ; m++){
+                					var user_name = data[m].a;
+                					var question_name = data[m].b;
+                					var count_answers = data[m].c;
+                					var view = "view";
                 					html += "<ul>";
-                					html += '<p>' + data[m].a +'<p>';
-                					html += '<p>' + data[m].b +'<p>';
+                					html += '<p class = "user_name">' + user_name +'</p>';
+                					html += '<p class = "question_name">' + question_name +'</p>';
+                					html += '<p class = "count_answers">' + '(' + count_answers  + 'Answers' +')' + ' '+ view + '</p>';
                 					html += "</ul>";
 
-                					$(".questionlistajax").append(html);
+                					$(classification).append(html);
                 					html = "";
-         //        					var bigdiv = document.getElementById('questionlistajax');
-         //        					var div1 = document.getElementById('username');
-									// div1.innerHTML = data[m].a;
-									// var div2 = document.getElementById('questionname');
-									// div2.innerHTML = data[m].b;
-									// bigdiv.innerHTML = bigdiv.innerHTML + div1 + div2 ;
+
 	                 			}
                 			},
                 			error: function(){
-                				console.log('something.');
+                				console.log('something happend');
                 			}
                 		});
 
@@ -319,8 +397,34 @@ session_start();
             		}
             	}
             	else if($(this).prop("checked") == false){
-            		if($(this).val() == i){
-            			$(".questionlistajax").empty();
+            		if(tagid == i){
+            			if(tagid == 1)
+            				$(".questionlistajax").empty();
+
+            			else if (tagid == 2)
+            				$(".questionlistajax1").empty();
+
+            			else if (tagid == 3)
+            				$(".questionlistajax2").empty();
+
+            			else if (tagid == 4)
+            				$(".questionlistajax3").empty();
+
+            			else if (tagid == 5)
+            				$(".questionlistajax4").empty();
+
+            			else if (tagid == 6)
+            				$(".questionlistajax5").empty();
+
+            			else if (tagid == 7)
+            				$(".questionlistajax6").empty();
+
+            			else if (tagid == 8)
+            				$(".questionlistajax7").empty();
+
+            			else if (tagid == 9)
+            				$(".questionlistajax8").empty();
+
             		}		
         		}
         	}
