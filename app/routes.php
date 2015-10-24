@@ -106,6 +106,9 @@ Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>
 Route::get('auth/ViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthController@loginWithGoogle'));
 
 
+//ajax checks
+Route::get('home/Tagsajax','QuestionsController@getalltags');
+
 Route::get('api/questionlist/all','ApiController@getAllQs');
 Route::get('/api/questionlist/view/{user_id?}','ApiController@getQsByUserId');
 Route::post('/api/question/{question_id?}/delete','ApiController@deleteQuestion');
