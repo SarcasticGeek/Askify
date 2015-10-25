@@ -215,5 +215,15 @@ receive:
 		  return Response::json(array('error' => true,
 				'message'=>'not found'),200);
 	}
+	public function notificationsToUser(){
+		$notifications = Notification::where('is_read','=',0)->get();
+		 if($notifications){
+		 	 return Response::json(array('error' => false,
+				'Notifications'=>$notifications),
+				200);
+		 }
+		  return Response::json(array('error' => true,
+				'message'=>'not found'),200);
+	}
 
 }
