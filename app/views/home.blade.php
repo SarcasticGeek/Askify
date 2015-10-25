@@ -157,6 +157,10 @@
 		font-size: 12px;
 		margin-left: 35px;
 	}
+	.AnswerButton{
+		position: relative;
+		top:-10px;
+	}
 
 </style>
 
@@ -268,6 +272,19 @@ session_start();
 										@if(Auth::User()->iFadmin == 1)
 											{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
 										@endif
+									</p>
+									<p>
+										<?php 
+										$QID = $question->id;
+										?> 
+									@if(Auth::User()->iFadmin == 1)
+										{{Form::open()}}
+										<textarea class="AnswerArea"  style="width:250px; margin-top:5px;" 
+										name="answer" placeholder="Put your answer here!"></textarea>
+										{{Form::submit('Answer', array('id'=>$QID, 'class'=> 'AnswerButton'))}}
+										{{-- <input type="button" class="AnswerButton" name=$QID  value="Answer" > --}}
+										{{Form::close()}}
+									@endif
 									</p>
 								</ul>
 							@endif
@@ -431,6 +448,14 @@ session_start();
         		}
         	}
         });
-
 </script>
+
+
+<script type="text/javascript">
+	$('.AnswerButton').click(function()
+	{
+		var QID = $(this).attr('id');
+	});
+</script>
+
 @stop
