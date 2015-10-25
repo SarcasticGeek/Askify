@@ -599,7 +599,7 @@ $('#username').blur(function(){
 	var data = $('input[name=username]').val();
 	var username = document.getElementById("username");
 	if(data!=""){
-		$.post('/hello',{data:data},function(output){
+		$.post('{{url()}}/hello',{data:data},function(output){
 			if(output==data){
 				username.setCustomValidity('This Username Exists, Please Choose Another Username :)');
 				$('#submit').click();
@@ -623,7 +623,7 @@ $(document).ready(function(){
 		var user = $('input[name=username-signin]').val();
 		var pass = $('input[name=password-signin]').val();
 		if(user!=""&&pass!=""){
-			$.post('/helloo',{user:user,pass:pass},function(output){
+			$.post('{{url()}}/helloo',{user:user,pass:pass},function(output){
 				console.log(output);
 				if(output=='Activated'){
 					var username1 = document.getElementById("username-signin");
