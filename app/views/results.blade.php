@@ -347,8 +347,16 @@ position: absolute;z-index: -999;
                                         </li>
                                     @endforeach
                                 </ul>
-
-                            {{$user_questions->links()}}
+                            {{Paginator::setPageName('page_userquestions')}}
+                            {{$user_questions
+                                ->appends('page_questions', Input::get('page_questions',1))
+                                ->appends('page_answers', Input::get('page_answers',1))
+                                ->appends('page_unsolved', Input::get('page_unsolved',1))
+                                ->appends('page_date', Input::get('page_date',1))
+                                ->appends('page_before', Input::get('page_before',1))
+                                ->appends('page_after', Input::get('page_after',1))
+                                ->appends('page_tags', Input::get('page_tags',1))
+                                ->links()}}
                             @endif
                         @endif
                     </form>
@@ -381,8 +389,16 @@ position: absolute;z-index: -999;
                                         </li>
                                     @endforeach
                                 </ul>
-
-                            {{$questions->links()}}
+                                {{Paginator::setPageName('page_questions')}}
+                            {{$questions
+                                ->appends('page_answers', Input::get('page_answers',1))
+                                ->appends('page_unsolved', Input::get('page_unsolved',1))
+                                ->appends('page_date', Input::get('page_date',1))
+                                ->appends('page_before', Input::get('page_before',1))
+                                ->appends('page_after', Input::get('page_after',1))
+                                ->appends('page_tags', Input::get('page_tags',1))
+                                ->appends('page_userquestions', Input::get('page_userquestions',1))
+                                ->links()}}
                             @endif
                         @endif
                     </form>
@@ -412,7 +428,16 @@ position: absolute;z-index: -999;
                                     </li>
                                 @endforeach
                                 </ul>
-                            {{ $answers->links()}}
+                                {{Paginator::setPageName('page_answers')}}
+                            {{ $answers
+                                ->appends('page_unsolved', Input::get('page_unsolved',1))
+                                ->appends('page_date', Input::get('page_date',1))
+                                ->appends('page_before', Input::get('page_before',1))
+                                ->appends('page_after', Input::get('page_after',1))
+                                ->appends('page_tags', Input::get('page_tags',1))
+                                ->appends('page_userquestions', Input::get('page_userquestions',1))
+                                ->appends('page_questions', Input::get('page_questions',1))
+                                ->links()}}
                             @endif
                         @endif
                     </form>
@@ -443,8 +468,16 @@ position: absolute;z-index: -999;
                                         </li>
                                     @endforeach
                                 </ul>
-
-                            {{$unsolved_questions->links()}}
+                            {{Paginator::setPageName('page_unsolved')}}
+                            {{$unsolved_questions
+                                ->appends('page_date', Input::get('page_date',1))
+                                ->appends('page_before', Input::get('page_before',1))
+                                ->appends('page_after', Input::get('page_after',1))
+                                ->appends('page_tags', Input::get('page_tags',1))
+                                ->appends('page_userquestions', Input::get('page_userquestions',1))
+                                ->appends('page_questions', Input::get('page_questions',1))
+                                ->appends('page_answers', Input::get('page_answers',1))
+                                ->links()}}
                             @endif
                         @endif
                     </form>
@@ -475,8 +508,16 @@ position: absolute;z-index: -999;
                                         </li>
                                     @endforeach
                                 </ul>
-
-                            {{$date_questions->links()}}
+                            {{Paginator::setPageName('page_date')}}
+                            {{$date_questions
+                                ->appends('page_before', Input::get('page_before',1))
+                                ->appends('page_after', Input::get('page_after',1))
+                                ->appends('page_tags', Input::get('page_tags',1))
+                                ->appends('page_userquestions', Input::get('page_userquestions',1))
+                                ->appends('page_questions', Input::get('page_questions',1))
+                                ->appends('page_answers', Input::get('page_answers',1))
+                                ->appends('page_unsolved', Input::get('page_unsolved',1))
+                                ->links()}}
                             @endif
                         @endif
                     </form>
@@ -507,8 +548,16 @@ position: absolute;z-index: -999;
                                         </li>
                                     @endforeach
                                 </ul>
-
-                            {{$before_questions->links()}}
+                            {{Paginator::setPageName('page_before')}}    
+                            {{$before_questions
+                                ->appends('page_after', Input::get('page_after',1))
+                                ->appends('page_tags', Input::get('page_tags',1))
+                                ->appends('page_userquestions', Input::get('page_userquestions',1))
+                                ->appends('page_questions', Input::get('page_questions',1))
+                                ->appends('page_answers', Input::get('page_answers',1))
+                                ->appends('page_unsolved', Input::get('page_unsolved',1))
+                                ->appends('page_date', Input::get('page_date',1))
+                                ->links()}}
                             @endif
                         @endif
                     </form>
@@ -539,8 +588,16 @@ position: absolute;z-index: -999;
                                         </li>
                                     @endforeach
                                 </ul>
-
-                            {{$after_questions->links()}}
+                            {{Paginator::setPageName('page_after')}}
+                            {{$after_questions
+                                ->appends('page_tags', Input::get('page_tags',1))
+                                ->appends('page_userquestions', Input::get('page_userquestions',1))
+                                ->appends('page_questions', Input::get('page_questions',1))
+                                ->appends('page_answers', Input::get('page_answers',1))
+                                ->appends('page_unsolved', Input::get('page_unsolved',1))
+                                ->appends('page_date', Input::get('page_date',1))
+                                ->appends('page_before', Input::get('page_before',1))
+                                ->links()}}
                             @endif
                         @endif
                     </form>
@@ -568,7 +625,16 @@ position: absolute;z-index: -999;
                                     </li>
                                 @endforeach
                                 </ul>
-                            {{ $tags->links()}}
+                            {{Paginator::setPageName('page_tags')}}    
+                            {{ $tags
+                                ->appends('page_userquestions', Input::get('page_userquestions',1))
+                                ->appends('page_questions', Input::get('page_questions',1))
+                                ->appends('page_answers', Input::get('page_answers',1))
+                                ->appends('page_unsolved', Input::get('page_unsolved',1))
+                                ->appends('page_date', Input::get('page_date',1))
+                                ->appends('page_before', Input::get('page_before',1))
+                                ->appends('page_after', Input::get('page_after',1))
+                                ->links()}}
                             @endif
                         @endif
                     </form>
@@ -588,6 +654,7 @@ position: absolute;z-index: -999;
     <!-- Scrolling Nav JavaScript -->
     <script type="text/javascript"src=" {{ asset('js/jquery.easing.min.js')}}"></script>
     <script type="text/javascript"src=" {{ asset('js/scrolling-nav.js')}}"></script>
+    <script type="text/javascript" src="{{asset('js/maintainscroll.jquery.min.js')}}"></script>
 
 </body>
 
