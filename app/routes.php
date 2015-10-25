@@ -96,7 +96,9 @@ Route::post('/emailconf','ConfirmationController@postConfirmation');
 
 
 Route::get('/home/notifications',array('before' => 'auth','before'=>'ifAdmin','after'=>'update','as'=>'notifications','uses'=>'AnswersController@show_notifications'));
-
+Route::get('/home/answernotify',array('after'=>'updateusernotification',function(){
+    return View::make('UserNotification');
+}));
 
 //Routes of Report
 Route::get('/home/report/{username}/{question}',array('as'=>'home/report','before'=>'ifAdmin','uses'=>'ReportController@showReport'));

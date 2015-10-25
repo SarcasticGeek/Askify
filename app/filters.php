@@ -106,6 +106,17 @@ Route::filter('update',function() {
 	}
 });
 
+Route::filter('updateusernotification',function(){
+	$notifications = Usernotification::where('user_id',Auth::User()->id)->get();
+	foreach ($notifications as $notification) {
+		if($notification->is_read==0){
+			$notification->is_read =1;
+			$notification->save();
+		}
+		# code...
+	}
+});
+
 Route::filter('banned',function(){
 
 	if(Auth::check()){
