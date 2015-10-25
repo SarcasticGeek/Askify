@@ -46,6 +46,7 @@ class Answer extends Eloquent{
 	}
 
 	public static function search($keyword){
+		Paginator::setPageName('page_answers');
 		return static::where('answer', 'LIKE', '%'.$keyword.'%')->paginate(4);
 	}
 	
