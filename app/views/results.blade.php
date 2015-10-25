@@ -30,6 +30,7 @@
 <style >
 body{
     text-align: center;
+    font-family: 'Handlee', cursive;
 
 }
 .section-primary
@@ -162,21 +163,23 @@ h1 {
 
 .navbar-form.navbar-left{
     margin-top: -10px;
-    margin-left: -10px;
+    margin-left: -9px;
+
 
 
 }
 .btn-primary{
     margin-left: 20px;
 }
-.form-control{
+.navbar-form.navbar-left.form-control{
     width: 500em;
+
 }
     
 
 .navbar-nav {
     margin-top: -20px;
-    margin-left: 35px;
+    margin-left: 30px;
 }
 .navbar-brand.page-scroll{
     margin-top: -13px;
@@ -190,6 +193,18 @@ position: absolute;z-index: -999;
 {
     width: 850px;
     margin-left: 200px;
+}
+.navbar-inverse {
+  background-color: #325C74;
+  border-color: #35586C;
+}
+.navbar-inverse .navbar-brand {
+  color: #9d9d9d;
+}
+.navbar-nav > li {
+    float: left;
+    font-size: 12.5px;
+    font-weight: normal;
 }
        
 </style>
@@ -237,7 +252,7 @@ position: absolute;z-index: -999;
                 @else
                 {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Click to search!')) }}                
                 @endif
-                {{ Form::submit('Find',array('class'=>'btn btn-primary' )) }}
+                {{ Form::submit('Find',array('class'=>'btn btn-info' )) }}
 
 
                 {{ Form::close() }}
