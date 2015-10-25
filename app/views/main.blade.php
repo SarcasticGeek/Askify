@@ -1,14 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>@yield('title') 
+  <meta charset="UTF-8">
+  <title>@yield('title') 
   @if(isset($title))
   {{ $title }}
   @endif
   </title>
-	<!-- Latest compiled and minified CSS -->
+  <!-- Latest compiled and minified CSS -->
+
+
 <link rel="stylesheet" type="text/css"href="{{ asset('css/bootstrap.min.css')}}">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+
 <link rel="stylesheet" type="text/css"href=" {{ asset('css/bootstrap.css')}}">
 <link rel="stylesheet" type="text/css"href="{{ asset('css/main.css') }}">
 <link rel="stylesheet" type="text/css"href="{{ asset('css/social-sharing.css') }}">
@@ -25,6 +30,10 @@
 
 
     <style>
+    html {
+          position: relative;
+          min-height: 100%;
+        }
        .dropdown img
        {
           border-radius: 50%;
@@ -32,7 +41,17 @@
        }
        body{
         font-family: 'Handlee', cursive;
+        clear: both;
        }
+       .footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+
+      
+      
     </style>
 @section('header')
 
@@ -57,7 +76,7 @@
   <div class="container">
       <div class="row">
 
-          	<nav class="navbar navbar-inverse">
+            <nav class="navbar navbar-inverse">
           <div class="container-fluid">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -120,12 +139,14 @@
     </nav>
 
   </div>
-      @yield('content')
+  </div>
+  <div class="container">
+      @yield('content')   
 
+  </div>
+  
 
-
-      </div>
-    <footer class="section section-primary" >
+    <footer class="section section-primary footer navbar-fixed-bottom">
       <div class="container">
         <div class="row">
           <div class="col-sm-6">
@@ -157,7 +178,6 @@
       </div>
     </footer>
 
-  </div>
 
 
 

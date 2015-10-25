@@ -61,6 +61,19 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(4);
 	}
 
+	/* this is medo code for gat questions orderd by date
+		we want to get the questions orderd bt data and answerd
+
+	*/
+		public static function orderd_by_date()
+		{
+			return static::where('user_id','!=',Auth::user()->id)->orderBy('created_at','DESC')->paginate(4);
+		}
+		public static function solved_only()
+		{
+			return static::where('user_id','!=',Auth::user()->id)->where('solved',1)->orderBy('created_at','DESC')->paginate(4);
+		}
+
 	///END OF CONFIGS
 
 	/****** THAT"S BUILT FOR ASK>FM  APP NOT WITH SNAPPY APP

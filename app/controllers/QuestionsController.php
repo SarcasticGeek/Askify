@@ -135,7 +135,12 @@ class QuestionsController extends BaseController{
 	public function get_others_questions(){
 		return View::make('home')
 			->with('title','Home')
-			->with('questions',Question::others_questions())->with('tags',Tag::all());
+			->with('questions',Question::others_questions())->with('tags',Tag::all())
+		    ->with('orederd_questions',Question::orderd_by_date())->with('tags',Tag::all())
+		    ->with('solved_questions',Question::solved_only())->with('tags',Tag::all());
+
+
+
 	}
 	
 	public function get_edit ($id = NULL) {
@@ -189,6 +194,7 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 						'b'=>($question->question), 
 						'c'=>(count($question->answers)),
 						'd'=>($question->id),
+						'e'=>($question->User->email),
 						);
 
 					$i = $i+1;

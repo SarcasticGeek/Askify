@@ -6,6 +6,11 @@ margin: 0 auto;
 padding: 2em 3em 1em 5em;
 margin-top: 2em;
 text-align: center;
+margin-bottom:70px;
+}
+#footer
+{
+	position: absolute;
 }
 
 </style>
@@ -42,3 +47,5 @@ text-align: center;
  			 @endif
 			{{Form::close()}}
 @stop
+    
+

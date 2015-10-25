@@ -80,13 +80,11 @@
 		padding-left:32px;
 	}
 	#left .nav > li.active > a, #left .nav > li > a:hover{background-color: #286193;}
-	#left .Date{
-		margin-top: 150px;
-	}
+	
 	#left .Tags a{
 		border-bottom:2px solid #ECF0F0;
 	}
-	#left .arrow1, #left .arrow2, #left .arrow3{
+	#left .arrow1, #left .arrow2, #left .arrow3, #left .arrow0{
 		width: 0;
 		height: 0;
 		border-top: 20px solid transparent;
@@ -157,6 +155,10 @@
 		font-size: 12px;
 		margin-left: 35px;
 	}
+	.footer
+	{
+
+	}
 
 </style>
 
@@ -168,10 +170,16 @@ session_start();
 {{$reportsuccess}}
 @endif
 
-<div>
 	<div id="left" style="display:block;">
+
 		<ul class="nav">
-		    <li role="presentation" class="active Date" id="number1">
+		  
+
+		    <li role="presentation" class="active All" id="number0">
+		    	<a href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a>
+		    	<div class="arrow0"></div>
+		    </li>
+		    <li role="presentation" class=" Date" id="number1">
 		    	<a href="#date" aria-controls="date" role="tab" data-toggle="tab">Date</a>
 		    	<div class="arrow1"></div>
 		    </li>
@@ -247,10 +255,9 @@ session_start();
 				<p>No Questions</p>
 			@else
 				<div class="tab-content" style="display: block;">
-				    <div role="tabpanel" class="tab-pane active" id="date"><h1>Order Questions By Date *default view*</h1></div>
-				    <div role="tabpanel" class="tab-pane" id="answered">
-				    	<h1>View Answered Questions Only *ordered by date*</h1>
-				    	@foreach($questions as $question)
+			          <div role="tabpanel" class="tab-pane active" id="all">
+			          	<h1> all questions are here</h1>
+			          		@foreach($questions as $question)
 							@if($question->private == 0)
 								<ul>
 								 	<p style="font-size: 18px">
@@ -272,7 +279,63 @@ session_start();
 								</ul>
 							@endif
 						@endforeach
-						{{ $questions->links()}}</div>
+						{{ $questions->links()}}
+			          </div>
+
+				    <div role="tabpanel" class="tab-pane" id="date">
+
+				    <h1>Order Questions By Date *default view*</h1>
+				     @foreach($orederd_questions as $question)
+				    @if($question->private == 0)
+								<ul>
+								 	<p style="font-size: 18px">
+									 	<?php 
+									 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+										 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+								 		?>
+						 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px"> 
+								 		<strong>{{ucfirst($question->user->username)}}
+								 		</strong>
+								 	</p>
+								 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p> 
+								 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+										{{ HTML::linkRoute('question','View',$question->id) }}
+										@if(Auth::User()->iFadmin == 1)
+											{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+										@endif
+									</p>
+								</ul>
+							@endif
+						@endforeach
+						{{ $questions->links()}}
+
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="answered">
+				    	<h1>View Answered Questions Only *ordered by date*</h1>
+				    	@foreach($solved_questions as $question)
+							@if($question->private == 0)
+								<ul>
+								 	<p style="font-size: 18px">
+									 	<?php 
+									 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+										 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+								 		?>
+						 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px"> 
+								 		<strong>{{ucfirst($question->user->username)}}
+								 		</strong>
+								 	</p>
+								 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p> 
+								 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+										{{ HTML::linkRoute('question','View',$question->id) }}
+										@if(Auth::User()->iFadmin == 1)
+											{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+										@endif
+									</p>
+								</ul>
+							@endif
+						@endforeach
+						{{ $questions->links()}}
+						</div>
 
 						{{-- Tags tab --}}
 				    <div role="tabpanel" class="tab-pane" id="tags">
@@ -299,24 +362,36 @@ session_start();
 			@endif
 	 	</div>
 	</div>
-</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
-		$('.arrow2').hide();
+
+	 $('.arrow2').hide();
 		$('.arrow3').hide();
-		$('.arrow1').show();
+		$('.arrow1').hide();
+		$('.arrow0').show();
+
+  $('#number0').click(function(){
+	    $('.arrow2').hide();
+		$('.arrow3').hide();
+		$('.arrow1').hide();
+		$('.arrow0').show();
+});
+		
 	$('#number1').click(function() {
+		$('.arrow0').hide();
 		$('.arrow2').hide();
 		$('.arrow3').hide();
 		$('.arrow1').show();
 });
 	$('#number2').click(function() {
+		$('.arrow0').hide();
 		$('.arrow1').hide();
 		$('.arrow3').hide();
 		$('.arrow2').show();
 });
 	$('#number3').click(function() {
+		$('.arrow0').hide();
 		$('.arrow1').hide();
 		$('.arrow2').hide();
 		$('.arrow3').show();
@@ -374,12 +449,14 @@ session_start();
 
                 				for(var m =0 ; m<max ; m++){
                 					var user_name = data[m].a;
+                					var email=data[m].e;
                 					var question_name = data[m].b;
                 					var count_answers = data[m].c;
                 					var question_id = data[m].d;
                 					var view = "view";
                 					var varurl = "question/" + question_id;
                 					html += "<ul>";
+                					
                 					html += '<p class = "user_name">' + user_name +'</p>';
                 					html += '<p class = "question_name">' + question_name +'</p>';
                 					html += '<p class = "count_answers">' + '(' + count_answers  + 'Answers' +')' + ' '+ '<a href=" ' + varurl + ' ">view</a>' + '</p>';
