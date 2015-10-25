@@ -164,5 +164,56 @@ receive:
 				'message'=>'404 not found'),
 				404);
 	}
+	public function searchUser($keyword = null){
+		 $users = User::where('username','LIKE','%'.$keyword.'%')->get();
+		 if($users){
+		 	 return Response::json(array('error' => false,
+				'Users'=>$users),
+				200);
+		 }
+		  return Response::json(array('error' => true,
+				'message'=>'not found'),
+				200);
+	}
+	public function searchQuestion($keyword = null){
+		$questions = Question::where('question','LIKE','%'.$keyword.'%')->get();
+		 if($questions){
+		 	 return Response::json(array('error' => false,
+				'Questions'=>$questions),
+				200);
+		 }
+		  return Response::json(array('error' => true,
+				'message'=>'not found'),200);
+	}
+	public function searchAnswer($keyword = null){
+		$answers = Answer::where('answer','LIKE','%'.$keyword.'%')->get();
+		 if($answers){
+		 	 return Response::json(array('error' => false,
+				'Answers'=>$answers),
+				200);
+		 }
+		  return Response::json(array('error' => true,
+				'message'=>'not found'),200);
+	}
+	public function searchTag($keyword = null){
+		$tags = Tag::where('name','LIKE','%'.$keyword.'%')->get();
+		 if($tags){
+		 	 return Response::json(array('error' => false,
+				'Tags'=>$tags),
+				200);
+		 }
+		  return Response::json(array('error' => true,
+				'message'=>'not found'),200);
+	}
+	public function searchUnsolved($keyword = null){
+		$questions = Question::where('question','LIKE','%'.$keyword.'%')->where('solved','=',0)->get();
+		 if($questions){
+		 	 return Response::json(array('error' => false,
+				'Questions'=>$questions),
+				200);
+		 }
+		  return Response::json(array('error' => true,
+				'message'=>'not found'),200);
+	}
 
 }
