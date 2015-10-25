@@ -9,17 +9,32 @@ class LoginController extends BaseController{
 		return View::make('login');
 	}
 
+    public function checkActivate(){
+        $user = Input::get('user');
+        $pass = Input::get('pass');
+        if(Auth::attempt(array('username'=>$user,'password'=>$pass))){
+        $confirm = User::where('username',$user)->get()->first()->confirmed;
+        if($confirm==1){
+            return 'Activated';
+        }else{
+            Auth::logout();
+            return 'Not';
+        }            
+        }
+        return 'Error';  
+    }
+
 
 	public function doLogin(){
-		$credit = Input::only('username','password');
-		$validator = Validator::make($credit,array('username'=>'required','password'=>'required'));
+		$credit = Input::only('username-signin','password-signin');
+		$validator = Validator::make($credit,array('username-signin'=>'required','password-signin'=>'required'));
         $flag_confirmed = false;
         $users = DB::table('users')->get();
-        $username = Input::get('username');
+        $username = Input::get('username-signin');
         $message = '';
         $found = false;
 		if($validator->fails()){
-			return Redirect::to('login')->withInput()->withErrors($validator);
+            //Will not happen because of HTML5 Validation
 		}
 		else{
             foreach ($users as $user)
@@ -27,8 +42,7 @@ class LoginController extends BaseController{
                 $message = $message.$user->username.$user->confirmed;
 			     if($user->username == $username)
                  {
-                     $message = $user->username;
-                     
+                     $message = $user->username;   
                      if($user->confirmed == true)
                      {
                          $flag_confirmed = true;
@@ -40,10 +54,9 @@ class LoginController extends BaseController{
               }
 
 
-            if($flag_confirmed == true)
-            {
-			if(Auth::attempt($credit,true)){
-
+        if($flag_confirmed == true)
+        {
+			if(Auth::attempt(array('username'=>Input::get('username-signin'),'password'=>Input::get('password-signin')),true)){
                 DB::table('users')
                 ->where('username', $username)
                 ->update(array('confirmationcode' => ''));
@@ -60,7 +73,7 @@ class LoginController extends BaseController{
 
 			return Redirect::intended('/home');
 			}
-            }
+        }
             
             else if (Auth::validate($credit) && $flag_confirmed == false){
                 return Redirect::to('/login')->withInput()->with('loginerror', 'Account not activated');

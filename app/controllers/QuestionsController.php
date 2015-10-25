@@ -42,11 +42,71 @@ class QuestionsController extends BaseController{
 	}
 	public function get_results($keyword)
 	{
-		return View::make('results')
-			->with('title','Search results')
-			->with('questions',Question::search($keyword))->with('tags',Tag::search_tag($keyword));
+
+		// $modifier = substr($keyword,0,strpos($keyword,':'));
+		// $key = substr($keyword,strpos($keyword,':')+1);
+		// switch($modifier){
+		// 	case 'username':
+		// 		return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('questions',Question::searchUser($key))
+		// 		->with('keyword',$key);
+		// 		break;
+		// 	case 'answer':
+		// 					return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('answers',Answer::search($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'question':
+		// 					return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('questions',Question::search($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'date':
+		// 					return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('questions',Question::searchByDate($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'tag':
+		// 					return View::make('results')
+		// 		->with('title','Search By '.$modifier)
+		// 		->with('tags',Tag::search_tag($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'before':
+		// 		return View::make('results')
+		// 		->with('title','Search By '.$modifier.$key)
+		// 		->with('questions',Question::searchByDateBefore($key))->with('keyword',$key);
+		// 		break;
+		// 	case 'after':
+		// 		return View::make('results')
+		// 		->with('title','Search By '.$modifier.$key)
+		// 		->with('questions',Question::searchByDateAfter($key))->with('keyword',$key);
+		// 		break;					
+		// 	case 'unsolved':
+		// 		return View::make('results')
+		// 		->with('title','Search By unsolved questions')
+		// 		->with('questions',Question::unsolved())->with('keyword',$keyword);
+			
+		// 	default:
+		// 		return View::make('results')->with('title','Search results')
+		// 		->with('message','Please choose one of search fileds above')->with('keyword',$keyword);
+		// }
+		return View::make('results')->with('user_questions',Question::searchUser($keyword))
+									->with('questions',Question::search($keyword))
+									->with('unsolved_questions',Question::unsolvedquestions($keyword))
+									->with('date_questions',Question::searchByDate($keyword))
+									->with('before_questions',Question::searchByDateBefore($keyword))
+									->with('after_questions',Question::searchByDateAfter($keyword))
+									->with('answers',Answer::search($keyword))
+									->with('tags',Tag::search_tag($keyword));
+		
 	}
-    
+
+    public function get_results_q($keyword)
+    {
+    	
+
+    }
 	
 	public function post_search()
 	{
@@ -114,6 +174,29 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		}  
 		return Redirect::route('your_questions')->with('message','not found');;
 		}
+
+
+	public function getalltags(){
+		$postData1 = Question::get()->all();
+		$CCK = Input::get('CCK');
+		$postData2 = array();
+		$i = 0;
+		foreach ($postData1 as $question ) {
+			$QT=$question->tags;
+			foreach ($QT as $tag ) {
+				if($tag->id == $CCK && $question->private == 0){
+					$postData2 [$i] = array( 'a'=>($question->User->username), 
+						'b'=>($question->question), 
+						'c'=>(count($question->answers)),
+						'd'=>($question->id),
+						);
+
+					$i = $i+1;
+				}
+			}
+		}
+		return ($postData2);
+	}
 		
 
 

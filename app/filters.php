@@ -109,8 +109,11 @@ Route::filter('update',function() {
 Route::filter('banned',function(){
 
 	if(Auth::check()){
-		//$user_id = Auth::User()->id;
-		//$ban = Report::where('user_id',$user_id)->get()->first();
+		$user_id = Auth::User()->id;
+		$ban = Report::where('user_id',$user_id)->get()->first();
+		if($ban!=null){
+			return Redirect::route('user/banned');
+		}
 		if(isset($_COOKIE['banned'])){
 			return Redirect::route('user/banned');
 		}

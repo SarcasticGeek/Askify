@@ -45,4 +45,9 @@ class Answer extends Eloquent{
 		return static::where('user_id','!=',Auth::user()->id)->paginate(3);
 	}
 
+	public static function search($keyword){
+		return static::where('answer', 'LIKE', '%'.$keyword.'%')->paginate(4);
+	}
+	
+	
 }

@@ -64,7 +64,7 @@
 	<ul class="list-group">
 		@foreach($question->answers as $answer)
 		<li class="list-group-item"><h4 class="list-group-item-heading" >{{ e($answer->answer) }}  </h4>
-		<h5> updated at : {{ date('h:i A d/m/Y',strtotime($answer->updated_at)) }}
+		<h5> updated at : {{ $answer->updated_at->diffForHumans() }}
 
 		@if(Auth::check())
 			@if($answer->user_id === Auth::User()->id)

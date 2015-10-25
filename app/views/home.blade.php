@@ -111,6 +111,52 @@
 		position: relative;
 		left: 700px;
 	}
+	.questionlistajax ul{
+		border: 1px solid #e5e5e5;
+		text-align: left;
+		background-color: rgba(255,255,255,1);
+		margin:-13px;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		padding: 20px;
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+		.questionlistajax1 ul{
+		border: 1px solid #e5e5e5;
+		text-align: left;
+		background-color: rgba(255,255,255,1);
+		margin:-13px;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		padding: 20px;
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+		.questionlistajax2 ul{
+		border: 1px solid #e5e5e5;
+		text-align: left;
+		background-color: rgba(255,255,255,1);
+		margin:-13px;
+		margin-top: 10px;
+		margin-bottom: 20px;
+		padding: 20px;
+		padding-top: 10px;
+		padding-bottom: 5px;
+	}
+	.user_name{
+		font-size: 20px;
+		font-style: bold;
+		display: block;
+		font-weight: bold;
+	}
+	.user_name:first-letter {
+    text-transform: capitalize;
+	}
+	.question_name, .count_answers{
+		font-size: 12px;
+		margin-left: 35px;
+	}
 
 </style>
 
@@ -139,13 +185,9 @@ session_start();
 		    </li>
 		    <li class ="nothing">	
 				@foreach($tags as $tag)
-					 <?php $name = $tag->name ?>  
 					<ul style="font-size: 18px">
-				    	{{Form::checkbox('tags',$tag->id,false, array('id'=> $name))}}
+				    	{{Form::checkbox('tags',$tag->id,false)}}
 				   		{{Form::label($tag->name) }}
-				   		@if($name === $tag->name)
-				   		{{$name}}
-				   		@endif
 				   	</ul>       
 				@endforeach
 			</li>
@@ -234,46 +276,24 @@ session_start();
 
 						{{-- Tags tab --}}
 				    <div role="tabpanel" class="tab-pane" id="tags">
-				    	<div class="questionlist">
-						 	<!-- for tag sort -->
-						 	<?php 
-						 		$tagArray = array(1, 2, 3);
-						 	?>
-							@if(!$questions)
-								 <p>No Questions</p>
-							@else
-							@foreach($tags as $tag)
-								@foreach($tagArray as $element)
-								@if($tag->id == $element)
-									@foreach($tag->questions as $question)
-									<ul>
-										<p style="font-size: 18px"><strong>
-											 <?php 
-											 $hashed_mail=md5( strtolower( trim( $question->user->email)));
-											 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
-											 ?>
-											 			  <img src="<?php echo $grav_url; ?>" hieght="40px" width="40px"> 
-											{{
-									 		ucfirst($question->user->username)
-											}}</strong></p>
-											<p>{{ str_limit($question->question,40,"...") }}</p> 
-											<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-												<p>
-													{{ HTML::linkRoute('question','View',$question->id) }} 
-													<span class="tagname"> #{{ $tag->name}}  
-												</p> 
-											</p>
-											@if(Auth::User()->iFadmin == 1)
-												{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
-											@endif
-										</ul>
-									@endforeach
-								@endif
-								@endforeach
-							@endforeach
-							{{ $questions->links()}}
-							@endif
-						 </div>
+				    	<div class="questionlistajax">
+						</div>
+						<div class="questionlistajax1">
+						</div>
+						<div class="questionlistajax2">
+						</div>
+						<div class="questionlistajax3">
+						</div>
+						<div class="questionlistajax4">
+						</div>
+						<div class="questionlistajax5">
+						</div>
+						<div class="questionlistajax6">
+						</div>
+						<div class="questionlistajax7">
+						</div>
+						<div class="questionlistajax8">
+						</div>
 				    </div>
 		  		</div>			
 			@endif
@@ -281,6 +301,7 @@ session_start();
 	</div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 		$('.arrow2').hide();
 		$('.arrow3').hide();
@@ -305,18 +326,111 @@ session_start();
 	var x = y / 2 * 120 ;
 	$(".Tags a").css("height", x);
 
-        // $('input[type="checkbox"]').click(function(){
-        //     if($(this).prop("checked") == true){
-        //     	if($(this).val() == 1){
-        //         alert("Checkbox is checked.");
-        //     }
-        //     }
-        //     else if($(this).prop("checked") == false){
-        //     	if($(this).val() == 2){
-        //         alert("Checkbox is unchecked.");
-        //     }
-        // }
-        // });
+	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}} 
+
+        $('input[type="checkbox"]').click(function(){
+        	var tagid = $(this).val();
+       		for (i = 1; i <= M.length; i++){
+            	if($(this).prop("checked") == true){
+            		if(tagid == i){
+
+            			var CCK = $(this).val();
+            			var url ="home/Tagsajax";
+                		$.ajax({
+                			type: 'GET',
+                			url: url,
+                			cache:false,
+                			data: {CCK:CCK},
+                			dataType:'json',
+                			success: function(data){
+                				var max = Object.keys(data).length;
+                				html = "";
+                				if(tagid == 1)
+                					var classification = ".questionlistajax";
+
+                				else if(tagid == 2)
+                					var classification = ".questionlistajax1";
+
+                				else if(tagid == 3)
+                					var classification = ".questionlistajax2";
+
+                				else if(tagid == 4)
+                					var classification = ".questionlistajax3";
+
+                				else if(tagid == 5)
+                					var classification = ".questionlistajax4";
+
+                				else if(tagid == 6)
+                					var classification = ".questionlistajax5";
+
+                				else if(tagid == 7)
+                					var classification = ".questionlistajax6";
+
+                				else if(tagid == 8)
+                					var classification = ".questionlistajax7";
+
+                				else if(tagid == 9)
+                					var classification = ".questionlistajax8";
+
+                				for(var m =0 ; m<max ; m++){
+                					var user_name = data[m].a;
+                					var question_name = data[m].b;
+                					var count_answers = data[m].c;
+                					var question_id = data[m].d;
+                					var view = "view";
+                					var varurl = "question/" + question_id;
+                					html += "<ul>";
+                					html += '<p class = "user_name">' + user_name +'</p>';
+                					html += '<p class = "question_name">' + question_name +'</p>';
+                					html += '<p class = "count_answers">' + '(' + count_answers  + 'Answers' +')' + ' '+ '<a href=" ' + varurl + ' ">view</a>' + '</p>';
+                					html += "</ul>";
+
+                					$(classification).append(html);
+                					html = "";
+
+	                 			}
+                			},
+                			error: function(){
+                				console.log('something happend');
+                			}
+                		});
+
+
+            		}
+            	}
+            	else if($(this).prop("checked") == false){
+            		if(tagid == i){
+            			if(tagid == 1)
+            				$(".questionlistajax").empty();
+
+            			else if (tagid == 2)
+            				$(".questionlistajax1").empty();
+
+            			else if (tagid == 3)
+            				$(".questionlistajax2").empty();
+
+            			else if (tagid == 4)
+            				$(".questionlistajax3").empty();
+
+            			else if (tagid == 5)
+            				$(".questionlistajax4").empty();
+
+            			else if (tagid == 6)
+            				$(".questionlistajax5").empty();
+
+            			else if (tagid == 7)
+            				$(".questionlistajax6").empty();
+
+            			else if (tagid == 8)
+            				$(".questionlistajax7").empty();
+
+            			else if (tagid == 9)
+            				$(".questionlistajax8").empty();
+
+            		}		
+        		}
+        	}
+        });
 
 </script>
 @stop
