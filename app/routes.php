@@ -115,3 +115,13 @@ Route::get('auth/ViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthCon
 
 //ajax checks
 Route::get('home/Tagsajax','QuestionsController@getalltags');
+//API
+Route::get('api/questionlist/all','ApiController@getAllQs');
+Route::get('/api/questionlist/view/{user_id?}','ApiController@getQsByUserId');
+Route::post('/api/question/{question_id?}/delete','ApiController@deleteQuestion');
+Route::post('/api/question/create','ApiController@postQuestion');
+Route::post('/api/question/edit','ApiController@editQuestion');
+Route::post('/api/question/delete','ApiController@deleteQuestion');
+Route::get('/api/question/create','ApiController@error404');
+Route::get('/api/question/edit','ApiController@error404');
+Route::get('/api/question/delete','ApiController@error404');
