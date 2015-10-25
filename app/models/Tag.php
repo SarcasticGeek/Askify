@@ -42,6 +42,7 @@ class Tag extends Eloquent implements UserInterface, RemindableInterface {
 	
 
 public static function search_tag($keyword){
+	Paginator::setPageName('page_tags');
 		return static::where('name', 'LIKE', '%'.$keyword.'%')->paginate(4);
 	}
 }
