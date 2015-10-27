@@ -166,64 +166,191 @@ receive:
 	}
 	public function searchUser($keyword = null){
 		 $users = User::where('username','LIKE','%'.$keyword.'%')->get();
-		 if($users){
-		 	 return Response::json(array('error' => false,
-				'Users'=>$users),
-				200);
-		 }
-		  return Response::json(array('error' => true,
-				'message'=>'not found'),
-				200);
+		 $data = [];
+		foreach ($users as $user ) {	
+			$questions = $user->questions;
+			foreach ($questions as $question ) {
+				$internaldata = [];
+				$internaldata['questioner_name'] = $question->user->username;
+				$internaldata['question'] = $question->question;
+				$internaldata['question_date'] = $question->updated_at->diffForHumans();
+				if($question->solved == 1){
+					foreach ($question->answers as $answer) {
+						$internaldata['Answer'] = $answer->answer;
+						$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
+					}
+				}else{
+					$internaldata['Answer']  = "No Answer";
+					$internaldata['Answer_date'] = 0;
+				}
+				//tags
+				$tagsname = [];
+				foreach ($question->tags as $tag) {
+					array_push($tagsname, $tag->name);
+				}
+				$internaldata['question_tag'] = $tagsname;
+				//$internaldata['question_id'] = $question->id;
+				array_push($data, $internaldata);	
+			}
+		}
+		return Response::json(array('error' => false,
+			'question_List'=>$data),
+			200);
 	}
 	public function searchQuestion($keyword = null){
 		$questions = Question::where('question','LIKE','%'.$keyword.'%')->get();
-		 if($questions){
-		 	 return Response::json(array('error' => false,
-				'Questions'=>$questions),
-				200);
-		 }
-		  return Response::json(array('error' => true,
-				'message'=>'not found'),200);
+		$data = [];
+		foreach ($questions as $question ) {
+			$internaldata = [];
+			$internaldata['questioner_name'] = $question->user->username;
+			$internaldata['question'] = $question->question;
+			$internaldata['question_date'] = $question->updated_at->diffForHumans();
+			if($question->solved == 1){
+				foreach ($question->answers as $answer) {
+					$internaldata['Answer'] = $answer->answer;
+					$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
+				}
+			}else{
+				$internaldata['Answer']  = "No Answer";
+				$internaldata['Answer_date'] = 0;
+			}
+			//tags
+			$tagsname = [];
+			foreach ($question->tags as $tag) {
+				array_push($tagsname, $tag->name);
+			}
+			$internaldata['question_tag'] = $tagsname;
+			//$internaldata['question_id'] = $question->id;
+			array_push($data, $internaldata);	
+		}
+		return Response::json(array('error' => false,
+			'question_List'=>$data),
+			200);
 	}
 	public function searchAnswer($keyword = null){
 		$answers = Answer::where('answer','LIKE','%'.$keyword.'%')->get();
-		 if($answers){
-		 	 return Response::json(array('error' => false,
-				'Answers'=>$answers),
-				200);
-		 }
-		  return Response::json(array('error' => true,
-				'message'=>'not found'),200);
+		$data = [];
+		foreach ($answers as $answer ) {
+			$question = $answer->question;
+				$internaldata = [];
+				$internaldata['questioner_name'] = $question->user->username;
+				$internaldata['question'] = $question->question;
+				$internaldata['question_date'] = $question->updated_at->diffForHumans();
+				if($question->solved == 1){
+					foreach ($question->answers as $answer) {
+						$internaldata['Answer'] = $answer->answer;
+						$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
+					}
+				}else{
+					$internaldata['Answer']  = "No Answer";
+					$internaldata['Answer_date'] = 0;
+				}
+				//tags
+				$tagsname = [];
+				foreach ($question->tags as $tag) {
+					array_push($tagsname, $tag->name);
+				}
+				$internaldata['question_tag'] = $tagsname;
+				//$internaldata['question_id'] = $question->id;
+				array_push($data, $internaldata);	
+		}
+		return Response::json(array('error' => false,
+			'question_List'=>$data),
+			200);
 	}
 	public function searchTag($keyword = null){
 		$tags = Tag::where('name','LIKE','%'.$keyword.'%')->get();
-		 if($tags){
-		 	 return Response::json(array('error' => false,
-				'Tags'=>$tags),
-				200);
-		 }
-		  return Response::json(array('error' => true,
-				'message'=>'not found'),200);
+		$data = [];
+		foreach ($tags as $tag ) {		
+			$questions = $tag->questions;
+			foreach ($questions as $question ) {
+				$internaldata = [];
+				$internaldata['questioner_name'] = $question->user->username;
+				$internaldata['question'] = $question->question;
+				$internaldata['question_date'] = $question->updated_at->diffForHumans();
+				if($question->solved == 1){
+					foreach ($question->answers as $answer) {
+						$internaldata['Answer'] = $answer->answer;
+						$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
+					}
+				}else{
+					$internaldata['Answer']  = "No Answer";
+					$internaldata['Answer_date'] = 0;
+				}
+				//tags
+				$tagsname = [];
+				foreach ($question->tags as $tag) {
+					array_push($tagsname, $tag->name);
+				}
+				$internaldata['question_tag'] = $tagsname;
+				//$internaldata['question_id'] = $question->id;
+				array_push($data, $internaldata);	
+			}
+		}
+		return Response::json(array('error' => false,
+			'question_List'=>$data),
+			200);
 	}
 	public function searchUnsolved($keyword = null){
 		$questions = Question::where('question','LIKE','%'.$keyword.'%')->where('solved','=',0)->get();
-		 if($questions){
-		 	 return Response::json(array('error' => false,
-				'Questions'=>$questions),
-				200);
-		 }
-		  return Response::json(array('error' => true,
-				'message'=>'not found'),200);
+		$data = [];
+		foreach ($questions as $question ) {
+			$internaldata = [];
+			$internaldata['questioner_name'] = $question->user->username;
+			$internaldata['question'] = $question->question;
+			$internaldata['question_date'] = $question->updated_at->diffForHumans();
+			if($question->solved == 1){
+				foreach ($question->answers as $answer) {
+					$internaldata['Answer'] = $answer->answer;
+					$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
+				}
+			}else{
+				$internaldata['Answer']  = "No Answer";
+				$internaldata['Answer_date'] = 0;
+			}
+			//tags
+			$tagsname = [];
+			foreach ($question->tags as $tag) {
+				array_push($tagsname, $tag->name);
+			}
+			$internaldata['question_tag'] = $tagsname;
+			//$internaldata['question_id'] = $question->id;
+			array_push($data, $internaldata);	
+		}
+		return Response::json(array('error' => false,
+			'question_List'=>$data),
+			200);
 	}
 	public function notificationsToUser(){
 		$notifications = Notification::where('is_read','=',0)->get();
-		 if($notifications){
-		 	 return Response::json(array('error' => false,
-				'Notifications'=>$notifications),
-				200);
-		 }
-		  return Response::json(array('error' => true,
-				'message'=>'not found'),200);
+		$data = [];
+		foreach ($notifications as $notification ) {
+			$question = $notification->question;
+				$internaldata = [];
+				$internaldata['questioner_name'] = $question->user->username;
+				$internaldata['question'] = $question->question;
+				$internaldata['question_date'] = $question->updated_at->diffForHumans();
+				if($question->solved == 1){
+					foreach ($question->answers as $answer) {
+						$internaldata['Answer'] = $answer->answer;
+						$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
+					}
+				}else{
+					$internaldata['Answer']  = "No Answer";
+					$internaldata['Answer_date'] = 0;
+				}
+				//tags
+				$tagsname = [];
+				foreach ($question->tags as $tag) {
+					array_push($tagsname, $tag->name);
+				}
+				$internaldata['question_tag'] = $tagsname;
+				//$internaldata['question_id'] = $question->id;
+				array_push($data, $internaldata);	
+		}
+		return Response::json(array('error' => false,
+			'question_List'=>$data),
+			200);
 	}
 
 }
