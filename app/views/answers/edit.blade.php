@@ -11,8 +11,9 @@
 			{{ Session::get('message') }}
 			</div>
 		@endif
-    <div class="panel panel-default">
-    <div class="panel-heading"><h2 class="panel-title">{{ ucfirst($question->user->username) }} asks:</h2></div>
+
+    <div class="panel panel-default"style="margin-top:30px; margin-left: -15px; text-align: left;">
+    <div class="panel-heading"><h2 class="panel-title"><strong>{{ ucfirst($question->user->username) }}</strong></h2></div>
     <div class="panel-body">
       </h3 > {{ e($question->question) }}</h3>
     </div>
@@ -28,14 +29,16 @@
 @endif
 @if(Auth::check())
      <div class="answer">
- 	<h1> Edit Your Answer</h1>
  {{Form::open(array('url'=>'answer/update','method'=> 'post'))}}
 {{Form::token()}}
 {{Form::hidden('question_id',$question->id)}}
 {{Form::hidden('answer_id',$answer->id)}}
- 	<textarea class="form-control" rows="5" name="answer" style="width:40em; margin-left: auto;
-    margin-right: auto; margin-bottom:1em;">{{ $answer->answer }}</textarea>
+
+ 	<textarea class="form-control" rows="5" name="answer" style="width:1150px; margin-left: -13px;
+	    margin-bottom:1em; margin-right:30px;float: left;">{{ $answer->answer }}</textarea>
+	    <div style="padding-top: 75px; margin-left: 50px;">
     {{Form::submit('Edit',array('class'=>'btn btn-success'))}}
+</div>
 	
 	{{Form::close()}}
 	@if($message = Session::get('message'))

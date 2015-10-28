@@ -4,29 +4,6 @@
 	body{
 		text-align: center;
 	}
-	.question{
-		background-color: #f2f3e7;
-		border-radius:5px;
-		margin:-13px;
-		margin-bottom: 10px;
-		margin-top: 10px;
-		padding: 20px;
-		padding-top: 5px;
-		padding-bottom: 5px;
-		height: 100px;
-	}
-	.questionlist ul{
-		text-align: left;
-		background-color: #f2f3e7;
-		border-radius:5px;
-		margin:-13px;
-		margin-bottom: 10px;
-		margin-top: 10px;
-		margin-bottom: 20px;
-		padding: 20px;
-		padding-top: 5px;
-		padding-bottom: 5px;
-	}
 	.question.form-control{
 		width:40px;
 		margin: 50px;
@@ -36,18 +13,27 @@
 </style>
 @section('content')
 
- <div class="questionlist">
- <h1>{{ $tag->name }}</h1>
+ <div class="questionlist" style="margin-top:30px; ">
+ <h1 style="text-align: left; border-bottom:3px solid rgb(0,0,0); margin-left:-10px; text-transform: uppercase;">{{ $tag->name }}</h1>
 	@if(count($tag->questions)===0)
 		 <p>No Questions</p>
 	@else
 	@foreach($tag->questions as $question)
-		 	<ul>
-		 		<p><strong>{{ucfirst($question->user->username)}}</strong></p>
-		 		<p>{{ str_limit($question->question,40,"...") }}</p> 
-		 		<p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+
+
+<div class="panel panel-default"style="margin-top:30px; margin-left: -15px; text-align: left;">
+    <div class="panel-heading"><h2 class="panel-title"><strong>{{ucfirst($question->user->username)}}</strong></h2></div>
+    <div class="panel-body">
+      </h2> {{ str_limit($question->question,40,"...") }}</h2><br/><br/>
+  <p style="font-size: 12px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 				{{ HTML::linkRoute('question','View',$question->id) }}</p>
-			</ul>
+			
+
+    </div>
+</div>
+
+
+
 	@endforeach
 	@endif
  </div>
