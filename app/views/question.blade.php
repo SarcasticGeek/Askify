@@ -11,14 +11,35 @@
 			</div>
 		@endif
 <div class="panel panel-default"style="margin-top:30px; margin-left: -15px; text-align: left;">
-    <div class="panel-heading"><h2 class="panel-title"><strong>{{ ucfirst($question->user->username) }}</strong> 
-    <span style="float: right;">@foreach($question->tags as $tag)
+
+<div class="panel-heading"><h2 class="panel-title"style="font-size: 18px;font-family: 'Handlee', cursive;">
+		<?php 
+		 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+	 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+		?>
+	 	<img src="<?php echo $grav_url; ?>" style="border-radius: 100%" height="30px" width="30px"> 
+		<strong>{{ucfirst($question->user->username)}}
+		</strong>
+		<span style="float: right; font-size: 15px;padding-top: 5px;">@foreach($question->tags as $tag)
     #{{ $tag->name }} 
     @endforeach </span>
-    </h2></div>
-    <div class="panel-body">
-      </h3 > {{ e($question->question) }}</h3>
+    </h2>
+	</h2>
+	</div>
 
+	<div class="panel-body"style="padding-top: 0px; padding-bottom: 0px;">
+      	<h2 style="margin-left: 35px; font-size:15px;font-family: 'Handlee', cursive;">
+      		{{ e($question->question) }}
+      		<span>
+				<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+				</p><br/>
+				<p style="float:right; margin-right: -60px;">
+					@if(Auth::User()->iFadmin == 1)
+						{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+					@endif
+				</p>
+			</span>
+      	</h2>
     </div>
 </div>
 
@@ -49,15 +70,15 @@
 <p>Please Login</p>
 @endif
 	<div id="answers" class="panel panel-default"style="margin-top:30px; margin-left: -13px; text-align: left;">
-	<div class="panel-heading"><h2 class="panel-title"><strong>Answers</strong></h2></div>
+	<div class="panel-heading"><h2 class="panel-title"style="font-family: 'Handlee', cursive;"><strong>Answers</strong></h2></div>
 	@if(count($question->answers)==0)
-		<div class="panel-body" style="text-align: left;"><p>No Answrer</p></div>
+		<div class="panel-body" style="text-align: left;"><p style="font-family: 'Handlee', cursive;">No Answer</p></div>
 	@else
 	<ul class="list-group">
 		@foreach($question->answers as $answer)
 		<div class="panel-body" style="border-bottom: 2px solid #e5e5e5;">
 		<li class="list-group-item">
-			<h4 class="list-group-item-heading" style="margin-left: -12px;" >{{ e($answer->answer) }}  </h4>
+			<h4 class="list-group-item-heading" style="margin-left: -12px;font-family: 'Handlee', cursive;" >{{ e($answer->answer) }}  </h4>
 			<h5 style="float:right;">
 				@if(Auth::check())
 				@if($answer->user_id === Auth::User()->id)
