@@ -16,12 +16,16 @@
 		@import url(//fonts.googleapis.com/css?family=Lato:700);
 
 		.panel1 {
-			height: 658px;
+			height: 570px;
 			width: 100%;
-			margin:0;
 			color: #999;
-			background-image: url("images/background2.jpg");
-			background-size: cover;
+			background-image: url("images/banner777.jpg");
+			background-repeat: no-repeat;
+		}
+		#panel1container{
+			background: rgba(0,0,0,0.6);
+			width: 100%;
+			height: 560px;
 		}
 
 
@@ -116,13 +120,17 @@
 			position: fixed;
 			width: 100%;
 			z-index: 1;
+			background-color: white;
+			border-color: white;
+			border-radius: 0px;
+			height: 80px;
 		}
 		.panel2{
 			background-size: 1300px 600px;
 			position: relative;
 			height: 565px;
 			width: 1300px;
-			top:105%;
+			top: 60px;
 		}
 		.step1{
 			position: relative;
@@ -339,7 +347,7 @@
     		top: 160px;
     		width: 30px;
 		}
-
+		
 		/*responsive issues*/
 		 @media (max-width: 500px){
 		 	.panel1{
@@ -372,6 +380,8 @@
 		 	.navbar-inverse #logo{
 		 		height: 22px;
 		 		width: 19px;
+		 		vertical-align: middle !important;
+		 		margin-top: 30px !important;
 		 	}
 		 	.navbar-inverse .askify{
 		 		font-size: 12px;
@@ -420,7 +430,6 @@
 				height: 1600px;
 				width: 500px;
 		 	}
-
 		 }
 
 	</style>
@@ -430,26 +439,24 @@
 <body id="body">
 <div class="big">
 	<div class="navbar navbar-inverse" position="fixed">
+		   <div id="rightnav">
+      	<ul style="width:50%;float:right;margin-right:60px;font-size:20px;margin-top:5px;">
+      		<li id="linav"style="display:inline;padding:20px;float:right;"><a href="#">Contact</a></li>
+      		<li style="display:inline;padding:20px;float:right;"><a href="#">FAQ</a></li>
+      		<li style="display:inline;padding:20px;float:right;"><a href="#">About</a></li>
+      		<li style="display:inline;padding:20px;float:right;"><a href="#">Home</a></li>
+      	</ul>
+      </div>
 		<div>
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand" href="/" style="vertical-align:middle;margin-top:10px;">
         <img alt="Brand" src="images/blue-01.png" width="31" height="35" id="logo">
       </a>
-      <p class="askify">Askify</p>
 		</div>
-      <div class="container-fluid">
-         <!-- <a href="facebookauth">
-              <button type="button" class="btnnn">Sign In Using facebook</button></a>
-               <a href="auth/ViaGoogle">
-              <button type="button" class="btnnn">Sign In Using Google+</button></a>-->
-  			<a href="login">
-  	  	  		<button type="button" class="btnnn">Sign In</button>
-  			</a>
-  		<p class="asking" >Have an Account ? </p>
- 	 </div>
     </div>
 
 
   <div class="panel1">
+  	<div id="panel1container">
 	<div class="welcome">
 		<img class="branding" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
 	</br>
@@ -535,6 +542,7 @@
      
     </div>
 
+  </div>
   </div>
 </div>
 
