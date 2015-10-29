@@ -15,6 +15,8 @@ class ApiController extends BaseController {
 		foreach ($questions as $question ) {
 			$internaldata = [];
 			$internaldata['question'] = $question->question;
+			$internaldata['solved'] = $question->solved;
+			$internaldata['private'] = $question->private;
 			$internaldata['question_date'] = $question->updated_at->diffForHumans();
 			if($question->solved == 1){
 				foreach ($question->answers as $answer) {
@@ -50,6 +52,8 @@ class ApiController extends BaseController {
 			$internaldata = [];
 			$internaldata['questioner_name'] = $question->user->username;
 			$internaldata['question'] = $question->question;
+			$internaldata['solved'] = $question->solved;
+			$internaldata['private'] = $question->private;
 			$internaldata['question_date'] = $question->updated_at->diffForHumans();
 			if($question->solved == 1){
 				foreach ($question->answers as $answer) {
@@ -173,6 +177,8 @@ receive:
 				$internaldata = [];
 				$internaldata['questioner_name'] = $question->user->username;
 				$internaldata['question'] = $question->question;
+				$internaldata['solved'] = $question->solved;
+				$internaldata['private'] = $question->private;
 				$internaldata['question_date'] = $question->updated_at->diffForHumans();
 				if($question->solved == 1){
 					foreach ($question->answers as $answer) {
@@ -204,6 +210,8 @@ receive:
 			$internaldata = [];
 			$internaldata['questioner_name'] = $question->user->username;
 			$internaldata['question'] = $question->question;
+			$internaldata['solved'] = $question->solved;
+			$internaldata['private'] = $question->private;
 			$internaldata['question_date'] = $question->updated_at->diffForHumans();
 			if($question->solved == 1){
 				foreach ($question->answers as $answer) {
@@ -235,6 +243,8 @@ receive:
 				$internaldata = [];
 				$internaldata['questioner_name'] = $question->user->username;
 				$internaldata['question'] = $question->question;
+				$internaldata['solved'] = $question->solved;
+			$internaldata['private'] = $question->private;
 				$internaldata['question_date'] = $question->updated_at->diffForHumans();
 				if($question->solved == 1){
 					foreach ($question->answers as $answer) {
@@ -267,6 +277,8 @@ receive:
 				$internaldata = [];
 				$internaldata['questioner_name'] = $question->user->username;
 				$internaldata['question'] = $question->question;
+				$internaldata['solved'] = $question->solved;
+			$internaldata['private'] = $question->private;
 				$internaldata['question_date'] = $question->updated_at->diffForHumans();
 				if($question->solved == 1){
 					foreach ($question->answers as $answer) {
@@ -298,6 +310,8 @@ receive:
 			$internaldata = [];
 			$internaldata['questioner_name'] = $question->user->username;
 			$internaldata['question'] = $question->question;
+			$internaldata['solved'] = $question->solved;
+			$internaldata['private'] = $question->private;
 			$internaldata['question_date'] = $question->updated_at->diffForHumans();
 			if($question->solved == 1){
 				foreach ($question->answers as $answer) {
@@ -329,6 +343,8 @@ receive:
 				$internaldata = [];
 				$internaldata['questioner_name'] = $question->user->username;
 				$internaldata['question'] = $question->question;
+				$internaldata['solved'] = $question->solved;
+			$internaldata['private'] = $question->private;
 				$internaldata['question_date'] = $question->updated_at->diffForHumans();
 				if($question->solved == 1){
 					foreach ($question->answers as $answer) {
