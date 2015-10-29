@@ -62,6 +62,7 @@
 		.head
 		{
 			opacity: 0.85;
+			font-size: 40px;
 		}
 		.head:hover
 		{
@@ -83,7 +84,7 @@
 		}
 		.btnn:hover
 		{
-			background: none;
+			background-color: white;
 			opacity: 1;
 		}
 		.welcome {
@@ -91,7 +92,7 @@
 			height: 200px;
 			position: absolute;
 			left: 50%;
-			top: 50%;
+			top: 40%;
 			margin-left: -150px;
 			margin-top: -100px;
 			text-align: center;
