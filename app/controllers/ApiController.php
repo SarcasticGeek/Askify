@@ -30,7 +30,7 @@ class ApiController extends BaseController {
 			foreach ($question->tags as $tag) {
 				array_push($tagsname, $tag->name);
 			}
-			$internaldata['“question_tag'] = $tagsname;
+			$internaldata['question_tag'] = $tagsname;
 			$internaldata['question_id'] = $question->id;
 			array_push($data, $internaldata);	
 		}
