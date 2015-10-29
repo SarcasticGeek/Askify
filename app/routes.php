@@ -28,7 +28,7 @@ Route::get('/hello',function(){
  Route::post('/helloo','LoginController@checkActivate');
 
 Route::get('/register','RegisterController@showRegister');
-Route::post('/',array('uses'=>'RegisterController@doRegister'));
+Route::post('/register-user',array('uses'=>'RegisterController@doRegister'));
 
 Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
