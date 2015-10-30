@@ -279,7 +279,7 @@ session_start();
 	      									</h2>
 											<p>
 												@if(Auth::User()->iFadmin == 1)
-													{{Form::open(array('url'=>'home','method'=> 'post'))}}
+													{{Form::open(array('url'=>'answer','method'=> 'post'))}}
 													{{Form::token()}}
 													{{Form::hidden('question_id',$question->id)}}
 													<textarea class="AnswerArea"  style="margin-left: 35px;width:800px; margin-top:5px;" 
