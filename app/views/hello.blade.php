@@ -128,11 +128,16 @@
 		}
 		.panel2{
 			position: relative;
-			height: 620px;
+			height: 670px;
 			width: 100%;
 			top: 60px;
 			background-color: white;
 			padding-top: 70px;
+		}
+		#panel-3{
+			background: url("images/banner_img3.jpg");
+			background-size: 100% 100%;
+			top: 60px !important;
 		}
 		#panel-3p{
 			position: relative;
@@ -149,6 +154,7 @@
 		#panel-3 p{
 			font-weight: 200;
 			font-size: 30px;
+			padding: 5px;
 		}
 		#panel-3 h1{
 			text-align: center;
@@ -156,12 +162,13 @@
 			color: white;
 			font-weight: 400px;
 			padding-bottom: 20px;
+			padding-top: 10px;
 		}
-		#panel-3{
+		
+		#panel-4{
+			
 			position: relative;
-			top: 120px;
-			background: url("images/banner_img3.jpg");
-			background-size: 100% 100%;
+			top:60px;
 		}
 		
 		.step1{
@@ -482,7 +489,7 @@
 	<div class="navbar navbar-inverse" position="fixed">
 		   <div id="rightnav">
       	<ul style="width:50%;float:right;margin-right:60px;font-size:20px;margin-top:5px;">
-      		<li id="linav"style="display:inline;padding:20px;float:right;"><a href="#">Contact</a></li>
+      		<li id="linav"style="display:inline;padding:20px;float:right;"><a href="#panel-4" class="page-scroll">Contact</a></li>
       		<li style="display:inline;padding:20px;float:right;"><a href="#panel-3" class="page-scroll">About</a></li>
       		<li style="display:inline;padding:20px;float:right;"><a href="#panel-2" class="page-scroll">How It Works</a></li>
       		<li style="display:inline;padding:20px;float:right;"><a href="#panel-1" class="page-scroll">Home</a></li>
@@ -609,8 +616,12 @@
 			<h1>
 				Who Are We ?
 			</h1>
-		<p>We Are Undergraduate CSE Students Who Decide To Do Something For Our College Before Getting Graduated Under The Supervision Of Dr Bassem Amin.</p>
+		<p>We Are Undergraduate CSE Students, Ain Shams University. We Decided To Do Something For Our College Before Getting Graduated Under The Supervision Of Dr Bassem Amin.</p>
 		</div>
+	</div>
+
+	<div class="panel2" id="panel-4">
+		<p>Anything</p>
 	</div>
 </div>
 
