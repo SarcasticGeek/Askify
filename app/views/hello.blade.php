@@ -124,15 +124,46 @@
 			background-color: white;
 			border-color: white;
 			border-radius: 0px;
-			height: 80px;
+			height: 70px;
 		}
 		.panel2{
-			background-size: 1300px 600px;
 			position: relative;
-			height: 565px;
-			width: 1300px;
+			height: 620px;
+			width: 100%;
 			top: 60px;
+			background-color: white;
+			padding-top: 70px;
 		}
+		#panel-3p{
+			position: relative;
+			top: 120px;
+			font-size: 20px;
+			color: white;
+			font-size: 20px;
+			text-align: center;
+			width: 50%;
+			margin: 0 auto;
+			background-color:rgba(0,0,0,0.6);
+
+		}
+		#panel-3 p{
+			font-weight: 200;
+			font-size: 30px;
+		}
+		#panel-3 h1{
+			text-align: center;
+			font-size: 60px;
+			color: white;
+			font-weight: 400px;
+			padding-bottom: 20px;
+		}
+		#panel-3{
+			position: relative;
+			top: 120px;
+			background: url("images/banner_img3.jpg");
+			background-size: 100% 100%;
+		}
+		
 		.step1{
 			position: relative;
 			top:-10px;
@@ -348,6 +379,15 @@
     		top: 160px;
     		width: 30px;
 		}
+
+		footer{
+			display: block;
+			background-color: black;
+			color: white;
+			width: 100%;
+			position: absolute;
+			bottom: 0px;
+		}
 		
 		/*responsive issues*/
 		 @media (max-width: 500px){
@@ -443,9 +483,9 @@
 		   <div id="rightnav">
       	<ul style="width:50%;float:right;margin-right:60px;font-size:20px;margin-top:5px;">
       		<li id="linav"style="display:inline;padding:20px;float:right;"><a href="#">Contact</a></li>
-      		<li style="display:inline;padding:20px;float:right;"><a href="#">FAQ</a></li>
-      		<li style="display:inline;padding:20px;float:right;"><a href="#">About</a></li>
-      		<li style="display:inline;padding:20px;float:right;"><a href="#">Home</a></li>
+      		<li style="display:inline;padding:20px;float:right;"><a href="#panel-3" class="page-scroll">About</a></li>
+      		<li style="display:inline;padding:20px;float:right;"><a href="#panel-2" class="page-scroll">How It Works</a></li>
+      		<li style="display:inline;padding:20px;float:right;"><a href="#panel-1" class="page-scroll">Home</a></li>
       	</ul>
       </div>
 		<div>
@@ -456,7 +496,7 @@
     </div>
 
 
-  <div class="panel1">
+  <div class="panel1" id="panel-1">
   	<div id="panel1container">
 	<div class="welcome">
 		<img class="branding" alt="Brand" src="images/blue-01.png" width="100" height="112" id="logo">
@@ -547,7 +587,7 @@
   </div>
 </div>
 
-	<div class="panel2">
+	<div class="panel2" id="panel-2">
 		<div class="steps">
 			<div  class="step1">
 				<img alt="Brand" src="images/step1.png" width="200" height="200" id="logo">
@@ -563,7 +603,18 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="panel2" id="panel-3">
+		<div id="panel-3p">
+			<h1>
+				Who Are We ?
+			</h1>
+		<p>We Are Undergraduate CSE Students Who Decide To Do Something For Our College Before Getting Graduated Under The Supervision Of Dr Bassem Amin.</p>
+		</div>
+	</div>
 </div>
+
+
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript">
@@ -573,10 +624,10 @@
 		if($('.big').scrollTop() >=  $('.panel1').offset().top)
 		{
 			if ($(this).width() > 500) {
-				$('.step1').animate({left:"160px",opacity:1},800);
-				$('.step2').delay(100).animate({left:"430px",opacity:1},1000);
-				$('.step3').delay(200).animate({left:"700px",opacity:1},1300);
-				$('.step4').delay(300).animate({left:"970px",opacity:1},1700);
+				$('.step1').delay(500).animate({left:"160px",opacity:1},1800);
+				$('.step2').delay(600).animate({left:"430px",opacity:1},1000);
+				$('.step3').delay(700).animate({left:"700px",opacity:1},1300);
+				$('.step4').delay(800).animate({left:"970px",opacity:1},1700);
 			}
 		}
 		$(document).ready(function() {
@@ -673,6 +724,7 @@ $(document).ready(function(){
 });
 </script>
 
-
+    <script type="text/javascript"src=" {{ asset('js/jquery.easing.min.js')}}"></script>
+    <script type="text/javascript"src=" {{ asset('js/scrolling-nav.js')}}"></script>
 </body>
 </html>
