@@ -191,6 +191,25 @@ position: absolute;z-index: -999;
     width: 850px;
     margin-left: 200px;
 }
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+ body.loading {
+    overflow: hidden;   
+}
+body.loading .modal {
+    display: block;
+}      
        
 </style>
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
@@ -232,12 +251,26 @@ position: absolute;z-index: -999;
               
 
                 {{ Form::token() }}
-                @if(isset($keyword))
-                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>$keyword)) }}
-                @else
-                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Click to search!')) }}                
-                @endif
-                {{ Form::submit('Find',array('class'=>'btn btn-primary' )) }}
+                <div class="typeahead-container">
+                    <div class="typeahead-field">
+
+                        <span class="typeahead-query">
+                            <input id="keyword"
+                                   name="keyword"
+                                   type="search"
+                                   autofocus
+                                   autocomplete="off"
+                                   >
+                        </span>
+                        <span class="typeahead-button">
+                            <button class="btn btn-default" type="submit">
+                                <span class="typeahead-search-icon"></span>
+                            </button>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="modal"><!-- Place at bottom of page --></div>
 
 
                 {{ Form::close() }}
