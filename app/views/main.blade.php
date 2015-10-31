@@ -72,6 +72,39 @@
                 <li >{{ HTML::linkRoute('others_questions', 'Home') }}</li>
                 @if(Auth::User()->iFadmin != 1)
                 <li>{{ HTML::linkRoute('your_questions', 'Your Questions') }}</li>
+                <li>
+    <a href="#" id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Notificatin
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="dLabel">
+      <?php $new = Usernotification::where('user_id',Auth::User()->id)->where('is_read',0)->get(); ?>
+      @if(count($new)!=0)
+        <?php 
+        foreach ($new as $notification) {
+            echo "<li style=\"background-color:#e9eaed;\"> <a href=\"/home/answernotify\">Your Question: ";
+            $question_id = $notification->question_id;
+            echo "<strong>";
+            echo Question::where('id',$question_id)->get()->first()->question;
+            echo "</strong>";
+            echo " Has Been Answered";
+            echo "</a></li>";
+        }
+        ?>
+        @else
+        <?php $old = Usernotification::where('user_id',Auth::User()->id)->where('is_read',1)->get();
+          foreach ($old as $notification) {
+            echo "<li> <a href=\"/home/answernotify\">Your Question: ";
+            $question_id = $notification->question_id;
+            echo "<strong>";
+            echo Question::where('id',$question_id)->get()->first()->question;
+            echo "</strong>";
+            echo " Has Been Answered";
+            echo "</a></li>";
+        }
+         ?>
+      @endif
+    </ul>
+  </li>
 
                 @elseif(count(Notification::unread())===0)
                   <li id="old">{{ HTML::linkRoute('notifications', 'notifications (0)') }}</li>

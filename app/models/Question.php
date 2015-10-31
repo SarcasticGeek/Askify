@@ -55,10 +55,10 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 
 
 	public static function your_questions(){
-		return static::where('user_id','=',Auth::user()->id)->orderBy('solved','ASC')->paginate(4);
+		return static::where('user_id','=',Auth::user()->id)->orderBy('solved','ASC')->paginate(5);
 	}
 	public static function others_questions(){
-		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(4);
+		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(5);
 	}
 
 	///END OF CONFIGS

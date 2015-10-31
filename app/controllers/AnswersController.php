@@ -13,6 +13,12 @@ class AnswersController extends BaseController {
 				));
 			Question::where('id', '=', $question_id)->update(array(
 				'solved'=> 1));
+			$notification = new Usernotification();
+			$userid = Question::where('id',$question_id)->get()->first()->user_id;
+			$notification->user_id = $userid;
+			$notification->question_id = $question_id;
+			$notification->answer_id = Answer::where('question_id',$question_id)->get()->first()->id;
+			$notification->save();
 
 			return Redirect::route('question',$question_id)->with('message',"Thanks for your Answer");
 		}else {
