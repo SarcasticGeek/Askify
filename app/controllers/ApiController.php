@@ -368,5 +368,11 @@ receive:
 			'question_List'=>$data),
 			200);
 	}
+	public function doSignUp(){
+
+	}
+	public function doLogin(){
+		
+	}
 
 }

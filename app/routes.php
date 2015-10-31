@@ -131,3 +131,5 @@ Route::get('/api/search/answer/{keyword?}','ApiController@searchAnswer');
 Route::get('/api/search/tag/{keyword?}','ApiController@searchTag');
 Route::get('/api/search/unsolved/{keyword?}','ApiController@searchUnsolved');
 Route::get('/api/notificationsToUser','ApiController@notificationsToUser');
+Route::post('/api/user/login','ApiController@doLogin');
+Route::post('/api/user/signup','ApiController@doSignUp');
