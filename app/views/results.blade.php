@@ -13,7 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link  rel="stylesheet" type="text/css"href= "{{ asset('css/bootstrap.css')}}">
-
+    <link rel="stylesheet" href="{{asset('css/jquery.typeahead.css')}}">
 
     <!-- Custom CSS -->
     <link  rel="stylesheet"type="text/css"href= "{{ asset('css/scrolling-nav.css')}}">
