@@ -655,6 +655,8 @@ position: absolute;z-index: -999;
     <script type="text/javascript"src=" {{ asset('js/jquery.easing.min.js')}}"></script>
     <script type="text/javascript"src=" {{ asset('js/scrolling-nav.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/maintainscroll.jquery.min.js')}}"></script>
+    <script type="text/javascript"src="{{asset('js/jquery.typeahead.js')}}"></script>
+    <script type="text/javascript"src="{{asset('js/jquery.typeahead.min.js')}}"></script>
 
 </body>
 
