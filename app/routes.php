@@ -17,12 +17,18 @@ Route::get('/',function(){
  	}
  	return View::make('hello');
  });
+Route::get('/hello',function(){
+    return View::make('hello');
+});
  Route::post('/',array('before'=>'csrf',
  	'uses'=>'QuestionsController@post_create'));
 
 
+ Route::post('/hello',array('as'=>'hello','uses'=>'RegisterController@checkUsername'));
+ Route::post('/helloo','LoginController@checkActivate');
+
 Route::get('/register','RegisterController@showRegister');
-Route::post('/register','RegisterController@doRegister');
+Route::post('/register-user',array('uses'=>'RegisterController@doRegister'));
 
 Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
@@ -83,6 +89,11 @@ Route::get('question/delete/{id}',array('as'=>'after_delete_question','uses'=>'Q
 
 //Routes of answering
 Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_answer'));
+
+//
+//Route::post('/home',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_answer'));
+
+
 Route::get('answer/{num?}/edit',array('before' => 'auth','before'=>'ifAdmin','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
 Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_update'));
 Route::get('facebookauth/{auth?}',array('as'=>'facebookAuth','uses'=>'AuthController@getFacebookLogin'));
@@ -91,7 +102,9 @@ Route::post('/emailconf','ConfirmationController@postConfirmation');
 
 
 Route::get('/home/notifications',array('before' => 'auth','before'=>'ifAdmin','after'=>'update','as'=>'notifications','uses'=>'AnswersController@show_notifications'));
-
+Route::get('/home/answernotify',array('after'=>'updateusernotification',function(){
+    return View::make('UserNotification');
+}));
 
 //Routes of Report
 Route::get('/home/report/{username}/{question}',array('as'=>'home/report','before'=>'ifAdmin','uses'=>'ReportController@showReport'));
@@ -106,3 +119,23 @@ Route::post('owner/tag/new',array('before' => 'auth','before'=>'csrf','before'=>
 
 //Login by google
 Route::get('auth/ViaGoogle/{auth?}',array('as'=>'authViaGoogle','uses'=>'AuthController@loginWithGoogle'));
+
+
+//ajax checks
+Route::get('home/Tagsajax','QuestionsController@getalltags');
+//API
+Route::get('api/questionlist/all','ApiController@getAllQs');
+Route::get('/api/questionlist/view/{user_id?}','ApiController@getQsByUserId');
+//Route::post('/api/question/{question_id?}/delete','ApiController@deleteQuestion');
+Route::post('/api/question/create','ApiController@postQuestion');
+Route::post('/api/question/edit','ApiController@editQuestion');
+Route::post('/api/question/delete','ApiController@deleteQuestion');
+Route::get('/api/question/create','ApiController@error404');
+Route::get('/api/question/edit','ApiController@error404');
+Route::get('/api/question/delete','ApiController@error404');
+Route::get('/api/search/user/{keyword?}','ApiController@searchUser');
+Route::get('/api/search/question/{keyword?}','ApiController@searchQuestion');
+Route::get('/api/search/answer/{keyword?}','ApiController@searchAnswer');
+Route::get('/api/search/tag/{keyword?}','ApiController@searchTag');
+Route::get('/api/search/unsolved/{keyword?}','ApiController@searchUnsolved');
+Route::get('/api/notificationsToUser','ApiController@notificationsToUser');
