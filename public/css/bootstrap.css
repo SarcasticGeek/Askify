@@ -4434,7 +4434,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .navbar-nav > li > a {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 10x;
   line-height: 20px;
 }
 @media (max-width: 767px) {
@@ -4492,7 +4492,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-form .form-control {
     display: inline-block;
-    width: auto;
+    width: 150px;
     vertical-align: middle;
   }
   .navbar-form .form-control-static {
