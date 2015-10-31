@@ -16,7 +16,7 @@
 		padding-bottom: 5px;
 		height: 110px;
 	}
-	/*.questionlist ul{
+	.questionlist ul{
 		border: 1px solid #e5e5e5;
 		text-align: left;
 		background-color: rgba(255,255,255,1);
@@ -26,7 +26,7 @@
 		padding: 20px;
 		padding-top: 10px;
 		padding-bottom: 5px;
-	}*/
+	}
 	.question.form-control{
 		width:40px;
 		margin: 50px;
@@ -80,13 +80,11 @@
 		padding-left:32px;
 	}
 	#left .nav > li.active > a, #left .nav > li > a:hover{background-color: #286193;}
-	#left .Date{
-		margin-top: 150px;
-	}
+	
 	#left .Tags a{
 		border-bottom:2px solid #ECF0F0;
 	}
-	#left .arrow1, #left .arrow2, #left .arrow3{
+	#left .arrow1, #left .arrow2, #left .arrow3, #left .arrow0{
 		width: 0;
 		height: 0;
 		border-top: 20px solid transparent;
@@ -101,8 +99,8 @@
 		margin-top: -160px;
 	}	
 	#left .nothing{
-		top: -128px;
-		left: 18%;
+		top: -191px;
+		left: 9%;
 		text-align: left;
 		color: #ECF0F0;
 		height:auto;
@@ -111,7 +109,7 @@
 		position: relative;
 		left: 700px;
 	}
-/*	.questionlistajax ul{
+	.questionlistajax ul{
 		border: 1px solid #e5e5e5;
 		text-align: left;
 		background-color: rgba(255,255,255,1);
@@ -143,21 +141,24 @@
 		padding: 20px;
 		padding-top: 10px;
 		padding-bottom: 5px;
-	}*/
-	.panel-title{
+	}
+	.user_name{
 		font-size: 20px;
 		font-style: bold;
 		display: block;
 		font-weight: bold;
 	}
-	.panel-title:first-letter {
+	.user_name:first-letter {
     text-transform: capitalize;
 	}
 	.question_name, .count_answers{
 		font-size: 12px;
 		margin-left: 35px;
 	}
+	.footer
+	{
 
+	}
 
 </style>
 
@@ -169,10 +170,16 @@ session_start();
 {{$reportsuccess}}
 @endif
 
-<div>
 	<div id="left" style="display:block;">
-		<ul class="nav">
-		    <li role="presentation" class="active Date" id="number1">
+
+		<ul class="nav nav-pills nav-stacked">
+		  
+
+		    <li role="presentation" class="All" id="number0">
+		    	<a href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a>
+		    	<div class="arrow0"></div>
+		    </li>
+		    <li role="presentation" class="Date" id="number1">
 		    	<a href="#date" aria-controls="date" role="tab" data-toggle="tab">Date</a>
 		    	<div class="arrow1"></div>
 		    </li>
@@ -184,12 +191,12 @@ session_start();
 		    	<a href="#tags" aria-controls="Tags" role="tab" data-toggle="tab">Tags</a>
 		    	<div class="arrow3"></div>
 		    </li>
-		    <li class ="nothing">	
+		    <li class ="nothing">
 				@foreach($tags as $tag)
-					<ul class="check" style="font-size: 18px">
+					<ul style="font-size: 18px">
 				    	{{Form::checkbox('tags',$tag->id,false)}}
 				   		{{Form::label($tag->name) }}
-				   	</ul>       
+				   	</ul>
 				@endforeach
 			</li>
 
@@ -210,9 +217,9 @@ session_start();
 					    		<li>
 								{{ Form::checkbox('tags[]',$tag->id,false)}}
 		    					{{Form::label($tag->name) }}
-		    				</li>       
+		    				</li>
 
-					    	@endforeach              
+					    	@endforeach
 					  	</ul>
 					</div>
 				</div>
@@ -248,55 +255,97 @@ session_start();
 				<p>No Questions</p>
 			@else
 				<div class="tab-content" style="display: block;">
-				    <div role="tabpanel" class="tab-pane active" id="date"><h1>Order Questions By Date *default view*</h1></div>
-				    <div role="tabpanel" class="tab-pane" id="answered">
-				    	<h1>View Answered Questions Only *ordered by date*</h1>
-				    	@foreach($questions as $question)
+			          <div role="tabpanel" class="tab-pane active" id="all">
+			          	<h1> all questions are here</h1>
+			          		@foreach($questions as $question)
 							@if($question->private == 0)
 								<ul>
-									<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:876px;">
-   										<div class="panel-heading"><h2 class="panel-title"style="font-size: 18px;font-family: 'Handlee', cursive;">
-										 	<?php 
-										 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
-											 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
-									 		?>
-							 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px"> 
-									 		<strong>{{ucfirst($question->user->username)}}
-									 		</strong>
-									 		</h2>
-								 		</div>
-    									<div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;">
-	      									<h2 style="margin-left: 35px; font-size:15px;font-family: 'Handlee', cursive;">{{ str_limit($question->question,40,"...") }}
-	      										<span>
-			  										<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-			  											{{ HTML::linkRoute('question','View',$question->id) }}
-			  										</p><br/>
-		  											<p style="float:right; margin-right: -70px;">
-													@if(Auth::User()->iFadmin == 1)
-														{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
-													@endif
-													</p>
-			  									</span>
-	      									</h2>
-											<p>
-												@if(Auth::User()->iFadmin == 1)
-													{{Form::open(array('url'=>'answer','method'=> 'post'))}}
-													{{Form::token()}}
-													{{Form::hidden('question_id',$question->id)}}
-													<textarea class="AnswerArea"  style="margin-left: 35px;width:800px; margin-top:5px;" 
-													name="answer" placeholder="Put your answer here!"></textarea><br/></br>
-													<p style="margin-left: 400px;">
-													{{Form::submit('Answer', array('class'=> 'AnswerButton'))}}
-													{{Form::close()}}
-													</p>
-												@endif
-											</p>
-    									</div>
-									</div>
+								 	<p style="font-size: 18px">
+									 	<?php
+									 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+										 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+								 		?>
+						 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px">
+								 		<strong>{{ucfirst($question->user->username)}}
+								 		</strong>
+								 	</p>
+								 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p>
+								 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+										{{ HTML::linkRoute('question','View',$question->id) }}
+										@if(Auth::User()->iFadmin == 1)
+											{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+										@endif
+									</p>
 								</ul>
 							@endif
 						@endforeach
-						{{ $questions->links()}}</div>
+						  {{Paginator::setPageName('all');}}
+						  {{$questions->appends('date', Input::get('date',1))->links();}}
+
+
+
+			          </div>
+
+				    <div role="tabpanel" class="tab-pane" id="date">
+
+				    <h1>Order Questions By Date *default view*</h1>
+				     @foreach($orederd_questions as $question)
+				    @if($question->private == 0)
+								<ul>
+								 	<p style="font-size: 18px">
+									 	<?php
+									 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+										 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+								 		?>
+						 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px">
+								 		<strong>{{ucfirst($question->user->username)}}
+								 		</strong>
+								 	</p>
+								 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p>
+								 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+										{{ HTML::linkRoute('question','View',$question->id) }}
+										@if(Auth::User()->iFadmin == 1)
+											{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+										@endif
+									</p>
+								</ul>
+							@endif
+						@endforeach
+						{{Paginator::setPageName('date');}}
+
+						{{$orederd_questions->appends('all', Input::get('all',1))->links()}}
+
+				    </div>
+				    <div role="tabpanel" class="tab-pane" id="answered">
+				    	<h1>View Answered Questions Only *ordered by date*</h1>
+				    	@foreach($solved_questions as $question)
+							@if($question->private == 0)
+								<ul>
+								 	<p style="font-size: 18px">
+									 	<?php
+									 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+										 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+								 		?>
+						 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px">
+								 		<strong>{{ucfirst($question->user->username)}}
+								 		</strong>
+								 	</p>
+								 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p>
+								 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+										{{ HTML::linkRoute('question','View',$question->id) }}
+										@if(Auth::User()->iFadmin == 1)
+											{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+										@endif
+									</p>
+								</ul>
+							@endif
+						@endforeach
+						{{Paginator::setPagename('solved');}}
+
+						{{$solved_questions->appends('all', Input::get('all',1))->appends('date', Input::get('all',1))->links()}}
+
+
+						</div>
 
 						{{-- Tags tab --}}
 				    <div role="tabpanel" class="tab-pane" id="tags">
@@ -323,24 +372,36 @@ session_start();
 			@endif
 	 	</div>
 	</div>
-</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
-		$('.arrow2').hide();
+
+	 $('.arrow2').hide();
 		$('.arrow3').hide();
-		$('.arrow1').show();
+		$('.arrow1').hide();
+		$('.arrow0').show();
+
+  $('#number0').click(function(){
+	    $('.arrow2').hide();
+		$('.arrow3').hide();
+		$('.arrow1').hide();
+		$('.arrow0').show();
+});
+
 	$('#number1').click(function() {
+		$('.arrow0').hide();
 		$('.arrow2').hide();
 		$('.arrow3').hide();
 		$('.arrow1').show();
 });
 	$('#number2').click(function() {
+		$('.arrow0').hide();
 		$('.arrow1').hide();
 		$('.arrow3').hide();
 		$('.arrow2').show();
 });
 	$('#number3').click(function() {
+		$('.arrow0').hide();
 		$('.arrow1').hide();
 		$('.arrow2').hide();
 		$('.arrow3').show();
@@ -352,7 +413,7 @@ session_start();
 
 	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}} 
 
-        $('.check input[type="checkbox"]').click(function(){
+        $('input[type="checkbox"]').click(function(){
         	var tagid = $(this).val();
        		for (i = 1; i <= M.length; i++){
             	if($(this).prop("checked") == true){
@@ -398,52 +459,23 @@ session_start();
 
                 				for(var m =0 ; m<max ; m++){
                 					var user_name = data[m].a;
+                					var email=data[m].e;
                 					var question_name = data[m].b;
                 					var count_answers = data[m].c;
                 					var question_id = data[m].d;
-                					var admin_is_here = data[m].e;
                 					var view = "view";
                 					var varurl = "question/" + question_id;
-                					var report_url = "home/report/" + user_name + '/' + question_id;
-
-
                 					html += "<ul>";
-
-
-                					html += '<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:876px;">';
-                					html += '<div class="panel-heading">';
-                					html += '<h2 class="panel-title"style="font-size: 18px; font-family:Handlee;">';
-                					html += '<img src="http://www.gravatar.com/avatar/" height="30px" width="30px">';
-                					html += '<span>' + '  ' + user_name +'</span>';
-                					html += '</h2>';
-                					html += '</div>';
-
-                					html += '<div class="panel-body" style="padding-top: 0px; padding-bottom:0px;">';
-
-                					html += '<h2 style="margin-left: 35px; font-size:15px; font-family:Handlee">' 
-                					+ question_name 
-                					+ '<p style="float:right;">' 
-                					+ '(' + count_answers  + 'Answers' 
-                					+')' + ' '+ '<a href=" ' + varurl 
-									+ ' ">view</a>';
-
-                					if(admin_is_here == 1)
-                						html += '<a href=" '+ report_url + '"> report</a>';
-
-                					html += '</p>'
-                					+ '</h2>';
-
-                					html += '</div';
-
-                					html += '</div>';
-
+                					
+                					html += '<p class = "user_name">' + user_name +'</p>';
+                					html += '<p class = "question_name">' + question_name +'</p>';
+                					html += '<p class = "count_answers">' + '(' + count_answers  + 'Answers' +')' + ' '+ '<a href=" ' + varurl + ' ">view</a>' + '</p>';
                 					html += "</ul>";
 
                 					$(classification).append(html);
                 					html = "";
 
 	                 			}
-
                 			},
                 			error: function(){
                 				console.log('something happend');
