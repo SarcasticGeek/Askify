@@ -71,6 +71,7 @@ Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController
 
 Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
 Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_search'));
+Route::post('results/{all?}',array('as' =>'results','uses'=>'QuestionsController@ajaxfunction'));
 
 
 Route::get('your_questions',array('before' => 'auth|banned','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
