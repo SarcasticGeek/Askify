@@ -162,6 +162,7 @@
 
 </style>
 
+
 @section('content')
 <?php
 session_start();
@@ -255,38 +256,37 @@ session_start();
 				<p>No Questions</p>
 			@else
 				<div class="tab-content" style="display: block;">
-			          <div role="tabpanel" class="tab-pane active" id="all">
-			          	<h1> all questions are here</h1>
-			          		@foreach($questions as $question)
-							@if($question->private == 0)
-								<ul>
-								 	<p style="font-size: 18px">
-									 	<?php
-									 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
-										 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
-								 		?>
-						 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px">
-								 		<strong>{{ucfirst($question->user->username)}}
-								 		</strong>
-								 	</p>
-								 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p>
-								 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
-										{{ HTML::linkRoute('question','View',$question->id) }}
-										@if(Auth::User()->iFadmin == 1)
-											{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
-										@endif
-									</p>
-								</ul>
-							@endif
-						@endforeach
-						  {{Paginator::setPageName('all');}}
-						  {{$questions->appends('date', Input::get('date',1))->links();}}
+						<div role="tabpanel" class="tab-pane active" id="all">
+					          	<h1> all questions are here</h1>
+								          		@foreach($questions as $question)
+												@if($question->private == 0)
+													<ul>
+													 	<p style="font-size: 18px">
+														 	<?php
+														 	 $hashed_mail=md5( strtolower( trim( $question->user->email)));
+															 $grav_url = "http://www.gravatar.com/avatar/" .$hashed_mail;
+													 		?>
+											 			 	<img src="<?php echo $grav_url; ?>" height="30px" width="30px">
+													 		<strong>{{ucfirst($question->user->username)}}
+													 		</strong>
+													 	</p>
+													 	<p style="margin-left: 35px">{{ str_limit($question->question,40,"...") }}</p>
+													 	<p style="font-size: 12px; margin-left: 35px"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+															{{ HTML::linkRoute('question','View',$question->id) }}
+															@if(Auth::User()->iFadmin == 1)
+																{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
+															@endif
+														</p>
+													</ul>
+												@endif
+											@endforeach
+											<div class="all">
 
-
-
-			          </div>
-
-				    <div role="tabpanel" class="tab-pane" id="date">
+						  {{$questions->links()}}
+											</div>
+											  
+				</div>
+				 <div role="tabpanel" class="tab-pane" id="date">
 
 				    <h1>Order Questions By Date *default view*</h1>
 				     @foreach($orederd_questions as $question)
@@ -311,9 +311,10 @@ session_start();
 								</ul>
 							@endif
 						@endforeach
-						{{Paginator::setPageName('date');}}
+						<div class="date">
 
-						{{$orederd_questions->appends('all', Input::get('all',1))->links()}}
+						{{$orederd_questions->links()}}
+						</div>
 
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="answered">
@@ -340,43 +341,24 @@ session_start();
 								</ul>
 							@endif
 						@endforeach
-						{{Paginator::setPagename('solved');}}
+						{{$solved_questions->links()}}
+						</div>
+					
+				   	  @include('bytags')
 
-						{{$solved_questions->appends('all', Input::get('all',1))->appends('date', Input::get('all',1))->links()}}
+				    
 
-
-						</div>
-
-						{{-- Tags tab --}}
-				    <div role="tabpanel" class="tab-pane" id="tags">
-				    	<div class="questionlistajax">
-						</div>
-						<div class="questionlistajax1">
-						</div>
-						<div class="questionlistajax2">
-						</div>
-						<div class="questionlistajax3">
-						</div>
-						<div class="questionlistajax4">
-						</div>
-						<div class="questionlistajax5">
-						</div>
-						<div class="questionlistajax6">
-						</div>
-						<div class="questionlistajax7">
-						</div>
-						<div class="questionlistajax8">
-						</div>
-				    </div>
 		  		</div>			
 			@endif
 	 	</div>
 	</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
+<script>	
 
-	 $('.arrow2').hide();
+
+						
+	    $('.arrow2').hide();
 		$('.arrow3').hide();
 		$('.arrow1').hide();
 		$('.arrow0').show();
@@ -518,6 +500,115 @@ session_start();
         		}
         	}
         });
+ /*============================pagination===================================*/
+ // $(window).on('hashchange',function(){
+	// 		page = window.location.hash.replace('#','');
+
+	// 		getAll(page);
+	// 	});
+	// 	$('#all').on('click','.all .pagination a', function(e){
+	// 		e.preventDefault();
+	// 		var page = $(this).attr('href').split('all=')[1];
+
+	// 		// getProducts(page);
+	// 		location.hash = page;
+	// 	});
+	// 	function getAll(page){
+	// 		$.ajax({
+	// 			url: '/home/all?all=' + page
+	// 		}).done(function(data){
+	// 			$('#all').html(data);
+	// 		});
+
+	// 	}
+	// 	$(window).on('hashchange',function(){
+	// 		page = window.location.hash.replace('#','');
+
+	// 		getByDate(page);
+	// 	});
+	// 	$('#date').on('click','.date .pagination a', function(e){
+	// 		e.preventDefault();
+	// 		var page = $(this).attr('href').split('date=')[1];
+
+	// 		// getProducts(page);
+	// 		location.hash = page;
+	// 	});
+	// 	function getByDate(page){
+	// 		$.ajax({
+	// 			url: '/home/date?date=' + page
+	// 		}).done(function(data){
+	// 			$('#date').html(data);
+	// 		});
+
+	// 	}
+	$(function() {
+    // 1.
+    function getPaginationSelectedPage(url) {
+        var chunks = url.split('?');
+        var baseUrl = chunks[0];
+        var querystr = chunks[1].split('&');
+        var pg = 1;
+        for (i in querystr) {
+            var qs = querystr[i].split('=');
+            if (qs[0] == 'page') {
+                pg = qs[1];
+                break;
+            }
+        }
+        return pg;
+    }
+ 
+    // 2.
+    $('#all').on('click', '.pagination a', function(e) {
+        e.preventDefault();
+        var pg = getPaginationSelectedPage($(this).attr('href'));
+ 
+        $.ajax({
+            url: '/home/all',
+            data: { page: pg },
+            success: function(data) {
+                $('#all').html(data);
+            }
+        });
+    });
+ 
+    $('#date').on('click', '.pagination a', function(e) {
+        e.preventDefault();
+        var pg = getPaginationSelectedPage($(this).attr('href'));
+ 
+        $.ajax({
+            url: '/home/date',
+            data: { page: pg },
+            success: function(data) {
+                $('#date').html(data);
+            }
+        });
+    });
+ 
+    $('#answered').on('click', '.pagination a', function(e) {
+        e.preventDefault();
+        var pg = getPaginationSelectedPage($(this).attr('href'));
+ 
+        $.ajax({
+            url: '/home/solved',
+            data: { page: pg },
+            success: function(data) {
+                $('#answered').html(data);
+            }
+        });
+    });
+ 
+    // 3.
+    $('#all').load('/home/all?page=1');
+    $('#date').load('/home/date?page=1');
+        $('#answered').load('/home/solved?page=1');
+
+});
+		
+		
+			
+		
+
 
 </script>
 @stop

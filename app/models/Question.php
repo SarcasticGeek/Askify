@@ -58,7 +58,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return static::where('user_id','=',Auth::user()->id)->orderBy('solved','ASC')->Paginate(4);
 	}
 	public static function others_questions(){
-		Paginator::setPagename('all');
+		//Paginator::setPagename('all');
 		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(4);
 	}
 
@@ -68,13 +68,13 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	*/
 		public static function orderd_by_date()
 		{
-			Paginator::setPagename('date');
+			//Paginator::setPagename('date');
 
 			return static::where('user_id','!=',Auth::user()->id)->orderBy('created_at','DESC')->Paginate(4);
 		}
 		public static function solved_only()
 		{
-			Paginator::setPagename('solved');
+			//Paginator::setPagename('solved');
 
 			return static::where('solved',1)->orderBy('created_at','DESC')->Paginate(4);
 		}

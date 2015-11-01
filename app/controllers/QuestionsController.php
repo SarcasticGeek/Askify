@@ -133,6 +133,15 @@ class QuestionsController extends BaseController{
 			->with('questions',Question::your_questions());
 	}
 	public function get_others_questions(){
+		/* if there is a ajax request */
+		if(Request::ajax())
+		{
+			return Response::json(View::make('home')
+			->with('title','Home')
+			->with('questions',Question::others_questions())->with('tags',Tag::all())
+		    ->with('orederd_questions',Question::orderd_by_date())->with('tags',Tag::all())
+		    ->with('solved_questions',Question::solved_only())->with('tags',Tag::all())->render());
+		}
 		return View::make('home')
 			->with('title','Home')
 			->with('questions',Question::others_questions())->with('tags',Tag::all())

@@ -1,8 +1,13 @@
-
 @extends('main')
 <style>
 	body{
 		text-align: center;
+	}
+	footer
+	{
+		position: absolute;
+		bottom: 0;
+		width: 100%;
 	}
 	
 	

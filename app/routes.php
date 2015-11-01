@@ -59,7 +59,25 @@ Route::any('/captcha-test', function()
     });
 
 Route::get('/home',array('before' => array('auth','banned'),'as'=>'others_questions','uses'=>'QuestionsController@get_others_questions'));
+/*================== the ajax routed will be here====================*/
+Route::get('/home/all',function(){
 
+    $questions=Question::others_questions();
+    return View::make('all',['questions'=>$questions])->render();
+
+});
+Route::get('/home/date',function(){
+
+    $orederd_questions=Question::orderd_by_date();
+    return View::make('date',['orederd_questions'=>$orederd_questions])->render();
+
+});
+Route::get('/home/solved',function(){
+
+    $solved_questions=Question::solved_only();
+    return View::make('answered',['solved_questions'=>$solved_questions])->render();
+
+});
 
 Route::get('/logout',array('as'=>'logout','uses'=>'LogoutController@doLogout'));
 
