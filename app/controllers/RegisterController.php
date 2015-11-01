@@ -22,11 +22,20 @@ class RegisterController extends BaseController{
 		}	
 	}
 
+	public function checkemail(){
+		$post = Input::get('data1');
+		if(User::where('email',$post)->get()->first()!=null){
+			return 'NO';
+		}
+		return 'YES';
+	}
+
 
 
 
 	public function doRegister()
 	{
+		return View::make('thanksconf');
 		$credit = Input::only('username','email','password','conpassword');
 		$creditx = Input::only('username','password');
 		$validator = Validator::make($credit,

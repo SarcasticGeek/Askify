@@ -28,6 +28,7 @@ Route::post('/contact','HomeController@contact');
 
 
  Route::post('/hello',array('as'=>'hello','uses'=>'RegisterController@checkUsername'));
+ Route::post('/hell',array('as'=>'hell','uses'=>'RegisterController@checkemail'));
  Route::post('/helloo','LoginController@checkActivate');
 
 Route::get('/register','RegisterController@showRegister');
