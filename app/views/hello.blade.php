@@ -666,19 +666,19 @@
 
 	<div class="panel2" id="panel-4">
 		<div id="contact-bg">
-			<form>
+			<form method="post" action="{{action('HomeController@contact')}}" url="/contact">
 				<div id="contact-left">
 					<label for="fname">First Name:</label><br>
-					<input type="text" name="fname"> <br><br><br>
+					<input type="text" name="fname" required> <br><br><br>
 					<label for="lname">Last Name:</label><br>
-					<input type="text" name="lname"><br><br><br>
+					<input type="text" name="lname" required><br><br><br>
 					<label for="email">Email Address:</label><br>
-					<input type="email" name="email">
+					<input type="email" name="email" required>
 				</div>
 
 				<div id="contact-right">
 					<label for="message">Your Message:</label><br>
-					<textarea rows="6" cols="50"></textarea><br><br>
+					<textarea rows="6" cols="50" required name="message"></textarea><br><br>
 					<input type="submit" value="Send" class="btn btn-success" style="width:250px;">
 
 				</div>
