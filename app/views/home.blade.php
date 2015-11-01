@@ -296,7 +296,7 @@ session_start();
 								</ul>
 							@endif
 						@endforeach
-						{{ $questions->links()}}</div>
+					</div>
 
 						{{-- Tags tab --}}
 				    <div role="tabpanel" class="tab-pane" id="tags">
@@ -432,15 +432,7 @@ session_start();
 
                 					html += '</p>'
                 					+ '</h2>';
-                					if(admin_is_here == 1)
-                					{
-                						html += '<form method="post" action="answer" accept-charset="UTF-8">'; 
-                						html += '<input name="_token" type="hidden">';
-                						html += '<input name="question_id" type="hidden" value='+ question_id +'>';
-                						html += '<textarea class="AnswerArea"  style="margin-left: 35px;width:800px; margin-top:5px;" placeholder="Put your answer here!"></textarea>';
-                						html += '<p style="margin-left: 400px;">';
-                						html += '<input type="submit" value="Answer"></p></form>';
-									}
+
                 					html += '</div';
 
                 					html += '</div>';

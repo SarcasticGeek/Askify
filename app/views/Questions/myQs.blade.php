@@ -31,8 +31,7 @@
 					
 				</ul>
 			 @endforeach
-		 
-		 {{ $questions->links()}}
+
 	 @endif
  </div>
 @stop
