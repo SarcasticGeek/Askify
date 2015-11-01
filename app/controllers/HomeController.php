@@ -20,4 +20,16 @@ class HomeController extends BaseController {
 		return View::make('hello');
 	}
 
+	public function contact()
+	{
+		$fname = Input::get('fname');
+		$lname = Input::get('lname');
+		$email = Input::get('email');
+		$msg = Input::get('message');
+		Mail::send('emails.welcome',[],function($message){
+			$message->to('eng.khaled.93@hotmail.com')->subject('Askify');
+		});
+		return View::make('hello')->with('message',$msg);
+	}
+
 }

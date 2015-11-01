@@ -20,6 +20,9 @@ Route::get('/',function(){
 Route::get('/hello',function(){
     return View::make('hello');
 });
+
+Route::post('/contact','HomeController@contact');
+
  Route::post('/',array('before'=>'csrf',
  	'uses'=>'QuestionsController@post_create'));
 
