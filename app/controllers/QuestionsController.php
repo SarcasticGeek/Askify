@@ -116,7 +116,7 @@ class QuestionsController extends BaseController{
 				$questiondata = array(
 					"id" => $question_->id,
 					"questionvalue" =>  $question_->question.' by '.$question_->user->username,
-					"href" => 'http://localhost:8000/question/'.$question_->id
+					"href" => url() . '/question/'.$question_->id
 				);
 				$data['question'][] = $questiondata;
 			}
@@ -132,7 +132,7 @@ class QuestionsController extends BaseController{
 				$questiondata = array(
 					"id" => $question_->id,
 					"questionvalue" =>  $question_->question.' by '.$question_->user->username,
-					"href" => 'http://localhost:8000/question/'.$question_->id
+					"href" => url() .'/question/'.$question_->id
 				);
 				$data['question'][] = $questiondata;
 			}
@@ -148,7 +148,7 @@ class QuestionsController extends BaseController{
 				$questiondata = array(
 					"id" => $question_->id,
 					"questionvalue" =>  $question_->question.' by '.$question_->user->username,
-					"href" => 'http://localhost:8000/question/'.$question_->id
+					"href" => url().'/question/'.$question_->id
 				);
 				$data['question'][] = $questiondata;
 			}
@@ -166,7 +166,7 @@ class QuestionsController extends BaseController{
 				$questiondata = array(
 					"id" => $question_->id,
 					"questionvalue" =>  $question_->question.' by '.$question_->user->username.' on '.$datequestion,
-					"href" => 'http://localhost:8000/question/'.$question_->id
+					"href" => url() .'/question/'.$question_->id
 				);
 				$data['question'][] = $questiondata;
 			}
@@ -184,7 +184,7 @@ class QuestionsController extends BaseController{
 				$questiondata = array(
 					"id" => $question_->id,
 					"questionvalue" =>  $question_->question.' by '.$question_->user->username.' posted before '.$keywords,
-					"href" => 'http://localhost:8000/question/'.$question_->id
+					"href" => url() .'/question/'.$question_->id
 				);
 				$data['question'][] = $questiondata;
 			}
@@ -201,7 +201,7 @@ class QuestionsController extends BaseController{
 				$questiondata = array(
 					"id" => $question_->id,
 					"questionvalue" =>  $question_->question.' by '.$question_->user->username.' posted after '.$keywords,
-					"href" => 'http://localhost:8000/question/'.$question_->id
+					"href" => url() .'/question/'.$question_->id
 				);
 				$data['question'][] = $questiondata;
 			}
@@ -216,7 +216,7 @@ class QuestionsController extends BaseController{
 			{
 				$answerdata = array(
 					"answervalue" =>  $answer_->answer.' by owner',
-					"href" => 'http://localhost:8000/question/'.$answer_->question_id
+					"href" => url() .'/question/'.$answer_->question_id
 				);
 				$data['answer'][] = $answerdata;
 			}
@@ -231,7 +231,7 @@ class QuestionsController extends BaseController{
 			{
 				$tagdata = array(
 					"tagvalue" =>  $tag_->name,
-					"href" => 'http://localhost:8000/owner/tag/'.$tag_->id
+					"href" => url().'/owner/tag/'.$tag_->id
 				);
 				$data['tag'][] = $tagdata;
 			}
