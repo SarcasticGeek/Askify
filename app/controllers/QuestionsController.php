@@ -102,6 +102,143 @@ class QuestionsController extends BaseController{
 		
 	}
 
+	public function ajaxfunction()
+	{
+		$keywords = Input::get('query');
+		
+		if(Input::get('type') == 'question')
+		{
+			$questions = Question::search($keywords);
+			$data  = array(
+				);
+			foreach ($questions as $question_)
+			{
+				$questiondata = array(
+					"id" => $question_->id,
+					"questionvalue" =>  $question_->question.' by '.$question_->user->username,
+					"href" => 'http://localhost:8000/question/'.$question_->id
+				);
+				$data['question'][] = $questiondata;
+			}
+		return json_encode(array("querydata" =>$data));
+		}
+		if(Input::get('type') == 'user_question')
+		{
+			$questions = Question::searchUser($keywords);
+			$data  = array(
+				);
+			foreach ($questions as $question_)
+			{
+				$questiondata = array(
+					"id" => $question_->id,
+					"questionvalue" =>  $question_->question.' by '.$question_->user->username,
+					"href" => 'http://localhost:8000/question/'.$question_->id
+				);
+				$data['question'][] = $questiondata;
+			}
+		return json_encode(array("querydata" =>$data));
+		}
+		if(Input::get('type') == 'unsolved')
+		{
+			$questions = Question::unsolvedquestions($keywords);
+			$data  = array(
+				);
+			foreach ($questions as $question_)
+			{
+				$questiondata = array(
+					"id" => $question_->id,
+					"questionvalue" =>  $question_->question.' by '.$question_->user->username,
+					"href" => 'http://localhost:8000/question/'.$question_->id
+				);
+				$data['question'][] = $questiondata;
+			}
+		return json_encode(array("querydata" =>$data));
+		}
+		//////////////////////////////////////////////
+		if(Input::get('type') == 'date')
+		{
+			$questions = Question::searchByDate($keywords);
+			$data  = array(
+				);
+			foreach ($questions as $question_)
+			{
+				$datequestion = substr($question_->updated_at,0,strpos($question_->updated_at,' '));
+				$questiondata = array(
+					"id" => $question_->id,
+					"questionvalue" =>  $question_->question.' by '.$question_->user->username.' on '.$datequestion,
+					"href" => 'http://localhost:8000/question/'.$question_->id
+				);
+				$data['question'][] = $questiondata;
+			}
+		return json_encode(array("querydata" =>$data));
+		}
+		/////////////////////////////////////////////////
+		if(Input::get('type') == 'before_date')
+		{
+			$questions = Question::searchByDateBefore($keywords);
+			$data  = array(
+				);
+			foreach ($questions as $question_)
+			{
+				$datequestion = substr($question_->updated_at,0,strpos($question_->updated_at,' '));
+				$questiondata = array(
+					"id" => $question_->id,
+					"questionvalue" =>  $question_->question.' by '.$question_->user->username.' posted before '.$keywords,
+					"href" => 'http://localhost:8000/question/'.$question_->id
+				);
+				$data['question'][] = $questiondata;
+			}
+		return json_encode(array("querydata" =>$data));
+		}
+		if(Input::get('type') == 'after_date')
+		{
+			$questions = Question::searchByDateAfter($keywords);
+			$data  = array(
+				);
+			foreach ($questions as $question_)
+			{
+				$datequestion = substr($question_->updated_at,0,strpos($question_->updated_at,' '));
+				$questiondata = array(
+					"id" => $question_->id,
+					"questionvalue" =>  $question_->question.' by '.$question_->user->username.' posted after '.$keywords,
+					"href" => 'http://localhost:8000/question/'.$question_->id
+				);
+				$data['question'][] = $questiondata;
+			}
+		return json_encode(array("querydata" =>$data));
+		}
+		if(Input::get('type') == 'answer')
+		{
+			$answer = Answer::search($keywords);
+			$data  = array(
+				);
+			foreach ($answer as $answer_)
+			{
+				$answerdata = array(
+					"answervalue" =>  $answer_->answer.' by owner',
+					"href" => 'http://localhost:8000/question/'.$answer_->question_id
+				);
+				$data['answer'][] = $answerdata;
+			}
+		return json_encode(array("querydata" =>$data));
+		}
+		if(Input::get('type') == 'tag')
+		{
+			$tag = Tag::search_tag($keywords);
+			$data  = array(
+				);
+			foreach ($tag as $tag_)
+			{
+				$tagdata = array(
+					"tagvalue" =>  $tag_->name,
+					"href" => 'http://localhost:8000/owner/tag/'.$tag_->id
+				);
+				$data['tag'][] = $tagdata;
+			}
+		return json_encode(array("querydata" =>$data));
+		}
+	}
+	
     public function get_results_q($keyword)
     {
     	
@@ -130,7 +267,8 @@ class QuestionsController extends BaseController{
 	public function show_my_questions(){
 		return View::make('Questions.myQs')
 			->with('title','My Questions')
-			->with('questions',Question::your_questions());
+			->with('questions',Question::your_questions())
+			->with('tags',Tag::all());
 	}
 	public function get_others_questions(){
 		return View::make('home')
@@ -181,16 +319,20 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		$CCK = Input::get('CCK');
 		$postData2 = array();
 		$i = 0;
+		if(Auth::User()->iFadmin == 1)
+			$admin_is_here = 1;
+		else
+			$admin_is_here = 0;
 		foreach ($postData1 as $question ) {
 			$QT=$question->tags;
 			foreach ($QT as $tag ) {
 				if($tag->id == $CCK && $question->private == 0){
-					$postData2 [$i] = array( 'a'=>($question->User->username), 
+					$postData2 [$i] = array( 'a'=>ucfirst($question->User->username), 
 						'b'=>($question->question), 
 						'c'=>(count($question->answers)),
 						'd'=>($question->id),
+						'e'=>($admin_is_here)
 						);
-
 					$i = $i+1;
 				}
 			}

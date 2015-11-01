@@ -28,7 +28,7 @@ Route::get('/hello',function(){
  Route::post('/helloo','LoginController@checkActivate');
 
 Route::get('/register','RegisterController@showRegister');
-Route::post('/',array('uses'=>'RegisterController@doRegister'));
+Route::post('/register-user',array('uses'=>'RegisterController@doRegister'));
 
 Route::get('/login','LoginController@showLogin');
 Route::post('/login','LoginController@doLogin');
@@ -77,6 +77,7 @@ Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController
 
 Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
 Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_search'));
+Route::post('results/{all?}',array('as' =>'results','uses'=>'QuestionsController@ajaxfunction'));
 
 
 Route::get('your_questions',array('before' => 'auth|banned','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
@@ -88,6 +89,11 @@ Route::get('question/delete/{id}',array('as'=>'after_delete_question','uses'=>'Q
 
 //Routes of answering
 Route::post('answer',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_answer'));
+
+//
+//Route::post('/home',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_answer'));
+
+
 Route::get('answer/{num?}/edit',array('before' => 'auth','before'=>'ifAdmin','as'=>'edit_answer','uses'=>'AnswersController@get_edit'));
 Route::post('answer/update',array('before' => 'auth','before'=>'ifAdmin','before'=>'csrf','uses'=>'AnswersController@post_update'));
 Route::get('facebookauth/{auth?}',array('as'=>'facebookAuth','uses'=>'AuthController@getFacebookLogin'));
