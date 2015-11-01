@@ -267,7 +267,8 @@ class QuestionsController extends BaseController{
 	public function show_my_questions(){
 		return View::make('Questions.myQs')
 			->with('title','My Questions')
-			->with('questions',Question::your_questions());
+			->with('questions',Question::your_questions())
+			->with('tags',Tag::all());
 	}
 	public function get_others_questions(){
 		return View::make('home')

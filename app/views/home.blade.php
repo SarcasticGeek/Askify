@@ -296,7 +296,7 @@ session_start();
 								</ul>
 							@endif
 						@endforeach
-						{{ $questions->links()}}</div>
+					</div>
 
 						{{-- Tags tab --}}
 				    <div role="tabpanel" class="tab-pane" id="tags">
