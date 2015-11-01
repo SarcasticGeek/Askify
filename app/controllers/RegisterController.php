@@ -35,7 +35,6 @@ class RegisterController extends BaseController{
 
 	public function doRegister()
 	{
-		return View::make('thanksconf');
 		$credit = Input::only('username','email','password','conpassword');
 		$creditx = Input::only('username','password');
 		$validator = Validator::make($credit,
