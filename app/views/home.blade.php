@@ -268,19 +268,17 @@ session_start();
     									<div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;">
 	      									<h2 style="margin-left: 35px; font-size:15px;font-family: 'Handlee', cursive;">{{ str_limit($question->question,40,"...") }} 
 	      										<span>
-	      											<p style="float:right;margin-right: 100px;">
+	      											<p style="float:right;">
 													        Created: 
-													        <strong>
 													         <?php
-  $variable = "time";
-?>
-<span id ="<?php echo $variable; ?>"></span>
-													        </strong>           
+																  $variable = $question->id;
+																?>
+																<span id ="<?php echo $variable; ?>"></span>
 													</p><br/>
-			  										<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+			  										<p style="float:right;margin-right: -120px;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 			  											{{ HTML::linkRoute('question','View',$question->id) }}
 			  										</p><br/>
-		  											<p style="float:right; margin-right: -70px;">
+		  											<p style="float:right; margin-right: -100px;">
 													@if(Auth::User()->iFadmin == 1)
 														{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
 													@endif
@@ -402,13 +400,15 @@ function time_ago(time){
 	    }
 	return time;
 }
-var Q ="{{ Question::where('id',$question->id)->get()->first()->created_at}}";
-var G = {{Question::get()->count()}};
-for(i = 1; i <= G; i++)
-{
-	//document.getElementById('time').innerHTML=time_ago(Q);
-	$('').append(Q);	
-}
+	var G = {{Question::get()->count()}};
+	var Q = {{Question::get(['created_at'])}};
+	for(i = 1; i <= G; i++)
+	{
+		var unique = "#" + i;
+		$(unique).append(time_ago(Q[i-1].created_at));	
+	}
+
+
 
 	var y = {{ Tag::get()->count() }} ;
 	var x = y / 2.5 * 120 ;
