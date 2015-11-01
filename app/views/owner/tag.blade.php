@@ -1,4 +1,3 @@
-
 @extends('main')
 <style>
 	body{
@@ -36,10 +35,17 @@
       	<h2 style="margin-left: 35px; font-size:15px;font-family: 'Handlee', cursive;">
       		{{ str_limit($question->question,40,"...") }}
 			<span>
-				<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+				<p style="float:right;">
+			        Created: 
+			        <?php
+					  $variable = $question->id;
+					?>
+					<span id ="<?php echo $variable; ?>"></span>
+				</p><br/>
+				<p style="float:right;margin-right: -120px;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 						{{ HTML::linkRoute('question','View',$question->id) }}
 				</p><br/>
-				<p style="float:right; margin-right: -70px;">
+				<p style="float:right; margin-right: -100px;">
 					@if(Auth::User()->iFadmin == 1)
 						{{HTML::linkRoute('home/report','Report',array($question->User->username,$question->id))}}
 					@endif
@@ -48,11 +54,7 @@
 		</h2>
     </div>
 </div>
-
-
-
-    									
-
+								
 	@endforeach
 	@endif
  </div>

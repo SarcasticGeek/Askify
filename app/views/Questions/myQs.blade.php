@@ -139,11 +139,18 @@ session_start();
 		    	@foreach($questions as $question)
 					@if($question->solved == 1)
 						<ul>
-							<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:850; height: 50px; float:right;">
+							<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:850; height: 70px; float:right;">
 								<div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;">
   									<h2 style="margin-left: 35px; font-size:15px;font-family: 'Handlee', cursive;">{{ str_limit($question->question,40,"...") }}
   										<span>
-	  										<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+  											<p style="float:right;">
+										        Created: 
+										        <?php
+												  $variable = $question->id;
+												?>
+												<span id ="<?php echo $variable; ?>"></span>
+											</p><br/>
+	  										<p style="float:right;margin-right: -120px;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 	  											{{ HTML::linkRoute('question','View',$question->id) }}
 	  										</p><br/>
   											<p style="float:right; margin-right: -70px;">
@@ -166,11 +173,18 @@ session_start();
 		    	@foreach($questions as $question)
 					@if($question->solved == 0)
 						<ul>
-							<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:850; height: 50px; float:right;">
+							<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:850; height: 70px; float:right;">
 								<div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;">
   									<h2 style="margin-left: 35px; font-size:15px;font-family: 'Handlee', cursive;">{{ str_limit($question->question,40,"...") }}
   										<span>
-	  										<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+  											<p style="float:right;">
+										        Created: 
+										        <?php
+												  $variable = $question->id;
+												?>
+												<span id ="<?php echo $variable; ?>"></span>
+											</p><br/>				
+	  										<p style="float:right;margin-right: -120px;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 	  											{{ HTML::linkRoute('question','View',$question->id) }}
 	  										</p><br/>
   											<p style="float:right; margin-right: -70px;">

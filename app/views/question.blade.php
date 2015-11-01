@@ -31,7 +31,14 @@
       	<h2 style="margin-left: 35px; font-size:15px;font-family: 'Handlee', cursive;">
       		{{ e($question->question) }}
       		<span>
-				<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
+      			<p style="float:right;">
+			        Created: 
+			        <?php
+					  $variable = $question->id;
+					?>
+					<span id ="<?php echo $variable; ?>"></span>
+				</p><br/>				
+				<p style="float:right;margin-right: -120px;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 				</p><br/>
 				<p style="float:right; margin-right: -60px;">
 					@if(Auth::User()->iFadmin == 1)
