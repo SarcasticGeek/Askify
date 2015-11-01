@@ -67,7 +67,6 @@
 		height: 730px;
 		background-color: #4183D7;
 		float: left;
-		position: fixed;
 	}
 	#left .nav a{
 		width: 250px;
@@ -247,7 +246,7 @@ session_start();
 		<div class="questionlist">
 			@if(!$questions)
 				<p>No Questions</p>
-			@else
+			@else 
 				<div class="tab-content" style="display: block;">
 				    <div role="tabpanel" class="tab-pane active" id="date"><h1>Order Questions By Date *default view*</h1></div>
 				    <div role="tabpanel" class="tab-pane" id="answered">
@@ -267,8 +266,14 @@ session_start();
 									 		</h2>
 								 		</div>
     									<div class="panel-body" style="padding-top: 0px; padding-bottom: 0px;">
-	      									<h2 style="margin-left: 35px; font-size:15px;font-family: 'Handlee', cursive;">{{ str_limit($question->question,40,"...") }}
+	      									<h2 style="margin-left: 35px; font-size:15px;font-family: 'Handlee', cursive;">{{ str_limit($question->question,40,"...") }} 
 	      										<span>
+	      											<p style="float:right;margin-right: 100px;">
+													        Created: 
+													        <strong>
+													         <span id="time"></span>
+													        </strong>           
+													</p><br/>
 			  										<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 			  											{{ HTML::linkRoute('question','View',$question->id) }}
 			  										</p><br/>
@@ -327,6 +332,7 @@ session_start();
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <script>
 		$('.arrow2').hide();
 		$('.arrow3').hide();
@@ -346,9 +352,62 @@ session_start();
 		$('.arrow2').hide();
 		$('.arrow3').show();
 });
-	$('')
+
+
+function time_ago(time){
+	switch (typeof time) {
+	    case 'number': break;
+	    case 'string': time = +new Date(time); break;
+	    case 'object': if (time.constructor === Date) time = time.getTime(); break;
+	    default: time = +new Date();
+	}
+	var time_formats = [
+	    [60, 'seconds', 1], // 60
+	    [120, '1 minute ago', '1 minute from now'], // 60*2
+	    [3600, 'minutes', 60], // 60*60, 60
+	    [7200, '1 hour ago', '1 hour from now'], // 60*60*2
+	    [86400, 'hours', 3600], // 60*60*24, 60*60
+	    [172800, 'Yesterday', 'Tomorrow'], // 60*60*24*2
+	    [604800, 'days', 86400], // 60*60*24*7, 60*60*24
+	    [1209600, 'Last week', 'Next week'], // 60*60*24*7*4*2
+	    [2419200, 'weeks', 604800], // 60*60*24*7*4, 60*60*24*7
+	    [4838400, 'Last month', 'Next month'], // 60*60*24*7*4*2
+	    [29030400, 'months', 2419200], // 60*60*24*7*4*12, 60*60*24*7*4
+	    [58060800, 'Last year', 'Next year'], // 60*60*24*7*4*12*2
+	    [2903040000, 'years', 29030400], // 60*60*24*7*4*12*100, 60*60*24*7*4*12
+	    [5806080000, 'Last century', 'Next century'], // 60*60*24*7*4*12*100*2
+	    [58060800000, 'centuries', 2903040000] // 60*60*24*7*4*12*100*20, 60*60*24*7*4*12*100
+	];
+	var seconds = (+new Date() - time) / 1000,
+	    token = 'ago', list_choice = 1;
+
+	if (seconds == 0) {
+	    return 'Just now'
+	}
+	if (seconds < 0) {
+	    seconds = Math.abs(seconds);
+	    token = 'from now';
+	    list_choice = 2;
+	}
+	var i = 0, format;
+	while (format = time_formats[i++])
+	    if (seconds < format[0]) {
+	        if (typeof format[2] == 'string')
+	            return format[list_choice];
+	        else
+	            return Math.floor(seconds / format[2]) + ' ' + format[1] + ' ' + token;
+	    }
+	return time;
+}
+var Q ="{{ Question::where('id',$question->id)->get()->first()->created_at}}";
+var G = {{Question::get()->count()}};
+for(i = 1; i <= G; i++)
+{
+	document.getElementById('time').innerHTML=time_ago(Q);	
+}
+
 	var y = {{ Tag::get()->count() }} ;
-	var x = y / 2 * 120 ;
+	var x = y / 2.5 * 120 ;
 	$(".Tags a").css("height", x);
 
 	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}} 
