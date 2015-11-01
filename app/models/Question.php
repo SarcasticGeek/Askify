@@ -50,15 +50,15 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		return $this->hasMany('Answer');
 	}
 	public  static function unsolved(){
-		return static::where('solved','=',0)->orderBy('id','DESC')->paginate(25);
+				return static::where('solved','=',0)->get();
 	}
 
 
 	public static function your_questions(){
-		return static::where('user_id','=',Auth::user()->id)->orderBy('solved','ASC')->paginate(5);
+		return static::where('user_id','=',Auth::user()->id)->get();
 	}
 	public static function others_questions(){
-		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(5);
+		return static::where('user_id','!=',Auth::user()->id)->get();
 	}
 
 	///END OF CONFIGS
