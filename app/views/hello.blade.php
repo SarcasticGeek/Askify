@@ -76,8 +76,8 @@
     		height: 50px;
    			width: 200px;
     		text-align: center;	
-    		border-radius:0px;
-    		border-color: #4183D7;
+    		border-radius:3px;
+    		border-color: white;
     		font-family: 'Handlee', cursive;
     		font-weight: bold;
 			opacity: 0.85;
@@ -554,7 +554,8 @@
 	</br>
 		<h1 class="head">ASK, and you will get an answer</h1>
 	</br>
-		<button type="button" class ="btnn" data-toggle="modal" data-target="#myModal">Join Now!</button>
+		<button type="button" class ="btnn" data-toggle="modal" data-target="#myModal">Join Now!</button><br><br>
+		<a href="#" data-dismiss="modal" data-toggle="modal" data-target="#signin" style="color:#00BFFF">Already Have Account? Sign In Now!</a>
 		@yield('content')
 	</div>
 
@@ -723,6 +724,7 @@
 
 <script src="js/jquery.js"></script>
 <script src="js/bootstrap.min.js"></script>
+
 <script type="text/javascript">
 
 	$(window).scroll(function()
