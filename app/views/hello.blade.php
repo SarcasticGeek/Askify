@@ -134,6 +134,13 @@
 			background-color: white;
 			padding-top: 70px;
 		}
+		#contact-bg{
+			position: relative;
+			top: -84px;
+			height: 670px;
+			width: 100%;
+			background: rgba(255,255,255,0.8);
+		}
 		#panel-3{
 			background: url("images/banner_img3.jpg");
 			background-size: 100% 100%;
@@ -166,7 +173,9 @@
 		}
 		
 		#panel-4{
-			
+			background: url("images/Mait2.jpg");
+			background-size: cover;
+			background-position: center;
 			position: relative;
 			top:60px;
 		}
@@ -176,7 +185,7 @@
 			margin-left: 30px;
 			margin-right: 30px;
 			font-size: 20px;
-			margin-top: 50px;
+			margin-top: 140px;
 			float: left;
 		}
 		#contact-left label{
@@ -192,7 +201,7 @@
 			margin-right: 30px;
 			margin-left: 30px;
 			font-size: 20px;
-			margin-top: 60px;
+			margin-top: 150px;
 			width: 40%;
 			float: right;
 		}
@@ -656,6 +665,7 @@
 	</div>
 
 	<div class="panel2" id="panel-4">
+		<div id="contact-bg">
 			<form>
 				<div id="contact-left">
 					<label for="fname">First Name:</label><br>
@@ -668,11 +678,12 @@
 
 				<div id="contact-right">
 					<label for="message">Your Message:</label><br>
-					<textarea rows="6" cols="50"></textarea>
+					<textarea rows="6" cols="50"></textarea><br><br>
+					<input type="submit" value="Send" class="btn btn-success" style="width:250px;">
 
 				</div>
 			</form>
-				
+			</div>	
 	</div>
 </div>
 
