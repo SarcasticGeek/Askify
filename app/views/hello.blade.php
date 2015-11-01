@@ -170,6 +170,41 @@
 			position: relative;
 			top:60px;
 		}
+
+		#contact-left{
+			width: 40%;
+			margin-left: 30px;
+			margin-right: 30px;
+			font-size: 20px;
+			margin-top: 50px;
+			float: left;
+		}
+		#contact-left label{
+			font-size: 20px;
+			color: #337ab7;
+		}
+
+		#contact-left input{
+			font-size: 20px;
+		}
+
+		#contact-right{
+			margin-right: 30px;
+			margin-left: 30px;
+			font-size: 20px;
+			margin-top: 60px;
+			width: 40%;
+			float: right;
+		}
+		#contact-right label{
+			font-size: 20px;
+			color:#337ab7;
+		}
+		#contact-right textarea{
+			font-size: 20px;
+			width: 100%;
+			height: 250px;
+		}
 		
 		.step1{
 			position: relative;
@@ -621,7 +656,23 @@
 	</div>
 
 	<div class="panel2" id="panel-4">
-		<p>Anything</p>
+			<form>
+				<div id="contact-left">
+					<label for="fname">First Name:</label><br>
+					<input type="text" name="fname"> <br><br><br>
+					<label for="lname">Last Name:</label><br>
+					<input type="text" name="lname"><br><br><br>
+					<label for="email">Email Address:</label><br>
+					<input type="email" name="email">
+				</div>
+
+				<div id="contact-right">
+					<label for="message">Your Message:</label><br>
+					<textarea rows="6" cols="50"></textarea>
+
+				</div>
+			</form>
+				
 	</div>
 </div>
 
