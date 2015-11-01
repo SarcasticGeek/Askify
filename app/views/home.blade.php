@@ -271,7 +271,10 @@ session_start();
 	      											<p style="float:right;margin-right: 100px;">
 													        Created: 
 													        <strong>
-													         <span id="time"></span>
+													         <?php
+  $variable = "time";
+?>
+<span id ="<?php echo $variable; ?>"></span>
 													        </strong>           
 													</p><br/>
 			  										<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
@@ -403,7 +406,8 @@ var Q ="{{ Question::where('id',$question->id)->get()->first()->created_at}}";
 var G = {{Question::get()->count()}};
 for(i = 1; i <= G; i++)
 {
-	document.getElementById('time').innerHTML=time_ago(Q);	
+	//document.getElementById('time').innerHTML=time_ago(Q);
+	$('').append(Q);	
 }
 
 	var y = {{ Tag::get()->count() }} ;
