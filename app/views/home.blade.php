@@ -67,6 +67,7 @@
 		height: 730px;
 		background-color: #4183D7;
 		float: left;
+		position: fixed;
 	}
 	#left .nav a{
 		width: 250px;
