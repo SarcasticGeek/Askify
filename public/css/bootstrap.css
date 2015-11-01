@@ -4492,7 +4492,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
   .navbar-form .form-control {
     display: inline-block;
+<<<<<<< HEAD
+    width: 150px;
+=======
     width: 10.55544444555em;
+>>>>>>> 279cfd82ad53d054de9d7da89a160e85bb9773fa
     vertical-align: middle;
   }
   .navbar-form .form-control-static {

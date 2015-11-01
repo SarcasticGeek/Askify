@@ -13,6 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link  rel="stylesheet" type="text/css"href= "{{ asset('css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.typeahead.css')}}">
 
 
     <!-- Custom CSS -->
@@ -193,6 +194,7 @@ position: absolute;z-index: -999;
 {
     width: 850px;
     margin-left: 200px;
+    z-index: 1000;
 }
 .navbar-inverse {
   background-color: #325C74;
@@ -206,6 +208,25 @@ position: absolute;z-index: -999;
     font-size: 12.5px;
     font-weight: normal;
 }
+.modal {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: rgba( 255, 255, 255, .8 ) 
+                url('http://i.stack.imgur.com/FhHRx.gif') 
+                50% 50% 
+                no-repeat;
+}
+ body.loading {
+    overflow: hidden;   
+}
+body.loading .modal {
+    display: block;
+}      
        
 </style>
 <!-- The #page-top ID is part of the scrolling feature - the data-spy and data-target are part of the built-in Bootstrap scrollspy function -->
@@ -247,12 +268,27 @@ position: absolute;z-index: -999;
               
 
                 {{ Form::token() }}
-                @if(isset($keyword))
-                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>$keyword)) }}
-                @else
-                {{ Form::text('keyword', '', array('id'=>'keyword' ,'class'=>'form-control','placeholder'=>'Click to search!')) }}                
-                @endif
-                {{ Form::submit('Find',array('class'=>'btn btn-info' )) }}
+
+                <div class="typeahead-container">
+                    <div class="typeahead-field">
+
+                        <span class="typeahead-query">
+                            <input id="keyword"
+                                   name="keyword"
+                                   type="search"
+                                   autofocus
+                                   autocomplete="off"
+                                   >
+                        </span>
+                        <span class="typeahead-button">
+                            <button class="btn btn-default" type="submit">
+                                <span class="typeahead-search-icon"></span>
+                            </button>
+                        </span>
+
+                    </div>
+                </div>
+                <div class="modal"><!-- Place at bottom of page --></div>
 
 
                 {{ Form::close() }}
@@ -670,6 +706,220 @@ position: absolute;z-index: -999;
     <script type="text/javascript"src=" {{ asset('js/jquery.easing.min.js')}}"></script>
     <script type="text/javascript"src=" {{ asset('js/scrolling-nav.js')}}"></script>
     <script type="text/javascript" src="{{asset('js/maintainscroll.jquery.min.js')}}"></script>
+    <script type="text/javascript"src="{{asset('js/jquery.typeahead.js')}}"></script>
+    <script type="text/javascript"src="{{asset('js/jquery.typeahead.min.js')}}"></script>
+
+    <script >
+        $('#keyword').typeahead({
+            dynamic: true,
+            delay: 800,
+            hint: true,
+            minLength: 1,
+            maxItem: 15,
+            order: "asc",
+            group: true,
+            maxItemPerGroup: 3,
+            dropdownFilter: "all Search criteria",
+            emptyTemplate: 'No result found',
+            source: {
+                questions:{
+                    display: "questionvalue",
+                    href: function (item) {
+                        return item.href;
+                    },
+                    url: [{
+                    type: "POST",
+                    url: "http://localhost:8000/results/{all?}",
+                    data: {
+                        query: function () { return $('#keyword').val(); },
+                        type: "question"
+                    },
+                    callback: {
+                        done: function (data, textStatus, jqXHR) {
+                            return data;
+                        },
+                        fail: function (jqXHR, textStatus, errorThrown) {},
+                        complete: function (jqXHR, textStatus) {},
+                        always :function (data, textStatus, jqXHR) {}
+                    }
+                }, "querydata.question"]
+            },
+              user_questions:{
+                    display: "questionvalue",
+                    href: function (item) {
+                        return item.href;
+                    },
+                    url: [{
+                    type: "POST",
+                    url: "http://localhost:8000/results/{all?}",
+                    data: {
+                        query: function () { return $('#keyword').val(); },
+                        type: "user_question"
+                    },
+                    callback: {
+                        done: function (data, textStatus, jqXHR) {
+                            return data;
+                        },
+                        fail: function (jqXHR, textStatus, errorThrown) {},
+                        complete: function (jqXHR, textStatus) {},
+                        always :function (data, textStatus, jqXHR) {}
+                    }
+                }, "querydata.question"]
+            },
+              unsolved:{
+                    display: "questionvalue",
+                    href: function (item) {
+                        return item.href;
+                    },
+                    url: [{
+                    type: "POST",
+                    url: "http://localhost:8000/results/{all?}",
+                    data: {
+                        query: function () { return $('#keyword').val(); },
+                        type: "unsolved"
+                    },
+                    callback: {
+                        done: function (data, textStatus, jqXHR) {
+                            return data;
+                        },
+                        fail: function (jqXHR, textStatus, errorThrown) {},
+                        complete: function (jqXHR, textStatus) {},
+                        always :function (data, textStatus, jqXHR) {}
+                    }
+                }, "querydata.question"]
+            },
+              date:{
+                    display: "questionvalue",
+                    href: function (item) {
+                        return item.href;
+                    },
+                    url: [{
+                    type: "POST",
+                    url: "http://localhost:8000/results/{all?}",
+                    data: {
+                        query: function () { return $('#keyword').val(); },
+                        type: "date"
+                    },
+                    callback: {
+                        done: function (data, textStatus, jqXHR) {
+                            return data;
+                        },
+                        fail: function (jqXHR, textStatus, errorThrown) {},
+                        complete: function (jqXHR, textStatus) {},
+                        always :function (data, textStatus, jqXHR) {}
+                    }
+                }, "querydata.question"]
+            },
+              before_date:{
+                    display: "questionvalue",
+                    href: function (item) {
+                        return item.href;
+                    },
+                    url: [{
+                    type: "POST",
+                    url: "http://localhost:8000/results/{all?}",
+                    data: {
+                        query: function () { return $('#keyword').val(); },
+                        type: "before_date"
+                    },
+                    callback: {
+                        done: function (data, textStatus, jqXHR) {
+                            return data;
+                        },
+                        fail: function (jqXHR, textStatus, errorThrown) {},
+                        complete: function (jqXHR, textStatus) {},
+                        always :function (data, textStatus, jqXHR) {}
+                    }
+                }, "querydata.question"]
+            },
+              after_date:{
+                    display: "questionvalue",
+                    href: function (item) {
+                        return item.href;
+                    },
+                    url: [{
+                    type: "POST",
+                    url: "http://localhost:8000/results/{all?}",
+                    data: {
+                        query: function () { return $('#keyword').val(); },
+                        type: "after_date"
+                    },
+                    callback: {
+                        done: function (data, textStatus, jqXHR) {
+                            return data;
+                        },
+                        fail: function (jqXHR, textStatus, errorThrown) {},
+                        complete: function (jqXHR, textStatus) {},
+                        always :function (data, textStatus, jqXHR) {}
+                    }
+                }, "querydata.question"]
+            },
+            answer:{
+                    display: "answervalue",
+                    href: function (item) {
+                        return item.href;
+                    },
+                    url: [{
+                    type: "POST",
+                    url: "http://localhost:8000/results/{all?}",
+                    data: {
+                        query: function () { return $('#keyword').val(); },
+                        type: "answer"
+                    },
+                    callback: {
+                        done: function (data, textStatus, jqXHR) {
+                            return data;
+                        },
+                        fail: function (jqXHR, textStatus, errorThrown) {},
+                        complete: function (jqXHR, textStatus) {},
+                        always :function (data, textStatus, jqXHR) {}
+                    }
+                }, "querydata.answer"]
+            },
+            tag:{
+                    display: "tagvalue",
+                    href: function (item) {
+                        return item.href;
+                    },
+                    url: [{
+                    type: "POST",
+                    url: "http://localhost:8000/results/{all?}",
+                    data: {
+                        query: function () { return $('#keyword').val(); },
+                        type: "tag"
+                    },
+                    callback: {
+                        done: function (data, textStatus, jqXHR) {
+                            return data;
+                        },
+                        fail: function (jqXHR, textStatus, errorThrown) {},
+                        complete: function (jqXHR, textStatus) {},
+                        always :function (data, textStatus, jqXHR) {}
+                    }
+                }, "querydata.tag"]
+            }
+            },
+            callback: {
+                onClickAfter: function (node, a, item, event) {
+                    {
+                        window.open(item.href);
+                    }
+
+                },
+                onSendRequest: function(node,query)
+                {
+                    $body = $("body");
+                    $body.addClass("loading");
+                },
+                onReceiveRequest: function(node,query)
+                {
+                    $body = $("body");
+                    $body.removeClass("loading");
+                }
+            },
+            debug: true
+        });
+    </script>
 
 </body>
 

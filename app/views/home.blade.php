@@ -112,7 +112,7 @@
 		position: relative;
 		left: 700px;
 	}
-	.questionlistajax ul{
+/*	.questionlistajax ul{
 		border: 1px solid #e5e5e5;
 		text-align: left;
 		background-color: rgba(255,255,255,1);
@@ -144,20 +144,21 @@
 		padding: 20px;
 		padding-top: 10px;
 		padding-bottom: 5px;
-	}
-	.user_name{
+	}*/
+	.panel-title{
 		font-size: 20px;
 		font-style: bold;
 		display: block;
 		font-weight: bold;
 	}
-	.user_name:first-letter {
+	.panel-title:first-letter {
     text-transform: capitalize;
 	}
 	.question_name, .count_answers{
 		font-size: 12px;
 		margin-left: 35px;
 	}
+
 
 </style>
 
@@ -280,7 +281,7 @@ session_start();
 	      									</h2>
 											<p>
 												@if(Auth::User()->iFadmin == 1)
-													{{Form::open(array('url'=>'home','method'=> 'post'))}}
+													{{Form::open(array('url'=>'answer','method'=> 'post'))}}
 													{{Form::token()}}
 													{{Form::hidden('question_id',$question->id)}}
 													<textarea class="AnswerArea"  style="margin-left: 35px;width:800px; margin-top:5px;" 
@@ -296,7 +297,7 @@ session_start();
 								</ul>
 							@endif
 						@endforeach
-						{{ $questions->links()}}</div>
+					</div>
 
 						{{-- Tags tab --}}
 				    <div role="tabpanel" class="tab-pane" id="tags">
@@ -401,12 +402,42 @@ session_start();
                 					var question_name = data[m].b;
                 					var count_answers = data[m].c;
                 					var question_id = data[m].d;
+                					var admin_is_here = data[m].e;
                 					var view = "view";
                 					var varurl = "question/" + question_id;
+                					var report_url = "home/report/" + user_name + '/' + question_id;
+
+
                 					html += "<ul>";
-                					html += '<p class = "user_name">' + user_name +'</p>';
-                					html += '<p class = "question_name">' + question_name +'</p>';
-                					html += '<p class = "count_answers">' + '(' + count_answers  + 'Answers' +')' + ' '+ '<a href=" ' + varurl + ' ">view</a>' + '</p>';
+
+
+                					html += '<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:876px;">';
+                					html += '<div class="panel-heading">';
+                					html += '<h2 class="panel-title"style="font-size: 18px; font-family:Handlee;">';
+                					html += '<img src="http://www.gravatar.com/avatar/" height="30px" width="30px">';
+                					html += '<span>' + '  ' + user_name +'</span>';
+                					html += '</h2>';
+                					html += '</div>';
+
+                					html += '<div class="panel-body" style="padding-top: 0px; padding-bottom:0px;">';
+
+                					html += '<h2 style="margin-left: 35px; font-size:15px; font-family:Handlee">' 
+                					+ question_name 
+                					+ '<p style="float:right;">' 
+                					+ '(' + count_answers  + 'Answers' 
+                					+')' + ' '+ '<a href=" ' + varurl 
+									+ ' ">view</a>';
+
+                					if(admin_is_here == 1)
+                						html += '<a href=" '+ report_url + '"> report</a>';
+
+                					html += '</p>'
+                					+ '</h2>';
+
+                					html += '</div';
+
+                					html += '</div>';
+
                 					html += "</ul>";
 
                 					$(classification).append(html);
