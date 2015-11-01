@@ -194,6 +194,7 @@ position: absolute;z-index: -999;
 {
     width: 850px;
     margin-left: 200px;
+    z-index: 1000;
 }
 .navbar-inverse {
   background-color: #325C74;
