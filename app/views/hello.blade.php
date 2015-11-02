@@ -778,6 +778,22 @@ $('#username').blur(function(){
 		});
 	}
 });
+
+	$('#email').blur(function(){
+		var data1 = $('input[name=email]').val();
+		var email1 = document.getElementById("email");
+		if(data1!=""){
+			$.post('{{url()}}/hell',{data1:data1},function(output1){
+				if(output1=='NO'){
+					email1.setCustomValidity('This Email Already Exists, Please Choose Another Email');
+					$('#submit').click();
+					$('#email').keydown(function(){
+						email1.setCustomValidity('');
+					});
+				}
+			});
+		}
+	});
 });
 </script>
 
