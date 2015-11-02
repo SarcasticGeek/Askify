@@ -495,7 +495,25 @@ receive:
 
 	}
 	public function doLogin(){
-		
+		$credit = Input::only('username','password');
+		$validator = Validator::make($credit,array('username'=>'required','password'=>'required'));
+		        $users = DB::table('users')->get();
+		        $username = Input::get('username');
+		        $hashpassword=Hash::make(Input::get('password'));
+		        foreach ($users as $user ) {
+		        	if($user->username == $username && $user->password == $hashpassword && $user->confirmed){
+		        		return Response::json(array('success' => 1,
+				'message'=>"user is confirmed"),
+				200);
+		        	}else if($user->username == $username && $user->password == $hashpassword && !$user->confirmed){
+		        		return Response::json(array('success' => 0,
+				'message'=>"user is not confirmed"),
+				200);
+		        	}
+		        }
+		        return Response::json(array('success' => 0,
+				'message'=>"user not found"),
+				200);
 	}
 
 }
