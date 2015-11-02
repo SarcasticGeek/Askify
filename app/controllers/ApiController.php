@@ -457,35 +457,6 @@ receive:
 				array_push($data, $internaldata);	
 		}
 		
-		$tags = Tag::where('name','LIKE','%'.$keyword.'%')->get();
-				foreach ($tags as $tag ) {		
-			$questions = $tag->questions;
-			foreach ($questions as $question ) {
-				$internaldata = [];
-				$internaldata['questioner_name'] = $question->user->username;
-				$internaldata['question'] = $question->question;
-				$internaldata['solved'] = $question->solved;
-			$internaldata['private'] = $question->private;
-				$internaldata['question_date'] = $question->updated_at->diffForHumans();
-				if($question->solved == 1){
-					foreach ($question->answers as $answer) {
-						$internaldata['Answer'] = $answer->answer;
-						$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
-					}
-				}else{
-					$internaldata['Answer']  = "No Answer";
-					$internaldata['Answer_date'] = 0;
-				}
-				//tags
-				$tagsname = [];
-				foreach ($question->tags as $tag) {
-					array_push($tagsname, $tag->name);
-				}
-				$internaldata['question_tag'] = $tagsname;
-				//$internaldata['question_id'] = $question->id;
-				array_push($data, $internaldata);	
-			}
-		}
 		return Response::json(array('error' => false,
 			'question_List'=>$data),
 			200);
