@@ -3,9 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>@yield('title') 
-  @if(isset($title))
-  {{ $title }}
-  @endif
+  
   </title>
 	<!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" type="text/css"href="{{ asset('css/bootstrap.min.css')}}">

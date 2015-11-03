@@ -271,11 +271,38 @@ class QuestionsController extends BaseController{
 			->with('tags',Tag::all());
 	}
 	public function get_others_questions(){
-		return View::make('home')
+		/* if there is a ajax request */
+		if(Request::ajax())
+		{
+			return Response::json(View::make('home')
 			->with('title','Home')
-			->with('questions',Question::others_questions())->with('tags',Tag::all());
+			->with('questions',Question::others_questions())->with('tags',Tag::all())
+		    ->with('orederd_questions',Question::orderd_by_date())->with('tags',Tag::all())
+		    ->with('solved_questions',Question::solved_only())->with('tags',Tag::all())->render());
+		}
+		return View::make('home')
+
+			->with('title','Home')
+			->with('questions',Question::others_questions())->with('tags',Tag::all())
+		    ->with('orederd_questions',Question::orderd_by_date())->with('tags',Tag::all())
+		    ->with('solved_questions',Question::solved_only())->with('tags',Tag::all());
+
+
+
 	}
-	
+	public function all_questions()
+	{
+
+	}
+	public function solved_questions()
+	{
+
+	}
+	public function by_tags()
+	{
+
+	}
+
 	public function get_edit ($id = NULL) {
 		if(!$this->questionBelongsToCurrentUser($id)) {
 			return Redirect::route('your_questions')->with('message','Invalid Question');
@@ -319,20 +346,17 @@ Question::where('id', '=', $id)->update(array('question'=> Input::get('question'
 		$CCK = Input::get('CCK');
 		$postData2 = array();
 		$i = 0;
-		if(Auth::User()->iFadmin == 1)
-			$admin_is_here = 1;
-		else
-			$admin_is_here = 0;
 		foreach ($postData1 as $question ) {
 			$QT=$question->tags;
 			foreach ($QT as $tag ) {
 				if($tag->id == $CCK && $question->private == 0){
-					$postData2 [$i] = array( 'a'=>ucfirst($question->User->username), 
+					$postData2 [$i] = array( 'a'=>($question->User->username), 
 						'b'=>($question->question), 
 						'c'=>(count($question->answers)),
 						'd'=>($question->id),
-						'e'=>($admin_is_here)
+						'e'=>($question->User->email),
 						);
+
 					$i = $i+1;
 				}
 			}
