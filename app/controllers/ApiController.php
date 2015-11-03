@@ -457,35 +457,6 @@ receive:
 				array_push($data, $internaldata);	
 		}
 		
-		$tags = Tag::where('name','LIKE','%'.$keyword.'%')->get();
-				foreach ($tags as $tag ) {		
-			$questions = $tag->questions;
-			foreach ($questions as $question ) {
-				$internaldata = [];
-				$internaldata['questioner_name'] = $question->user->username;
-				$internaldata['question'] = $question->question;
-				$internaldata['solved'] = $question->solved;
-			$internaldata['private'] = $question->private;
-				$internaldata['question_date'] = $question->updated_at->diffForHumans();
-				if($question->solved == 1){
-					foreach ($question->answers as $answer) {
-						$internaldata['Answer'] = $answer->answer;
-						$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
-					}
-				}else{
-					$internaldata['Answer']  = "No Answer";
-					$internaldata['Answer_date'] = 0;
-				}
-				//tags
-				$tagsname = [];
-				foreach ($question->tags as $tag) {
-					array_push($tagsname, $tag->name);
-				}
-				$internaldata['question_tag'] = $tagsname;
-				//$internaldata['question_id'] = $question->id;
-				array_push($data, $internaldata);	
-			}
-		}
 		return Response::json(array('error' => false,
 			'question_List'=>$data),
 			200);
@@ -495,7 +466,25 @@ receive:
 
 	}
 	public function doLogin(){
-		
+		$credit = Input::only('username','password');
+		$validator = Validator::make($credit,array('username'=>'required','password'=>'required'));
+		        $users = DB::table('users')->get();
+		        $username = Input::get('username');
+		        $hashpassword=Hash::make(Input::get('password'));
+		        foreach ($users as $user ) {
+		        	if($user->username == $username && $user->password == $hashpassword && $user->confirmed){
+		        		return Response::json(array('success' => 1,
+				'message'=>"user is confirmed"),
+				200);
+		        	}else if($user->username == $username && $user->password == $hashpassword && !$user->confirmed){
+		        		return Response::json(array('success' => 0,
+				'message'=>"user is not confirmed"),
+				200);
+		        	}
+		        }
+		        return Response::json(array('success' => 0,
+				'message'=>"user not found"),
+				200);
 	}
 
 }
