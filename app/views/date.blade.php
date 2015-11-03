@@ -40,8 +40,13 @@
 											</p>
     									</div>
 									</div>
+
 								</ul>
 							@endif
 						@endforeach
 
-						  {{$orederd_questions->links()}}
+						<div class="date">
+						
+						{{$orederd_questions->links()}}
+						</div>
+

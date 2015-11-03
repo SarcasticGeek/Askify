@@ -45,3 +45,4 @@
 						@endforeach
 
 						  {{$questions->links()}}
+

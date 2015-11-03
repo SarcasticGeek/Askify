@@ -58,6 +58,8 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public static function your_questions(){
 		return static::where('user_id','=',Auth::user()->id)->orderBy('solved','ASC')->Paginate(4);
 	}
+	
+	
 	public static function others_questions(){
 		//Paginator::setPagename('all');
 		return static::where('user_id','!=',Auth::user()->id)->orderBy('solved','ASC')->paginate(4);
@@ -77,6 +79,13 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		}
 
 		/*==== End of the text ====*/
+
+	/* this is medo code for gat questions orderd by date
+		we want to get the questions orderd bt data and answerd
+
+	*/
+		
+	
 
 	///END OF CONFIGS
 
@@ -98,8 +107,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	***************************/	
 	public static function search($keyword){
-		Paginator::setPageName('page_questions');
-		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(4);
+		return static::where('question', 'LIKE', '%'.$keyword.'%')->paginate(25);
 	}
 	
     public static function searchUser($keyword){
@@ -110,8 +118,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
             $id = $user->id;
             array_push($ids,$id);
         }
-        Paginator::setPageName('page_userquestions');
-		return static::whereIn('user_id', $ids)->paginate(4);
+		return static::whereIn('user_id', $ids)->paginate(25);
 	}
 
 	public function tags()
@@ -120,9 +127,8 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	public static function searchByDate($keyword){
 		$check = str_replace('-','',$keyword);
-		Paginator::setPageName('page_date');
-		if(is_numeric($check))return static::where('updated_at', 'LIKE', $keyword.'%')->paginate(4);
-		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(4);
+		if(is_numeric($check))return static::where('updated_at', 'LIKE', $keyword.'%')->paginate(25);
+		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(25);
 		
 	}
 	public static function searchByDateBefore($keyword)
@@ -133,9 +139,8 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		else if($lenght ==7)$keywordx =$keyword.'-01 00:00:00';
 		else $keywordx = $keyword.' 00:00:00';
 		$check = str_replace('-','',$keyword);
-		Paginator::setPageName('page_before');
-		if(is_numeric($check))return static::where('updated_at','<', $keywordx)->paginate(4);
-		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(4);
+		if(is_numeric($check))return static::where('updated_at','<', $keywordx)->paginate(25);
+		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(25);
 	}
 	public static function searchByDateAfter($keyword)
 		{
@@ -145,9 +150,8 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 		else if($lenght ==7)$keywordx =$keyword.'-01 23:59:59';
 		else $keywordx = $keyword.' 23:59:59';
 		$check = str_replace('-','',$keyword);
-		Paginator::setPageName('page_after');
-		if(is_numeric($check))return static::where('updated_at','>', $keywordx)->paginate(4);
-		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(4);
+		if(is_numeric($check))return static::where('updated_at','>', $keywordx)->paginate(25);
+		else return static::where('updated_at','>','9998-01-01 00:00:00')->paginate(25);
 			
 		}
     public static function askedMoreThan($keyword)
@@ -211,8 +215,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 			return static::whereIn('user_id', $ids)->paginate(25);
 		}
 		public  static function unsolvedquestions($keyword){
-		Paginator::setPageName('page_unsolved');	
-		return static::where('solved','=',0)->where('question', 'LIKE', '%'.$keyword.'%')->orderBy('id','DESC')->paginate(4);
+		return static::where('solved','=',0)->where('question', 'LIKE', '%'.$keyword.'%')->orderBy('id','DESC')->paginate(25);
 	}
 	}
 

@@ -83,7 +83,6 @@ Route::get('/home/solved',function(){
 
 });
 
-
 Route::get('/logout',array('as'=>'logout','uses'=>'LogoutController@doLogout'));
 
 

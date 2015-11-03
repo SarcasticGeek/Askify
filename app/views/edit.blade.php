@@ -7,7 +7,12 @@ padding: 2em 3em 1em 5em;
 margin-top: 2em;
 text-align: center;
 }
-
+footer
+{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
 </style>
 
 @section('content')

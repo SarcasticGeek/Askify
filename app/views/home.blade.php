@@ -18,7 +18,7 @@ Home
 		padding-bottom: 5px;
 		height: 130px;
 	}
-	/*.questionlist ul{
+	.questionlist ul{
 		border: 1px solid #e5e5e5;
 		text-align: left;
 		background-color: rgba(255,255,255,1);
@@ -28,7 +28,7 @@ Home
 		padding: 20px;
 		padding-top: 10px;
 		padding-bottom: 5px;
-	}*/
+	}
 	.question.form-control{
 		width:40px;
 		margin: 50px;
@@ -82,10 +82,9 @@ Home
 		padding-left:32px;
 	}
 	#left .nav > li.active > a, #left .nav > li > a:hover{background-color: #286193;}
-/*	#left .Date{
-		margin-top: 150px;
-	}
-*/	#left .Tags a{
+
+	
+	#left .Tags a{
 		border-bottom:2px solid #ECF0F0;
 	}
 	#left .arrow1, #left .arrow2, #left .arrow3, #left .arrow0{
@@ -103,8 +102,8 @@ Home
 		margin-top: -160px;
 	}	
 	#left .nothing{
-		top: -128px;
-		left: 18%;
+		top: -191px;
+		left: 9%;
 		text-align: left;
 		color: #ECF0F0;
 		height:auto;
@@ -113,7 +112,7 @@ Home
 		position: relative;
 		left: 700px;
 	}
-/*	.questionlistajax ul{
+	.questionlistajax ul{
 		border: 1px solid #e5e5e5;
 		text-align: left;
 		background-color: rgba(255,255,255,1);
@@ -145,23 +144,27 @@ Home
 		padding: 20px;
 		padding-top: 10px;
 		padding-bottom: 5px;
-	}*/
-	.panel-title{
+	}
+	.user_name{
 		font-size: 20px;
 		font-style: bold;
 		display: block;
 		font-weight: bold;
 	}
-	.panel-title:first-letter {
+	.user_name:first-letter {
     text-transform: capitalize;
 	}
 	.question_name, .count_answers{
 		font-size: 12px;
 		margin-left: 35px;
 	}
+	.footer
+	{
 
+	}
 
 </style>
+
 
 @section('content')
 <?php
@@ -171,14 +174,17 @@ session_start();
 {{$reportsuccess}}
 @endif
 
-<div>
 	<div id="left" style="display:block;">
-		<ul class="nav">
-		<li role="presentation" class="active All" id="number0">
+
+
+		<ul class="nav nav-pills nav-stacked">
+		  
+
+		    <li role="presentation" class="All" id="number0">
 		    	<a href="#all" aria-controls="all" role="tab" data-toggle="tab">All</a>
 		    	<div class="arrow0"></div>
 		    </li>
-		    <li role="presentation" class=" Date" id="number1">
+		    <li role="presentation" class="Date" id="number1">
 		    	<a href="#date" aria-controls="date" role="tab" data-toggle="tab">Date</a>
 		    	<div class="arrow1"></div>
 		    </li>
@@ -190,12 +196,12 @@ session_start();
 		    	<a href="#tags" aria-controls="Tags" role="tab" data-toggle="tab">Tags</a>
 		    	<div class="arrow3"></div>
 		    </li>
-		    <li class ="nothing">	
+		    <li class ="nothing">
 				@foreach($tags as $tag)
-					<ul class="check" style="font-size: 18px">
+					<ul style="font-size: 18px">
 				    	{{Form::checkbox('tags',$tag->id,false)}}
 				   		{{Form::label($tag->name) }}
-				   	</ul>       
+				   	</ul>
 				@endforeach
 			</li>
 
@@ -216,9 +222,9 @@ session_start();
 					    		<li>
 								{{ Form::checkbox('tags[]',$tag->id,false)}}
 		    					{{Form::label($tag->name) }}
-		    				</li>       
+		    				</li>
 
-					    	@endforeach              
+					    	@endforeach
 					  	</ul>
 					</div>
 				</div>
@@ -266,37 +272,26 @@ session_start();
 					</div> 
 				    <div role="tabpanel" class="tab-pane" id="answered">
 				    	
+
 					</div>
 
-						{{-- Tags tab --}}
-				    <div role="tabpanel" class="tab-pane" id="tags">
-				    	<div class="questionlistajax">
+						{{$solved_questions->links()}}
 						</div>
-						<div class="questionlistajax1">
-						</div>
-						<div class="questionlistajax2">
-						</div>
-						<div class="questionlistajax3">
-						</div>
-						<div class="questionlistajax4">
-						</div>
-						<div class="questionlistajax5">
-						</div>
-						<div class="questionlistajax6">
-						</div>
-						<div class="questionlistajax7">
-						</div>
-						<div class="questionlistajax8">
-						</div>
-				    </div>
+					
+				   	  @include('bytags')
+
+				    
+
 		  		</div>			
 			@endif
 	 	</div>
 	</div>
-</div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script>
+
+<script>	
+
+
 						
 	    $('.arrow2').hide();
 		$('.arrow3').hide();
@@ -335,7 +330,7 @@ session_start();
 
 	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}} 
 
-        $('.check input[type="checkbox"]').click(function(){
+        $('input[type="checkbox"]').click(function(){
         	var tagid = $(this).val();
        		for (i = 1; i <= M.length; i++){
             	if($(this).prop("checked") == true){
@@ -381,52 +376,23 @@ session_start();
 
                 				for(var m =0 ; m<max ; m++){
                 					var user_name = data[m].a;
+                					var email=data[m].e;
                 					var question_name = data[m].b;
                 					var count_answers = data[m].c;
                 					var question_id = data[m].d;
-                					var admin_is_here = data[m].e;
                 					var view = "view";
                 					var varurl = "question/" + question_id;
-                					var report_url = "home/report/" + user_name + '/' + question_id;
-
-
                 					html += "<ul>";
-
-
-                					html += '<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:876px;">';
-                					html += '<div class="panel-heading">';
-                					html += '<h2 class="panel-title"style="font-size: 18px; font-family:Handlee;">';
-                					html += '<img src="http://www.gravatar.com/avatar/" height="30px" width="30px">';
-                					html += '<span>' + '  ' + user_name +'</span>';
-                					html += '</h2>';
-                					html += '</div>';
-
-                					html += '<div class="panel-body" style="padding-top: 0px; padding-bottom:0px;">';
-
-                					html += '<h2 style="margin-left: 35px; font-size:15px; font-family:Handlee">' 
-                					+ question_name 
-                					+ '<p style="float:right;">' 
-                					+ '(' + count_answers  + 'Answers' 
-                					+')' + ' '+ '<a href=" ' + varurl 
-									+ ' ">view</a>';
-
-                					if(admin_is_here == 1)
-                						html += '<a href=" '+ report_url + '"> report</a>';
-
-                					html += '</p>'
-                					+ '</h2>';
-
-                					html += '</div';
-
-                					html += '</div>';
-
+                					
+                					html += '<p class = "user_name">' + user_name +'</p>';
+                					html += '<p class = "question_name">' + question_name +'</p>';
+                					html += '<p class = "count_answers">' + '(' + count_answers  + 'Answers' +')' + ' '+ '<a href=" ' + varurl + ' ">view</a>' + '</p>';
                 					html += "</ul>";
 
                 					$(classification).append(html);
                 					html = "";
 
 	                 			}
-
                 			},
                 			error: function(){
                 				console.log('something happend');
@@ -469,6 +435,115 @@ session_start();
         		}
         	}
         });
+ /*============================pagination===================================*/
+ // $(window).on('hashchange',function(){
+	// 		page = window.location.hash.replace('#','');
+
+	// 		getAll(page);
+	// 	});
+	// 	$('#all').on('click','.all .pagination a', function(e){
+	// 		e.preventDefault();
+	// 		var page = $(this).attr('href').split('all=')[1];
+
+	// 		// getProducts(page);
+	// 		location.hash = page;
+	// 	});
+	// 	function getAll(page){
+	// 		$.ajax({
+	// 			url: '/home/all?all=' + page
+	// 		}).done(function(data){
+	// 			$('#all').html(data);
+	// 		});
+
+	// 	}
+	// 	$(window).on('hashchange',function(){
+	// 		page = window.location.hash.replace('#','');
+
+	// 		getByDate(page);
+	// 	});
+	// 	$('#date').on('click','.date .pagination a', function(e){
+	// 		e.preventDefault();
+	// 		var page = $(this).attr('href').split('date=')[1];
+
+	// 		// getProducts(page);
+	// 		location.hash = page;
+	// 	});
+	// 	function getByDate(page){
+	// 		$.ajax({
+	// 			url: '/home/date?date=' + page
+	// 		}).done(function(data){
+	// 			$('#date').html(data);
+	// 		});
+
+	// 	}
+	$(function() {
+    // 1.
+    function getPaginationSelectedPage(url) {
+        var chunks = url.split('?');
+        var baseUrl = chunks[0];
+        var querystr = chunks[1].split('&');
+        var pg = 1;
+        for (i in querystr) {
+            var qs = querystr[i].split('=');
+            if (qs[0] == 'page') {
+                pg = qs[1];
+                break;
+            }
+        }
+        return pg;
+    }
+ 
+    // 2.
+    $('#all').on('click', '.pagination a', function(e) {
+        e.preventDefault();
+        var pg = getPaginationSelectedPage($(this).attr('href'));
+ 
+        $.ajax({
+            url: '/home/all',
+            data: { page: pg },
+            success: function(data) {
+                $('#all').html(data);
+            }
+        });
+    });
+ 
+    $('#date').on('click', '.pagination a', function(e) {
+        e.preventDefault();
+        var pg = getPaginationSelectedPage($(this).attr('href'));
+ 
+        $.ajax({
+            url: '/home/date',
+            data: { page: pg },
+            success: function(data) {
+                $('#date').html(data);
+            }
+        });
+    });
+ 
+    $('#answered').on('click', '.pagination a', function(e) {
+        e.preventDefault();
+        var pg = getPaginationSelectedPage($(this).attr('href'));
+ 
+        $.ajax({
+            url: '/home/solved',
+            data: { page: pg },
+            success: function(data) {
+                $('#answered').html(data);
+            }
+        });
+    });
+ 
+    // 3.
+    $('#all').load('/home/all?page=1');
+    $('#date').load('/home/date?page=1');
+        $('#answered').load('/home/solved?page=1');
+
+});
+		
+		
+			
+		
+
 
 $(function() {
     // 1.

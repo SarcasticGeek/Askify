@@ -40,8 +40,13 @@
 											</p>
     									</div>
 									</div>
+
 								</ul>
 							@endif
 						@endforeach
 
-						  				{{$solved_questions->links()}}
+
+						{{$solved_questions->links()}}
+
+
+					
