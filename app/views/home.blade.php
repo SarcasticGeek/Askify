@@ -18,17 +18,7 @@ Home
 		padding-bottom: 5px;
 		height: 130px;
 	}
-	.questionlist ul{
-		border: 1px solid #e5e5e5;
-		text-align: left;
-		background-color: rgba(255,255,255,1);
-		margin:-13px;
-		margin-top: 10px;
-		margin-bottom: 20px;
-		padding: 20px;
-		padding-top: 10px;
-		padding-bottom: 5px;
-	}
+
 	.question.form-control{
 		width:40px;
 		margin: 50px;
@@ -43,6 +33,7 @@ Home
 		vertical-align:-2px;
 		box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
 	}
+
 	#ask{
 		margin-left: -1200px;
 		margin-top: -5px;
@@ -99,11 +90,11 @@ Home
 		position: relative;
 	}
 	#left .arrow3{
-		margin-top: -160px;
+		margin-top: -110px;
 	}	
 	#left .nothing{
-		top: -191px;
-		left: 9%;
+		top: -110px;
+		left: 18%;
 		text-align: left;
 		color: #ECF0F0;
 		height:auto;
@@ -112,56 +103,26 @@ Home
 		position: relative;
 		left: 700px;
 	}
-	.questionlistajax ul{
-		border: 1px solid #e5e5e5;
-		text-align: left;
-		background-color: rgba(255,255,255,1);
-		margin:-13px;
-		margin-top: 10px;
-		margin-bottom: 20px;
-		padding: 20px;
-		padding-top: 10px;
-		padding-bottom: 5px;
-	}
-		.questionlistajax1 ul{
-		border: 1px solid #e5e5e5;
-		text-align: left;
-		background-color: rgba(255,255,255,1);
-		margin:-13px;
-		margin-top: 10px;
-		margin-bottom: 20px;
-		padding: 20px;
-		padding-top: 10px;
-		padding-bottom: 5px;
-	}
-		.questionlistajax2 ul{
-		border: 1px solid #e5e5e5;
-		text-align: left;
-		background-color: rgba(255,255,255,1);
-		margin:-13px;
-		margin-top: 10px;
-		margin-bottom: 20px;
-		padding: 20px;
-		padding-top: 10px;
-		padding-bottom: 5px;
-	}
 	.user_name{
 		font-size: 20px;
 		font-style: bold;
 		display: block;
 		font-weight: bold;
 	}
-	.user_name:first-letter {
-    text-transform: capitalize;
-	}
 	.question_name, .count_answers{
 		font-size: 12px;
 		margin-left: 35px;
 	}
-	.footer
-	{
-
+	.panel-title{
+		font-size: 20px;
+		font-style: bold;
+		display: block;
+		font-weight: bold;
 	}
+	.panel-title:first-letter {
+    text-transform: capitalize;
+	}
+
 
 </style>
 
@@ -276,12 +237,28 @@ session_start();
 					</div>
 
 						{{$solved_questions->links()}}
+
+					<div role="tabpanel" class="tab-pane" id="tags">
+				    	<div class="questionlistajax">
 						</div>
-					
-				   	  @include('bytags')
-
-				    
-
+						<div class="questionlistajax1">
+						</div>
+						<div class="questionlistajax2">
+						</div>
+						<div class="questionlistajax3">
+						</div>
+						<div class="questionlistajax4">
+						</div>
+						<div class="questionlistajax5">
+						</div>
+						<div class="questionlistajax6">
+						</div>
+						<div class="questionlistajax7">
+						</div>
+						<div class="questionlistajax8">
+						</div>
+				    </div>
+				</div>
 		  		</div>			
 			@endif
 	 	</div>
@@ -323,19 +300,15 @@ session_start();
 		$('.arrow2').hide();
 		$('.arrow3').show();
 });
-	$('')
-	var y = {{ Tag::get()->count() }} ;
-	var x = y / 2 * 120 ;
+		var y = {{ Tag::get()->count() }} ;
+	var x = y / 2.5 * 120 ;
 	$(".Tags a").css("height", x);
-
 	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}} 
-
-        $('input[type="checkbox"]').click(function(){
+        $('.nothing input[type="checkbox"]').click(function(){
         	var tagid = $(this).val();
        		for (i = 1; i <= M.length; i++){
             	if($(this).prop("checked") == true){
             		if(tagid == i){
-
             			var CCK = $(this).val();
             			var url ="home/Tagsajax";
                 		$.ajax({
@@ -349,88 +322,83 @@ session_start();
                 				html = "";
                 				if(tagid == 1)
                 					var classification = ".questionlistajax";
-
                 				else if(tagid == 2)
                 					var classification = ".questionlistajax1";
-
                 				else if(tagid == 3)
                 					var classification = ".questionlistajax2";
-
                 				else if(tagid == 4)
                 					var classification = ".questionlistajax3";
-
                 				else if(tagid == 5)
                 					var classification = ".questionlistajax4";
-
                 				else if(tagid == 6)
                 					var classification = ".questionlistajax5";
-
                 				else if(tagid == 7)
                 					var classification = ".questionlistajax6";
-
                 				else if(tagid == 8)
                 					var classification = ".questionlistajax7";
-
                 				else if(tagid == 9)
                 					var classification = ".questionlistajax8";
-
                 				for(var m =0 ; m<max ; m++){
                 					var user_name = data[m].a;
-                					var email=data[m].e;
                 					var question_name = data[m].b;
                 					var count_answers = data[m].c;
                 					var question_id = data[m].d;
+                					var admin_is_here = data[m].e;
                 					var view = "view";
                 					var varurl = "question/" + question_id;
+                					var report_url = "home/report/" + user_name + '/' + question_id;
                 					html += "<ul>";
-                					
-                					html += '<p class = "user_name">' + user_name +'</p>';
-                					html += '<p class = "question_name">' + question_name +'</p>';
-                					html += '<p class = "count_answers">' + '(' + count_answers  + 'Answers' +')' + ' '+ '<a href=" ' + varurl + ' ">view</a>' + '</p>';
+                					html += '<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:876px;">';
+                					html += '<div class="panel-heading">';
+                					html += '<h2 class="panel-title"style="font-size: 18px; font-family:Handlee;">';
+                					html += '<img src="http://www.gravatar.com/avatar/" height="30px" width="30px">';
+                					html += '<span>' + '  ' + user_name +'</span>';
+                					html += '</h2>';
+                					html += '</div>';
+                					html += '<div class="panel-body" style="padding-top: 0px; padding-bottom:0px;">';
+                					html += '<h2 style="margin-left: 35px; font-size:15px; font-family:Handlee">' 
+                					+ question_name
+                					+ '<p style="float:right;">' 
+                					+ '(' + count_answers  + 'Answers' 
+                					+')' + ' '+ '<a href=" ' + varurl 
+									+ ' ">view</a>'+'</p><br/>';
+                					if(admin_is_here == 1)
+                						html += '<p style="float:right; margin-right:-70px;">'+'<a href=" '+ report_url + '"> report</a>';
+                					html += '</p>'
+                					+ '</h2>';
+                					html += '</div';
+                					html += '</div>';
                 					html += "</ul>";
-
                 					$(classification).append(html);
                 					html = "";
-
 	                 			}
                 			},
                 			error: function(){
                 				console.log('something happend');
                 			}
                 		});
-
-
             		}
             	}
             	else if($(this).prop("checked") == false){
             		if(tagid == i){
             			if(tagid == 1)
             				$(".questionlistajax").empty();
-
             			else if (tagid == 2)
             				$(".questionlistajax1").empty();
-
             			else if (tagid == 3)
             				$(".questionlistajax2").empty();
-
             			else if (tagid == 4)
             				$(".questionlistajax3").empty();
-
             			else if (tagid == 5)
             				$(".questionlistajax4").empty();
-
             			else if (tagid == 6)
             				$(".questionlistajax5").empty();
-
             			else if (tagid == 7)
             				$(".questionlistajax6").empty();
-
             			else if (tagid == 8)
             				$(".questionlistajax7").empty();
-
             			else if (tagid == 9)
             				$(".questionlistajax8").empty();
-
             		}		
         		}
         	}
