@@ -336,7 +336,7 @@ receive:
 			200);
 	}
 	public function notificationsToUser($userid=NULL){
-		$notifications = DB::table('notifications_user')->where('user_id','=',$userid)->where('is_read','=',0)->get();
+		$notifications = Usernotification::where('user_id','=',$userid)->where('is_read','=',0)->get();
 		$data = [];
 		foreach ($notifications as $notification ) {
 			$question = $notification->question;
