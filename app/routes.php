@@ -130,7 +130,7 @@ Route::get('/api/search/question/{keyword?}','ApiController@searchQuestion');
 Route::get('/api/search/answer/{keyword?}','ApiController@searchAnswer');
 Route::get('/api/search/tag/{keyword?}','ApiController@searchTag');
 Route::get('/api/search/unsolved/{keyword?}','ApiController@searchUnsolved');
-Route::get('/api/notificationsToUser','ApiController@notificationsToUser');
+Route::get('/api/notificationsToUser/{userid?}','ApiController@notificationsToUser');
 Route::post('/api/user/login','ApiController@doLogin');
 Route::post('/api/user/signup','ApiController@doSignUp');
 Route::get('/api/search/all/{keyword?}','ApiController@searchAll');
