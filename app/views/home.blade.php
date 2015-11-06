@@ -197,7 +197,7 @@ session_start();
 				</div>
 				<div id="IMG">
 			    	<div class="dropdown">
-			  			
+			  			<button class="btn btn-infoo dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top:39px;margin-right:250px;border-radius:0;">Upload Image!</button>
 			  			<p class="dropdown-menu dropdown-menu-right" style="margin-right:100px;margin-top:-65px;background-color:rgba(0,0,0,0.6);	color:white;		
 						height: 50px;
 						padding: 20px;
