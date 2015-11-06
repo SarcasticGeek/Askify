@@ -145,6 +145,8 @@ session_start();
   										<span>
 	  										<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 	  											{{ HTML::linkRoute('question','View',$question->id) }}
+	  											 {{ HTML::linkRoute('edit_question','Edit',$question->id)}}
+					  							{{ HTML::linkRoute('delete_question','Delete',$question->id)}}
 	  										</p><br/>
   											<p style="float:right; margin-right: -70px;">
 											@if(Auth::User()->iFadmin == 1)
@@ -172,6 +174,8 @@ session_start();
   										<span>
 	  										<p style="float:right;"> ({{ count($question->answers) }} {{str_plural('Answer',count($question->answers))}})
 	  											{{ HTML::linkRoute('question','View',$question->id) }}
+	  											{{ HTML::linkRoute('edit_question','Edit',$question->id)}}
+					  							{{ HTML::linkRoute('delete_question','Delete',$question->id)}}
 	  										</p><br/>
   											<p style="float:right; margin-right: -70px;">
 											@if(Auth::User()->iFadmin == 1)
