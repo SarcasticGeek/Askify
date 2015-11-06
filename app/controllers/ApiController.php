@@ -129,25 +129,26 @@ receive:
 		return false;
 	}
 	public function editQuestion(){
-		$id = Input::get('question_id');
-		$userid = Input::get('user_id');
+
+		$id = Request::header('question_id');
+		$userid = Request::header('user_id');  
 		if(!$this->questionBelongsToCurrentUser($id,$userid)) {
 			return Response::json(array('error' => true,
 				'message'=>'Not your Question to Edit'),
 				200);
 		}
-		$validation = Question::validate(Input::all());//array(Input::get('question'),Input::get('solved')));
-		if ($validation->passes()) {
-		Question::where('id', '=', $id)->update(array('question'=> Input::get('question'),'solved'=>Input::get('solved'),'private'=>Input::get('private')));
+		// $validation = Question::validate(Request::get('question'));//array(Input::get('question'),Input::get('solved')));
+		// if ($validation->passes()) {
+		Question::where('id', '=', $id)->update(array('question'=>  Request::header('question')  ,'solved'=>Request::header('solved')  ,'private'=>Request::header('private')  ));
 			 return Response::json(array('error' => false,
 				'message'=>'Your Question Has Been Successfully updated'),
 				200);
-		    }  
-		else {
-			 return Response::json(array('error' => true,
-				'message'=>'Errors on validations'),
-				200);
-		    }
+		//    }  
+		// else {
+		// 	 return Response::json(array('error' => true,
+		// 		'message'=>'Errors on validations'),
+		// 		200);
+		//    }
 	}
 	public function deleteQuestion(){
 		$question_id = Input::get('question_id');
