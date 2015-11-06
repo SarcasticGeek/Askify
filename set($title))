@@ -1,0 +1,2919 @@
+[33mcommit adc8e2b4898dd1d73fb86fbdd0d73c2ff1043cc5[m
+Merge: 6a5df84 bb76958
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Tue Nov 3 22:33:16 2015 +0200
+
+    BUGSSSSSSSSSSSSSSSSSS
+
+[33mcommit 6a5df84627b670343b7f3b5d36f2b7dbf947d1e9[m
+Author: AhmedMedo <ahmed.alaa.eldin.hamdy@gmail.com>
+Date:   Tue Nov 3 21:46:03 2015 +0200
+
+    View final
+
+[33mcommit bb769589df648a3ba4c1685700aa969042d27f84[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Nov 2 19:45:21 2015 +0200
+
+    Fix Bugs After Merge Medo
+
+[33mcommit da6b4a527d8a9b547934a9ed29f5ef424547e53e[m
+Merge: 23ced8b 5cc2f6a
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Nov 2 19:37:28 2015 +0200
+
+    Merge Master With Medo
+
+[33mcommit 23ced8bb00447e4ab22fc23bd0e687e7a6c493d8[m
+Merge: b0af680 337535b
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Nov 2 04:16:42 2015 +0200
+
+    Merge branch 'master' of https://github.com/SarcasticGeek/Askify
+
+[33mcommit 337535bdcbf5ee719f757e0897bb722f856a83d9[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Nov 1 19:06:28 2015 +0200
+
+    Search view working in chrome and IE
+
+[33mcommit 5cc2f6a68b63e2bf59544810982853de6500900b[m
+Author: AhmedMedo <ahmed.alaa.eldin.hamdy@gmail.com>
+Date:   Sun Nov 1 18:52:21 2015 +0200
+
+    new updates
+
+[33mcommit e0f023edcbfc6cac39afe7957aab713772095106[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 18:12:01 2015 +0200
+
+    Fix Bugs
+
+[33mcommit 0c0f5d2eb2c36dfabe4a0797cebb0a7f42a09a02[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 18:11:37 2015 +0200
+
+    Fix Bugs In Register
+
+[33mcommit b0af6805b24b1e449c739865cc4b51648ac5f2e8[m
+Merge: 807166f ba24e41
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Nov 1 17:40:37 2015 +0200
+
+    Merge branch 'mobileapi'
+
+[33mcommit ba24e4108c856ef3af52975060252b58a8b2a680[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Nov 1 17:29:03 2015 +0200
+
+    add api for hussien 2
+
+[33mcommit 807166f6d5b5b5dc3c345c21a5949c9e52e8c357[m
+Merge: 96e8142 635c464
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 17:25:48 2015 +0200
+
+    Merge branch 'WelcomePage'
+
+[33mcommit 96e814245aa896bf86c2606d30c70f6fff5a8515[m
+Merge: 448fe10 cfd41a3
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 17:23:54 2015 +0200
+
+    Merge branch 'master' of github.com:SarcasticGeek/Askify
+
+[33mcommit 635c4642be2b1b8258ef5f63971f1c531c76d504[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 17:23:31 2015 +0200
+
+    Completely Finish WelcomePage
+
+[33mcommit cfd41a3f8d8dee13f7953f6449a2dab4cf74add0[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Nov 1 17:01:25 2015 +0200
+
+    makes url is for all
+
+[33mcommit 8cf51815db514b6f75d06662d2d461b5b1287a2f[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 16:35:47 2015 +0200
+
+    Add Footer
+
+[33mcommit f467944acd0dcb33d0867cf8e0817f8f90b11b18[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 16:24:06 2015 +0200
+
+    Contact Us Backend
+
+[33mcommit e5b44bacd2c8531eab6f9da8357fff8eb5b79858[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 15:00:02 2015 +0200
+
+    Finish Panel 4
+
+[33mcommit bdd06668183f5c651991b8324c3894c899e2728f[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 14:13:10 2015 +0200
+
+    Add Form Contact Us
+
+[33mcommit 448fe10bfe265dab71a89eb32eb8317b5cdf8a93[m
+Merge: 40a4b15 89507bf
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Nov 1 12:31:27 2015 +0200
+
+    Update master
+
+[33mcommit 89507bffacc4eec435eb4f4d616ac9812bb08e1e[m
+Merge: e2abaac 1e762ad
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Nov 1 11:41:00 2015 +0200
+
+    Merge branch 'master' of https://github.com/SarcasticGeek/Askify into adsearch
+
+[33mcommit e2abaac18c6d9bb35066c08b228bf1bc87e63165[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Nov 1 10:59:03 2015 +0200
+
+    Z index fixed of auto suggest
+
+[33mcommit 1e762ad4f71860c3c923456a1eefad0d4a6384b9[m
+Merge: c5c1d24 f330bef
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Nov 1 03:50:11 2015 +0200
+
+    Merge branch 'answerintags'
+
+[33mcommit c5c1d24dc14b934b9d76de740c69207536ea3bdc[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Nov 1 03:49:56 2015 +0200
+
+    merging with your questions view
+
+[33mcommit f330bef6090ebc143c7e80d08c7736811d3ea9f8[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Nov 1 03:49:13 2015 +0200
+
+    s
+
+[33mcommit 5fd36d6f12529273fc4448a3b0330a61bf158b5d[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Nov 1 03:46:54 2015 +0200
+
+    your question view front end
+
+[33mcommit f59b2937b63c3716b403a87f97f92e8afcb1760b[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Nov 1 02:01:20 2015 +0200
+
+    delete pagination
+
+[33mcommit 7790fec18cbfd0942f80041393b7e1bd0258afa4[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 06:26:39 2015 +0800
+
+    added the search bar into home view
+
+[33mcommit 79df6aaea5ae61cc19b7383eaaf2ba3af597b0e5[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 05:05:24 2015 +0800
+
+    re added the result view stuff
+
+[33mcommit 2114442255076035b06e0c1230a12c0d983b4b05[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 31 23:00:37 2015 +0200
+
+    add api for ziad
+
+[33mcommit 22b224726e14d4a5279a793fdf6121802aacbc81[m
+Merge: 53f2071 279cfd8
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 04:54:49 2015 +0800
+
+    conflict stuff
+
+[33mcommit 53f2071bc8802a05827af645dc9bad4f2c33fb39[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 04:46:28 2015 +0800
+
+    new stuff
+
+[33mcommit 07ccb6593ac26a0787dfa71183139965fc73c230[m
+Merge: f2b2b90 8039bae
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 04:30:06 2015 +0800
+
+    fixed a conflict within result view
+    
+    Conflicts:
+    	app/views/results.blade.php
+
+[33mcommit 1e19dbb898e23e8268ab7d82af11f92dcdef230b[m
+Author: AhmedMedo <ahmed.alaa.eldin.hamdy@gmail.com>
+Date:   Sat Oct 31 19:44:57 2015 +0200
+
+    new updates
+
+[33mcommit f2b2b9050f6ca09a7f6f9f0fc742a4bc89931b74[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 01:09:43 2015 +0800
+
+    adding the typeahead script to control the typeahead field
+
+[33mcommit b8a7be0b68c51ef9a100988f5f13306c611a0f9a[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 01:08:51 2015 +0800
+
+    adding search bar and loading animation
+
+[33mcommit f46ced5fa029f9efcc5350a51ef1197f12e992dc[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 01:07:11 2015 +0800
+
+    adding more js
+
+[33mcommit d587409d434ade1a56fef0f474de6703f5b646bd[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 01:06:43 2015 +0800
+
+    adding the js and css in the results view
+
+[33mcommit ea9ab75307756f6c15ea263fefb29ea446938146[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 01:04:44 2015 +0800
+
+    adding the ajax function in the question controller
+
+[33mcommit b9f883f25d0c72b7ece8a6070d71debcaab09e42[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 01:03:32 2015 +0800
+
+    adding a post route for typeahed
+
+[33mcommit e984de17f8d227f8c516492307080ab1b839be1f[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Nov 1 01:01:20 2015 +0800
+
+    adding typeahead css and js
+
+[33mcommit 9dfe3f06b16c31d4f2834e9bb9bd4d534576d6f9[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 30 22:31:52 2015 +0200
+
+    Fix Some Bugs
+
+[33mcommit 071447c0bfb05866ba6cceba01940fe08018a9a4[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 30 21:23:05 2015 +0200
+
+    Finish Panel 3
+
+[33mcommit d9ab5af282861049a1fdb39fe2a28480ae0bb826[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 30 20:47:34 2015 +0200
+
+    answer in tags with token error
+
+[33mcommit 87937b62dc64d5ab7f331099fdbd9cc04784caaf[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 30 16:05:37 2015 +0200
+
+    start adding answer feature in tags tab
+
+[33mcommit 279cfd82ad53d054de9d7da89a160e85bb9773fa[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 30 15:41:44 2015 +0200
+
+    same view of other tabs
+
+[33mcommit 0faaf7f6fb7da6c08b21a3d2a2145cf133da44eb[m
+Merge: c9203a4 5158e42
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 30 13:32:58 2015 +0200
+
+    start finalize tags tab
+
+[33mcommit c9203a4005d9f2c941f2bd8467b0018a3aaa6aad[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 30 13:32:08 2015 +0200
+
+    pull master
+
+[33mcommit 5158e426b366aae30f4ee145c52c25c72ec7d143[m
+Merge: 62677f1 f5ebf85
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 30 01:37:17 2015 +0200
+
+    Merge branch 'mobileapi'
+
+[33mcommit f5ebf85f02a7b47221aa138dd003359226c4ebd8[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 30 01:11:39 2015 +0200
+
+    add private and solved to json
+
+[33mcommit 62677f15019ded12acb8def0a6327dc5c67aead3[m
+Merge: eef2bff 86632c2
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 30 01:01:30 2015 +0200
+
+    Merge branch 'mobileapi'
+
+[33mcommit 86632c2264f173c970d6fd06f8b2daa33f6fbcb4[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 30 00:58:31 2015 +0200
+
+    fix typo
+
+[33mcommit eef2bfff2f8cd1405b6487c592b3cad2372b895b[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Thu Oct 29 23:41:10 2015 +0200
+
+    change url in home.balde
+
+[33mcommit d60c63577ed3715f4c4e00eb8b66ce8a0dbce7b2[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Thu Oct 29 22:18:48 2015 +0200
+
+    fixes bugs on routes [rana-work]
+
+[33mcommit ce0ae3d70a4b04ac3e77fdabc33c80155e1e56b3[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Thu Oct 29 21:43:35 2015 +0200
+
+    fix bug in routes [khaled-work]
+
+[33mcommit b73bed70e290cc18702381393c9d2dd63a5d2805[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 29 13:52:00 2015 +0200
+
+    Add Touch To Welcome Page
+
+[33mcommit 552a84321f9e7ae344f5bc58bb2521c4926152b6[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Thu Oct 29 00:40:57 2015 +0200
+
+    merge
+
+[33mcommit f11af807a777ebb07d6b4404bf93dea2a7b7b8a2[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Thu Oct 29 00:06:39 2015 +0200
+
+    done
+
+[33mcommit 08c417f6904f001b83aeb585b81e949dff8ab0b5[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 28 19:52:47 2015 +0200
+
+    Finish nav bar
+
+[33mcommit 40a4b157ab8279034b7c19829513ea0615c1fd0d[m
+Merge: ab749db 80baa51
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 28 16:48:02 2015 +0200
+
+    Merge branch 'master' of github.com:SarcasticGeek/Askify
+
+[33mcommit ab749db8aef3b9bcdbe8a548f29287c56f57ef23[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 28 16:47:46 2015 +0200
+
+    Add Banner Image
+
+[33mcommit 733c7ee885813a8e896d5305017f7638658e7b66[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 28 02:48:44 2015 +0200
+
+    frontend
+
+[33mcommit fa305b281d0a1d89d330fc526672b8a63dc64ea7[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 28 01:26:14 2015 +0200
+
+    tags view
+
+[33mcommit 80baa51d3d542d23e270a63a70e38723a3ce9430[m
+Merge: 121e8a1 5113223
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 27 22:53:07 2015 +0200
+
+    Merge branch 'mobileapi'
+
+[33mcommit 5113223e1b8d92715d6ed09225f9ddeecc32b907[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 27 22:49:01 2015 +0200
+
+    add the params as hussin wants
+
+[33mcommit 05fb51bec9f7e4f7fdba19646078a7cc0076b1c5[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 26 00:07:27 2015 +0200
+
+    add to api notfi
+
+[33mcommit ae4214219a759cb9c5e265b56223e5b99aeafa79[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 23:07:38 2015 +0200
+
+    add api for hussin
+
+[33mcommit 121e8a17c40abb6af2d1420210cb8fb92a5bb38d[m
+Merge: a073e7c 14d1516
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 25 21:10:50 2015 +0200
+
+    Merge branch 'User_Notification'
+
+[33mcommit 14d15167e4ef5a352bc6d13bc2b95c0e2621dbc3[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 25 21:09:43 2015 +0200
+
+    Finish User Notification
+
+[33mcommit a073e7c930c9a7e59d246c4e8d529edff2f691ab[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Oct 25 17:40:26 2015 +0200
+
+    Css of navbar of search view
+
+[33mcommit 8039bae02836e9460dcc7e8992ae95f26d465c54[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Oct 25 17:30:49 2015 +0200
+
+    Css of search view
+
+[33mcommit 999d6eb9f2b13d896baaadf444c6b9a4b46966fc[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 16:29:48 2015 +0200
+
+    add baseurl to to ajax 2
+
+[33mcommit 0d257b47c09c92584ba8629a261383612ebe1e17[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 16:19:47 2015 +0200
+
+    add base url to ajax
+
+[33mcommit 48acd4f777c337a04eb8a4543f93ac367bcf5903[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 25 15:47:17 2015 +0200
+
+    Fix Bug
+
+[33mcommit 5f6ce613630c5a32eacd94a84831081eabb0f797[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 25 15:38:02 2015 +0200
+
+    Bug in notification, cannot find table
+
+[33mcommit f6bd44819fd77d26d54e57c5b8a15be8f7aa9d1d[m
+Merge: 811f13a eb016ed
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 14:44:50 2015 +0200
+
+    Merge branch 'adsearch'
+
+[33mcommit 7fb52a38d7ebc3de377ddd6e41c26ecbdfaf6e13[m
+Merge: 215da4a eb016ed
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 14:33:55 2015 +0200
+
+    Merge branch 'adsearch' of https://github.com/SarcasticGeek/Askify into adsearch
+
+[33mcommit eb016ed32f1b9d51da50c8cd5ef1b6736c80e652[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 25 20:32:01 2015 +0800
+
+    pagination fixs
+
+[33mcommit 811f13abc7e045c5d2e80f54c86a05d1259dc461[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 02:08:00 2015 +0200
+
+    add api routes
+
+[33mcommit d633127c435481faf42351c2acb3237575ece349[m
+Merge: 8b239f4 34fd03d
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 02:06:50 2015 +0200
+
+    Merge branch 'master' of https://github.com/SarcasticGeek/Askify into mobileapi
+
+[33mcommit 8b239f496161eb3740876ba16d83ec2774be096b[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 02:05:15 2015 +0200
+
+    add routes.php from master
+
+[33mcommit 94080f224dca799a9e5231a51109e2fa1fb1eac4[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 02:01:51 2015 +0200
+
+    fixes conflicts 3
+
+[33mcommit dbe68cedf88faeff2c25542c6a43b6230c1b38c5[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 01:59:57 2015 +0200
+
+    fix conflicts 2
+
+[33mcommit 84c5b66262d642b7f39f72ac1de03adcf89d77f4[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 01:55:33 2015 +0200
+
+    fix conflicts with master
+
+[33mcommit 34fd03de835bde1822078514ee138e27aa28c9ea[m
+Merge: 76a5ef8 4a4f2a2
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 25 01:29:08 2015 +0200
+
+    Merge branch 'welcome_responsive'
+
+[33mcommit 76a5ef8acef09c88073f5caa2d4663110aef72af[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 25 01:28:36 2015 +0200
+
+    adding responsive hello page to master
+
+[33mcommit 4a4f2a277095ea936fb53a8d304bbec090b6f9ab[m
+Merge: 60485f6 06d0ee3
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 25 01:27:25 2015 +0200
+
+    Merge branch 'master' of github.com:SarcasticGeek/Askify into welcome_responsive
+
+[33mcommit 4179d183a48e66e607b899d1864160aaf76422ae[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 01:25:42 2015 +0200
+
+    fixes
+
+[33mcommit 60485f66de7466a1326b012dbc478baf1c535d66[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 25 01:25:22 2015 +0200
+
+    fixing steps width
+
+[33mcommit 795d68bd844de551849cc5c7c6270445e37e776d[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 25 01:09:29 2015 +0200
+
+    responsive hello page
+
+[33mcommit 06d0ee3eb955d2a540943f8a3eec9e6c6d84ec18[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 01:02:13 2015 +0200
+
+    make the updated date really nice
+
+[33mcommit 8e2a74407b7651eb13fcaa4c6127b37455a60328[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 25 00:47:08 2015 +0200
+
+    add inputs on get for api
+
+[33mcommit 2a20db260936ec0392c351bf78d13e49af7e38bd[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 24 23:03:02 2015 +0200
+
+    add create edit delete for question api
+
+[33mcommit ace5dcffc9dca8a5ecdfa822cb928d2964856b06[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 24 21:36:31 2015 +0200
+
+    add api for mobile
+
+[33mcommit cde40cf7faeab603b80f376e74f9379971f475c4[m
+Merge: 305349e 0e99376
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 24 20:20:48 2015 +0200
+
+    pulling master
+
+[33mcommit 305349e9933d2327d996c71c54f1d3c2330f314a[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 24 20:15:36 2015 +0200
+
+    checkbox6
+
+[33mcommit 0e993760061e82daa6ea40c9be5057354993021b[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 24 19:30:16 2015 +0200
+
+    Add new table : notifaction user
+    
+    Conflicts:
+    	app/database/production.sqlite
+
+[33mcommit fbbf10c4c0c8b01afc755d9316a2870e21eb3a94[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 24 18:31:45 2015 +0200
+
+    checkbox5
+
+[33mcommit fc5fbed4fcca8e2661bbfa605802c793f9d5e6d2[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 24 17:05:57 2015 +0200
+
+    chechbox4
+
+[33mcommit 6d73a4e501b0285abc4e4f5fe4ebeb9f5901faa6[m
+Merge: 46164c8 1669aa6
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 24 15:27:16 2015 +0200
+
+    pulling master
+
+[33mcommit 46164c801421aaee30f0a61eda805fb15cddeeec[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 24 15:26:03 2015 +0200
+
+    checkbox3
+
+[33mcommit 1669aa60a3346b6e26fd4b74c7f3388839154275[m
+Merge: 215da4a d29c15e
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sat Oct 24 13:27:33 2015 +0200
+
+    Merge Master With Interactive-Signup Branch
+
+[33mcommit 18f0452d537ef85533cd52aaecf3a6b32b07ea66[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 24 03:15:59 2015 +0200
+
+    checkbox2
+
+[33mcommit 63701b10ef77001ae356642e026c3cca75fc6805[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 24 00:39:51 2015 +0200
+
+    checkbox1
+
+[33mcommit 215da4a33798316a3f5903e54a6f469c83a0bf1a[m
+Merge: 8e74111 119eb78
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 23 21:09:20 2015 +0200
+
+    Merge branch 'master' of https://github.com/SarcasticGeek/Askify into adsearch
+
+[33mcommit 8e74111fac7ce3e99c32fe2abeee3e7687f8f7b8[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 23 21:07:38 2015 +0200
+
+    add db manually
+
+[33mcommit c39a4463a8fcdb46ecace102bd1dbd56794b8bf2[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 23 21:03:00 2015 +0200
+
+    rm db from adsearch
+
+[33mcommit 119eb784d01f753a3e809d6c98fd8d9f8446decd[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 23 19:06:46 2015 +0200
+
+    bug fixes in edit.balde
+
+[33mcommit 26c869ad061b971fef9498acde42c74c83bebd8b[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 23 18:56:03 2015 +0200
+
+    add ex code
+
+[33mcommit dc12b7abec5de6c909cfb80a4ce4f0bc66aadd80[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 23 23:24:28 2015 +0800
+
+    fix date issues and solved issue
+
+[33mcommit 4938977e5fa59c02c53947624e0de43a037fd987[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 23 17:20:32 2015 +0200
+
+    fixing tags name bug
+
+[33mcommit fb3d5ee10a6746c11bbb3a4689054bec46e5fa7b[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 23 17:19:51 2015 +0200
+
+    unique checks for checkboxes
+
+[33mcommit cbaa89428fb7146312b5ecc641183c54bffa0e9e[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Fri Oct 23 16:13:47 2015 +0200
+
+    Another fixes in Search view
+
+[33mcommit cf1d8a49afd0e323fb278663f1a4ded4ca80ba1b[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Fri Oct 23 15:22:33 2015 +0200
+
+    Some fixes
+
+[33mcommit 1a8c77ec5e67d21afe4166276106a32f43bd44dc[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 23 14:52:37 2015 +0200
+
+    fixes conflicts on main.blad
+
+[33mcommit 71b61c5b85a2d4a15186ebdf1427c5a45844a469[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 23 14:23:53 2015 +0200
+
+    record+
+
+[33mcommit a541b74082a0bf6a3a12f58c88650db5c92ef0fb[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 23 14:20:54 2015 +0200
+
+    add database
+
+[33mcommit 0c25097068de11f9e43bc0a7cb81e5e1e42593ee[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 23 14:03:33 2015 +0200
+
+    deleting database
+
+[33mcommit 93cd6611652ce997c1a7cd8e1d6766b2530fb5ed[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 23 13:58:34 2015 +0200
+
+    before merging
+
+[33mcommit d29c15e8e4383633ab065adf5070d144410b7c36[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 23 03:16:33 2015 +0200
+
+    Fix Banned Users Bug
+
+[33mcommit a6b59fa646cb0cb9638d90ae64da0f73f9857d68[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 23 03:07:19 2015 +0200
+
+    Redirect To Home Page Using JQuery
+
+[33mcommit ead8483de4641c9d474be60e9c698b4701a50027[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 23 02:12:03 2015 +0200
+
+    to push
+
+[33mcommit 40e06e76be08f9edd0009ec4cae19df77c7e3263[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 22 23:22:37 2015 +0200
+
+    Fix Bugs in JQuery
+
+[33mcommit 75ce49ab29499beaab933dbb00ecf8309fe2dbda[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 22 22:23:24 2015 +0200
+
+    Login Auto Check For Authentication Using Ajax
+
+[33mcommit 7b1eeab78ace5328a9a3207c788019bb9b649743[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 22 20:10:10 2015 +0200
+
+    Check If User Activated Using Ajax
+
+[33mcommit fc5ffe815e2467a418675609af29e7e135f8a097[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Thu Oct 22 01:33:25 2015 +0200
+
+    tags html id
+
+[33mcommit 86ff6d8953b9378d5114c10bb2defd822d6c8f8b[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 21 23:40:26 2015 +0200
+
+    Finish Login Modal
+
+[33mcommit d805411916386d7fe4b390442382532db6b2967c[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Wed Oct 21 23:14:29 2015 +0200
+
+    tags tab for all
+
+[33mcommit 9161d5170df127f0f38847397a96e7597b7e7ae5[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Wed Oct 21 22:54:56 2015 +0200
+
+    Another fixes in search view
+
+[33mcommit 00aff1e40490fde975a77aa8c5e3368b91d1ffc3[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Wed Oct 21 22:23:39 2015 +0200
+
+    search view fixs
+
+[33mcommit d4f78bedff68566ac7cddb5189cbceef0b2755f7[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Thu Oct 22 04:04:34 2015 +0800
+
+    fixes to navbar 2
+
+[33mcommit a275bc14f1eb8ea99b13c38b570f2f87f7947bc8[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Thu Oct 22 03:57:51 2015 +0800
+
+    Revert "fixs?"
+    
+    This reverts commit d7bffdeb2e51acb0df63164ae33c2ca6070a38d8.
+
+[33mcommit d7bffdeb2e51acb0df63164ae33c2ca6070a38d8[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Thu Oct 22 03:48:57 2015 +0800
+
+    fixs?
+
+[33mcommit dd9393ac01b871c184c885d81afba06ef33e9ca2[m
+Merge: ad5b04b fd4eae7
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Wed Oct 21 20:58:01 2015 +0200
+
+    PullMaster
+
+[33mcommit 0644580797d2c33a176c4662f7f9c23cfc4ace07[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Wed Oct 21 20:52:14 2015 +0200
+
+    Search view version 1
+
+[33mcommit 8928b67fc7bb20d585b3116f5995349c69c57e95[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 21 20:46:00 2015 +0200
+
+    Solve Ajax Bug
+
+[33mcommit 4c358007d582819996b6b3aa18da54c542c113df[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 21 20:15:47 2015 +0200
+
+    Ajax Done But Small Little Bustard Bug
+
+[33mcommit d95c7c35abd3117eab37df1763519ffa07ec6bfc[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 21 18:25:07 2015 +0200
+
+    Ajax Trying
+
+[33mcommit fd4eae704cc64f99d41389bd217f4415cc91f08a[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 21 18:22:51 2015 +0200
+
+    questions_view merge
+
+[33mcommit ce38a5ea4cc827a58276d19a1a988df3e3de3481[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 21 17:44:55 2015 +0200
+
+    master
+
+[33mcommit 9f94af8bc2f172dafe98f297ca99b8528dd66286[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 21 17:41:57 2015 +0200
+
+    .
+
+[33mcommit 96ca5dbfae0c2148da885d4cfaebb0d9c8308a63[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Wed Oct 21 23:41:06 2015 +0800
+
+    new search view
+
+[33mcommit a53016b7722aec8b62bb858b099af0b47e6213a2[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 21 17:35:35 2015 +0200
+
+    Add icons next to inputs
+
+[33mcommit 04f3341ff6d47e643a85ead29bf62631d17e4704[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 21 17:33:37 2015 +0200
+
+    ask sends no msg if empty question
+
+[33mcommit b58c198787a3594481233a8725a35ee1b618af00[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 21 16:02:40 2015 +0200
+
+    Sign in using facebook and google plus
+
+[33mcommit cf0827252693db6d6a3c0d06f54344caf86dd9d6[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 21 13:15:15 2015 +0200
+
+    Validate Form Using HTML5 Validator
+
+[33mcommit 46956c423518ede8475ef6f86fce2ac2df92532c[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 21 02:38:55 2015 +0200
+
+    .
+
+[33mcommit 8cd34fcfef39b4e682134fc377f38f185802272f[m
+Merge: 030ab0a 5360361
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 21 02:30:52 2015 +0200
+
+    Merge branch 'master' of github.com:SarcasticGeek/Askify into questions_view
+
+[33mcommit 030ab0a21ea750327d8292250ea7622138c399a9[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 21 02:30:21 2015 +0200
+
+    please ask a question
+
+[33mcommit ad5b04bec54f7b5c6423012f04255efdc4220a6a[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Wed Oct 21 01:45:47 2015 +0200
+
+    3
+
+[33mcommit 5110d3a9e56f8c608f4a8b86875eebac5fed0326[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 21 01:42:00 2015 +0200
+
+    tabs
+
+[33mcommit 5b2263ff5256dd77a7484852f78cb2d4eb639499[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Wed Oct 21 01:29:05 2015 +0200
+
+    animation_enhancement2
+
+[33mcommit a09fa55f7e76c2e15c3ed659b6494a18732fb026[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 21 01:06:40 2015 +0200
+
+    Do Register in Modal
+
+[33mcommit 8e9afc1e5982580693477337ad265abb17edc4ce[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Wed Oct 21 00:29:04 2015 +0200
+
+    animation_enhancement
+
+[33mcommit 542341b730a54917d4642fe0135ae9d2277f635c[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 21 00:09:47 2015 +0200
+
+    Add Sign-Up Form to Modal
+
+[33mcommit bb1e3974f698cbcea729b98cabd529d3d883bcf6[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Tue Oct 20 22:34:25 2015 +0200
+
+    Fix CSS Issues In Modal Dialog
+
+[33mcommit ba228bee37061f7306d5c6bbde259e55b89cf89b[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Tue Oct 20 01:30:00 2015 +0200
+
+    Done?
+
+[33mcommit 115146fb345d1562e5f66d23097ff7ba84a2d04b[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 20 01:05:58 2015 +0200
+
+    add db from master
+
+[33mcommit d499a2b0281772e003a80cd6820736eb5381166d[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 20 00:57:17 2015 +0200
+
+    rm sqlite db from #adsearch
+
+[33mcommit 53603610226596b260326bd5757dac2a3028abbd[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 20 00:54:10 2015 +0200
+
+    fuckin space makes a conflict :cry:
+
+[33mcommit 8f42294222811451f0d1d0471e1b837b8a4a6030[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 20 00:47:59 2015 +0200
+
+    soln for a conflict with master
+
+[33mcommit 46cbb5b1ec1e93a1312eeb3f9dac2504d52c2821[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 20 00:45:54 2015 +0200
+
+    soln for a conflict with adsearch
+
+[33mcommit f06e651dfcf74745dfce4c00bd4216735f915102[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 20 00:41:49 2015 +0200
+
+    conflicts soln
+
+[33mcommit 2ac9f57898a4f81b54f6848ae976bc5e3413f139[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 19 22:37:48 2015 +0200
+
+    minor changes in url routing #search
+
+[33mcommit a761ee868b4c867bbfe6ed74eac9f6063d3a4bc7[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Mon Oct 19 15:29:33 2015 +0200
+
+    front end search
+
+[33mcommit 0b183768dac96ae936298f36ed02183a834090e1[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Mon Oct 19 15:26:48 2015 +0200
+
+    Front end of advanced search finished
+
+[33mcommit e8e391ac9600d1cb910ea8813fbf5f5b5544fcb9[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Mon Oct 19 02:47:29 2015 +0200
+
+    Tags
+
+[33mcommit f2d94507fb3333b71cb3b816f9d5f79640fc48f9[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Mon Oct 19 02:11:23 2015 +0200
+
+    arrow
+
+[33mcommit 4ab7395a0cc4e0ef3c9c59e77178ba91905d3472[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Mon Oct 19 01:03:21 2015 +0200
+
+    to another branch
+
+[33mcommit 3210e458ab21a71d10df2c2893f3f24113b791d7[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 18 02:02:29 2015 +0200
+
+    tag_sort2
+
+[33mcommit 976ef7b877b2a3a7e60d842660739f87e7b578a4[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 18 01:46:31 2015 +0200
+
+    tag_sort1
+
+[33mcommit 981d4c441f187f19a9cc26b85e6bb7ea0ee7458f[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Oct 18 01:22:31 2015 +0200
+
+    checkbox :/
+
+[33mcommit dca12973c4d25d7fc6d6dfffe32ea46f0996b83f[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 17 21:52:43 2015 +0200
+
+    questiontag
+
+[33mcommit 3c56e23c4af9919febddd039bf7587e683272a17[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sat Oct 17 18:18:29 2015 +0200
+
+    panel2 modifications
+
+[33mcommit 7bd8844112454332260a3f5baaae328b9c806d83[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sat Oct 17 15:30:04 2015 +0200
+
+    view filters
+
+[33mcommit c30797bad4c62ddf983d2a8bc6a9ed90315fc91e[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sat Oct 17 02:34:11 2015 +0200
+
+    home
+
+[33mcommit e9fa4cf57ffb5e7b6ea2626b05bbcadc4fa0d18f[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sat Oct 17 08:26:55 2015 +0800
+
+    Asked functions
+
+[33mcommit 9fddeecc7fdb928715de6fae593b4b704700f197[m
+Merge: b3639ff 6dcbd63
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Fri Oct 16 23:18:22 2015 +0200
+
+    master
+
+[33mcommit b3639ff61fe2c394da6774cec0db3fc6a93268d2[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Fri Oct 16 23:14:33 2015 +0200
+
+    .
+
+[33mcommit fc4a84cd13f9dc9f9f1269d929129238abe21542[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sat Oct 17 04:41:43 2015 +0800
+
+    bug fixs
+
+[33mcommit 6dcbd635506efac8ac7d991bb823db777426d2a3[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 16 22:22:19 2015 +0200
+
+    fix questionscontroller bug
+
+[33mcommit 536899c06bc707de644beef543e3c00386d20293[m
+Merge: 555ee29 e97cff5
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 16 22:19:25 2015 +0200
+
+    fix database not found
+
+[33mcommit e97cff5fb640040ce09eed321220ef575c425944[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 16 22:15:26 2015 +0200
+
+    Adding First JS code, Not Working :D
+
+[33mcommit 555ee298aff0d2269cb2f37e20c3a1266b55e4c7[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 16 22:11:30 2015 +0200
+
+    remove database
+
+[33mcommit 909a873c6065b82c45457dafeed9e06b5dd4403f[m
+Merge: 73a2ffd ef53f2c
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 16 22:10:00 2015 +0200
+
+    merge
+
+[33mcommit 73a2ffde5ed32b31cf0ffa0e2c7a995b63b9f48c[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 16 22:07:30 2015 +0200
+
+    merge hello with master
+
+[33mcommit 3cb6eb205fc530d2b03f68f3ea4a40987b953794[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 16 21:47:00 2015 +0200
+
+    add unsolved: to modifiers
+
+[33mcommit be54ee960620f72ae4f7f7e78cc63a97e02b7bc0[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sat Oct 17 02:44:30 2015 +0800
+
+    before and after
+
+[33mcommit 119df6972fbdbc57f1a3b5c513ae2103de918be6[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 16 23:48:51 2015 +0800
+
+    Modifiers of search is finished
+
+[33mcommit 9230c1327a2cb3f88934154fc84bd277215b108c[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Fri Oct 16 16:51:10 2015 +0200
+
+    User and owner can search by answer and tag
+    
+    User and owner can search by answer and tag
+
+[33mcommit 1c87e92a2a2537b11faca4f0b0193e96685f4932[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Fri Oct 16 16:46:15 2015 +0200
+
+    Search by answer
+    
+    Search by answer
+
+[33mcommit 9eeee667fc4760d2f28c5586051bc0b1c3dd7455[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 16 22:21:45 2015 +0800
+
+    UserSearch
+
+[33mcommit 91fd4bf7769995359d9a69fc515c934c1bf57b1a[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Fri Oct 16 16:20:13 2015 +0200
+
+    ,
+
+[33mcommit d6dcb08268dd5ab093aa7217235a61373b78ecaf[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 16 15:56:37 2015 +0200
+
+    Search by date and ansers in Models
+
+[33mcommit 61710a92c0b04488e2293d12993e347c74093fa6[m
+Merge: ea35bd5 ef53f2c
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 16 15:33:54 2015 +0200
+
+    Merge remote-tracking branch 'refs/remotes/origin/master' into adsearch
+
+[33mcommit ef53f2c99fe0bbbad38ebe09ca7799082463724a[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 16 15:32:49 2015 +0200
+
+    fix in composer.json
+
+[33mcommit 10e917c033b4495a6033bed8bc3c003397a217f7[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 16 01:20:25 2015 +0200
+
+    steps_commit2
+
+[33mcommit 9ab4119434357327d60f111b72197ce16f898580[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 16 01:00:33 2015 +0200
+
+    steps_commit2
+
+[33mcommit 1f58f9a502216277e42bc22e008adf2d0f8dd6ee[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 16 00:37:46 2015 +0200
+
+    steps_commmit1
+
+[33mcommit ea35bd5f82ef85a6341701c5996a9d5cb81a7a39[m
+Merge: 46d9ba8 8b30349
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 15 01:18:15 2015 +0200
+
+    #Rana, Add Upload Button
+
+[33mcommit 14819c80576cd94bbc17a67d3334201e3ceac8c3[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Wed Oct 14 22:56:44 2015 +0200
+
+    hello page
+
+[33mcommit 46d9ba8b53d4e58a9c01599832befe1fc1a613ff[m
+Merge: 84c9963 61af206
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 14 22:35:22 2015 +0200
+
+    last update
+
+[33mcommit 8b303491bf0e7174397db246ebc2fdcced7ef704[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 14 22:21:33 2015 +0200
+
+    upload img
+
+[33mcommit 8f35441ad9950fecd060b0c648edcbf575608879[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Wed Oct 14 16:08:03 2015 +0200
+
+    before
+
+[33mcommit 63bbdbfc5ba0c1ba15daee7332b16a10267fe4a3[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Oct 14 01:04:01 2015 +0200
+
+    dropbox bugs
+
+[33mcommit 61af20677d06ace677d1855130e270cee08c86d2[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 12 05:30:07 2015 +0200
+
+    fixes in Auth via google
+
+[33mcommit e3163985e143a1c957bc020a35a2a3b51d6eb1e2[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 12 04:38:41 2015 +0200
+
+    adding views with btn login via google
+
+[33mcommit 7e946a0e45be7dc3f0465baf7ae18bee4228a0a0[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 12 04:35:45 2015 +0200
+
+    add auth via googole
+
+[33mcommit 4f9551936b4b39d7ea042003afd11b176efd1021[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 12 01:55:40 2015 +0200
+
+    fixis in tw hastage
+
+[33mcommit f938de90a6d5276a537c3c4e47310f943b3b09a0[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 12 01:49:41 2015 +0200
+
+    Addin Sharing Buttons to A Question
+
+[33mcommit 2b5ac8d45538e43fa2377b2b14ad0d188976883f[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 12 01:34:06 2015 +0200
+
+    fixes in search
+
+[33mcommit 84c99632e03727a8e5a23e46cfcf2b3990ff4c6c[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Oct 12 01:15:17 2015 +0200
+
+    add taha update
+
+[33mcommit 6284c95a73b780f1f6f753d322288ffabef6233d[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Oct 12 00:41:42 2015 +0200
+
+    fix ask bug
+
+[33mcommit b9793f499081216ba0af36c42ae8ce4bcee239dd[m
+Merge: 70ff33f 925fdc7
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 23:57:45 2015 +0200
+
+    merge medo with master
+
+[33mcommit 70ff33f9fe3ce160b57e2390bd4c3b04438865d3[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 23:28:31 2015 +0200
+
+    fixing css of home page
+
+[33mcommit 13df38f347f8412ef404c1928d82ce42920eaaad[m
+Merge: fa5e777 c31459a
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 23:07:58 2015 +0200
+
+    merge taha with master
+
+[33mcommit fa5e7775ab2037c030f4eab849ffead3c33c9d1f[m
+Merge: fff2699 f553445
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 22:26:04 2015 +0200
+
+    merge hussein with master
+
+[33mcommit fff26994ad65fb12323d4f20607a8d8671847e85[m
+Merge: 9897d6e 2997e05
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 22:05:55 2015 +0200
+
+    merge tu2a
+
+[33mcommit f5534456736a8af00f6663dee5beb6df141ed50a[m
+Author: hme1000000 <hme.1000000@gmail.com>
+Date:   Sun Oct 11 21:12:55 2015 +0200
+
+    fix front end
+
+[33mcommit 84531fe84cf7a160af7dd75373482b28003c40d8[m
+Merge: 761fcca 9897d6e
+Author: hme1000000 <hme.1000000@gmail.com>
+Date:   Sun Oct 11 20:58:53 2015 +0200
+
+    sync with master
+
+[33mcommit 2997e05331d9872ad15afe1d6f95cd122eef0a2d[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 20:54:51 2015 +0200
+
+    remove sqlite
+
+[33mcommit 761fccad2edb6004e18852e3ed304add4c6ecb8a[m
+Author: hme1000000 <hme.1000000@gmail.com>
+Date:   Sun Oct 11 20:47:54 2015 +0200
+
+    delete production.sqlite
+
+[33mcommit 37ae1f0edc2b99dc52a9899b17319c270a612735[m
+Author: hme1000000 <hme.1000000@gmail.com>
+Date:   Sun Oct 11 20:41:56 2015 +0200
+
+    fix footer
+
+[33mcommit 673641f234f2186b67c24a16eea4fbab18d72a22[m
+Author: ToqaEid <toqa.eid@gmail.com>
+Date:   Sun Oct 11 19:56:56 2015 +0200
+
+    done
+
+[33mcommit 9897d6e0dbf7a0959af04f4fd832e903bab0c8e7[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 17:07:14 2015 +0200
+
+    bug fixes in frntend in tags
+
+[33mcommit 38cb7e1f5657c045599e20f366b3d108fd6acc30[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 16:32:59 2015 +0200
+
+    add tags names in q
+
+[33mcommit 1bee8556b85ea3d185b1c8f8c3c6cab5deb964ed[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 16:28:46 2015 +0200
+
+    fixes olds
+
+[33mcommit 5cfb8e55987251d7c656f31b04b2e7476339d990[m
+Merge: 5d34725 35e505a
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 16:21:30 2015 +0200
+
+    Merge remote-tracking branch 'refs/remotes/origin/master' into Catgroize_and_search_tags
+    
+    Conflicts:
+    	app/database/production.sqlite
+    	app/routes.php
+
+[33mcommit 5d34725a9f9f95d90838628d7c6f5b4c75557784[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 16:17:54 2015 +0200
+
+    rm routes.php
+
+[33mcommit 2306da0361bd4fea9d471c7bcd4cecffaf161a27[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 16:14:27 2015 +0200
+
+    Revert "rm satr meen route.php"
+    
+    This reverts commit f320d6df8efc57b6a452647935b866f003ecd4a9.
+
+[33mcommit c31459a66764513f08c86e2079faa6f97f0bc76d[m
+Merge: 2c1875c 35e505a
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 11 16:08:27 2015 +0200
+
+    neww
+
+[33mcommit 5cf8f78fbb98eb4c58d71d329f1dfaa432f2d595[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Oct 11 16:07:48 2015 +0200
+
+    dropbox
+
+[33mcommit f320d6df8efc57b6a452647935b866f003ecd4a9[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 16:03:57 2015 +0200
+
+    rm satr meen route.php
+
+[33mcommit b410e23ff1800e8e877939c5a2278da4ffcc07b1[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 15:51:05 2015 +0200
+
+    before merging proc
+
+[33mcommit 2c1875c2fd985a4973405e7185b5c7d5ce0b5fc0[m
+Merge: 5f788de a9b9391
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 11 15:49:51 2015 +0200
+
+    leaving master
+
+[33mcommit 1cf6f5f110c83b5169da5e98deb7293a2a39ed75[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 15:43:33 2015 +0200
+
+    Revert "rm sqlite"
+    
+    This reverts commit a37defe3ff86704e91386fdc664f983062d73542.
+
+[33mcommit 35e505ad28bb32f5a3d1cf93f1e6f42b1cdc2402[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 15:17:43 2015 +0200
+
+    Report With Cookies
+
+[33mcommit a37defe3ff86704e91386fdc664f983062d73542[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 15:06:12 2015 +0200
+
+    rm sqlite
+
+[33mcommit 87a57277e685b27eee41b4073b30949901e3a65f[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 14:46:19 2015 +0200
+
+    fixes bugs
+
+[33mcommit 0fd4235eea4195fd0fc354aa73d9b43417600746[m
+Merge: d39d549 12ca2e2
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Oct 11 14:35:01 2015 +0200
+
+    Merge remote-tracking branch 'origin/Catgroize_and_search_tags' into Catgroize_and_search_tags
+
+[33mcommit d39d549e99d3d4238c4763e40390145dac1bbc86[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Oct 11 14:26:49 2015 +0200
+
+    Revert "Frontend of tags finished"
+    
+    This reverts commit b1cfcc50ef4f11cefb86d19ecbccbe28dd302228.
+
+[33mcommit b1cfcc50ef4f11cefb86d19ecbccbe28dd302228[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Oct 11 14:23:00 2015 +0200
+
+    Frontend of tags finished
+
+[33mcommit 12ca2e278598eb8a24a44d19e4b164d93a0faa2e[m
+Merge: 03097bb 5564eed
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Oct 11 14:07:57 2015 +0200
+
+    Merge remote-tracking branch 'origin/Catgroize_and_search_tags' into Catgroize_and_search_tags
+    
+    Conflicts:
+    	app/database/production.sqlite
+    	app/models/Tag.php
+    	app/views/results.blade.php
+
+[33mcommit 03097bbea11a62bfdb159d23410548f7b4b53e2c[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Oct 11 14:01:24 2015 +0200
+
+    Finished Front end of tags
+
+[33mcommit 5d8e6499c5dc365f7ab0a37b2b22ae5c872c003b[m
+Merge: c026e3f 1110dd2
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 13:23:36 2015 +0200
+
+    merge Report Users
+
+[33mcommit 1110dd2943753d4879bff376d1c892c7c5511501[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 13:20:56 2015 +0200
+
+    remove sqlite
+
+[33mcommit 47435d08a23faa75b872f6c8e3bbc3917b276910[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 13:20:21 2015 +0200
+
+    Finish Report
+
+[33mcommit 925fdc7d737e9ac65c2a420e31d49ef70e3fc298[m
+Author: AhmedMedo <ahmed.alaa.eldin.hamdy@gmail.com>
+Date:   Sun Oct 11 12:37:44 2015 +0200
+
+    Issue #20 add a profile picture using gravatar
+
+[33mcommit c026e3fe3f68742effc550470daeb4ded9c06043[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 04:33:31 2015 +0200
+
+    add twitter_it col users
+
+[33mcommit b96b55d4ef891d27383c4ef24a6f85ca53f9ab9a[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 04:33:16 2015 +0200
+
+    Insert Report in database
+
+[33mcommit cf1afa4718fb476f534e3736b4d315ae7015567d[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Oct 11 02:35:49 2015 +0200
+
+    repository
+
+[33mcommit a9b9391e879ff5c4efd7798de5d7a163cf48b5af[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 11 02:34:21 2015 +0200
+
+    deleting database
+
+[33mcommit 70b7494c105fd0c8f273a4771cea6a1b042a38a2[m
+Merge: 950426c 3017053
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 02:26:18 2015 +0200
+
+    report migration
+
+[33mcommit 950426c2e7a2232184d41ffa3945e182d5a5bada[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 02:25:50 2015 +0200
+
+    Remove Sqlite
+
+[33mcommit 09955d55f3d20184db74c35f9eaf49b40ec4f39d[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 11 02:25:20 2015 +0200
+
+    Initialize Report Page
+
+[33mcommit b43028f2b49f393276321e3c8ff51b716e3fc81e[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 11 02:20:29 2015 +0200
+
+    private on edit
+
+[33mcommit 652aac0b3bbbdd44dddea547113ea1e357c200b9[m
+Author: hme1000000 <hme.1000000@gmail.com>
+Date:   Sun Oct 11 01:52:39 2015 +0200
+
+    fix notifications
+
+[33mcommit 1c5143814a340bb587001b575ab3756165d19aca[m
+Author: hme1000000 <hme.1000000@gmail.com>
+Date:   Sun Oct 11 01:46:38 2015 +0200
+
+    add notifications
+
+[33mcommit 5f788de201c406b582afd90b04098b3236db48aa[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 11 00:28:17 2015 +0200
+
+    create Notifaction Table
+
+[33mcommit 4b5ab3ffdc8d15507752e5844c49423072f8649c[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 11 00:20:10 2015 +0200
+
+    essam checks
+
+[33mcommit e15797ae620a4fa87f2bd0e7cc0643f5f06e4715[m
+Merge: 3017053 49adb6e
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 05:12:40 2015 +0800
+
+    add stuff
+
+[33mcommit 49adb6eb6b69bf9443eb9abe2f815690b3e7232e[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 05:05:28 2015 +0800
+
+    'Issue
+
+[33mcommit 3017053f7d068a50326a59a9aaa2e5c6a1878a31[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 10 22:57:45 2015 +0200
+
+    Create Reports Table
+
+[33mcommit 559fa53c52ae26537c05a39b772d30a93ad83d0a[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 10 21:32:29 2015 +0200
+
+    make all test users confirmed
+
+[33mcommit 5564eed4144bddc30b8b54ec9062e25b41fece29[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 10 20:55:08 2015 +0200
+
+    remove pagination from searching
+
+[33mcommit efd0d1cbfe85c7c816c89fd663fafc51d58c32a2[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 02:41:36 2015 +0800
+
+    Issue #13, configure logout
+
+[33mcommit dd387196a7d00c4f6bdfa850966605b2eaa782cd[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 01:37:36 2015 +0800
+
+    Issue #13, configure confirmation according to login method
+
+[33mcommit a0d6a06585f856a7849876820ae81d4a94080b97[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 01:20:28 2015 +0800
+
+    Issue #13, fix bug concerning mailing
+
+[33mcommit 7ab0ffe227a345fec742bf64e2404aa8c1c52ac5[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 00:57:44 2015 +0800
+
+    Issue #13, facebook email user credientials view
+
+[33mcommit 29c3867294a34637914b0931531aa91357ddaa4b[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 00:49:23 2015 +0800
+
+    Issue #13, facebook email user credientials
+
+[33mcommit edb3b36bf4432ec77aa4fa6318bf636a9f83cffb[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 00:41:12 2015 +0800
+
+    Issue #13, adding facebook routes
+
+[33mcommit 59e68c0561f6af759f4ead70d1b64b2e5e4802b0[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 00:36:55 2015 +0800
+
+    Issue #13, adding facebook login in login view /bug fix
+
+[33mcommit 4113542d9e23403c7977292511ffd217c03d2f80[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 00:34:26 2015 +0800
+
+    Issue #13, adding facebook login in registerview
+
+[33mcommit 521b966b586ccc12c28b3b1f0d0318861e5e82ee[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 00:33:24 2015 +0800
+
+    Issue #13, adding facebook login in hello view
+
+[33mcommit a4231d6cca038d4d45b2ca468f78aaade044373d[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 00:31:09 2015 +0800
+
+    Issue #13, adding facebook Authentication controller
+
+[33mcommit fe6bc31dfe153a571b2b9e27908d28f4508e57f1[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 00:26:57 2015 +0800
+
+    Issue #13, adding fb_authentication_configration file
+
+[33mcommit 009cd56985feeaafe25203548e0da35053ad8ab0[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sun Oct 11 00:20:42 2015 +0800
+
+    Issue #13, adding composer.json require
+
+[33mcommit e7bc81c07edef2b10ada82de064f6b18c06b2e39[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sat Oct 10 15:56:22 2015 +0200
+
+    Finished search by tags
+    
+    Finished search by tags
+
+[33mcommit 0a2b6b3e960bcaa070993312d857ccfad9dcbfba[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 10 02:13:07 2015 +0200
+
+    add your tags to nav bar
+
+[33mcommit 4b10332a6858065350b5dfccdcd31b06093d58ff[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 10 02:07:35 2015 +0200
+
+    ending in backend
+
+[33mcommit 14851d1c3cd1a077d1a5c52ff444a0768b0718f3[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sat Oct 10 01:59:26 2015 +0200
+
+    upload.blade
+
+[33mcommit 7f6a98224b17736faf6209875bbd8f44531c6314[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 10 01:01:46 2015 +0200
+
+    add views to tags
+
+[33mcommit 7b950ebea1bf000b659cbcaf5a27bfe6251445e8[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 10 00:06:14 2015 +0200
+
+    DON'T REMOVE THAT SQLITE FILE
+
+[33mcommit 42e51475d821526109bfa3a13caec4e06c0e4e7d[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 23:51:31 2015 +0200
+
+    add changes in Ownwer cont
+
+[33mcommit bd01ba7da3963df09f3d87a3f07b1f62f0326790[m
+Merge: a9000ef a41af97
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sat Oct 10 05:27:01 2015 +0800
+
+    adding email verification to master
+
+[33mcommit 462a8eec93c1cd4dcedaad4e4675f5fb6ca1d3bc[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 23:19:52 2015 +0200
+
+    Tag has one user enh
+
+[33mcommit a9000ef5d523158e00025f1604c95273670b22a0[m
+Merge: ec9b77a ecc5e7d
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sat Oct 10 05:14:06 2015 +0800
+
+    removing sqlite
+
+[33mcommit 9fc43a93dc155f2a0caa82bc03f2e8ef79de1317[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 23:14:00 2015 +0200
+
+    add db manually
+
+[33mcommit 94338b33287b5c262d3146d79ad69262adb07b51[m
+Merge: 8b5253e ecc5e7d
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 22:58:23 2015 +0200
+
+    Merge branch 'master' into Catgroize_and_search_tags
+    
+    Conflicts:
+    	app/database/production.sqlite
+
+[33mcommit 8b5253e092ae15de168a9525c70b8054cbec95d1[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 22:54:53 2015 +0200
+
+    Revert "remove sqlite"
+    
+    This reverts commit 9cfc25f64a5271070f30e8b882a4ad7432776355.
+
+[33mcommit ecc5e7d5420bfaeaa10674f5db0172eeff4064df[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 22:48:11 2015 +0200
+
+    fixes the last revert
+
+[33mcommit dab10d6e20f5a2512c2e1c90d51e77c972f00883[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 22:22:56 2015 +0200
+
+    Revert "add changes in tag table"
+    
+    This reverts commit ac3c1dd73c003a77f0ccc98b5b5509ce80ad9544.
+
+[33mcommit 9cfc25f64a5271070f30e8b882a4ad7432776355[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 22:21:05 2015 +0200
+
+    remove sqlite
+
+[33mcommit ac3c1dd73c003a77f0ccc98b5b5509ce80ad9544[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 22:12:40 2015 +0200
+
+    add changes in tag table
+
+[33mcommit 2030a0d9c0abb2d5d8e1ebf26f39a7738bec8a27[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 22:03:52 2015 +0200
+
+    fixes in Tag model
+
+[33mcommit 1a915b0bc31ee4af283c18d960831c4a58de9318[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 22:03:21 2015 +0200
+
+    Add owner controller
+
+[33mcommit eedca8efb3b0616ec5a05ad2927676582137e143[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 21:10:00 2015 +0200
+
+    fixes bugs and add rana codes
+
+[33mcommit 31c13111ef1f33ef8d4f60479a71766f32522cc6[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 20:22:11 2015 +0200
+
+    Add Model Tag and rels
+
+[33mcommit a41af974fbed0d8cb0e55ea0a8163d30a3ca108c[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sat Oct 10 01:44:44 2015 +0800
+
+    Issue #1, making adjustments in the login controller
+
+[33mcommit 6054dd76f4c88c955de991959d89ed1d8c65e807[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 19:35:15 2015 +0200
+
+    add tags table and its relationships
+
+[33mcommit 4833e99137e8e120da52036d604ad7c0cffbc692[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Fri Oct 9 17:39:40 2015 +0200
+
+    .
+
+[33mcommit 072763ae9b70371ce32b7b8b5cee072838a225c3[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 22:57:21 2015 +0800
+
+    database new
+
+[33mcommit ec9b77a4b10333e91eec888111b325fadd75757c[m
+Merge: 3f9d476 230e24e
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 22:23:07 2015 +0800
+
+    sqlitedatabase
+
+[33mcommit 3f9d47638a2c7705fa8e04b87f24979955fcc62f[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 22:21:32 2015 +0800
+
+    ay7aga
+
+[33mcommit 230e24edd25e81607a598b2b86630669eaa9778c[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 15:56:55 2015 +0200
+
+    add private col to taha
+
+[33mcommit 33cdb7478b3ad2385a5012dc5ef631ea4348bfbb[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Fri Oct 9 15:47:32 2015 +0200
+
+    bugs in migration forr hatem
+
+[33mcommit 09deca6b02a5eb0a09525e03d232dfd62ed9ae93[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 15:09:00 2015 +0800
+
+    Issue #1, adding askifyasu@gmail.com as our email
+
+[33mcommit 0c195e3c07f7c08a34854a6233ee3e1b781c148b[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 15:01:18 2015 +0800
+
+    Issue #1, adding the email sent view
+
+[33mcommit 18cee3f336f0f709fd19b743cf4f55a2d87937e3[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 14:58:54 2015 +0800
+
+    Issue #1, changing the view for confirmation notification
+
+[33mcommit 0d4426fbdc8225ca0ad70c99d0646ac1ce91ff43[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 14:56:44 2015 +0800
+
+    Issue #1, adding confirmation routes
+
+[33mcommit 10edb37f9097b7b75a586e079a459d610758f1f8[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 14:53:47 2015 +0800
+
+    Issue #1, adding confirmation controller
+
+[33mcommit face98546f35be521c743b41258fc19f48e1ebba[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 14:52:11 2015 +0800
+
+    Issue #1, adjusting the register controller to send mail
+
+[33mcommit 48b82172d29295a146863ae182877d937852ef86[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 14:46:12 2015 +0800
+
+    Issue #1, adding email confirmation view
+
+[33mcommit aedb6d5fa7dc2437f5816ef21f5e09f197e06265[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 14:43:07 2015 +0800
+
+    Issue #1, adding the email view
+
+[33mcommit b38db057140d7ea035acbffcdb48b5607f8c23d6[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 9 14:36:09 2015 +0800
+
+    Issue #1, making everybody confirmed in the database
+
+[33mcommit f862ca826ef9a43208ac1a9f64f771775727c161[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Thu Oct 8 17:07:13 2015 +0200
+
+    fix the footer
+
+[33mcommit 95cd953e699868adc75829cafa619a32cd14b73a[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Thu Oct 8 00:00:41 2015 +0200
+
+    some fixes in migration :fire:  please mt3br4 el folder da
+
+[33mcommit 47183368fe5f2bef95938476b9a33e0f0a73453c[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Wed Oct 7 23:37:13 2015 +0200
+
+    add old codes in Question model
+
+[33mcommit d2142d86a44080c9794232d4be8ddc55e645674b[m
+Merge: 685888e f2a0683
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 7 19:34:58 2015 +0200
+
+    Merge branch 'master' of https://github.com/SarcasticGeek/Askify
+
+[33mcommit 685888e43e1707eae89b6002fcd26b0b43d1cfb5[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 7 19:26:00 2015 +0200
+
+    New Migration
+
+[33mcommit f2a0683ad536bcb1943f950fdf2661a1a589386d[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Wed Oct 7 19:04:27 2015 +0200
+
+    Favicon added
+    
+    Favicon added
+
+[33mcommit 4cdb04e858ace81e0e9817f980569ac601aac141[m
+Merge: bd37d80 aa7f66d
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 7 13:38:51 2015 +0200
+
+    Merge Rana With Master
+
+[33mcommit bd37d8098910f6ab33c237f5e0ba3032532ccee7[m
+Merge: 04a87fd 02028ef
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 7 13:31:03 2015 +0200
+
+    Pull Latest Updates
+
+[33mcommit 04a87fddfd9b39fe3ab0761d38ee4312a53189ce[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Oct 7 13:30:11 2015 +0200
+
+    Pull Latest Updates
+
+[33mcommit 02028ef377a4b0f35a5820e408da4c1a7b1cc7bc[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 6 19:20:19 2015 +0200
+
+    add frontend for Anser
+
+[33mcommit b61f51f5c1c9850c6a28cd47293c2aeb88992799[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 6 18:22:33 2015 +0200
+
+    fixes
+
+[33mcommit 05114673f2d52229b38ee60e8748c8e277c20435[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 6 18:17:59 2015 +0200
+
+    fixes in answers
+
+[33mcommit 2e94403235d0ffaa3f581bdf9dfd80bcbae8515e[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Oct 6 17:56:48 2015 +0200
+
+    edit in db ,wher owner is just the answerer
+
+[33mcommit aa7f66d7caa91c6ace863a606709493c891dce2d[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Tue Oct 6 16:23:16 2015 +0200
+
+    css
+
+[33mcommit 68d74fff466c97a14668cc11df51610fb25a74d1[m
+Merge: 9d5aea1 b37176d
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Tue Oct 6 12:19:08 2015 +0200
+
+    Merge branch 'master' of https://github.com/SarcasticGeek/Askify
+
+[33mcommit 80d00ba4d8f2296245ca08556d8b4fc5d47e08dc[m
+Merge: d4b54d9 0765e0b
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Tue Oct 6 12:09:11 2015 +0200
+
+    master
+
+[33mcommit b37176d75e4a6eb1d38bab71dd4826a5c9e418fa[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Tue Oct 6 12:00:55 2015 +0200
+
+    Placeholder search
+
+[33mcommit d4b54d9b0409467a07b1a269f6b5ca8d7d436e03[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Tue Oct 6 11:45:38 2015 +0200
+
+    .
+
+[33mcommit 9d5aea1749f356095fd36cb0222488b43fe19d26[m
+Merge: 2d5fdd8 0765e0b
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Tue Oct 6 09:59:44 2015 +0200
+
+    pulling latest update
+
+[33mcommit 0765e0b8c0fbab25b20b04794655bbc5af637a16[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 5 15:10:01 2015 +0200
+
+    adding title and assets offline
+
+[33mcommit 4efa25adb308b1e47460f0da25f1fe8273f4393f[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 5 14:57:45 2015 +0200
+
+    remove ask form from Owner field
+
+[33mcommit 059f1e4a8f6a22172c9e96b7865cfbdb794803a7[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 5 14:38:34 2015 +0200
+
+    fixes in last merge - revert last pull
+
+[33mcommit 2d5fdd87b92a9c02a22e40d9803fb85a7a1508f5[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Oct 5 11:52:23 2015 +0200
+
+    ay7aga
+
+[33mcommit 672a805b5bb22de0ff8f9198683a66c20844c46d[m
+Merge: d3e0103 928e095
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Oct 5 08:47:30 2015 +0200
+
+    pull master
+
+[33mcommit d3e0103bdbc20caa10fd6eec06703f1ac73212cd[m
+Merge: a56429e 1372aba
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Oct 5 08:44:37 2015 +0200
+
+    Merge Rana With Master
+
+[33mcommit 1372abaca572983d9849800ac064ee282e35f709[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Mon Oct 5 01:38:23 2015 +0200
+
+    home_css
+
+[33mcommit 928e0955afc92e355283405c8870f2aee2d65f9a[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 5 01:25:32 2015 +0200
+
+    add jsons debugger
+
+[33mcommit 948b8e7d6056d243b70ad02509eaba66fe2bf330[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 5 01:04:33 2015 +0200
+
+    fixes in logo link
+
+[33mcommit ab64bf3bc79028ee2ce6e2336efcbe7296637834[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 5 01:01:43 2015 +0200
+
+    WHO CODED IT
+
+[33mcommit e724aa9f095b41b9b8d17c7be6e139bdb586d17d[m
+Merge: 533486a a56429e
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 5 00:54:44 2015 +0200
+
+    Revert "Merge Rana With Master"
+    
+    This reverts commit 545b112f0a8e182d8832cd7525de086c387a904b, reversing
+    changes made to d0a3d90faa5e0e62d9c8cb97365c3089415d9961.
+
+[33mcommit 533486ad99f4d87e5d73856ec6d6f55acab7d069[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 5 00:26:47 2015 +0200
+
+    fixes
+
+[33mcommit 3324cc4082e3c7c1e36d334d967326504335d926[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Mon Oct 5 00:18:07 2015 +0200
+
+    Ziad's work now bugless :dancers:
+
+[33mcommit a56429e960d5cd8ddfe57fd602a6d01ed86ba480[m
+Merge: c35730f a435009
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 23:49:24 2015 +0200
+
+    Merge branch 'master' of https://github.com/SarcasticGeek/Askify
+
+[33mcommit c35730f5530345edd298a3d0bec88f69169727bb[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 23:45:39 2015 +0200
+
+    fix bugs in merge
+
+[33mcommit 545b112f0a8e182d8832cd7525de086c387a904b[m
+Merge: d0a3d90 cf94973
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 23:33:42 2015 +0200
+
+    Merge Rana With Master
+
+[33mcommit a435009b7e1464a5a40fec72bdc01380e2249a73[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 23:23:50 2015 +0200
+
+    Delete QuestionController.php
+
+[33mcommit d0a3d90faa5e0e62d9c8cb97365c3089415d9961[m
+Merge: bb3edbc 473e73c
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 23:04:22 2015 +0200
+
+    Merge Taha With Master
+
+[33mcommit b18cf544aafd759fbab55f9b6284bb1d11a26dc7[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Oct 4 23:00:55 2015 +0200
+
+    .
+
+[33mcommit cf949735b7fa6204662b4a14ad975d8c94161d4c[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Oct 4 22:50:19 2015 +0200
+
+    show unsolved questions first
+
+[33mcommit 473e73c63ac0d8bb53c84c3fc5b14a22f13af31d[m
+Author: Khaled Mohamed Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 22:27:17 2015 +0200
+
+    Delete question.php
+
+[33mcommit bb3edbcd7db7979f4da925ecac93ef92c7e2d8f6[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 22:20:50 2015 +0200
+
+    ignore debugger files
+
+[33mcommit af8dcb2f77ddcdfcacefe7640984548ab5783029[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 4 20:26:37 2015 +0200
+
+    nav bar
+
+[33mcommit ff97de59cec342862e83b37c364910bb11fbcc07[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Oct 4 19:48:15 2015 +0200
+
+    .
+
+[33mcommit 78471753f68ae219bf4319bec6182fc060fe85a8[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Oct 4 19:29:08 2015 +0200
+
+    master
+
+[33mcommit a3979de8d82eab0c40317ede198cac5cf971b009[m
+Merge: 190be21 a37882e
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 18:39:25 2015 +0200
+
+    Merge branch 'master' of https://github.com/SarcasticGeek/Askify into Khaled_1_Signup
+
+[33mcommit a37882ed52f50754adb389b39708023346e85fc6[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 4 17:44:27 2015 +0200
+
+    Adding Ziad'works with solved ,and unsolved bugs
+    
+    Bugs in question/update route
+
+[33mcommit 803673479bf3a3d8a4b301417805ec1985cbaa04[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 4 17:39:35 2015 +0200
+
+    frontend home2
+
+[33mcommit ab903bb5b6ad7b7351984ee5bce695e84b37add2[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Oct 4 16:57:36 2015 +0200
+
+    no empty question
+
+[33mcommit 17800383233f0f53321e56f73c73544a46b747f3[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 4 16:31:42 2015 +0200
+
+    home page 1
+
+[33mcommit 272966ef9b440b07ff0ea2c56e2e819e13679bf7[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 4 16:28:13 2015 +0200
+
+    routing fixes
+
+[33mcommit f3e5bfd74ffd31db1297705293c76c5cfc8aa879[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 4 16:17:47 2015 +0200
+
+    Add Owner that only answer questions
+    
+    username: owner
+    password: owner
+
+[33mcommit 190be21c3a6d6686e18de4364d56f61aaf44ebe0[m
+Merge: 5ef04e8 7438da9
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 12:27:18 2015 +0200
+
+    Merge branch 'master' of https://github.com/SarcasticGeek/Askify into Khaled_1_Signup
+
+[33mcommit 5ef04e87bea188e1c60c91975e62b88ea97f25e0[m
+Merge: ac3f9f0 044e159
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 12:26:08 2015 +0200
+
+    Merge branch 'master' into Khaled_1_Signup
+
+[33mcommit ac3f9f0af937fb060351b754048d75d17fc11b19[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 12:25:58 2015 +0200
+
+    add debugger
+
+[33mcommit fbe41a31c268bd55f8abce0395883fc1d71d33b5[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Oct 4 12:23:18 2015 +0200
+
+    Add Debugger
+
+[33mcommit 7438da95661e5640318d4d7fc1d15c63c063e9bf[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Sun Oct 4 12:08:41 2015 +0200
+
+    Add a logo, fix footer in search results
+
+[33mcommit 0a1e1c4897f5ac5c3c8f78d8785b1c504d8093cf[m
+Merge: 5b0474d daee1fe
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Oct 4 10:28:45 2015 +0200
+
+    pull_master
+
+[33mcommit daee1feb1857611c460cf45a816403cfd69bfc24[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sun Oct 4 04:40:20 2015 +0200
+
+    Finish Answer Edit , Answering task :dart:
+
+[33mcommit 8decf3e8e7e272eb7fb71d92f19766aeee007af5[m
+Merge: 7fbf757 044e159
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 4 01:27:59 2015 +0200
+
+    after
+
+[33mcommit 7fbf757b9263d5058284cebd70449750da01be5f[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Sun Oct 4 01:25:01 2015 +0200
+
+    before
+
+[33mcommit 044e1598d9870a0d8c7e2262d6fc39008ed50597[m
+Merge: 8e89aba bc87600
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sat Oct 3 17:54:57 2015 +0200
+
+    Merge Hatem With Master
+
+[33mcommit bc8760024a865be8ec47aa51ee526f5e0466feb6[m
+Merge: f98c2e6 31d9e76
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sat Oct 3 17:53:22 2015 +0200
+
+    Merge Khaled with Hatem
+
+[33mcommit f98c2e6fc43e31ed79cde65fc8d617f8b5049d19[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sat Oct 3 17:47:02 2015 +0200
+
+    Add Debugger
+
+[33mcommit 8e89aba83daa512ec982f63b19927a402ef9632d[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 3 04:02:17 2015 +0200
+
+    add a debugger
+    
+    https://github.com/barryvdh/laravel-debugbar/tree/1.8
+
+[33mcommit ba8f50881d1751916734a4acefebff97dc760964[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 3 03:35:24 2015 +0200
+
+    add Ansers +Your Questions Page + show Ansers for Q
+
+[33mcommit e1b7ee1d0976d469a5bf93e05ea1abd5c5b042cb[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 3 02:18:28 2015 +0200
+
+    add routes for answrs
+
+[33mcommit 10ffd0e5851aa3f279dfe5b24be4f7928516e1b9[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 3 01:32:08 2015 +0200
+
+    add close-source license
+
+[33mcommit 4814bd47dbc88d4bdc2fbbff5cc596185a5b8a6d[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 3 01:26:36 2015 +0200
+
+    Add Answer controller
+
+[33mcommit 056eff9cb427fb6386ae82c260bfb7442b208af5[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Sat Oct 3 01:09:52 2015 +0200
+
+    some changes in Question model (SNappy)
+
+[33mcommit 5b0474dc49ca227e60cba52424457c16ac4a5cab[m
+Merge: f533ba2 bbb3473
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Fri Oct 2 23:21:50 2015 +0200
+
+    pull_master
+
+[33mcommit f533ba27270fd562f39052b9a5adbe6995e13435[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Fri Oct 2 23:20:49 2015 +0200
+
+    .
+
+[33mcommit 31d9e76d0266067b65a42b69891671b2a116a54d[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Sat Oct 3 05:03:42 2015 +0800
+
+    Issue #1, email verification
+
+[33mcommit bbb34733f61ab821c81b4aef51847c881840acc0[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 2 22:48:30 2015 +0200
+
+    Fix conflicts
+
+[33mcommit 8f56c598e4a9b53ff87626bac496c6e3fdba74a8[m
+Merge: 38bea19 496bc8a
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 2 22:46:50 2015 +0200
+
+    Merge master with hatem
+
+[33mcommit a9d95bab07c766da63b5b949b67502c7ff149236[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Fri Oct 2 22:46:47 2015 +0200
+
+    .
+
+[33mcommit 496bc8a5ea6b0dbcb59784e4ea7a556838f0f32b[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 2 22:37:02 2015 +0200
+
+    Add Hatem Work
+
+[33mcommit 363f3f0ae14c62acd223d28b9ad55576b439ca99[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 2 22:35:58 2015 +0200
+
+    fix database
+
+[33mcommit 38bea1938d3042c886e5a6ba2e4b9d09700db89c[m
+Merge: 7bc1dd1 d2be8a0
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 2 21:33:18 2015 +0200
+
+    Merge Khaled With Medo
+
+[33mcommit 7bc1dd114c3aeae8ea9c3cc71ad791e575a5a025[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 2 21:30:32 2015 +0200
+
+    fix some bugs
+
+[33mcommit d2be8a011b02fa919e1c1757aab4a9a0fead96a2[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 2 21:28:51 2015 +0200
+
+    Add Medo Work
+
+[33mcommit a878e3bcb4fa4ca941b546017fcfcf6f06e02f12[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 2 21:22:15 2015 +0200
+
+    Medo Work
+
+[33mcommit 5b17f8c388d8657f52f5e223a2664bd7a4267044[m
+Merge: 8b33ec4 153498c
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Fri Oct 2 21:17:06 2015 +0200
+
+    Merge Khaled With Kashif
+
+[33mcommit 153498c023aced594d827f2fdd2e2fa8c711a6fa[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Fri Oct 2 20:31:39 2015 +0200
+
+    Totally finished search
+
+[33mcommit 9bd2de403019838a5f5c136d0d7406ef0cd39edc[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Fri Oct 2 20:21:11 2015 +0200
+
+    finished Search :100:
+
+[33mcommit f41d99dd3a109d287373abf46b7562df361dbd1f[m
+Author: AhmedMedo <ahmed.alaa.eldin.hamdy@gmail.com>
+Date:   Fri Oct 2 20:05:58 2015 +0200
+
+    Fix bugs
+
+[33mcommit d9c1f131664615ba8117b49b9c497be64061f07e[m
+Author: AhmedMedo <ahmed.alaa.eldin.hamdy@gmail.com>
+Date:   Fri Oct 2 19:08:51 2015 +0200
+
+    Edit profile
+
+[33mcommit f599d90a612573c4818382812b564b8af49635b2[m
+Merge: 9dc37dc 7c4a84d
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 2 18:25:14 2015 +0200
+
+    master modified
+
+[33mcommit 9dc37dc906eaa3f0b4319d8eb50139761bee193e[m
+Author: tahagoal <tahagoal@gmail.com>
+Date:   Fri Oct 2 17:56:23 2015 +0200
+
+    question database
+
+[33mcommit 78aa26145f6ed010e965de0178bd5d099a935f58[m
+Merge: ecd042b 7c4a84d
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Fri Oct 2 17:16:00 2015 +0200
+
+    pull_master
+
+[33mcommit ecd042ba37c061c863746dd9e1796f186a12d7c9[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Fri Oct 2 16:06:40 2015 +0200
+
+    .
+
+[33mcommit a14855412425c1e81c9d84212aaf8a6d0aff62a8[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 2 19:11:45 2015 +0800
+
+    Issue #1, change register controller
+
+[33mcommit 6faa67c01e2b72d367ea9feb161be4d13a3813fa[m
+Author: Hatem93 <hatem.hussin1993@gmail.com>
+Date:   Fri Oct 2 19:06:29 2015 +0800
+
+    Issue #1, change sign-up view
+
+[33mcommit 8b33ec4a3c8312e259a77b4919567a12c5e7acff[m
+Author: hme1000000 <hme.1000000@gmail.com>
+Date:   Thu Oct 1 18:15:20 2015 +0200
+
+    fix minor issues in front end
+
+[33mcommit dbe395069e02c7f5913fba5dd6bf7ea62d2a9aee[m
+Author: hme1000000 <hme.1000000@gmail.com>
+Date:   Thu Oct 1 17:57:07 2015 +0200
+
+    finish Question list
+
+[33mcommit f0cb9fa37245585450e76f3d8b06f01f48d4b084[m
+Author: hme1000000 <hme.1000000@gmail.com>
+Date:   Thu Oct 1 17:27:13 2015 +0200
+
+    adding question list
+
+[33mcommit 7c4a84d565ab9940e9890f1235bff47a4a5a8ad0[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Thu Oct 1 12:08:33 2015 +0200
+
+    minor fixes
+
+[33mcommit 68371414f78b3695c41a4d08d152aa952474da3e[m
+Author: Mohamed Elkashif <mohamed_elkashif@windowslive.com>
+Date:   Thu Oct 1 07:06:57 2015 +0200
+
+    Addded logo and search function
+    
+    Addded logo and search function
+
+[33mcommit 159ebab36216ca71d7e2f0d90c61865704666372[m
+Merge: 26c09f2 cfc839f
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 1 01:07:14 2015 +0200
+
+    Finish Login & Post Question
+
+[33mcommit 58b987e56b169dcd667084940bd5d4fba0a63c8a[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Thu Oct 1 01:06:18 2015 +0200
+
+    success?
+
+[33mcommit 26c09f2168ccc988278c4de0bb810a4fc27134c4[m
+Merge: 067d8bb dbb149e
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 1 01:03:11 2015 +0200
+
+    database conflict
+
+[33mcommit 067d8bb9be138ce4f296cfc177c269c1c010782c[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 1 01:02:21 2015 +0200
+
+    database conflict
+
+[33mcommit cfc839f018185cc68f13ca5509be8c51f6702cfb[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 1 01:01:42 2015 +0200
+
+    Issue #1, fix database conflicts
+
+[33mcommit 66069eed1170c28cb799a5e55a2f95583a31fa6e[m
+Merge: 90ffa1b 8dbb47f
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 1 00:55:15 2015 +0200
+
+    Merge branch 'Medo' into Khaled_1_Signup
+
+[33mcommit 90ffa1be7bead7439451468a329148229301557f[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 1 00:55:11 2015 +0200
+
+    Issue #1, fix conflict database
+
+[33mcommit 8dbb47f08baed8abae6858f894e8979eb0ea19eb[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Thu Oct 1 00:53:59 2015 +0200
+
+    Successfully mere Khaled, Rana, Medo
+
+[33mcommit 36d8ac8a04f409a8a700e844bcb754f53aa2e654[m
+Merge: 243d8ce cf672b2
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 23:44:07 2015 +0200
+
+    merge medo with rana
+
+[33mcommit 243d8ce6b614f7d309eb75f674f16b65ba5a30a5[m
+Merge: cd7fc03 2e8061d
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 23:43:39 2015 +0200
+
+    merge medo with khaled
+
+[33mcommit cd7fc03ab5f2d75e9802e44917b6971f0853b7c3[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 23:15:45 2015 +0200
+
+    add database
+
+[33mcommit cf672b2585951dcac7ed8c92bac8a988f5c95b2c[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 23:11:23 2015 +0200
+
+    Issue #2, fix bugs-questions added to database
+
+[33mcommit fd416d17c838cc204127b527334d2a1ba94411b4[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Sep 30 22:50:48 2015 +0200
+
+    .
+
+[33mcommit 2e8061d049fca43845f15d8242dde65de5ca3459[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 22:11:41 2015 +0200
+
+    Issue #1, Check for authentication
+
+[33mcommit 5e3daa68411fadaec008d6558fb8713cdd1d614f[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Sep 30 21:32:50 2015 +0200
+
+    BUGS
+
+[33mcommit a138536532705d93d497114a701f6b5a5676416a[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 21:20:52 2015 +0200
+
+    Issue #1, Add Validation
+
+[33mcommit 05853440931fa6ec752d99ee5f9a399209983fa2[m
+Author: AhmedMedo <ahmed.alaa.eldin.hamdy@gmail.com>
+Date:   Wed Sep 30 19:40:34 2015 +0200
+
+    Master Page Layout
+
+[33mcommit 0c79804d2538228f6e7fcc6d70413d5497251055[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Sep 30 17:11:49 2015 +0200
+
+    .
+
+[33mcommit dbb149e5b034e375b239f76296d5cd125ebdee7b[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Wed Sep 30 16:51:45 2015 +0200
+
+    adds Answers & Questions Controllers
+
+[33mcommit 27f1fe2d758c2b57f27e909feb03472f1f21d9b6[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 15:41:55 2015 +0200
+
+    Issue #1, Finish login layout
+
+[33mcommit d07a071a173f7c9c6df24a38fc755c6960ec56b9[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 14:44:54 2015 +0200
+
+    Issue #1, Adding Footer
+
+[33mcommit d0fa8d4ff68440fa94a5c5847511b8381a1d1151[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Wed Sep 30 14:43:42 2015 +0200
+
+    minor changes in Question model
+
+[33mcommit e41be12ef73cc8a13b89f0f2b89ca94524d2e5ae[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Wed Sep 30 14:16:21 2015 +0200
+
+    changes in question model
+
+[33mcommit cdc331d8f24bdae6660913c1d0c9d2c48b846494[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 13:54:32 2015 +0200
+
+    Issue #1, Fix remember me bug
+
+[33mcommit 72add29de1e5fc98e51402394b09d5886fbd3db3[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Wed Sep 30 13:45:22 2015 +0200
+
+    adding Question , User , and Answer Models
+
+[33mcommit 0bf9063a57b8a5f1bd221ffca9e8dccac05d4356[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 30 13:32:27 2015 +0200
+
+    Issue #1,Bug in checkbox
+
+[33mcommit 4ce1513948d343a17cf6c1113d8cce0fda2dd364[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Wed Sep 30 01:41:19 2015 +0200
+
+    front-end
+
+[33mcommit 7fdd7999ddbc715470671599c6550cba6c4ebdfa[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Wed Sep 30 00:55:37 2015 +0200
+
+    adding answer frontend
+
+[33mcommit 610e3915e6f0d570be3b730a2c1aabc28682fcba[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Tue Sep 29 23:54:35 2015 +0200
+
+    post_create
+
+[33mcommit 289973b6e13bf0d7fe57685787718753b3bb1694[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Sep 29 23:37:11 2015 +0200
+
+    adding option button
+
+[33mcommit f9d22cc701cf3334250a9d1bd9c76ba60713d43a[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Sep 29 23:12:43 2015 +0200
+
+    Add html files in which the whole frontend of app
+    
+    Not applied any blade files
+
+[33mcommit d3856074d986a866ec4446cfb273dd9e608e9e75[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Sep 29 23:07:18 2015 +0200
+
+    some changes on sql
+
+[33mcommit 97e2a4fda8864cc3478c4b3f0083630257eed109[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Tue Sep 29 16:02:13 2015 +0200
+
+    Issue #1, Adding form but bugs in remember me
+
+[33mcommit 7c33402b340280742d64f03ee853ebcfbd634454[m
+Merge: 6427243 b107cb9
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Tue Sep 29 15:39:59 2015 +0200
+
+    Issue #2,Merge with master
+
+[33mcommit 64272434e964a3200799c18f98b0d1f655e63ba2[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Tue Sep 29 15:32:04 2015 +0200
+
+    steps
+
+[33mcommit 55d1d7feb8ab0cac3233c7302d3faee85e59de36[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Tue Sep 29 14:06:33 2015 +0200
+
+    Issue #1, Creating Layout of Sign In Page
+
+[33mcommit b107cb96b9e94391edb2fb6bde4ef6bc5bdf52c1[m
+Merge: 011b877 1f2443a
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Tue Sep 29 12:44:57 2015 +0200
+
+    Merge branch 'Khaled_1_Signup' of github.com:SarcasticGeek/Askify
+
+[33mcommit b42df4a705a2acbc437e634f0fceb10e50d8ea46[m
+Merge: 1f2443a 011b877
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Tue Sep 29 12:41:44 2015 +0200
+
+    Merge branch 'master' into Khaled_1_Signup
+
+[33mcommit 011b877f1bdfd59d5a3277b86e6ef63e488bca01[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Tue Sep 29 12:40:02 2015 +0200
+
+    Issue #1, merge with master
+
+[33mcommit 44bff44bd7961bc6b9f3ddf8872c04dd602f6911[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Tue Sep 29 01:13:09 2015 +0200
+
+    routes
+
+[33mcommit 1f2443ac92d750cadf15ef135176d639a58942fd[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Sep 28 22:31:54 2015 +0200
+
+    Adding background
+
+[33mcommit ffb2f4d27c9f056165fc26d16438d2447f6a09e8[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Sep 28 21:43:06 2015 +0200
+
+    Issue #1, Adding nav bar and Register button
+
+[33mcommit de9f16ef3467a94f27270d04e4e2bb5a0ae57bcd[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Mon Sep 28 19:32:27 2015 +0200
+
+    Issue #1,adding bootstrap and stup background
+
+[33mcommit b11ab78911ab3f0599e8984275e1e8026b091dfd[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sun Sep 27 01:05:37 2015 +0200
+
+    Issue #1, Anyone Can Login
+
+[33mcommit e0ac46f316777819df38f737d1c1090136d89066[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sun Sep 27 00:50:06 2015 +0200
+
+    relate
+
+[33mcommit 108ff8bad1ea6f52a60ed50206e4766009fe0677[m
+Author: Rana.Sallam <rana.sallam102@gmail.com>
+Date:   Sat Sep 26 23:06:32 2015 +0200
+
+    database_table
+
+[33mcommit bef5f3ac2a8a57c02324fe01026166cabffc2e9e[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Sat Sep 26 20:24:09 2015 +0200
+
+    Anyone Can Login
+
+[33mcommit fa7c9dd8e4a0dcbdb4a2201d877391db953e3a35[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 23 23:01:18 2015 +0200
+
+    Issue #1, Anyone Can Register Now
+
+[33mcommit 4192f849e8a7b92b958bddb587b426241e6989d0[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 23 22:22:20 2015 +0200
+
+    Issue #1, Create a Form
+
+[33mcommit e2e3b3ca21f9f80f6d837c7eadb3db645ee44057[m
+Author: Khaled M.Fathy <eng.khaled.93@hotmail.com>
+Date:   Wed Sep 23 21:25:49 2015 +0200
+
+    Issue #1, Create Database
+
+[33mcommit c01fd99c27b34a35968b4db27b23f185cc242d9e[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Wed Sep 23 13:02:45 2015 +0200
+
+    replacing to main directory
+
+[33mcommit 4ad34c2dbba8a828e8419bb14aedb511ec924ac3[m
+Author: SarcasticGeek <m_essamfathalla@yahoo.com>
+Date:   Tue Sep 22 21:37:45 2015 +0200
+
+    Setup laravel v4.2 & bootstrap3.3 & Jquery & debug=true & default database = sqlite

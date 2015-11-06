@@ -335,8 +335,8 @@ receive:
 			'question_List'=>$data),
 			200);
 	}
-	public function notificationsToUser(){
-		$notifications = Notification::where('is_read','=',0)->get();
+	public function notificationsToUser($userid=NULL){
+		$notifications = Usernotification::where('user_id','=',$userid)->where('is_read','=',0)->get();
 		$data = [];
 		foreach ($notifications as $notification ) {
 			$question = $notification->question;
@@ -367,6 +367,124 @@ receive:
 		return Response::json(array('error' => false,
 			'question_List'=>$data),
 			200);
+	}
+	public function searchAll($keyword = NULL){
+		$questions = Question::where('question','LIKE','%'.$keyword.'%')->get();
+		$data = [];
+		foreach ($questions as $question ) {
+			$internaldata = [];
+			$internaldata['questioner_name'] = $question->user->username;
+			$internaldata['question'] = $question->question;
+			$internaldata['solved'] = $question->solved;
+			$internaldata['private'] = $question->private;
+			$internaldata['question_date'] = $question->updated_at->diffForHumans();
+			if($question->solved == 1){
+				foreach ($question->answers as $answer) {
+					$internaldata['Answer'] = $answer->answer;
+					$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
+				}
+			}else{
+				$internaldata['Answer']  = "No Answer";
+				$internaldata['Answer_date'] = 0;
+			}
+			//tags
+			$tagsname = [];
+			foreach ($question->tags as $tag) {
+				array_push($tagsname, $tag->name);
+			}
+			$internaldata['question_tag'] = $tagsname;
+			//$internaldata['question_id'] = $question->id;
+			array_push($data, $internaldata);	
+		}
+		
+		 $users = User::where('username','LIKE','%'.$keyword.'%')->get();
+		
+		foreach ($users as $user ) {	
+			$questions = $user->questions;
+			foreach ($questions as $question ) {
+				$internaldata = [];
+				$internaldata['questioner_name'] = $question->user->username;
+				$internaldata['question'] = $question->question;
+				$internaldata['solved'] = $question->solved;
+				$internaldata['private'] = $question->private;
+				$internaldata['question_date'] = $question->updated_at->diffForHumans();
+				if($question->solved == 1){
+					foreach ($question->answers as $answer) {
+						$internaldata['Answer'] = $answer->answer;
+						$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
+					}
+				}else{
+					$internaldata['Answer']  = "No Answer";
+					$internaldata['Answer_date'] = 0;
+				}
+				//tags
+				$tagsname = [];
+				foreach ($question->tags as $tag) {
+					array_push($tagsname, $tag->name);
+				}
+				$internaldata['question_tag'] = $tagsname;
+				//$internaldata['question_id'] = $question->id;
+				array_push($data, $internaldata);	
+			}
+		}
+		
+		$answers = Answer::where('answer','LIKE','%'.$keyword.'%')->get();
+		
+		foreach ($answers as $answer ) {
+			$question = $answer->question;
+				$internaldata = [];
+				$internaldata['questioner_name'] = $question->user->username;
+				$internaldata['question'] = $question->question;
+				$internaldata['solved'] = $question->solved;
+			$internaldata['private'] = $question->private;
+				$internaldata['question_date'] = $question->updated_at->diffForHumans();
+				if($question->solved == 1){
+					foreach ($question->answers as $answer) {
+						$internaldata['Answer'] = $answer->answer;
+						$internaldata['Answer_date'] = $answer->updated_at->diffForHumans();
+					}
+				}else{
+					$internaldata['Answer']  = "No Answer";
+					$internaldata['Answer_date'] = 0;
+				}
+				//tags
+				$tagsname = [];
+				foreach ($question->tags as $tag) {
+					array_push($tagsname, $tag->name);
+				}
+				$internaldata['question_tag'] = $tagsname;
+				//$internaldata['question_id'] = $question->id;
+				array_push($data, $internaldata);	
+		}
+		
+		return Response::json(array('error' => false,
+			'question_List'=>$data),
+			200);
+
+	}
+	public function doSignUp(){
+
+	}
+	public function doLogin(){
+		$credit = Input::only('username','password');
+		$validator = Validator::make($credit,array('username'=>'required','password'=>'required'));
+		        $users = DB::table('users')->get();
+		        $username = Input::get('username');
+		        $hashpassword=Hash::make(Input::get('password'));
+		        foreach ($users as $user ) {
+		        	if($user->username == $username && $user->password == $hashpassword && $user->confirmed){
+		        		return Response::json(array('success' => 1,
+				'message'=>"user is confirmed"),
+				200);
+		        	}else if($user->username == $username && $user->password == $hashpassword && !$user->confirmed){
+		        		return Response::json(array('success' => 0,
+				'message'=>"user is not confirmed"),
+				200);
+		        	}
+		        }
+		        return Response::json(array('success' => 0,
+				'message'=>"user not found"),
+				200);
 	}
 
 }

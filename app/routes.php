@@ -20,11 +20,15 @@ Route::get('/',function(){
 Route::get('/hello',function(){
     return View::make('hello');
 });
+
+Route::post('/contact','HomeController@contact');
+
  Route::post('/',array('before'=>'csrf',
  	'uses'=>'QuestionsController@post_create'));
 
 
  Route::post('/hello',array('as'=>'hello','uses'=>'RegisterController@checkUsername'));
+ Route::post('/hell',array('as'=>'hell','uses'=>'RegisterController@checkemail'));
  Route::post('/helloo','LoginController@checkActivate');
 
 Route::get('/register','RegisterController@showRegister');
@@ -59,7 +63,25 @@ Route::any('/captcha-test', function()
     });
 
 Route::get('/home',array('before' => array('auth','banned'),'as'=>'others_questions','uses'=>'QuestionsController@get_others_questions'));
+/*================== the ajax routed will be here====================*/
+Route::get('/home/all',function(){
 
+    $questions=Question::others_questions();
+    return View::make('all',['questions'=>$questions])->render();
+
+});
+Route::get('/home/date',function(){
+
+    $orederd_questions=Question::orderd_by_date();
+    return View::make('date',['orederd_questions'=>$orederd_questions])->render();
+
+});
+Route::get('/home/solved',function(){
+
+    $solved_questions=Question::solved_only();
+    return View::make('answered',['solved_questions'=>$solved_questions])->render();
+
+});
 
 Route::get('/logout',array('as'=>'logout','uses'=>'LogoutController@doLogout'));
 
@@ -77,6 +99,7 @@ Route::get('question/{num?}',array('as'=>'question','uses'=>'QuestionsController
 
 Route::get('results/{all?}', array( 'as' => 'results' ,'uses'=>'QuestionsController@get_results'));
 Route::post('search', array('before'=>'csrf', 'uses'=>'QuestionsController@post_search'));
+Route::post('results/{all?}',array('as' =>'results','uses'=>'QuestionsController@ajaxfunction'));
 
 
 Route::get('your_questions',array('before' => 'auth|banned','as'=>'your_questions','uses'=>'QuestionsController@show_my_questions'));
@@ -137,4 +160,7 @@ Route::get('/api/search/question/{keyword?}','ApiController@searchQuestion');
 Route::get('/api/search/answer/{keyword?}','ApiController@searchAnswer');
 Route::get('/api/search/tag/{keyword?}','ApiController@searchTag');
 Route::get('/api/search/unsolved/{keyword?}','ApiController@searchUnsolved');
-Route::get('/api/notificationsToUser','ApiController@notificationsToUser');
+Route::get('/api/notificationsToUser/{userid?}','ApiController@notificationsToUser');
+Route::post('/api/user/login','ApiController@doLogin');
+Route::post('/api/user/signup','ApiController@doSignUp');
+Route::get('/api/search/all/{keyword?}','ApiController@searchAll');

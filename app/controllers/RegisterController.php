@@ -22,6 +22,14 @@ class RegisterController extends BaseController{
 		}	
 	}
 
+	public function checkemail(){
+		$post = Input::get('data1');
+		if(User::where('email',$post)->get()->first()!=null){
+			return 'NO';
+		}
+		return 'YES';
+	}
+
 
 
 

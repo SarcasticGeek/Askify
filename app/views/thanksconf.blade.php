@@ -23,26 +23,22 @@
 		h2 {
 			color: #494949;
 		}
+		.panel-footer{
+			position: absolute !important;
+			bottom: 0px!important;
+			width: 100% !important;
+		}
 
 	</style>
 
 	<body>
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-  	<a href="login">
-  	<button type="button" class="btnnn">Sign In</button>
-  </a>
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        <span id="brand">Askify</span>
-      </a>
-    </div>
-  </div>
-</nav>
+
 
 <div class="registermsg">
 <h1>Welcome To Askify</h1>
 <h2>Email Sent,Please Verify your Account</h2>
+<br><br><br><br><br>
+<h2><a href="/">Return To Home Page</a></h2>
 
 </div>
 <div class="panel-footer">
