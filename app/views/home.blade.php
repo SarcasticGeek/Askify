@@ -236,7 +236,6 @@ session_start();
 
 					</div>
 
-						{{$solved_questions->links()}}
 
 					<div role="tabpanel" class="tab-pane" id="tags">
 				    	<div class="questionlistajax">
@@ -507,75 +506,5 @@ session_start();
         $('#answered').load('/home/solved?page=1');
 
 });
-		
-		
-			
-		
-
-
-$(function() {
-    // 1.
-    function getPaginationSelectedPage(url) {
-        var chunks = url.split('?');
-        var baseUrl = chunks[0];
-        var querystr = chunks[1].split('&');
-        var pg = 1;
-        for (i in querystr) {
-            var qs = querystr[i].split('=');
-            if (qs[0] == 'page') {
-                pg = qs[1];
-                break;
-            }
-        }
-        return pg;
-    }
- 
-    // 2.
-    $('#all').on('click', '.pagination a', function(e) {
-        e.preventDefault();
-        var pg = getPaginationSelectedPage($(this).attr('href'));
- 
-        $.ajax({
-            url: '/home/all',
-            data: { page: pg },
-            success: function(data) {
-                $('#all').html(data);
-            }
-        });
-    });
- 
-    $('#date').on('click', '.pagination a', function(e) {
-        e.preventDefault();
-        var pg = getPaginationSelectedPage($(this).attr('href'));
- 
-        $.ajax({
-            url: '/home/date',
-            data: { page: pg },
-            success: function(data) {
-                $('#date').html(data);
-            }
-        });
-    });
- 
-    $('#answered').on('click', '.pagination a', function(e) {
-        e.preventDefault();
-        var pg = getPaginationSelectedPage($(this).attr('href'));
- 
-        $.ajax({
-            url: '/home/solved',
-            data: { page: pg },
-            success: function(data) {
-                $('#answered').html(data);
-            }
-        });
-    });
- 
-    // 3.
-    $('#all').load('/home/all?page=1');
-    $('#date').load('/home/date?page=1');
-        $('#answered').load('/home/solved?page=1');
-
-});
-
 </script>
 @stop
