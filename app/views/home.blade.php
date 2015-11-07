@@ -238,6 +238,10 @@ session_start();
 
 
 					<div role="tabpanel" class="tab-pane" id="tags">
+						@foreach ($tags as $tag) 
+							<div class="<?php echo $tag->id; ?>">
+							</div>
+						@endforeach
 				    </div>
 
 				</div>
@@ -290,6 +294,7 @@ session_start();
         $('.nothing input[type="checkbox"]').click(	function(){
         	var tagid = $(this).val();
        		for (i = 1; i <= M.length; i++){
+				var empty = '.' + tagid;
             	if($(this).prop("checked") == true){
             		if(tagid == i){
             			var CCK = $(this).val();
@@ -300,12 +305,17 @@ session_start();
                 			cache:false,
                 			data: {CCK:CCK},
                 			success: function(data){
-                				$('#tags').html(data);
+                				$('#tags').find(empty).html(data);
                 			},
                 			error: function(){
                 				console.log('something happend');
                 			}
                 		});
+            		}
+            	}
+            	else if($(this).prop("checked") == false){
+            		if(tagid == i){
+            			$(empty).empty();
             		}
             	}
             }
