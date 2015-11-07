@@ -238,25 +238,8 @@ session_start();
 
 
 					<div role="tabpanel" class="tab-pane" id="tags">
-				    	<div class="questionlistajax">
-						</div>
-						<div class="questionlistajax1">
-						</div>
-						<div class="questionlistajax2">
-						</div>
-						<div class="questionlistajax3">
-						</div>
-						<div class="questionlistajax4">
-						</div>
-						<div class="questionlistajax5">
-						</div>
-						<div class="questionlistajax6">
-						</div>
-						<div class="questionlistajax7">
-						</div>
-						<div class="questionlistajax8">
-						</div>
 				    </div>
+
 				</div>
 		  		</div>			
 			@endif
@@ -302,8 +285,9 @@ session_start();
 		var y = {{ Tag::get()->count() }} ;
 	var x = y / 2.5 * 120 ;
 	$(".Tags a").css("height", x);
+
 	var M = {{Tag::where('id', Tag::get()->count() + 1)->pluck('id')}} 
-        $('.nothing input[type="checkbox"]').click(function(){
+        $('.nothing input[type="checkbox"]').click(	function(){
         	var tagid = $(this).val();
        		for (i = 1; i <= M.length; i++){
             	if($(this).prop("checked") == true){
@@ -315,62 +299,8 @@ session_start();
                 			url: url,
                 			cache:false,
                 			data: {CCK:CCK},
-                			dataType:'json',
                 			success: function(data){
-                				var max = Object.keys(data).length;
-                				html = "";
-                				if(tagid == 1)
-                					var classification = ".questionlistajax";
-                				else if(tagid == 2)
-                					var classification = ".questionlistajax1";
-                				else if(tagid == 3)
-                					var classification = ".questionlistajax2";
-                				else if(tagid == 4)
-                					var classification = ".questionlistajax3";
-                				else if(tagid == 5)
-                					var classification = ".questionlistajax4";
-                				else if(tagid == 6)
-                					var classification = ".questionlistajax5";
-                				else if(tagid == 7)
-                					var classification = ".questionlistajax6";
-                				else if(tagid == 8)
-                					var classification = ".questionlistajax7";
-                				else if(tagid == 9)
-                					var classification = ".questionlistajax8";
-                				for(var m =0 ; m<max ; m++){
-                					var user_name = data[m].a;
-                					var question_name = data[m].b;
-                					var count_answers = data[m].c;
-                					var question_id = data[m].d;
-                					var admin_is_here = data[m].e;
-                					var view = "view";
-                					var varurl = "question/" + question_id;
-                					var report_url = "home/report/" + user_name + '/' + question_id;
-                					html += "<ul>";
-                					html += '<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:876px;">';
-                					html += '<div class="panel-heading">';
-                					html += '<h2 class="panel-title"style="font-size: 18px; font-family:Handlee;">';
-                					html += '<img src="http://www.gravatar.com/avatar/" height="30px" width="30px">';
-                					html += '<span>' + '  ' + user_name +'</span>';
-                					html += '</h2>';
-                					html += '</div>';
-                					html += '<div class="panel-body" style="padding-top: 0px; padding-bottom:0px;">';
-                					html += '<h2 style="margin-left: 35px; font-size:15px; font-family:Handlee">' 
-                					+ question_name
-                					+ '<p style="float:right;">' 
-                					+ '(' + count_answers  + 'Answers' 
-                					+')' + ' '+ '<a href=" ' + varurl 
-									+ ' ">view</a>'+'</p><br/>';
-                					if(admin_is_here == 1)
-                						html += '<p style="float:right; margin-right:-70px;">'+'<a href=" '+ report_url + '"> report</a>';
-                					html += '</p>'
-                					+ '</h2>';
-                					html += '</div';
-                					html += '</div>';
-                					html += "</ul>";
-                					$(classification).append(html);
-                					html = "";
-	                 			}
+                				$('#tags').html(data);
                 			},
                 			error: function(){
                 				console.log('something happend');
@@ -378,29 +308,7 @@ session_start();
                 		});
             		}
             	}
-            	else if($(this).prop("checked") == false){
-            		if(tagid == i){
-            			if(tagid == 1)
-            				$(".questionlistajax").empty();
-            			else if (tagid == 2)
-            				$(".questionlistajax1").empty();
-            			else if (tagid == 3)
-            				$(".questionlistajax2").empty();
-            			else if (tagid == 4)
-            				$(".questionlistajax3").empty();
-            			else if (tagid == 5)
-            				$(".questionlistajax4").empty();
-            			else if (tagid == 6)
-            				$(".questionlistajax5").empty();
-            			else if (tagid == 7)
-            				$(".questionlistajax6").empty();
-            			else if (tagid == 8)
-            				$(".questionlistajax7").empty();
-            			else if (tagid == 9)
-            				$(".questionlistajax8").empty();
-            		}		
-        		}
-        	}
+            }
         });
  /*============================pagination===================================*/
  // $(window).on('hashchange',function(){
