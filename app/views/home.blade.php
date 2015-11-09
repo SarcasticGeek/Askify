@@ -309,7 +309,7 @@ session_start();
             	if($(this).prop("checked") == true){
             		if(tagid == i){
             			var CCK = $(this).val();
-            			var url ="home/Tagsajax";
+            			var url ="{{url()}}/home/Tagsajax";
                 		$.ajax({
                 			type: 'GET',
                 			url: url,
@@ -344,8 +344,8 @@ session_start();
                 					var question_id = data[m].d;
                 					var admin_is_here = data[m].e;
                 					var view = "view";
-                					var varurl = "question/" + question_id;
-                					var report_url = "home/report/" + user_name + '/' + question_id;
+                					var varurl = "{{url()}}/question/" + question_id;
+                					var report_url = "{{url()}}/home/report/" + user_name + '/' + question_id;
                 					html += "<ul>";
                 					html += '<div class="panel panel-default"style="margin-top:30px; margin-left:-50px; text-align: left; width:876px;">';
                 					html += '<div class="panel-heading">';
@@ -466,7 +466,7 @@ session_start();
         var pg = getPaginationSelectedPage($(this).attr('href'));
  
         $.ajax({
-            url: '/home/all',
+            url: '{{url()}}//home/all',
             data: { page: pg },
             success: function(data) {
                 $('#all').html(data);
@@ -479,7 +479,7 @@ session_start();
         var pg = getPaginationSelectedPage($(this).attr('href'));
  
         $.ajax({
-            url: '/home/date',
+            url: '{{url()}}//home/date',
             data: { page: pg },
             success: function(data) {
                 $('#date').html(data);
@@ -492,7 +492,7 @@ session_start();
         var pg = getPaginationSelectedPage($(this).attr('href'));
  
         $.ajax({
-            url: '/home/solved',
+            url: '{{url()}}//home/solved',
             data: { page: pg },
             success: function(data) {
                 $('#answered').html(data);
@@ -501,9 +501,9 @@ session_start();
     });
  
     // 3.
-    $('#all').load('/home/all?page=1');
-    $('#date').load('/home/date?page=1');
-        $('#answered').load('/home/solved?page=1');
+    $('#all').load('{{url()}}//home/all?page=1');
+    $('#date').load('{{url()}}//home/date?page=1');
+        $('#answered').load('{{url()}}//home/solved?page=1');
 
 });
 </script>
