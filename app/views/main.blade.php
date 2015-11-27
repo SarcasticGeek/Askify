@@ -242,7 +242,7 @@ body.loading .modal {
                     },
                     url: [{
                     type: "POST",
-                    url: "http://localhost:8000/results/{all?}",
+                    url: "{{url()}}/results/{all?}",
                     data: {
                         query: function () { return $('#keyword').val(); },
                         type: "question"
@@ -264,7 +264,7 @@ body.loading .modal {
                     },
                     url: [{
                     type: "POST",
-                    url: "http://localhost:8000/results/{all?}",
+                    url: "{{url()}}/results/{all?}",
                     data: {
                         query: function () { return $('#keyword').val(); },
                         type: "user_question"
@@ -286,7 +286,7 @@ body.loading .modal {
                     },
                     url: [{
                     type: "POST",
-                    url: "http://localhost:8000/results/{all?}",
+                    url: "{{url()}}/results/{all?}",
                     data: {
                         query: function () { return $('#keyword').val(); },
                         type: "unsolved"
@@ -308,7 +308,7 @@ body.loading .modal {
                     },
                     url: [{
                     type: "POST",
-                    url: "http://localhost:8000/results/{all?}",
+                    url: "{{url()}}/results/{all?}",
                     data: {
                         query: function () { return $('#keyword').val(); },
                         type: "date"
@@ -330,7 +330,7 @@ body.loading .modal {
                     },
                     url: [{
                     type: "POST",
-                    url: "http://localhost:8000/results/{all?}",
+                    url: "{{url()}}/results/{all?}",
                     data: {
                         query: function () { return $('#keyword').val(); },
                         type: "before_date"
@@ -352,7 +352,7 @@ body.loading .modal {
                     },
                     url: [{
                     type: "POST",
-                    url: "http://localhost:8000/results/{all?}",
+                    url: "{{url()}}/results/{all?}",
                     data: {
                         query: function () { return $('#keyword').val(); },
                         type: "after_date"
@@ -374,7 +374,7 @@ body.loading .modal {
                     },
                     url: [{
                     type: "POST",
-                    url: "http://localhost:8000/results/{all?}",
+                    url: "{{url()}}/results/{all?}",
                     data: {
                         query: function () { return $('#keyword').val(); },
                         type: "answer"
@@ -396,7 +396,7 @@ body.loading .modal {
                     },
                     url: [{
                     type: "POST",
-                    url: "http://localhost:8000/results/{all?}",
+                    url: "{{url()}}/results/{all?}",
                     data: {
                         query: function () { return $('#keyword').val(); },
                         type: "tag"
