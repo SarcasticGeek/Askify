@@ -480,14 +480,13 @@ receive:
 				200);
 			        	}else{
 			        		return Response::json(array('success' => 0,
-					'message'=>"user is not  confirmed"
+					'message'=>"user is not  confirmed",
 			        		'user_id' =>User::where('username', $username)->get()->first()->id ),
 					200);
 			        	}
 
 		        	}
 		        return Response::json(array('success' => 0,
-		        		'password' => $hashpassword,
 				'message'=>"user not found"),
 				200);
 	}
