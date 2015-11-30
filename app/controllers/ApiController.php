@@ -470,9 +470,9 @@ receive:
 	public function doLogin(){
 		$credit = Input::only('username','password');
 		$validator = Validator::make($credit,array('username'=>'required','password'=>'required'));
-		        $username = Request::header('username');
-		        $hashpassword=Hash::make(Request::header('password'));
-		        	if(Auth::attempt(array('username'=>Request::header('username'),'password'=>Request::header('password')),true)){
+		        $username = Input::get('username');
+		        $hashpassword=Hash::make(Input::get('password'));
+		        	if(Auth::attempt(array('username'=>Input::get('username'),'password'=>Input::get('password')),true)){
 		        		if(User::where('username', $username)->get()->first()->confirmed == 1){
 		        		return Response::json(array('success' => 1,
 				'message'=>"user is confirmed",
