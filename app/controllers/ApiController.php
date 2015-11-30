@@ -475,11 +475,13 @@ receive:
 		        	if(Auth::attempt(array('username'=>Input::get('username'),'password'=>Input::get('password')),true)){
 		        		if(User::where('username', $username)->get()->first()->confirmed == 1){
 		        		return Response::json(array('success' => 1,
-				'message'=>"user is confirmed"),
+				'message'=>"user is confirmed",
+				'user_id' =>User::where('username', $username)->get()->first()->id ),
 				200);
 			        	}else{
 			        		return Response::json(array('success' => 0,
-					'message'=>"user is not  confirmed"),
+					'message'=>"user is not  confirmed"
+			        		'user_id' =>User::where('username', $username)->get()->first()->id ),
 					200);
 			        	}
 
